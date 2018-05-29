@@ -10,6 +10,8 @@
 		B070ECDE20BD4A0900DAFB38 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B070ECDC20BD4A0900DAFB38 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B070ECED20BD4AF100DAFB38 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B070ECD920BD4A0900DAFB38 /* TinyStore.framework */; };
 		B070ECF620BD4B9B00DAFB38 /* TemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070ECF420BD4B9200DAFB38 /* TemplateTests.swift */; };
+		B070ECFD20BD4E5E00DAFB38 /* TinyComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B070ECFC20BD4E5E00DAFB38 /* TinyComponent.framework */; };
+		B070ECFE20BD4EF700DAFB38 /* TinyComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B070ECFC20BD4E5E00DAFB38 /* TinyComponent.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,7 @@
 		B070ECE820BD4AF000DAFB38 /* TinyStore iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TinyStore iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B070ECEC20BD4AF100DAFB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B070ECF420BD4B9200DAFB38 /* TemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTests.swift; sourceTree = "<group>"; };
+		B070ECFC20BD4E5E00DAFB38 /* TinyComponent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TinyComponent.framework; path = Carthage/Build/iOS/TinyComponent.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B070ECFD20BD4E5E00DAFB38 /* TinyComponent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B070ECED20BD4AF100DAFB38 /* TinyStore.framework in Frameworks */,
+				B070ECFE20BD4EF700DAFB38 /* TinyComponent.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +61,7 @@
 				B070ECE220BD4A2800DAFB38 /* Sources */,
 				B070ECE920BD4AF100DAFB38 /* Tests */,
 				B070ECDA20BD4A0900DAFB38 /* Products */,
+				B070ECF920BD4DCC00DAFB38 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +108,14 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		B070ECF920BD4DCC00DAFB38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B070ECFC20BD4E5E00DAFB38 /* TinyComponent.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -125,6 +139,7 @@
 				B070ECD620BD4A0900DAFB38 /* Headers */,
 				B070ECD720BD4A0900DAFB38 /* Resources */,
 				B070ECF720BD4C6800DAFB38 /* Swiftlint */,
+				B070ECF820BD4D8400DAFB38 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -221,6 +236,22 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
+		B070ECF820BD4D8400DAFB38 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/TinyComponent.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/TinyComponent.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -308,6 +339,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -389,6 +424,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -459,6 +498,10 @@
 				DEVELOPMENT_TEAM = 5CE6946X84;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -531,6 +574,10 @@
 				DEVELOPMENT_TEAM = 5CE6946X84;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
