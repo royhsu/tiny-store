@@ -12,6 +12,13 @@
 		B070ECF620BD4B9B00DAFB38 /* TemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070ECF420BD4B9200DAFB38 /* TemplateTests.swift */; };
 		B070ECFD20BD4E5E00DAFB38 /* TinyComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B070ECFC20BD4E5E00DAFB38 /* TinyComponent.framework */; };
 		B070ECFE20BD4EF700DAFB38 /* TinyComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B070ECFC20BD4E5E00DAFB38 /* TinyComponent.framework */; };
+		B070ED0320BD4FEF00DAFB38 /* UIPostImageComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070ED0020BD4FEF00DAFB38 /* UIPostImageComponent.swift */; };
+		B070ED0420BD4FEF00DAFB38 /* UIPostParagraphComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070ED0120BD4FEF00DAFB38 /* UIPostParagraphComponent.swift */; };
+		B0DA23D720C13E63009F3120 /* UIProductDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DA23D520C13E63009F3120 /* UIProductDetailHeaderView.swift */; };
+		B0DA23D820C13E63009F3120 /* UIProductDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0DA23D620C13E63009F3120 /* UIProductDetailHeaderView.xib */; };
+		B0DA23DA20C13FA8009F3120 /* UIProductDetailHeaderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DA23D920C13FA8009F3120 /* UIProductDetailHeaderComponent.swift */; };
+		B0DA23DD20C14047009F3120 /* UIView+UINib.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DA23DC20C14047009F3120 /* UIView+UINib.swift */; };
+		B0DA23DF20C14534009F3120 /* UIProductDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0DA23DE20C14534009F3120 /* UIProductDetailComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +39,13 @@
 		B070ECEC20BD4AF100DAFB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B070ECF420BD4B9200DAFB38 /* TemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTests.swift; sourceTree = "<group>"; };
 		B070ECFC20BD4E5E00DAFB38 /* TinyComponent.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TinyComponent.framework; path = Carthage/Build/iOS/TinyComponent.framework; sourceTree = "<group>"; };
+		B070ED0020BD4FEF00DAFB38 /* UIPostImageComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPostImageComponent.swift; sourceTree = "<group>"; };
+		B070ED0120BD4FEF00DAFB38 /* UIPostParagraphComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIPostParagraphComponent.swift; sourceTree = "<group>"; };
+		B0DA23D520C13E63009F3120 /* UIProductDetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIProductDetailHeaderView.swift; sourceTree = "<group>"; };
+		B0DA23D620C13E63009F3120 /* UIProductDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIProductDetailHeaderView.xib; sourceTree = "<group>"; };
+		B0DA23D920C13FA8009F3120 /* UIProductDetailHeaderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProductDetailHeaderComponent.swift; sourceTree = "<group>"; };
+		B0DA23DC20C14047009F3120 /* UIView+UINib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+UINib.swift"; sourceTree = "<group>"; };
+		B0DA23DE20C14534009F3120 /* UIProductDetailComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProductDetailComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +100,13 @@
 		B070ECE320BD4A3B00DAFB38 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B0DA23DB20C1403A009F3120 /* Library */,
+				B0DA23D520C13E63009F3120 /* UIProductDetailHeaderView.swift */,
+				B0DA23D620C13E63009F3120 /* UIProductDetailHeaderView.xib */,
+				B0DA23D920C13FA8009F3120 /* UIProductDetailHeaderComponent.swift */,
+				B0DA23DE20C14534009F3120 /* UIProductDetailComponent.swift */,
+				B070ED0020BD4FEF00DAFB38 /* UIPostImageComponent.swift */,
+				B070ED0120BD4FEF00DAFB38 /* UIPostParagraphComponent.swift */,
 				B070ECDD20BD4A0900DAFB38 /* Info.plist */,
 			);
 			path = iOS;
@@ -116,6 +137,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B0DA23DB20C1403A009F3120 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				B0DA23DC20C14047009F3120 /* UIView+UINib.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -138,7 +167,6 @@
 				B070ECD520BD4A0900DAFB38 /* Frameworks */,
 				B070ECD620BD4A0900DAFB38 /* Headers */,
 				B070ECD720BD4A0900DAFB38 /* Resources */,
-				B070ECF720BD4C6800DAFB38 /* Swiftlint */,
 				B070ECF820BD4D8400DAFB38 /* Carthage */,
 			);
 			buildRules = (
@@ -175,7 +203,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 				TargetAttributes = {
 					B070ECD820BD4A0900DAFB38 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -209,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0DA23D820C13E63009F3120 /* UIProductDetailHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,20 +251,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B070ECF720BD4C6800DAFB38 /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
 		B070ECF820BD4D8400DAFB38 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -250,7 +265,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -259,6 +274,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0DA23DF20C14534009F3120 /* UIProductDetailComponent.swift in Sources */,
+				B070ED0420BD4FEF00DAFB38 /* UIPostParagraphComponent.swift in Sources */,
+				B0DA23D720C13E63009F3120 /* UIProductDetailHeaderView.swift in Sources */,
+				B0DA23DA20C13FA8009F3120 /* UIProductDetailHeaderComponent.swift in Sources */,
+				B070ED0320BD4FEF00DAFB38 /* UIPostImageComponent.swift in Sources */,
+				B0DA23DD20C14047009F3120 /* UIView+UINib.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,13 +305,65 @@
 		B070ECD220BD49B300DAFB38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
 		B070ECD320BD49B300DAFB38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 			};
 			name = Release;
@@ -327,7 +400,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -412,7 +485,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
@@ -462,6 +535,7 @@
 		B070ECF120BD4AF100DAFB38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -538,6 +612,7 @@
 		B070ECF220BD4AF100DAFB38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;

@@ -5,7 +5,7 @@
 //  Created by Roy Hsu on 2018/5/29.
 //
 
-@import UIKit;
+@import Foundation;
 
 FOUNDATION_EXPORT double TinyStoreVersionNumber;
 
