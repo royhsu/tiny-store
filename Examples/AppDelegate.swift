@@ -8,6 +8,9 @@
 
 // MARK: - AppDelegate
 
+import TinyStorage
+import TinyStore
+import TinyKit
 import UIKit
 
 @UIApplicationMain
@@ -27,9 +30,17 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
         
-        window.rootViewController = UINavigationController(
-            rootViewController: ViewController()
-        )
+        let checkoutViewController = CheckoutViewController()
+        
+        checkoutViewController.layout = TableViewLayout()
+        
+        let cache: MemoryCache = [
+            0: "hello"
+        ]
+        
+        checkoutViewController.storage = cache
+        
+        window.rootViewController = UINavigationController(rootViewController: checkoutViewController)
         
         window.makeKeyAndVisible()
         

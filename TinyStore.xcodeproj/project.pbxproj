@@ -16,6 +16,10 @@
 		B03A1C8B21588220000DC2D8 /* TinyCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8421588192000DC2D8 /* TinyCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B03A1C8C21588220000DC2D8 /* TinyKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8621588192000DC2D8 /* TinyKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B03A1C8D21588220000DC2D8 /* TinyStorage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8821588192000DC2D8 /* TinyStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0A1C4102158B07F00DC9F26 /* CheckoutSectionCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C40F2158B07F00DC9F26 /* CheckoutSectionCollection.swift */; };
+		B0A1C4152158B38600DC9F26 /* CheckoutSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C4132158B38600DC9F26 /* CheckoutSectionHeaderView.swift */; };
+		B0A1C4162158B38600DC9F26 /* CheckoutSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A1C4142158B38600DC9F26 /* CheckoutSectionHeaderView.xib */; };
+		B0A1C41B2158B8A800DC9F26 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
 		B0F51CDE21587F2D00B592F5 /* SimpleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F51CDC21587F2B00B592F5 /* SimpleTests.swift */; };
@@ -54,6 +58,10 @@
 		B03A1C8421588192000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8621588192000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8821588192000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0A1C40F2158B07F00DC9F26 /* CheckoutSectionCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutSectionCollection.swift; sourceTree = "<group>"; };
+		B0A1C4132158B38600DC9F26 /* CheckoutSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutSectionHeaderView.swift; sourceTree = "<group>"; };
+		B0A1C4142158B38600DC9F26 /* CheckoutSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckoutSectionHeaderView.xib; sourceTree = "<group>"; };
+		B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F51CBF2158773A00B592F5 /* TinyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyStore.h; sourceTree = "<group>"; };
 		B0F51CC02158773A00B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,6 +95,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0A1C4112158B0AA00DC9F26 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				B0A1C40F2158B07F00DC9F26 /* CheckoutSectionCollection.swift */,
+				B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */,
+				B0A1C4122158B38600DC9F26 /* Patissier */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
+		B0A1C4122158B38600DC9F26 /* Patissier */ = {
+			isa = PBXGroup;
+			children = (
+				B0A1C4132158B38600DC9F26 /* CheckoutSectionHeaderView.swift */,
+				B0A1C4142158B38600DC9F26 /* CheckoutSectionHeaderView.xib */,
+			);
+			path = Patissier;
+			sourceTree = "<group>";
+		};
 		B0F51CB02158772000B592F5 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				B0F51CC52158778C00B592F5 /* iOS */,
+				B0A1C4112158B0AA00DC9F26 /* Checkout */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -237,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A1C4162158B38600DC9F26 /* CheckoutSectionHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +283,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A1C4102158B07F00DC9F26 /* CheckoutSectionCollection.swift in Sources */,
+				B0A1C41B2158B8A800DC9F26 /* CheckoutViewController.swift in Sources */,
+				B0A1C4152158B38600DC9F26 /* CheckoutSectionHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +489,7 @@
 		B0F51CD3215878F800B592F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -533,6 +566,7 @@
 		B0F51CD4215878F800B592F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
