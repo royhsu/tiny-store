@@ -13,4 +13,7 @@
    <FileRef
       location = "group:TinyStore.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Examples.xcodeproj">
+   </FileRef>
 </Workspace>
