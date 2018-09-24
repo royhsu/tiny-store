@@ -12,8 +12,6 @@ import UIKit
 
 public final class CheckoutShippingView: UIView {
 
-    // MARK: Property
-
     @IBOutlet
     private final weak var cityLabel: UILabel!
 
@@ -61,8 +59,10 @@ public final class CheckoutShippingView: UIView {
 
     @IBOutlet
     private(set) final weak var addressTextField: UITextField!
-
-    // MARK: Life Cycle
+    
+    public typealias ActionHandler = (CheckoutShippingAction) -> Void
+    
+    public final var actionHandler: ActionHandler?
 
     public final override func awakeFromNib() {
         
@@ -227,7 +227,22 @@ public final class CheckoutShippingView: UIView {
             blue: 64.0 / 255.0,
             alpha: 1.0
         )
+        
+        textField.addTarget(
+            self,
+            action: #selector(enterAddress),
+            for: .editingChanged
+        )
 
+    }
+    
+    @objc
+    public final func enterAddress(_ textField: UITextField) {
+        
+        actionHandler?(
+            .newInput(.address(textField.text))
+        )
+        
     }
 
 }

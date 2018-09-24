@@ -35,21 +35,43 @@ public enum CheckoutTemplate: Template {
     
 }
 
-public protocol ShippingStorage { }
+public protocol CheckoutShipping {
+    
+    
+    
+}
 
 public enum ShippingElement {
     
     case header
     
-    case form
+    case form(
+        actionHandler: (CheckoutShippingAction) -> Void
+    )
+    
+}
+
+public enum CheckoutShippingAction: Action {
+    
+    public enum Input {
+        
+        case city(String)
+        
+        case postalCode(String)
+        
+        case address(String?)
+        
+    }
+    
+    case newInput(Input)
     
 }
 
 public protocol ShippingTemplate: Template {
     
     init(
-        storage: ShippingStorage,
-        reducer: (ShippingStorage) -> [ShippingElement]
+        storage: CheckoutShipping,
+        reducer: (CheckoutShipping) -> [ShippingElement]
     )
     
 }
@@ -61,7 +83,7 @@ public struct AnyTemplate<Storage, Element>: Template {
     private let generator: (Element) -> View
     
     public init(
-        storage: ShippingStorage,
+        storage: CheckoutShipping,
         elements: [Element],
         generator: @escaping (Element) -> View
     ) {
@@ -89,8 +111,8 @@ public struct PatissierShippingTemplate: ShippingTemplate {
     private var elements: [ShippingElement]
 
     public init(
-        storage: ShippingStorage,
-        reducer: (ShippingStorage) -> [ShippingElement]
+        storage: CheckoutShipping,
+        reducer: (CheckoutShipping) -> [ShippingElement]
     ) { self.elements = reducer(storage) }
 
     public var numberOfViews: Int { return elements.count }
@@ -118,7 +140,7 @@ public struct PatissierShippingTemplate: ShippingTemplate {
 
             return view
 
-        case .form:
+        case let .form(actionHandler):
 
             let bundle = Bundle(for: CheckoutShippingView.self)
 
@@ -126,6 +148,8 @@ public struct PatissierShippingTemplate: ShippingTemplate {
                 CheckoutShippingView.self,
                 from: bundle
             )!
+            
+            view.actionHandler = actionHandler
 
             #warning("TODO: should be defined in the locale system.")
 //                view.titleLabel.text = NSLocalizedString(

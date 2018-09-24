@@ -44,9 +44,7 @@ public final class CheckoutSectionHeaderView: UIView {
         setUpTitleLabel(titleLabel)
 
     }
-
-    // MARK: Set Up
-
+    
     fileprivate final func setUpSeparatorLineView(_ view: UIView) {
 
         #warning("TODO: should be defined in the design system.")

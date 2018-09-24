@@ -10,7 +10,7 @@
 import TinyStorage
 import TinyKit
 
-extension String: ShippingStorage { }
+extension String: CheckoutShipping { }
 
 public final class CheckoutViewController: CollectionViewController< MemoryCache<Int, String> > {
     
@@ -29,8 +29,18 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
                         reducer: { storage in
 
                             return [
-                                ShippingElement.header,
-                                ShippingElement.form
+                                .header,
+                                .form { action in
+                                    
+                                    switch action {
+                                        
+                                    case let .newInput(input):
+                                        
+                                        print(input)
+                                        
+                                    }
+                                    
+                                }
                             ]
 
                         }
