@@ -70,6 +70,8 @@ public enum ShippingElement {
     
     case header
     
+    case form
+    
 }
 
 public enum Patissier {
@@ -98,18 +100,35 @@ public enum Patissier {
                 
                 let bundle = Bundle(for: CheckoutSectionHeaderView.self)
                 
-                let headerView = View.loadView(
+                let view = View.loadView(
                     CheckoutSectionHeaderView.self,
                     from: bundle
                 )!
                 
                 #warning("TODO: should be defined in the locale system.")
-                headerView.titleLabel.text = NSLocalizedString(
+                view.titleLabel.text = NSLocalizedString(
                     "Shipping",
                     comment: ""
                 )
                 
-                return headerView
+                return view
+                
+            case .form:
+                
+                let bundle = Bundle(for: CheckoutShippingView.self)
+                
+                let view = View.loadView(
+                    CheckoutShippingView.self,
+                    from: bundle
+                )!
+                
+                #warning("TODO: should be defined in the locale system.")
+//                view.titleLabel.text = NSLocalizedString(
+//                    "Shipping",
+//                    comment: ""
+//                )
+                
+                return view
                 
             }
             

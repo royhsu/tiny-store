@@ -29,7 +29,8 @@ public final class CheckoutViewController: CollectionViewController
                         AnyTemplate(
                             Patissier.ShippingTemplate(
                                 elements: [
-                                    .header
+                                    .header,
+                                    .form
                                 ]
                             )
                         )
