@@ -9,62 +9,33 @@
 
 import TinyKit
 
-public struct CheckoutSectionCollection: SectionCollection {
+public enum CheckoutTemplate: Template {
     
-    public enum Section: Template {
+    case shipping(ShippingTemplate)
+    
+    public var numberOfViews: Int {
         
-        public typealias Element = Any
-        
-        #warning("Should replace with a protocol template for shipping.")
-        case shipping(AnyTemplate<ShippingElement, Void>)
-        
-        public var storage: Any {
+        switch self {
             
-            switch self {
-                
-            case let .shipping(template): return template.storage
-                
-            }
-            
-        }
-        
-        public var numberOfElements: Int {
-            
-            switch self {
-                
-            case let .shipping(template): return template.numberOfElements
-                
-            }
-            
-        }
-        
-        public func view(at index: Int) -> View {
-            
-            switch self {
-                
-            case let .shipping(template): return template.view(at: index)
-                
-            }
+        case let .shipping(template): return template.numberOfViews
             
         }
         
     }
     
-    private let sections: [Section]
-    
-    public init(
-        sections: [Section] = []
-    ) {
+    public func view(at index: Int) -> View {
         
-        self.sections = sections
+        switch self {
+            
+        case let .shipping(template): return template.view(at: index)
+            
+        }
         
     }
-    
-    public var count: Int { return sections.count }
-    
-    public func section(at index: Int) -> Section { return sections[index] }
     
 }
+
+public protocol ShippingStorage { }
 
 public enum ShippingElement {
     
@@ -74,66 +45,98 @@ public enum ShippingElement {
     
 }
 
-public enum Patissier {
+public protocol ShippingTemplate: Template {
     
-    public struct ShippingTemplate: Template {
+    init(
+        storage: ShippingStorage,
+        reducer: (ShippingStorage) -> [ShippingElement]
+    )
     
-        public typealias Element = ShippingElement
+}
+
+public struct AnyTemplate<Storage, Element>: Template {
+    
+    private let elements: [Element]
+    
+    private let generator: (Element) -> View
+    
+    public init(
+        storage: ShippingStorage,
+        elements: [Element],
+        generator: @escaping (Element) -> View
+    ) {
         
-        private let elements: [Element]
+        self.elements = elements
         
-        public let storage: Void = ()
+        self.generator = generator
         
-        public init(
-            elements: [Element]
-        ) { self.elements = elements }
+    }
+    
+    public var numberOfViews: Int { return elements.count }
+    
+    public func view(at index: Int) -> View {
         
-        public var numberOfElements: Int { return elements.count }
+        let element = elements[index]
         
-        public func view(at index: Int) -> View {
-            
-            let element = elements[index]
-            
-            switch element {
-                
-            case .header:
-                
-                let bundle = Bundle(for: CheckoutSectionHeaderView.self)
-                
-                let view = View.loadView(
-                    CheckoutSectionHeaderView.self,
-                    from: bundle
-                )!
-                
-                #warning("TODO: should be defined in the locale system.")
-                view.titleLabel.text = NSLocalizedString(
-                    "Shipping",
-                    comment: ""
-                )
-                
-                return view
-                
-            case .form:
-                
-                let bundle = Bundle(for: CheckoutShippingView.self)
-                
-                let view = View.loadView(
-                    CheckoutShippingView.self,
-                    from: bundle
-                )!
-                
-                #warning("TODO: should be defined in the locale system.")
+        return generator(element)
+        
+    }
+    
+}
+
+public struct PatissierShippingTemplate: ShippingTemplate {
+
+    private var elements: [ShippingElement]
+
+    public init(
+        storage: ShippingStorage,
+        reducer: (ShippingStorage) -> [ShippingElement]
+    ) { self.elements = reducer(storage) }
+
+    public var numberOfViews: Int { return elements.count }
+
+    public func view(at index: Int) -> View {
+
+        let element = elements[index]
+
+        switch element {
+
+        case .header:
+
+            let bundle = Bundle(for: CheckoutSectionHeaderView.self)
+
+            let view = View.loadView(
+                CheckoutSectionHeaderView.self,
+                from: bundle
+            )!
+
+            #warning("TODO: should be defined in the locale system.")
+            view.titleLabel.text = NSLocalizedString(
+                "Shipping",
+                comment: ""
+            )
+
+            return view
+
+        case .form:
+
+            let bundle = Bundle(for: CheckoutShippingView.self)
+
+            let view = View.loadView(
+                CheckoutShippingView.self,
+                from: bundle
+            )!
+
+            #warning("TODO: should be defined in the locale system.")
 //                view.titleLabel.text = NSLocalizedString(
 //                    "Shipping",
 //                    comment: ""
 //                )
-                
-                return view
-                
-            }
-            
+
+            return view
+
         }
-    
+
     }
 
 }
