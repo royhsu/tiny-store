@@ -7,124 +7,166 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B070ECDE20BD4A0900DAFB38 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B070ECDC20BD4A0900DAFB38 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B070ECED20BD4AF100DAFB38 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B070ECD920BD4A0900DAFB38 /* TinyStore.framework */; };
-		B070ECF620BD4B9B00DAFB38 /* TemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070ECF420BD4B9200DAFB38 /* TemplateTests.swift */; };
+		B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */; };
+		B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8021587FF7000DC2D8 /* TinyKit.framework */; };
+		B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */; };
+		B03A1C8521588192000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8421588192000DC2D8 /* TinyCore.framework */; };
+		B03A1C8721588192000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8621588192000DC2D8 /* TinyKit.framework */; };
+		B03A1C8921588192000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8821588192000DC2D8 /* TinyStorage.framework */; };
+		B03A1C8B21588220000DC2D8 /* TinyCore.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8421588192000DC2D8 /* TinyCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B03A1C8C21588220000DC2D8 /* TinyKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8621588192000DC2D8 /* TinyKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B03A1C8D21588220000DC2D8 /* TinyStorage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8821588192000DC2D8 /* TinyStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
+		B0F51CDE21587F2D00B592F5 /* SimpleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F51CDC21587F2B00B592F5 /* SimpleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B070ECEE20BD4AF100DAFB38 /* PBXContainerItemProxy */ = {
+		B0F51CD0215878F800B592F5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B070ECCE20BD49B300DAFB38 /* Project object */;
+			containerPortal = B0F51CB12158772000B592F5 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B070ECD820BD4A0900DAFB38;
-			remoteInfo = "TinyStore iOS";
+			remoteGlobalIDString = B0F51CBB2158773A00B592F5;
+			remoteInfo = TinyStore;
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B03A1C8A215881EB000DC2D8 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B03A1C8B21588220000DC2D8 /* TinyCore.framework in Copy Frameworks */,
+				B03A1C8C21588220000DC2D8 /* TinyKit.framework in Copy Frameworks */,
+				B03A1C8D21588220000DC2D8 /* TinyStorage.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		B070ECD920BD4A0900DAFB38 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B070ECDC20BD4A0900DAFB38 /* TinyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyStore.h; sourceTree = "<group>"; };
-		B070ECDD20BD4A0900DAFB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B070ECE820BD4AF000DAFB38 /* TinyStore iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TinyStore iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B070ECEC20BD4AF100DAFB38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B070ECF420BD4B9200DAFB38 /* TemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateTests.swift; sourceTree = "<group>"; };
+		B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B03A1C8021587FF7000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B03A1C8421588192000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B03A1C8621588192000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B03A1C8821588192000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0F51CBF2158773A00B592F5 /* TinyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyStore.h; sourceTree = "<group>"; };
+		B0F51CC02158773A00B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0F51CCA215878F800B592F5 /* TinyStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0F51CCE215878F800B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0F51CDC21587F2B00B592F5 /* SimpleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B070ECD520BD4A0900DAFB38 /* Frameworks */ = {
+		B0F51CB92158773A00B592F5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */,
+				B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */,
+				B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B070ECE520BD4AF000DAFB38 /* Frameworks */ = {
+		B0F51CC7215878F800B592F5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B070ECED20BD4AF100DAFB38 /* TinyStore.framework in Frameworks */,
+				B03A1C8521588192000DC2D8 /* TinyCore.framework in Frameworks */,
+				B03A1C8721588192000DC2D8 /* TinyKit.framework in Frameworks */,
+				B03A1C8921588192000DC2D8 /* TinyStorage.framework in Frameworks */,
+				B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B070ECCD20BD49B300DAFB38 = {
+		B0F51CB02158772000B592F5 = {
 			isa = PBXGroup;
 			children = (
-				B070ECE220BD4A2800DAFB38 /* Sources */,
-				B070ECE920BD4AF100DAFB38 /* Tests */,
-				B070ECDA20BD4A0900DAFB38 /* Products */,
+				B0F51CBE2158773A00B592F5 /* Sources */,
+				B0F51CCB215878F800B592F5 /* Tests */,
+				B0F51CBD2158773A00B592F5 /* Products */,
+				B0F51CD5215879DF00B592F5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		B070ECDA20BD4A0900DAFB38 /* Products */ = {
+		B0F51CBD2158773A00B592F5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B070ECD920BD4A0900DAFB38 /* TinyStore.framework */,
-				B070ECE820BD4AF000DAFB38 /* TinyStore iOS Tests.xctest */,
+				B0F51CBC2158773A00B592F5 /* TinyStore.framework */,
+				B0F51CCA215878F800B592F5 /* TinyStoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B070ECE220BD4A2800DAFB38 /* Sources */ = {
+		B0F51CBE2158773A00B592F5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				B070ECDC20BD4A0900DAFB38 /* TinyStore.h */,
-				B070ECE320BD4A3B00DAFB38 /* iOS */,
+				B0F51CC52158778C00B592F5 /* iOS */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		B070ECE320BD4A3B00DAFB38 /* iOS */ = {
+		B0F51CC52158778C00B592F5 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				B070ECDD20BD4A0900DAFB38 /* Info.plist */,
+				B0F51CBF2158773A00B592F5 /* TinyStore.h */,
+				B0F51CC02158773A00B592F5 /* Info.plist */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
 		};
-		B070ECE920BD4AF100DAFB38 /* Tests */ = {
+		B0F51CCB215878F800B592F5 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B070ECF320BD4B4500DAFB38 /* iOS */,
+				B0F51CCE215878F800B592F5 /* Info.plist */,
+				B0F51CDC21587F2B00B592F5 /* SimpleTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		B070ECF320BD4B4500DAFB38 /* iOS */ = {
+		B0F51CD5215879DF00B592F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B070ECF420BD4B9200DAFB38 /* TemplateTests.swift */,
-				B070ECEC20BD4AF100DAFB38 /* Info.plist */,
+				B03A1C8421588192000DC2D8 /* TinyCore.framework */,
+				B03A1C8621588192000DC2D8 /* TinyKit.framework */,
+				B03A1C8821588192000DC2D8 /* TinyStorage.framework */,
+				B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */,
+				B03A1C8021587FF7000DC2D8 /* TinyKit.framework */,
+				B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */,
 			);
-			path = iOS;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		B070ECD620BD4A0900DAFB38 /* Headers */ = {
+		B0F51CB72158773A00B592F5 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B070ECDE20BD4A0900DAFB38 /* TinyStore.h in Headers */,
+				B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B070ECD820BD4A0900DAFB38 /* TinyStore iOS */ = {
+		B0F51CBB2158773A00B592F5 /* TinyStore iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B070ECDF20BD4A0900DAFB38 /* Build configuration list for PBXNativeTarget "TinyStore iOS" */;
+			buildConfigurationList = B0F51CC22158773A00B592F5 /* Build configuration list for PBXNativeTarget "TinyStore iOS" */;
 			buildPhases = (
-				B070ECD420BD4A0900DAFB38 /* Sources */,
-				B070ECD520BD4A0900DAFB38 /* Frameworks */,
-				B070ECD620BD4A0900DAFB38 /* Headers */,
-				B070ECD720BD4A0900DAFB38 /* Resources */,
-				B070ECF720BD4C6800DAFB38 /* Swiftlint */,
+				B0F51CB72158773A00B592F5 /* Headers */,
+				B0F51CB82158773A00B592F5 /* Sources */,
+				B0F51CB92158773A00B592F5 /* Frameworks */,
+				B0F51CBA2158773A00B592F5 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -132,72 +174,73 @@
 			);
 			name = "TinyStore iOS";
 			productName = TinyStore;
-			productReference = B070ECD920BD4A0900DAFB38 /* TinyStore.framework */;
+			productReference = B0F51CBC2158773A00B592F5 /* TinyStore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		B070ECE720BD4AF000DAFB38 /* TinyStore iOS Tests */ = {
+		B0F51CC9215878F800B592F5 /* TinyStoreTests iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B070ECF020BD4AF100DAFB38 /* Build configuration list for PBXNativeTarget "TinyStore iOS Tests" */;
+			buildConfigurationList = B0F51CD2215878F800B592F5 /* Build configuration list for PBXNativeTarget "TinyStoreTests iOS" */;
 			buildPhases = (
-				B070ECE420BD4AF000DAFB38 /* Sources */,
-				B070ECE520BD4AF000DAFB38 /* Frameworks */,
-				B070ECE620BD4AF000DAFB38 /* Resources */,
+				B0F51CC6215878F800B592F5 /* Sources */,
+				B0F51CC7215878F800B592F5 /* Frameworks */,
+				B0F51CC8215878F800B592F5 /* Resources */,
+				B03A1C8A215881EB000DC2D8 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B070ECEF20BD4AF100DAFB38 /* PBXTargetDependency */,
+				B0F51CD1215878F800B592F5 /* PBXTargetDependency */,
 			);
-			name = "TinyStore iOS Tests";
+			name = "TinyStoreTests iOS";
 			productName = TinyStoreTests;
-			productReference = B070ECE820BD4AF000DAFB38 /* TinyStore iOS Tests.xctest */;
+			productReference = B0F51CCA215878F800B592F5 /* TinyStoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B070ECCE20BD49B300DAFB38 /* Project object */ = {
+		B0F51CB12158772000B592F5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0930;
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
 				TargetAttributes = {
-					B070ECD820BD4A0900DAFB38 = {
-						CreatedOnToolsVersion = 9.3.1;
-						LastSwiftMigration = 0930;
+					B0F51CBB2158773A00B592F5 = {
+						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
-					B070ECE720BD4AF000DAFB38 = {
-						CreatedOnToolsVersion = 9.3.1;
+					B0F51CC9215878F800B592F5 = {
+						CreatedOnToolsVersion = 10.0;
 					};
 				};
 			};
-			buildConfigurationList = B070ECD120BD49B300DAFB38 /* Build configuration list for PBXProject "TinyStore" */;
+			buildConfigurationList = B0F51CB42158772000B592F5 /* Build configuration list for PBXProject "TinyStore" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = B070ECCD20BD49B300DAFB38;
-			productRefGroup = B070ECDA20BD4A0900DAFB38 /* Products */;
+			mainGroup = B0F51CB02158772000B592F5;
+			productRefGroup = B0F51CBD2158773A00B592F5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B070ECD820BD4A0900DAFB38 /* TinyStore iOS */,
-				B070ECE720BD4AF000DAFB38 /* TinyStore iOS Tests */,
+				B0F51CBB2158773A00B592F5 /* TinyStore iOS */,
+				B0F51CC9215878F800B592F5 /* TinyStoreTests iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B070ECD720BD4A0900DAFB38 /* Resources */ = {
+		B0F51CBA2158773A00B592F5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B070ECE620BD4AF000DAFB38 /* Resources */ = {
+		B0F51CC8215878F800B592F5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -206,65 +249,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		B070ECF720BD4C6800DAFB38 /* Swiftlint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Swiftlint;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		B070ECD420BD4A0900DAFB38 /* Sources */ = {
+		B0F51CB82158773A00B592F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B070ECE420BD4AF000DAFB38 /* Sources */ = {
+		B0F51CC6215878F800B592F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B070ECF620BD4B9B00DAFB38 /* TemplateTests.swift in Sources */,
+				B0F51CDE21587F2D00B592F5 /* SimpleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B070ECEF20BD4AF100DAFB38 /* PBXTargetDependency */ = {
+		B0F51CD1215878F800B592F5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B070ECD820BD4A0900DAFB38 /* TinyStore iOS */;
-			targetProxy = B070ECEE20BD4AF100DAFB38 /* PBXContainerItemProxy */;
+			target = B0F51CBB2158773A00B592F5 /* TinyStore iOS */;
+			targetProxy = B0F51CD0215878F800B592F5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		B070ECD220BD49B300DAFB38 /* Debug */ = {
+		B0F51CB52158772000B592F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tinyworld.$(PROJECT_NAME)";
+				PRODUCT_MODULE_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 			};
 			name = Debug;
 		};
-		B070ECD320BD49B300DAFB38 /* Release */ = {
+		B0F51CB62158772000B592F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tinyworld.$(PROJECT_NAME)";
+				PRODUCT_MODULE_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 			};
 			name = Release;
 		};
-		B070ECE020BD4A0900DAFB38 /* Debug */ = {
+		B0F51CC32158773A00B592F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -324,28 +356,29 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Sources/iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.TinyStore;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		B070ECE120BD4A0900DAFB38 /* Release */ = {
+		B0F51CC42158773A00B592F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -399,20 +432,21 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Sources/iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.TinyStore;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)";
+				PRODUCT_MODULE_NAME = "$(inherited)";
+				PRODUCT_NAME = "$(inherited)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -420,7 +454,7 @@
 			};
 			name = Release;
 		};
-		B070ECF120BD4AF100DAFB38 /* Debug */ = {
+		B0F51CD3215878F800B592F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -473,26 +507,30 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Tests/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.TinyStoreTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)Tests";
+				PRODUCT_MODULE_NAME = "$(inherited)Tests";
+				PRODUCT_NAME = "$(inherited)Tests";
+				REEXPORTED_FRAMEWORK_NAMES = "";
+				REEXPORTED_LIBRARY_PATHS = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		B070ECF220BD4AF100DAFB38 /* Release */ = {
+		B0F51CD4215878F800B592F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -539,20 +577,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = Tests/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tinyworld.TinyStoreTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(inherited)Tests";
+				PRODUCT_MODULE_NAME = "$(inherited)Tests";
+				PRODUCT_NAME = "$(inherited)Tests";
+				REEXPORTED_FRAMEWORK_NAMES = "";
+				REEXPORTED_LIBRARY_PATHS = "";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -561,34 +603,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B070ECD120BD49B300DAFB38 /* Build configuration list for PBXProject "TinyStore" */ = {
+		B0F51CB42158772000B592F5 /* Build configuration list for PBXProject "TinyStore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B070ECD220BD49B300DAFB38 /* Debug */,
-				B070ECD320BD49B300DAFB38 /* Release */,
+				B0F51CB52158772000B592F5 /* Debug */,
+				B0F51CB62158772000B592F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B070ECDF20BD4A0900DAFB38 /* Build configuration list for PBXNativeTarget "TinyStore iOS" */ = {
+		B0F51CC22158773A00B592F5 /* Build configuration list for PBXNativeTarget "TinyStore iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B070ECE020BD4A0900DAFB38 /* Debug */,
-				B070ECE120BD4A0900DAFB38 /* Release */,
+				B0F51CC32158773A00B592F5 /* Debug */,
+				B0F51CC42158773A00B592F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B070ECF020BD4AF100DAFB38 /* Build configuration list for PBXNativeTarget "TinyStore iOS Tests" */ = {
+		B0F51CD2215878F800B592F5 /* Build configuration list for PBXNativeTarget "TinyStoreTests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B070ECF120BD4AF100DAFB38 /* Debug */,
-				B070ECF220BD4AF100DAFB38 /* Release */,
+				B0F51CD3215878F800B592F5 /* Debug */,
+				B0F51CD4215878F800B592F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B070ECCE20BD49B300DAFB38 /* Project object */;
+	rootObject = B0F51CB12158772000B592F5 /* Project object */;
 }

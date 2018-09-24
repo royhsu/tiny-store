@@ -2,10 +2,10 @@
 //  TinyStore.h
 //  TinyStore
 //
-//  Created by Roy Hsu on 2018/5/29.
+//  Created by Roy Hsu on 2018/9/24.
 //
 
-@import UIKit;
+@import Foundation;
 
 FOUNDATION_EXPORT double TinyStoreVersionNumber;
 
