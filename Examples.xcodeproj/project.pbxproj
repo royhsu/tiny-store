@@ -10,12 +10,35 @@
 		B03A1C9D2158AE68000DC2D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03A1C9C2158AE68000DC2D8 /* AppDelegate.swift */; };
 		B03A1CA12158AE68000DC2D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B03A1CA02158AE68000DC2D8 /* Assets.xcassets */; };
 		B03A1CA42158AE68000DC2D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B03A1CA22158AE68000DC2D8 /* LaunchScreen.storyboard */; };
-		B03A1CB32158AE97000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1CB22158AE97000DC2D8 /* TinyCore.framework */; };
-		B03A1CB52158AE97000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1CB42158AE97000DC2D8 /* TinyKit.framework */; };
-		B03A1CB72158AE97000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1CB62158AE97000DC2D8 /* TinyStorage.framework */; };
-		B07A2BAC2159D48A002EFE87 /* PatissierStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2BAB2159D48A002EFE87 /* PatissierStore.framework */; };
-		B07A2BAE2159D51E002EFE87 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2BAD2159D51E002EFE87 /* TinyStore.framework */; };
+		B07A2BF9215A0650002EFE87 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2BF8215A0650002EFE87 /* TinyCore.framework */; };
+		B07A2BFA215A0650002EFE87 /* TinyCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2BF8215A0650002EFE87 /* TinyCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B07A2BFC215A0650002EFE87 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2BFB215A0650002EFE87 /* TinyStorage.framework */; };
+		B07A2BFD215A0650002EFE87 /* TinyStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2BFB215A0650002EFE87 /* TinyStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B07A2BFF215A0650002EFE87 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2BFE215A0650002EFE87 /* TinyKit.framework */; };
+		B07A2C00215A0650002EFE87 /* TinyKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2BFE215A0650002EFE87 /* TinyKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B07A2C02215A0650002EFE87 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C01215A0650002EFE87 /* TinyStore.framework */; };
+		B07A2C03215A0650002EFE87 /* TinyStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C01215A0650002EFE87 /* TinyStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B07A2C05215A0650002EFE87 /* PatissierStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C04215A0650002EFE87 /* PatissierStore.framework */; };
+		B07A2C06215A0650002EFE87 /* PatissierStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C04215A0650002EFE87 /* PatissierStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B07A2C07215A0650002EFE87 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B07A2C03215A0650002EFE87 /* TinyStore.framework in Embed Frameworks */,
+				B07A2BFD215A0650002EFE87 /* TinyStorage.framework in Embed Frameworks */,
+				B07A2C00215A0650002EFE87 /* TinyKit.framework in Embed Frameworks */,
+				B07A2BFA215A0650002EFE87 /* TinyCore.framework in Embed Frameworks */,
+				B07A2C06215A0650002EFE87 /* PatissierStore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B03A1C992158AE68000DC2D8 /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,12 +46,11 @@
 		B03A1CA02158AE68000DC2D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B03A1CA32158AE68000DC2D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B03A1CA52158AE68000DC2D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B03A1CB22158AE97000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B03A1CB42158AE97000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B03A1CB62158AE97000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B03A1CB82158AE97000DC2D8 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B07A2BAB2159D48A002EFE87 /* PatissierStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PatissierStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B07A2BAD2159D51E002EFE87 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B07A2BF8215A0650002EFE87 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B07A2BFB215A0650002EFE87 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B07A2BFE215A0650002EFE87 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B07A2C01215A0650002EFE87 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B07A2C04215A0650002EFE87 /* PatissierStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PatissierStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,11 +58,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B03A1CB32158AE97000DC2D8 /* TinyCore.framework in Frameworks */,
-				B03A1CB52158AE97000DC2D8 /* TinyKit.framework in Frameworks */,
-				B03A1CB72158AE97000DC2D8 /* TinyStorage.framework in Frameworks */,
-				B07A2BAE2159D51E002EFE87 /* TinyStore.framework in Frameworks */,
-				B07A2BAC2159D48A002EFE87 /* PatissierStore.framework in Frameworks */,
+				B07A2C02215A0650002EFE87 /* TinyStore.framework in Frameworks */,
+				B07A2BFC215A0650002EFE87 /* TinyStorage.framework in Frameworks */,
+				B07A2BFF215A0650002EFE87 /* TinyKit.framework in Frameworks */,
+				B07A2BF9215A0650002EFE87 /* TinyCore.framework in Frameworks */,
+				B07A2C05215A0650002EFE87 /* PatissierStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +72,11 @@
 		B03A1C902158AE68000DC2D8 = {
 			isa = PBXGroup;
 			children = (
+				B07A2C04215A0650002EFE87 /* PatissierStore.framework */,
+				B07A2C01215A0650002EFE87 /* TinyStore.framework */,
+				B07A2BFE215A0650002EFE87 /* TinyKit.framework */,
+				B07A2BFB215A0650002EFE87 /* TinyStorage.framework */,
+				B07A2BF8215A0650002EFE87 /* TinyCore.framework */,
 				B03A1C9B2158AE68000DC2D8 /* Examples */,
 				B03A1C9A2158AE68000DC2D8 /* Products */,
 				B03A1CB12158AE97000DC2D8 /* Frameworks */,
@@ -78,12 +105,6 @@
 		B03A1CB12158AE97000DC2D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B07A2BAD2159D51E002EFE87 /* TinyStore.framework */,
-				B07A2BAB2159D48A002EFE87 /* PatissierStore.framework */,
-				B03A1CB22158AE97000DC2D8 /* TinyCore.framework */,
-				B03A1CB42158AE97000DC2D8 /* TinyKit.framework */,
-				B03A1CB62158AE97000DC2D8 /* TinyStorage.framework */,
-				B03A1CB82158AE97000DC2D8 /* TinyStore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -98,6 +119,7 @@
 				B03A1C952158AE68000DC2D8 /* Sources */,
 				B03A1C962158AE68000DC2D8 /* Frameworks */,
 				B03A1C972158AE68000DC2D8 /* Resources */,
+				B07A2C07215A0650002EFE87 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,7 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -282,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
