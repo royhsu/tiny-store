@@ -19,6 +19,8 @@ public final class AppDelegate: UIResponder {
     
     public final let window = UIWindow(frame: UIScreen.main.bounds)
     
+    public final let checkoutViewController = CheckoutViewController()
+    
 }
 
 // MARK: - UIApplicationDelegate
@@ -31,7 +33,11 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
         
-        let checkoutViewController = CheckoutViewController()
+        checkoutViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(done)
+        )
         
         #warning("Use register mechanism instead.")
         checkoutViewController.shippingTemplateType = UICheckoutShippingTemplate.self
@@ -41,11 +47,7 @@ extension AppDelegate: UIApplicationDelegate {
         
         checkoutViewController.layout = TableViewLayout()
         
-        let cache: MemoryCache = [
-            0: "hello"
-        ]
-        
-        checkoutViewController.storage = cache
+        checkoutViewController.storage = MemoryCache()
         
         window.rootViewController = UINavigationController(rootViewController: checkoutViewController)
         
@@ -53,6 +55,17 @@ extension AppDelegate: UIApplicationDelegate {
         
         return true
             
+    }
+    
+    @objc
+    public final func done(_ item: UIBarButtonItem) {
+        
+        guard
+            let result = checkoutViewController.form.validate()
+        else { return }
+        
+        print("Done", result)
+        
     }
     
 }

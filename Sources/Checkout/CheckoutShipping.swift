@@ -7,4 +7,8 @@
 
 // MARK: - CheckoutShipping
 
-public protocol CheckoutShipping { }
+public protocol CheckoutShipping {
+    
+    var address: String { get set }
+    
+}

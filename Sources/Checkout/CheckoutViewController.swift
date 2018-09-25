@@ -12,19 +12,74 @@ import TinyStorage
 import TinyKit
 import TinyValidation
 
-extension String: CheckoutShipping { }
-
 extension String: CheckoutRecipient { }
 
 public final class CheckoutViewController: CollectionViewController< MemoryCache<Int, String> > {
     
-    public final var shippingTemplateType: CheckoutShippingTemplate.Type?
+    private struct Shipping: CheckoutShipping {
+        
+        internal var address = ""
+        
+    }
     
-    public final var shippingAddressRules: [AnyValidationRule<String>] = [
-        AnyValidationRule(
-            NonEmptyRule<String>()
-        )
-    ]
+    public struct Form {
+        
+        public var shipping: CheckoutShipping = Shipping()
+        
+        public var shippingAddressRules: [AnyValidationRule<String>] = [
+            AnyValidationRule(
+                NonEmptyRule<String>()
+            )
+        ]
+        
+        private weak var errors: Observable<Error>?
+        
+        public init(errors: Observable<Error>) { self.errors = errors }
+        
+        public func validate() -> Result? {
+            
+            do {
+            
+                let validAddress = try shipping.address.validated(by: shippingAddressRules)
+                
+                return Result(
+                    shipping: .init(
+                        address: validAddress
+                    )
+                )
+                
+            }
+            catch {
+                
+                errors?.value = error
+                
+                return nil
+                
+            }
+            
+        }
+        
+    }
+
+    public struct Result {
+        
+        public struct Shipping {
+            
+            public let address: String
+            
+            public init(address: String) { self.address = address }
+            
+        }
+        
+        public let shipping: Shipping
+        
+        public init(shipping: Shipping) { self.shipping = shipping }
+        
+    }
+    
+    public final lazy var form: Form = { return Form(errors: errors) }()
+    
+    public final var shippingTemplateType: CheckoutShippingTemplate.Type?
     
     public final var recipientTemplateType: CheckoutRecipientTemplate.Type?
     
@@ -35,11 +90,7 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
         super.viewDidLoad()
         
         observations.append(
-            actions.observe { [weak self] change in
-                
-                guard
-                    let self = self
-                else { return }
+            actions.observe { [unowned self] change in
                 
                 if let action = change.currentValue as? CheckoutShippingAction {
                     
@@ -53,17 +104,8 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
                             
                         case let .postalCode(postalCode): print(postalCode)
                             
-                        case let .address(address):
-                            
-                            do {
-                                
-                                let validAddress = try address.validated(by: self.shippingAddressRules)
-                                
-                                print("Valid address:", validAddress)
-                                    
-                            }
-                            catch { print("\(error)") }
-                            
+                        case let .address(address): self.form.shipping.address = address
+                        
                         }
                         
                     }
@@ -71,6 +113,19 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
                     return
                     
                 }
+                
+            }
+        )
+        
+        observations.append(
+            errors.observe { change in
+                
+                guard
+                    let error = change.currentValue
+                else { return }
+                
+                #warning("TODO: delegating errors.")
+                print("\(error)")
                 
             }
         )
@@ -90,7 +145,7 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
             templates.append(
                 CheckoutTemplate.shipping(
                     shippingTemplateType.init(
-                        storage: "shipping",
+                        storage: self.form.shipping,
                         reducer: { storage in
                             
                             return [
