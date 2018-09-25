@@ -56,9 +56,9 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B07A2BC52159DDB1002EFE87"
-               BuildableName = "TinyStore Checkout.framework"
-               BlueprintName = "TinyStore Checkout"
+               BlueprintIdentifier = "B0F51CBB2158773A00B592F5"
+               BuildableName = "TinyStore.framework"
+               BlueprintName = "TinyStore iOS"
                ReferencedContainer = "container:TinyStore.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -70,10 +70,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0F51CBB2158773A00B592F5"
-               BuildableName = "TinyStore.framework"
-               BlueprintName = "TinyStore iOS"
-               ReferencedContainer = "container:TinyStore.xcodeproj">
+               BlueprintIdentifier = "B063818F21450513004BC4DC"
+               BuildableName = "TinyValidation.framework"
+               BlueprintName = "TinyValidation iOS"
+               ReferencedContainer = "container:tiny-validation/TinyValidation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry

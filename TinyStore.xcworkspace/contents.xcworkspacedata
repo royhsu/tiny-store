@@ -11,6 +11,9 @@
       location = "group:tiny-kit/TinyKit.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:tiny-validation/TinyValidation.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:TinyStore.xcodeproj">
    </FileRef>
    <FileRef

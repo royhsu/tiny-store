@@ -10,10 +10,17 @@
 import TinyCore
 import TinyStorage
 import TinyKit
+import TinyValidation
 
 extension String: CheckoutShipping { }
 
 extension String: CheckoutRecipient { }
+
+public enum CheckoutAddressError: Error {
+    
+    case empty
+    
+}
 
 public final class CheckoutViewController: CollectionViewController< MemoryCache<Int, String> > {
     
@@ -40,7 +47,34 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
                         
                     case let .newInput(input):
                         
-                        print("New shipping", input)
+                        switch input {
+                            
+                        case let .city(city): print(city)
+                            
+                        case let .postalCode(postalCode): print(postalCode)
+                            
+                        case let .address(address):
+                            
+                            do {
+                                
+                                guard
+                                    let address = address
+                                else { throw CheckoutAddressError.empty }
+                            
+                                let validAddress = try address.validated { address in
+                                        
+                                    if address.isEmpty { throw CheckoutAddressError.empty }
+                                    
+                                    return address
+                                        
+                                }
+                                
+                                print("Valid address:", validAddress)
+                                
+                            }
+                            catch { print("\(error)") }
+                            
+                        }
                         
                     }
                     

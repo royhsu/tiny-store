@@ -14,6 +14,7 @@
 		B07A2BBC2159DBAF002EFE87 /* UICheckoutRecipientTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BBB2159DBAF002EFE87 /* UICheckoutRecipientTemplate.swift */; };
 		B07A2BEB2159E543002EFE87 /* UICheckoutRecipientView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07A2BE92159E543002EFE87 /* UICheckoutRecipientView.xib */; };
 		B07A2BEC2159E543002EFE87 /* UICheckoutRecipientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BEA2159E543002EFE87 /* UICheckoutRecipientView.swift */; };
+		B07A2C39215A0A35002EFE87 /* TinyValidation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C38215A0A35002EFE87 /* TinyValidation.framework */; };
 		B0E1731A2159C7AB008AB6FC /* PatissierStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0E173182159C7AB008AB6FC /* PatissierStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0E173232159C911008AB6FC /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E173222159C911008AB6FC /* TinyCore.framework */; };
 		B0E173252159C911008AB6FC /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E173242159C911008AB6FC /* TinyKit.framework */; };
@@ -30,6 +31,7 @@
 		B07A2BBB2159DBAF002EFE87 /* UICheckoutRecipientTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutRecipientTemplate.swift; sourceTree = "<group>"; };
 		B07A2BE92159E543002EFE87 /* UICheckoutRecipientView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICheckoutRecipientView.xib; sourceTree = "<group>"; };
 		B07A2BEA2159E543002EFE87 /* UICheckoutRecipientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICheckoutRecipientView.swift; sourceTree = "<group>"; };
+		B07A2C38215A0A35002EFE87 /* TinyValidation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyValidation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E173152159C7AB008AB6FC /* PatissierStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PatissierStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E173182159C7AB008AB6FC /* PatissierStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PatissierStore.h; sourceTree = "<group>"; };
 		B0E173192159C7AB008AB6FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07A2C39215A0A35002EFE87 /* TinyValidation.framework in Frameworks */,
 				B0E173232159C911008AB6FC /* TinyCore.framework in Frameworks */,
 				B0E173252159C911008AB6FC /* TinyKit.framework in Frameworks */,
 				B0E173272159C911008AB6FC /* TinyStorage.framework in Frameworks */,
@@ -101,6 +104,7 @@
 		B0E173212159C911008AB6FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B07A2C38215A0A35002EFE87 /* TinyValidation.framework */,
 				B0E173222159C911008AB6FC /* TinyCore.framework */,
 				B0E173242159C911008AB6FC /* TinyKit.framework */,
 				B0E173262159C911008AB6FC /* TinyStorage.framework */,

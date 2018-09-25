@@ -7,3 +7,6 @@
 [submodule "tiny-kit"]
 	path = tiny-kit
 	url = https://github.com/royhsu/tiny-kit.git
+[submodule "tiny-validation"]
+	path = tiny-validation
+	url = https://github.com/royhsu/tiny-validation

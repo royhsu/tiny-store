@@ -49,6 +49,20 @@
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B063818F21450513004BC4DC"
+               BuildableName = "TinyValidation.framework"
+               BlueprintName = "TinyValidation iOS"
+               ReferencedContainer = "container:tiny-validation/TinyValidation.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
             buildForProfiling = "YES"
