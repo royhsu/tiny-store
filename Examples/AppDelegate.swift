@@ -47,7 +47,13 @@ extension AppDelegate: UIApplicationDelegate {
         
         checkoutViewController.layout = TableViewLayout()
         
-        checkoutViewController.storage = MemoryCache()
+        checkoutViewController.storage = CheckoutStorage(
+            elements: [
+                .shipping(
+                    DefaultCheckoutShipping(address: "default")
+                )
+            ]
+        )
         
         window.rootViewController = UINavigationController(rootViewController: checkoutViewController)
         

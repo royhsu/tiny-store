@@ -14,8 +14,138 @@ import TinyValidation
 
 extension String: CheckoutRecipient { }
 
-public final class CheckoutViewController: CollectionViewController< MemoryCache<Int, String> > {
+//public protocol Shipping { var address: String { get } }
+//
+public enum FormElement {
+
+    case shipping(CheckoutShipping)
+
+}
+
+public struct DefaultCheckoutShipping: CheckoutShipping {
     
+    public var address: String
+    
+    public init(address: String) { self.address = address }
+    
+}
+
+#warning("ArrayStorage")
+public final class CheckoutStorage: Storage {
+    
+    /// The base.
+    private final var _elements: [FormElement]
+    
+    private enum State {
+        
+        case initial, loading, loaded
+        
+    }
+    
+    private final var state: State = .initial
+    
+    private final let changes: Observable< AnyCollection< StorageChange<Int, FormElement> > > = Observable()
+    
+    public init(
+        elements: [FormElement] = []
+    ) { self._elements = elements }
+    
+    public final var isLoaded: Bool { return (state == .loaded) }
+    
+    public final func load(
+        completion: (
+            (Result< AnyStorage<Int, FormElement> >) -> Void
+        )?
+    ) {
+       
+        let isFirstLoading = (state == .initial)
+        
+        if isFirstLoading {
+        
+            state = .loading
+            
+            DispatchQueue.global(qos: .background).async { [weak self] in
+                
+                guard
+                    let self = self
+                else { return }
+                
+                defer { self.state = .loaded }
+                
+                let changes = self.elements.map(StorageChange.init)
+                
+                self.changes.value = AnyCollection(changes)
+                
+                completion?(
+                    .success(
+                        AnyStorage(self)
+                    )
+                )
+                
+            }
+            
+        }
+        else {
+            
+            if state == .loading { return }
+            
+            state = .loading
+            
+            DispatchQueue.global(qos: .background).async { [weak self] in
+             
+                guard
+                    let self = self
+                else { return }
+                
+                completion?(
+                    .success(
+                        AnyStorage(self)
+                    )
+                )
+                
+            }
+            
+        }
+        
+    }
+    
+    public final func value(forKey key: Int) -> FormElement? { return _elements[key] }
+    
+    public final func setValue(
+        _ value: FormElement?,
+        forKey key: Int
+    ) {
+        
+        guard
+            let value = value
+        else { fatalError("Setting the nil value is not allowed.") }
+        
+        _elements[key] = value
+        
+    }
+    
+    public final func removeAll() { _elements.removeAll() }
+    
+    public final var count: Int { return _elements.count }
+    
+    public final var elements: AnyCollection< (key: Int, value: FormElement) > {
+        
+        return AnyCollection(
+            _elements.enumerated().map { ($0.offset, $0.element) }
+        )
+        
+    }
+    
+    public final func observe(
+        _ observer: @escaping (_ change: ObservedChange< AnyCollection< StorageChange<Int, FormElement> > >) -> Void
+    )
+    -> Observation { return changes.observe(observer) }
+    
+}
+
+public final class CheckoutViewController: CollectionViewController< CheckoutStorage > {
+    
+    #warning("Shuold make form conform to a dedicated storage.")
     public final var form = CheckoutForm() {
         
         willSet { form.errors = errors }
@@ -76,49 +206,57 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
         )
         
         storageReducer = { [unowned self] storage in
-
-            var templates: [Template] = []
+            
+//            var templates: [Template] = []
             
             guard
                 let shippingTemplateType = self.shippingTemplateType
             else { fatalError("Must provide a shipping template") }
             
-            guard
-                let recipientTemplateType = self.recipientTemplateType
-            else { fatalError("Must provide a recipient template") }
-            
-            templates.append(
-                CheckoutTemplate.shipping(
-                    shippingTemplateType.init(
-                        storage: self.form.shipping,
-                        reducer: { storage in
-                            
-                            return [
-                                .header,
-                                .form
-                            ]
-                            
-                        }
-                    )
-                )
-            )
-            
-            templates.append(
-                CheckoutTemplate.recipient(
-                    recipientTemplateType.init(
-                        storage: "recpient",
-                        reducer: { storage in
+//            guard
+//                let recipientTemplateType = self.recipientTemplateType
+//            else { fatalError("Must provide a recipient template") }
 
-                            return [
-                                .header,
-                                .form
-                            ]
-
-                        }
+            let templates: [Template] = storage.elements.map { _, element in
+             
+                switch element {
+                    
+                case let .shipping(storage):
+                    
+                    return CheckoutTemplate.shipping(
+                        shippingTemplateType.init(
+                            storage: storage,
+                            reducer: { storage in
+                                
+                                return [
+                                    .header,
+                                    .form
+                                ]
+                                
+                            }
+                        )
                     )
-                )
-            )
+                    
+                }
+                
+            }
             
+//            templates.append(
+//                CheckoutTemplate.recipient(
+//                    recipientTemplateType.init(
+//                        storage: "recpient",
+//                        reducer: { storage in
+//
+//                            return [
+//                                .header,
+//                                .form
+//                            ]
+//
+//                        }
+//                    )
+//                )
+//            )
+//
             return templates
             
         }
