@@ -1,16 +1,16 @@
 //
-//  CheckoutSectionHeaderView.swift
-//  Patissier
+//  UICheckoutSectionHeaderView.swift
+//  PatissierStore
 //
 //  Created by Roy Hsu on 12/07/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - CheckoutSectionHeaderView
+// MARK: - UICheckoutSectionHeaderView
 
 import UIKit
 
-public final class CheckoutSectionHeaderView: UIView {
+public final class UICheckoutSectionHeaderView: UIView {
 
     @IBOutlet
     private final weak var topLeftSeparatorLineView: UIView!
@@ -25,13 +25,17 @@ public final class CheckoutSectionHeaderView: UIView {
     private final weak var bottomRightSeparatorLineView: UIView!
 
     @IBOutlet
-    private(set) final weak var titleLabel: UILabel!
-
-    private static let preferredHeight: CGFloat = 44.0
+    public private(set) final weak var titleLabel: UILabel!
 
     public final override func awakeFromNib() {
         
         super.awakeFromNib()
+        
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(
+            [ heightAnchor.constraint(equalToConstant: 44.0) ]
+        )
 
         setUpSeparatorLineView(topLeftSeparatorLineView)
         

@@ -1,18 +1,18 @@
 //
-//  CheckoutShippingView.swift
-//  Patissier
+//  UICheckoutShippingView.swift
+//  PatissierStore
 //
 //  Created by Roy Hsu on 09/07/2017.
 //  Copyright © 2017 TinyWorld. All rights reserved.
 //
 
-// MARK: - CheckoutShippingView
+// MARK: - UICheckoutShippingView
 
 import TinyCore
 import TinyKit
 import UIKit
 
-public final class CheckoutShippingView: UIView, Actionable {
+public final class UICheckoutShippingView: UIView, Actionable {
 
     @IBOutlet
     private final weak var cityLabel: UILabel!
@@ -237,11 +237,11 @@ public final class CheckoutShippingView: UIView, Actionable {
     @objc
     public final func enterAddress(_ textField: UITextField) {
         
-        let action: CheckoutShippingAction = .newInput(
-            .address(textField.text)
-        )
-        
-        actions.value = action
+//        let action: CheckoutShippingAction = .newInput(
+//            .address(textField.text)
+//        )
+//        
+//        actions.value = action
         
     }
 

@@ -7,6 +7,7 @@
 //
 
 @import Foundation;
+@import TinyStore;
 
 FOUNDATION_EXPORT double PatissierStoreVersionNumber;
 

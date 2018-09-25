@@ -7,14 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B07A2BA72159D116002EFE87 /* UICheckoutShippingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07A2BA32159D115002EFE87 /* UICheckoutShippingView.xib */; };
+		B07A2BA82159D116002EFE87 /* UICheckoutShippingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BA42159D115002EFE87 /* UICheckoutShippingView.swift */; };
+		B07A2BA92159D116002EFE87 /* UICheckoutSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BA52159D116002EFE87 /* UICheckoutSectionHeaderView.swift */; };
+		B07A2BAA2159D116002EFE87 /* UICheckoutSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B07A2BA62159D116002EFE87 /* UICheckoutSectionHeaderView.xib */; };
+		B07A2BBC2159DBAF002EFE87 /* UICheckoutRecipientTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BBB2159DBAF002EFE87 /* UICheckoutRecipientTemplate.swift */; };
 		B0E1731A2159C7AB008AB6FC /* PatissierStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0E173182159C7AB008AB6FC /* PatissierStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0E173232159C911008AB6FC /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E173222159C911008AB6FC /* TinyCore.framework */; };
 		B0E173252159C911008AB6FC /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E173242159C911008AB6FC /* TinyKit.framework */; };
 		B0E173272159C911008AB6FC /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E173262159C911008AB6FC /* TinyStorage.framework */; };
 		B0E173292159C911008AB6FC /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E173282159C911008AB6FC /* TinyStore.framework */; };
+		B0E173322159CA66008AB6FC /* UICheckoutShippingTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E173312159CA66008AB6FC /* UICheckoutShippingTemplate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B07A2BA32159D115002EFE87 /* UICheckoutShippingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICheckoutShippingView.xib; sourceTree = "<group>"; };
+		B07A2BA42159D115002EFE87 /* UICheckoutShippingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICheckoutShippingView.swift; sourceTree = "<group>"; };
+		B07A2BA52159D116002EFE87 /* UICheckoutSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICheckoutSectionHeaderView.swift; sourceTree = "<group>"; };
+		B07A2BA62159D116002EFE87 /* UICheckoutSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UICheckoutSectionHeaderView.xib; sourceTree = "<group>"; };
+		B07A2BBB2159DBAF002EFE87 /* UICheckoutRecipientTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutRecipientTemplate.swift; sourceTree = "<group>"; };
 		B0E173152159C7AB008AB6FC /* PatissierStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PatissierStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E173182159C7AB008AB6FC /* PatissierStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PatissierStore.h; sourceTree = "<group>"; };
 		B0E173192159C7AB008AB6FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -22,6 +33,7 @@
 		B0E173242159C911008AB6FC /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E173262159C911008AB6FC /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E173282159C911008AB6FC /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0E173312159CA66008AB6FC /* UICheckoutShippingTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutShippingTemplate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +82,12 @@
 			children = (
 				B0E173182159C7AB008AB6FC /* PatissierStore.h */,
 				B0E173192159C7AB008AB6FC /* Info.plist */,
+				B0E173312159CA66008AB6FC /* UICheckoutShippingTemplate.swift */,
+				B07A2BA52159D116002EFE87 /* UICheckoutSectionHeaderView.swift */,
+				B07A2BA62159D116002EFE87 /* UICheckoutSectionHeaderView.xib */,
+				B07A2BA42159D115002EFE87 /* UICheckoutShippingView.swift */,
+				B07A2BA32159D115002EFE87 /* UICheckoutShippingView.xib */,
+				B07A2BBB2159DBAF002EFE87 /* UICheckoutRecipientTemplate.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -153,6 +171,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07A2BA72159D116002EFE87 /* UICheckoutShippingView.xib in Resources */,
+				B07A2BAA2159D116002EFE87 /* UICheckoutSectionHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +183,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B07A2BA82159D116002EFE87 /* UICheckoutShippingView.swift in Sources */,
+				B07A2BBC2159DBAF002EFE87 /* UICheckoutRecipientTemplate.swift in Sources */,
+				B0E173322159CA66008AB6FC /* UICheckoutShippingTemplate.swift in Sources */,
+				B07A2BA92159D116002EFE87 /* UICheckoutSectionHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

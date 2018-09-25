@@ -6,6 +6,7 @@
 //
 
 // MARK: - CheckoutViewController
+
 import TinyCore
 import TinyStorage
 import TinyKit
@@ -16,7 +17,9 @@ extension String: CheckoutRecipient { }
 
 public final class CheckoutViewController: CollectionViewController< MemoryCache<Int, String> > {
     
-    public final var shippingTemplateType: ShippingTemplate.Type { return PatissierShippingTemplate.self }
+    public final var shippingTemplateType: CheckoutShippingTemplate.Type?
+    
+    public final var recipientTemplateType: CheckoutRecipientTemplate.Type?
     
     private final var observations: [Observation] = []
     
@@ -48,35 +51,52 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
             }
         )
         
-        storageReducer = { [unowned self] storage -> [Template] in
+        storageReducer = { [unowned self] storage in
 
-            return [
+            var templates: [Template] = []
+            
+            guard
+                let shippingTemplateType = self.shippingTemplateType
+            else { fatalError("Must provide a shipping template") }
+            
+            guard
+                let recipientTemplateType = self.recipientTemplateType
+            else { fatalError("Must provide a recipient template") }
+                
+            templates.append(
                 CheckoutTemplate.shipping(
-                    self.shippingTemplateType.init(
+                    shippingTemplateType.init(
                         storage: "shipping",
-                        reducer: { storage in
-
-                            return [
-                                .header,
-                                .form
-                            ]
-
-                        }
-                    )
-                ),
-                CheckoutTemplate.recipient(
-                    PatissierRecipientTemplate(
-                        storage: "recpient",
                         reducer: { storage in
                             
                             return [
-                                .header
+                                .header,
+                                .form
                             ]
                             
                         }
                     )
                 )
-            ]
+            )
+            
+            templates.append(
+                CheckoutTemplate.recipient(
+                    recipientTemplateType.init(
+                        storage: "recpient",
+                        reducer: { storage in
+
+                            return [
+                                .header
+                            ]
+
+                        }
+                    )
+                )
+            )
+            
+            return templates
+            
+        }
             
 //            let redView = View()
 //
@@ -89,8 +109,6 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
 //            let template: Template = [ redView ]
 //
 //            return [ template ]
-            
-        }
         
     }
     

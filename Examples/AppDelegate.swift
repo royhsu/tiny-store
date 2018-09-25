@@ -8,6 +8,7 @@
 
 // MARK: - AppDelegate
 
+import PatissierStore
 import TinyStorage
 import TinyStore
 import TinyKit
@@ -31,6 +32,12 @@ extension AppDelegate: UIApplicationDelegate {
     -> Bool {
         
         let checkoutViewController = CheckoutViewController()
+        
+        #warning("Use register mechanism instead.")
+        checkoutViewController.shippingTemplateType = UICheckoutShippingTemplate.self
+        
+        #warning("Use register mechanism instead.")
+        checkoutViewController.recipientTemplateType = UICheckoutRecipientTemplate.self
         
         checkoutViewController.layout = TableViewLayout()
         
