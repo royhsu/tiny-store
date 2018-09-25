@@ -13,11 +13,15 @@ public enum CheckoutTemplate: Template {
     
     case shipping(ShippingTemplate)
     
+    case recipient(RecipientTemplate)
+    
     public var numberOfViews: Int {
         
         switch self {
             
         case let .shipping(template): return template.numberOfViews
+            
+        case let .recipient(template): return template.numberOfViews
             
         }
         
@@ -28,6 +32,8 @@ public enum CheckoutTemplate: Template {
         switch self {
             
         case let .shipping(template): return template.view(at: index)
+        
+        case let .recipient(template): return template.view(at: index)
             
         }
         
@@ -45,9 +51,7 @@ public enum ShippingElement {
     
     case header
     
-    case form(
-        actionHandler: (CheckoutShippingAction) -> Void
-    )
+    case form
     
 }
 
@@ -140,7 +144,7 @@ public struct PatissierShippingTemplate: ShippingTemplate {
 
             return view
 
-        case let .form(actionHandler):
+        case .form:
 
             let bundle = Bundle(for: CheckoutShippingView.self)
 
@@ -149,18 +153,81 @@ public struct PatissierShippingTemplate: ShippingTemplate {
                 from: bundle
             )!
             
-            view.actionHandler = actionHandler
-
-            #warning("TODO: should be defined in the locale system.")
-//                view.titleLabel.text = NSLocalizedString(
-//                    "Shipping",
-//                    comment: ""
-//                )
-
             return view
 
         }
 
     }
 
+}
+
+public protocol CheckoutRecipient { }
+
+public enum RecipientElement {
+    
+    case header
+    
+}
+
+public struct PatissierRecipientTemplateConfiguration: TemplateConfiguration {
+    
+    public func preferredViewName(for element: RecipientElement) -> String? {
+        
+        return nil
+        
+    }
+    
+}
+
+public protocol RecipientTemplate: Template {
+    
+    init(
+        storage: CheckoutRecipient,
+        reducer: (CheckoutRecipient) -> [RecipientElement]
+    )
+    
+}
+
+public struct PatissierRecipientTemplate: RecipientTemplate {
+    
+    private let template: ConfigurableTemplate<CheckoutRecipient, PatissierRecipientTemplateConfiguration>
+    
+    public init(
+        storage: CheckoutRecipient,
+        reducer: (CheckoutRecipient) -> [RecipientElement]
+    ) {
+        
+        self.template = ConfigurableTemplate(
+            storage: storage,
+            elements: reducer(storage)
+        )
+        
+        self.prepare()
+        
+    }
+    
+    fileprivate func prepare() {
+        
+        let bundle = Bundle(for: CheckoutSectionHeaderView.self)
+        
+        template.registerView(
+            CheckoutSectionHeaderView.self,
+            from: bundle,
+            binding: { storage, view in
+                
+                view.titleLabel.text = NSLocalizedString(
+                    "Recipient",
+                    comment: ""
+                )
+                
+            },
+            for: .header
+        )
+        
+    }
+    
+    public var numberOfViews: Int { return template.numberOfViews }
+    
+    public func view(at index: Int) -> View { return template.view(at: index) }
+    
 }

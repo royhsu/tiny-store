@@ -8,9 +8,11 @@
 
 // MARK: - CheckoutShippingView
 
+import TinyCore
+import TinyKit
 import UIKit
 
-public final class CheckoutShippingView: UIView {
+public final class CheckoutShippingView: UIView, Actionable {
 
     @IBOutlet
     private final weak var cityLabel: UILabel!
@@ -60,9 +62,7 @@ public final class CheckoutShippingView: UIView {
     @IBOutlet
     private(set) final weak var addressTextField: UITextField!
     
-    public typealias ActionHandler = (CheckoutShippingAction) -> Void
-    
-    public final var actionHandler: ActionHandler?
+    public final let actions = Observable<Action>()
 
     public final override func awakeFromNib() {
         
@@ -203,8 +203,6 @@ public final class CheckoutShippingView: UIView {
 
         textField.clearButtonMode = .whileEditing
 
-//        textField.field = .address
-
         #warning("TODO: should be defined in the design system.")
         textField.font = .systemFont(ofSize: 16.0)
 
@@ -239,9 +237,11 @@ public final class CheckoutShippingView: UIView {
     @objc
     public final func enterAddress(_ textField: UITextField) {
         
-        actionHandler?(
-            .newInput(.address(textField.text))
+        let action: CheckoutShippingAction = .newInput(
+            .address(textField.text)
         )
+        
+        actions.value = action
         
     }
 

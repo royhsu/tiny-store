@@ -6,43 +6,73 @@
 //
 
 // MARK: - CheckoutViewController
-
+import TinyCore
 import TinyStorage
 import TinyKit
 
 extension String: CheckoutShipping { }
 
+extension String: CheckoutRecipient { }
+
 public final class CheckoutViewController: CollectionViewController< MemoryCache<Int, String> > {
     
     public final var shippingTemplateType: ShippingTemplate.Type { return PatissierShippingTemplate.self }
+    
+    private final var observations: [Observation] = []
     
     public final override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        storageReducer = { [unowned self] storage in
+        observations.append(
+            actions.observe { [weak self] change in
+                
+                guard
+                    let self = self
+                else { return }
+                
+                if let action = change.currentValue as? CheckoutShippingAction {
+                    
+                    switch action {
+                        
+                    case let .newInput(input):
+                        
+                        print("New shipping", input)
+                        
+                    }
+                    
+                    return
+                    
+                }
+                
+            }
+        )
+        
+        storageReducer = { [unowned self] storage -> [Template] in
 
             return [
                 CheckoutTemplate.shipping(
                     self.shippingTemplateType.init(
-                        storage: "hello",
+                        storage: "shipping",
                         reducer: { storage in
 
                             return [
                                 .header,
-                                .form { action in
-                                    
-                                    switch action {
-                                        
-                                    case let .newInput(input):
-                                        
-                                        print(input)
-                                        
-                                    }
-                                    
-                                }
+                                .form
                             ]
 
+                        }
+                    )
+                ),
+                CheckoutTemplate.recipient(
+                    PatissierRecipientTemplate(
+                        storage: "recpient",
+                        reducer: { storage in
+                            
+                            return [
+                                .header
+                            ]
+                            
                         }
                     )
                 )
