@@ -122,11 +122,6 @@ public final class UICheckoutShippingView: UIView, Actionable {
         setUpContentView(addressContentView)
         
         setUpBorderView(addressBottomBorderView)
-    
-        setUpTextField(
-            addressTextField,
-            action: #selector(enterAddress)
-        )
 
     }
 
@@ -236,6 +231,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
             alpha: 1.0
         )
         
+        #warning("FIXME: multiple unneccessary changes are triggered while entering Traditional Chinese.")
         textField.addTarget(
             self,
             action: action,
