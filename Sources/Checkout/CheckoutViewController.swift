@@ -86,7 +86,8 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
                         reducer: { storage in
 
                             return [
-                                .header
+                                .header,
+                                .form
                             ]
 
                         }

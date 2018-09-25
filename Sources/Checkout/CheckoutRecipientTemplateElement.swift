@@ -9,6 +9,6 @@
 
 public enum CheckoutRecipientTemplateElement {
     
-    case header
+    case header, form
     
 }
