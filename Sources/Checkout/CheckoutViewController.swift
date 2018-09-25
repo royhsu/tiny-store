@@ -16,7 +16,11 @@ extension String: CheckoutRecipient { }
 
 public final class CheckoutViewController: CollectionViewController< MemoryCache<Int, String> > {
     
-    public final lazy var form: CheckoutForm = { return CheckoutForm(errors: errors) }()
+    public final var form = CheckoutForm() {
+        
+        willSet { form.errors = errors }
+        
+    }
     
     public final var shippingTemplateType: CheckoutShippingTemplate.Type?
     
@@ -27,6 +31,8 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
     public final override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        form.errors = errors
         
         observations.append(
             actions.observe { [unowned self] change in

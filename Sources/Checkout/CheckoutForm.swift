@@ -26,9 +26,9 @@ public struct CheckoutForm {
         )
     ]
     
-    private weak var errors: Observable<Error>?
+    public weak var errors: Observable<Error>?
     
-    public init(errors: Observable<Error>) { self.errors = errors }
+    public init() { }
     
     public struct Result {
         
