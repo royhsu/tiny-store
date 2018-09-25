@@ -26,7 +26,13 @@ public struct DefaultCheckoutShipping: CheckoutShipping {
     
     public var address: String
     
-    public init(address: String) { self.address = address }
+    public init(
+        address: String
+    ) {
+        
+        self.address = address
+        
+    }
     
 }
 
@@ -116,11 +122,37 @@ public final class CheckoutStorage: Storage {
         forKey key: Int
     ) {
         
+        setValue(
+            value,
+            isSlient: false,
+            forKey: key
+        )
+        
+    }
+    
+    #warning("experiment isSlient")
+    public final func setValue(
+        _ value: FormElement?,
+        isSlient: Bool,
+        forKey key: Int
+    ) {
+        
         guard
             let value = value
         else { fatalError("Setting the nil value is not allowed.") }
         
         _elements[key] = value
+        
+        if isSlient { return }
+        
+        changes.value = AnyCollection(
+            [
+                StorageChange(
+                    key: key,
+                    value: value
+                )
+            ]
+        )
         
     }
     
@@ -175,12 +207,26 @@ public final class CheckoutViewController: CollectionViewController< CheckoutSto
                         
                         switch input {
                             
-                        case let .city(city): print(city)
+                        case let .city(key, city): print(city)
                             
-                        case let .postalCode(postalCode): print(postalCode)
+                        case let .postalCode(key, postalCode): print(postalCode)
                             
-                        case let .address(address): self.form.shipping.address = address
-                        
+                        case let .address(key, address):
+                            
+                            guard
+                                case var .shipping(storage)? = self.storage?.value(forKey: key)
+                            else { return }
+                            
+                            storage.address = address
+                            
+                            self.storage?.setValue(
+                                .shipping(storage),
+                                isSlient: true,
+                                forKey: key
+                            )
+                            
+                            print(self.storage?.value(forKey: key))
+                            
                         }
                         
                     }
@@ -207,8 +253,6 @@ public final class CheckoutViewController: CollectionViewController< CheckoutSto
         
         storageReducer = { [unowned self] storage in
             
-//            var templates: [Template] = []
-            
             guard
                 let shippingTemplateType = self.shippingTemplateType
             else { fatalError("Must provide a shipping template") }
@@ -217,7 +261,7 @@ public final class CheckoutViewController: CollectionViewController< CheckoutSto
 //                let recipientTemplateType = self.recipientTemplateType
 //            else { fatalError("Must provide a recipient template") }
 
-            let templates: [Template] = storage.elements.map { _, element in
+            let templates: [Template] = storage.elements.map { (key, element) in
              
                 switch element {
                     
@@ -225,6 +269,7 @@ public final class CheckoutViewController: CollectionViewController< CheckoutSto
                     
                     return CheckoutTemplate.shipping(
                         shippingTemplateType.init(
+                            key: key,
                             storage: storage,
                             reducer: { storage in
                                 

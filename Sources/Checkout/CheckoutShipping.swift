@@ -9,6 +9,9 @@
 
 public protocol CheckoutShipping {
     
+    #warning("Maybe this is better than key as identifier.")
+//    var identifier: UUID { get }
+    
     var address: String { get set }
     
 }

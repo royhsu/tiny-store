@@ -13,11 +13,11 @@ public enum CheckoutShippingAction: Action {
     
     public enum Input {
         
-        case city(String)
+        case city(key: Int, value: String)
         
-        case postalCode(String)
+        case postalCode(key: Int, value: String)
         
-        case address(String)
+        case address(key: Int, value: String)
         
     }
     

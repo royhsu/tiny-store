@@ -64,6 +64,16 @@ public final class UICheckoutShippingView: UIView, Actionable {
     
     public final let actions = Observable<Action>()
 
+    public final var key: Int?
+    
+    public final var address: String? {
+        
+        get { return addressTextField.text }
+        
+        set { addressTextField.text = newValue }
+        
+    }
+    
     public final override func awakeFromNib() {
         
         super.awakeFromNib()
@@ -243,10 +253,17 @@ public final class UICheckoutShippingView: UIView, Actionable {
     @objc
     public final func enterAddress(_ textField: UITextField) {
         
+        guard
+            let key = key
+        else { return }
+        
         let address = textField.text ?? ""
         
         let action: CheckoutShippingAction = .newInput(
-            .address(address)
+            .address(
+                key: key,
+                value: address
+            )
         )
 
         actions.value = action
