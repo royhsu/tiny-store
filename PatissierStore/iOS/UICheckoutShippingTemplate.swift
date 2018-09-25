@@ -15,7 +15,7 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
     
     public struct Configuration: TemplateConfiguration {
         
-        public typealias Element = ShippingElement
+        public typealias Element = UICheckoutShippingTemplate.Element
         
     }
     
@@ -23,7 +23,7 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
     
     public init(
         storage: CheckoutShipping,
-        reducer: (CheckoutShipping) -> [ShippingElement]
+        reducer: (CheckoutShipping) -> [Element]
     ) {
         
         self.template = ConfigurableTemplate(

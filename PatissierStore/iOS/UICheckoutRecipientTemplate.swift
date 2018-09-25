@@ -15,7 +15,7 @@ public struct UICheckoutRecipientTemplate: CheckoutRecipientTemplate {
     
     public struct Configuration: TemplateConfiguration {
         
-        public typealias Element = RecipientElement
+        public typealias Element = CheckoutRecipientTemplate.Element
         
     }
     
@@ -23,7 +23,7 @@ public struct UICheckoutRecipientTemplate: CheckoutRecipientTemplate {
     
     public init(
         storage: CheckoutRecipient,
-        reducer: (CheckoutRecipient) -> [RecipientElement]
+        reducer: (CheckoutRecipient) -> [Element]
     ) {
         
         self.template = ConfigurableTemplate(

@@ -11,9 +11,11 @@ import TinyKit
 
 public protocol CheckoutRecipientTemplate: Template {
     
+    typealias Element = CheckoutRecipientTemplateElement
+    
     init(
         storage: CheckoutRecipient,
-        reducer: (CheckoutRecipient) -> [RecipientElement]
+        reducer: (CheckoutRecipient) -> [Element]
     )
     
 }

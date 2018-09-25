@@ -11,9 +11,11 @@ import TinyKit
 
 public protocol CheckoutShippingTemplate: Template {
     
+    typealias Element = CheckoutShippingTemplateElement
+    
     init(
         storage: CheckoutShipping,
-        reducer: (CheckoutShipping) -> [ShippingElement]
+        reducer: (CheckoutShipping) -> [Element]
     )
     
 }

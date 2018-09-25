@@ -62,7 +62,7 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
             guard
                 let recipientTemplateType = self.recipientTemplateType
             else { fatalError("Must provide a recipient template") }
-                
+            
             templates.append(
                 CheckoutTemplate.shipping(
                     shippingTemplateType.init(
@@ -97,7 +97,7 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
             return templates
             
         }
-            
+        
 //            let redView = View()
 //
 //            redView.backgroundColor = .red
