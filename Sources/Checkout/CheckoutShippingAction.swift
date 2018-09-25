@@ -17,7 +17,7 @@ public enum CheckoutShippingAction: Action {
         
         case postalCode(String)
         
-        case address(String?)
+        case address(String)
         
     }
     

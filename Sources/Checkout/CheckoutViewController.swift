@@ -16,15 +16,15 @@ extension String: CheckoutShipping { }
 
 extension String: CheckoutRecipient { }
 
-public enum CheckoutAddressError: Error {
-    
-    case empty
-    
-}
-
 public final class CheckoutViewController: CollectionViewController< MemoryCache<Int, String> > {
     
     public final var shippingTemplateType: CheckoutShippingTemplate.Type?
+    
+    public final var shippingAddressRules: [AnyValidationRule<String>] = [
+        AnyValidationRule(
+            NonEmptyRule<String>()
+        )
+    ]
     
     public final var recipientTemplateType: CheckoutRecipientTemplate.Type?
     
@@ -57,20 +57,10 @@ public final class CheckoutViewController: CollectionViewController< MemoryCache
                             
                             do {
                                 
-                                guard
-                                    let address = address
-                                else { throw CheckoutAddressError.empty }
-                            
-                                let validAddress = try address.validated { address in
-                                        
-                                    if address.isEmpty { throw CheckoutAddressError.empty }
-                                    
-                                    return address
-                                        
-                                }
+                                let validAddress = try address.validated(by: self.shippingAddressRules)
                                 
                                 print("Valid address:", validAddress)
-                                
+                                    
                             }
                             catch { print("\(error)") }
                             

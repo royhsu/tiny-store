@@ -243,8 +243,10 @@ public final class UICheckoutShippingView: UIView, Actionable {
     @objc
     public final func enterAddress(_ textField: UITextField) {
         
+        let address = textField.text ?? ""
+        
         let action: CheckoutShippingAction = .newInput(
-            .address(textField.text)
+            .address(address)
         )
 
         actions.value = action
