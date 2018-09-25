@@ -16,68 +16,7 @@ extension String: CheckoutRecipient { }
 
 public final class CheckoutViewController: CollectionViewController< MemoryCache<Int, String> > {
     
-    private struct Shipping: CheckoutShipping {
-        
-        internal var address = ""
-        
-    }
-    
-    public struct Form {
-        
-        public var shipping: CheckoutShipping = Shipping()
-        
-        public var shippingAddressRules: [AnyValidationRule<String>] = [
-            AnyValidationRule(
-                NonEmptyRule<String>()
-            )
-        ]
-        
-        private weak var errors: Observable<Error>?
-        
-        public init(errors: Observable<Error>) { self.errors = errors }
-        
-        public func validate() -> Result? {
-            
-            do {
-            
-                let validAddress = try shipping.address.validated(by: shippingAddressRules)
-                
-                return Result(
-                    shipping: .init(
-                        address: validAddress
-                    )
-                )
-                
-            }
-            catch {
-                
-                errors?.value = error
-                
-                return nil
-                
-            }
-            
-        }
-        
-    }
-
-    public struct Result {
-        
-        public struct Shipping {
-            
-            public let address: String
-            
-            public init(address: String) { self.address = address }
-            
-        }
-        
-        public let shipping: Shipping
-        
-        public init(shipping: Shipping) { self.shipping = shipping }
-        
-    }
-    
-    public final lazy var form: Form = { return Form(errors: errors) }()
+    public final lazy var form: CheckoutForm = { return CheckoutForm(errors: errors) }()
     
     public final var shippingTemplateType: CheckoutShippingTemplate.Type?
     
