@@ -46,20 +46,18 @@ extension AppDelegate: UIApplicationDelegate {
         checkoutViewController.recipientTemplateType = UICheckoutRecipientTemplate.self
         
         #warning("Manually specify the identifier is dangerous.")
-        checkoutViewController.storage = CheckoutStorage(
-            elements: [
-                .shipping(
-                    CheckoutShipping(
-                        address: "hello"
-                    )
-                ),
-                .recipient(
-                    CheckoutRecipient(
-                        firstName: "world"
-                    )
+        checkoutViewController.storage = [
+            .shipping(
+                CheckoutShipping(
+                    address: "hello"
                 )
-            ]
-        )
+            ),
+            .recipient(
+                CheckoutRecipient(
+                    firstName: "world"
+                )
+            )
+        ]
         
         window.rootViewController = UINavigationController(rootViewController: checkoutViewController)
         
