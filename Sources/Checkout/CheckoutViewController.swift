@@ -38,7 +38,7 @@ public final class CheckoutViewController: ViewController {
                     
             }
             
-            storageReducer = CheckoutStorageReducer(
+            storageReducer = Reducer(
                 storage: storage,
                 reduction: reduce
             )
@@ -47,9 +47,9 @@ public final class CheckoutViewController: ViewController {
         
     }
     
-    private typealias CheckoutStorageReducer = StorageReducer<CheckoutStorage, CheckoutSectionCollection>
+    private typealias Reducer = StorageReducer<CheckoutStorage, CheckoutSectionCollection>
     
-    private final var storageReducer: CheckoutStorageReducer?
+    private final var storageReducer: Reducer?
     
     public final override func viewDidLoad() {
         
@@ -155,34 +155,30 @@ public final class CheckoutViewController: ViewController {
                 
             case let .shipping(storage):
                 
-                return CheckoutTemplate.shipping(
-                    shippingTemplateType.init(
-                        storage: [ storage ],
-                        reducer: { storage in
-                            
-                            return [
-                                .header,
-                                .form
-                            ]
-                            
-                        }
-                    )
+                return shippingTemplateType.init(
+                    storage: [ storage ],
+                    reducer: { storage in
+                        
+                        return [
+                            .header,
+                            .form
+                        ]
+                        
+                    }
                 )
                 
             case let .recipient(storage):
                 
-                return CheckoutTemplate.recipient(
-                    recipientTemplateType.init(
-                        storage: storage,
-                        reducer: { storage in
-                            
-                            return [
-                                .header,
-                                .form
-                            ]
-                            
-                        }
-                    )
+                return recipientTemplateType.init(
+                    storage: storage,
+                    reducer: { storage in
+                        
+                        return [
+                            .header,
+                            .form
+                        ]
+                        
+                    }
                 )
                 
             }
