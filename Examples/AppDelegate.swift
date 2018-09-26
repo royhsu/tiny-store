@@ -45,15 +45,14 @@ extension AppDelegate: UIApplicationDelegate {
         #warning("Use register mechanism instead.")
         checkoutViewController.recipientTemplateType = UICheckoutRecipientTemplate.self
         
-        #warning("Manually specify the identifier is dangerous.")
         checkoutViewController.storage = [
             .shipping(
-                CheckoutShipping(
+                CheckoutShippingField(
                     address: "hello"
                 )
             ),
             .recipient(
-                CheckoutRecipient(
+                CheckoutRecipientField(
                     firstName: "world"
                 )
             )
@@ -70,11 +69,16 @@ extension AppDelegate: UIApplicationDelegate {
     @objc
     public final func done(_ item: UIBarButtonItem) {
         
-//        guard
-//            let result = checkoutViewController.form.validate()
-//        else { return }
-//
-//        print("Done", result)
+        do {
+        
+            guard
+                let results = try checkoutViewController.storage?.validateAll()
+            else { return }
+
+            print("Done", results)
+            
+        }
+        catch { print("\(error)") }
         
     }
     

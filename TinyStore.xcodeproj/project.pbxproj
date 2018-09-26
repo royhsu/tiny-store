@@ -17,17 +17,17 @@
 		B03A1C8C21588220000DC2D8 /* TinyKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8621588192000DC2D8 /* TinyKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B03A1C8D21588220000DC2D8 /* TinyStorage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8821588192000DC2D8 /* TinyStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B06F6E58215BB59E00BBCF0F /* CheckoutStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E57215BB59E00BBCF0F /* CheckoutStorage.swift */; };
+		B06F6E5A215C486000BBCF0F /* CheckoutRecipientField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E59215C486000BBCF0F /* CheckoutRecipientField.swift */; };
 		B07A2BDE2159E1BF002EFE87 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */; };
 		B07A2BDF2159E1BF002EFE87 /* CheckoutTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C40F2158B07F00DC9F26 /* CheckoutTemplate.swift */; };
-		B07A2BE02159E1BF002EFE87 /* CheckoutShipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB92159DB59002EFE87 /* CheckoutShipping.swift */; };
+		B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */; };
 		B07A2BE12159E1BF002EFE87 /* CheckoutShippingTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */; };
 		B07A2BE22159E1BF002EFE87 /* CheckoutShippingTemplateElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB72159DB43002EFE87 /* CheckoutShippingTemplateElement.swift */; };
 		B07A2BE32159E1BF002EFE87 /* CheckoutShippingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BBD2159DC90002EFE87 /* CheckoutShippingAction.swift */; };
-		B07A2BE42159E1BF002EFE87 /* CheckoutRecipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB12159DA16002EFE87 /* CheckoutRecipient.swift */; };
 		B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */; };
 		B07A2BE62159E1BF002EFE87 /* CheckoutRecipientTemplateElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB32159DA38002EFE87 /* CheckoutRecipientTemplateElement.swift */; };
 		B07A2C37215A0A2D002EFE87 /* TinyValidation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */; };
-		B07A2C4F215A2739002EFE87 /* CheckoutElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2C4E215A2739002EFE87 /* CheckoutElement.swift */; };
+		B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2C4E215A2739002EFE87 /* CheckoutField.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
 		B0F51CDE21587F2D00B592F5 /* SimpleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F51CDC21587F2B00B592F5 /* SimpleTests.swift */; };
@@ -67,18 +67,18 @@
 		B03A1C8621588192000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8821588192000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B06F6E57215BB59E00BBCF0F /* CheckoutStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutStorage.swift; sourceTree = "<group>"; };
+		B06F6E59215C486000BBCF0F /* CheckoutRecipientField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRecipientField.swift; sourceTree = "<group>"; };
 		B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRecipientTemplate.swift; sourceTree = "<group>"; };
-		B07A2BB12159DA16002EFE87 /* CheckoutRecipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRecipient.swift; sourceTree = "<group>"; };
 		B07A2BB32159DA38002EFE87 /* CheckoutRecipientTemplateElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRecipientTemplateElement.swift; sourceTree = "<group>"; };
 		B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingTemplate.swift; sourceTree = "<group>"; };
 		B07A2BB72159DB43002EFE87 /* CheckoutShippingTemplateElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingTemplateElement.swift; sourceTree = "<group>"; };
-		B07A2BB92159DB59002EFE87 /* CheckoutShipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShipping.swift; sourceTree = "<group>"; };
+		B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingField.swift; sourceTree = "<group>"; };
 		B07A2BBD2159DC90002EFE87 /* CheckoutShippingAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingAction.swift; sourceTree = "<group>"; };
 		B07A2BCF2159DE73002EFE87 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A2BD12159DE73002EFE87 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A2BD32159DE73002EFE87 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyValidation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B07A2C4E215A2739002EFE87 /* CheckoutElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutElement.swift; sourceTree = "<group>"; };
+		B07A2C4E215A2739002EFE87 /* CheckoutField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutField.swift; sourceTree = "<group>"; };
 		B0A1C40F2158B07F00DC9F26 /* CheckoutTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutTemplate.swift; sourceTree = "<group>"; };
 		B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,11 +119,11 @@
 			isa = PBXGroup;
 			children = (
 				B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */,
-				B07A2C4E215A2739002EFE87 /* CheckoutElement.swift */,
+				B07A2C4E215A2739002EFE87 /* CheckoutField.swift */,
 				B06F6E57215BB59E00BBCF0F /* CheckoutStorage.swift */,
-				B07A2BB92159DB59002EFE87 /* CheckoutShipping.swift */,
+				B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */,
 				B07A2BBD2159DC90002EFE87 /* CheckoutShippingAction.swift */,
-				B07A2BB12159DA16002EFE87 /* CheckoutRecipient.swift */,
+				B06F6E59215C486000BBCF0F /* CheckoutRecipientField.swift */,
 				B0A1C40F2158B07F00DC9F26 /* CheckoutTemplate.swift */,
 				B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */,
 				B07A2BB72159DB43002EFE87 /* CheckoutShippingTemplateElement.swift */,
@@ -307,14 +307,14 @@
 			files = (
 				B07A2BDE2159E1BF002EFE87 /* CheckoutViewController.swift in Sources */,
 				B07A2BE12159E1BF002EFE87 /* CheckoutShippingTemplate.swift in Sources */,
-				B07A2BE42159E1BF002EFE87 /* CheckoutRecipient.swift in Sources */,
 				B07A2BE22159E1BF002EFE87 /* CheckoutShippingTemplateElement.swift in Sources */,
-				B07A2BE02159E1BF002EFE87 /* CheckoutShipping.swift in Sources */,
+				B06F6E5A215C486000BBCF0F /* CheckoutRecipientField.swift in Sources */,
+				B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */,
 				B07A2BDF2159E1BF002EFE87 /* CheckoutTemplate.swift in Sources */,
 				B07A2BE62159E1BF002EFE87 /* CheckoutRecipientTemplateElement.swift in Sources */,
 				B07A2BE32159E1BF002EFE87 /* CheckoutShippingAction.swift in Sources */,
 				B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */,
-				B07A2C4F215A2739002EFE87 /* CheckoutElement.swift in Sources */,
+				B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */,
 				B06F6E58215BB59E00BBCF0F /* CheckoutStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

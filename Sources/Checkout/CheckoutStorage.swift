@@ -13,7 +13,7 @@ import TinyStorage
 #warning("TODO: make a generic ArrayStorage.")
 public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
     
-    public typealias Element = (key: UUID, value: CheckoutElement)
+    public typealias Element = (key: UUID, value: CheckoutField)
     
     /// The base.
     private final var _base: [Element]
@@ -26,14 +26,14 @@ public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
     
     private final var state: State = .initial
     
-    private typealias Change = StorageChange<UUID, CheckoutElement>
+    private typealias Change = StorageChange<UUID, CheckoutField>
     
     private typealias Changes = AnyCollection<Change>
     
     private final let changes: Observable<Changes> = Observable()
     
     public init(
-        elements: [CheckoutElement] = []
+        elements: [CheckoutField] = []
     ) {
         
         self._base = elements.map { element in
@@ -47,13 +47,13 @@ public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
         
     }
     
-    public convenience init(arrayLiteral elements: CheckoutElement...) { self.init(elements: elements) }
+    public convenience init(arrayLiteral elements: CheckoutField...) { self.init(elements: elements) }
     
     public final var isLoaded: Bool { return (state == .loaded) }
     
     public final func load(
         completion: (
-            (Result< AnyStorage<UUID, CheckoutElement> >) -> Void
+            (Result< AnyStorage<UUID, CheckoutField> >) -> Void
         )?
     ) {
         
@@ -108,14 +108,14 @@ public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
         
     }
     
-    public final func value(forKey key: UUID) -> CheckoutElement? {
+    public final func value(forKey key: UUID) -> CheckoutField? {
         
         return _base.first { $0.key == key }?.value
         
     }
     
     public final func setValue(
-        _ value: CheckoutElement?,
+        _ value: CheckoutField?,
         forKey key: UUID
     ) {
         
@@ -148,10 +148,18 @@ public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
     
     public final var elements: AnyCollection<Element> { return AnyCollection(_base) }
     
+    public final func validateAll() throws -> AnyCollection<CheckoutResult> {
+    
+        let results = try _base.map { try $0.value.validate() }
+        
+        return AnyCollection(results)
+    
+    }
+    
     public final func observe(
         _ observer: @escaping (
             _ change: ObservedChange<
-                AnyCollection< StorageChange<UUID, CheckoutElement> >
+                AnyCollection< StorageChange<UUID, CheckoutField> >
             >
         )
         -> Void

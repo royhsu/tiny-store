@@ -66,7 +66,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
     
     public final let actions = Observable<Action>()
 
-    public final var shipping: CheckoutShipping? {
+    public final var shipping: CheckoutShippingField? {
         
         didSet { updateUI() }
         

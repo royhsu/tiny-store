@@ -14,8 +14,8 @@ public protocol CheckoutShippingTemplate: Template {
     typealias Element = CheckoutShippingTemplateElement
     
     init(
-        storage: CheckoutShipping,
-        reducer: (CheckoutShipping) -> [Element]
+        storage: CheckoutShippingField,
+        reducer: (CheckoutShippingField) -> [Element]
     )
     
 }

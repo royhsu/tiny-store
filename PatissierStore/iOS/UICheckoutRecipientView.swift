@@ -75,7 +75,7 @@ public final class UICheckoutRecipientView: UITableViewCell {
     
     public final let actions = Observable<Action>()
     
-    public final var recipient: CheckoutRecipient? {
+    public final var recipient: CheckoutRecipientField? {
         
         didSet { updateUI() }
         

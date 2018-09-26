@@ -19,11 +19,11 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
         
     }
     
-    private let template: ConfigurableTemplate<CheckoutShipping, Configuration>
+    private let template: ConfigurableTemplate<CheckoutShippingField, Configuration>
     
     public init(
-        storage: CheckoutShipping,
-        reducer: (CheckoutShipping) -> [Element]
+        storage: CheckoutShippingField,
+        reducer: (CheckoutShippingField) -> [Element]
     ) {
         
         self.template = ConfigurableTemplate(

@@ -11,6 +11,6 @@ import TinyKit
 
 public enum CheckoutShippingAction: Action {
     
-    case newInput(CheckoutShipping)
+    case newInput(CheckoutShippingField)
     
 }
