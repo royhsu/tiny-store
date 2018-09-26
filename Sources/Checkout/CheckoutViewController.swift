@@ -47,7 +47,7 @@ public final class CheckoutViewController: ViewController {
         
     }
     
-    private typealias Reducer = StorageReducer<CheckoutStorage, CheckoutSectionCollection>
+    private typealias Reducer = StorageReducer<CheckoutStorage, SectionCollection>
     
     private final var storageReducer: Reducer?
     
@@ -101,20 +101,12 @@ public final class CheckoutViewController: ViewController {
                 
                 switch action {
                     
-                case let .newInput(input):
+                case let .newInput(shipping):
                     
-                    switch input {
-                        
-                    case let .address(address):
-                        
-                        self.storage?.setValue(
-                            .shipping(
-                                .address(address)
-                            ),
-                            forKey: address.identifier
-                        )
-                        
-                    }
+                    self.storage?.setValue(
+                        .shipping(shipping),
+                        forKey: shipping.identifier
+                    )
                     
                 }
                 
@@ -130,16 +122,15 @@ public final class CheckoutViewController: ViewController {
         
         _base.setError { error in
             
+            #warning("TODO: error handling")
             print("\(error)")
             
         }
         
     }
     
-    public typealias CheckoutSectionCollection = [Template]
-    
     #warning("memory leaks by pass function as the closure parameter?")
-    fileprivate final func reduce(storage: CheckoutStorage) -> CheckoutSectionCollection {
+    fileprivate final func reduce(storage: CheckoutStorage) -> SectionCollection {
             
         guard
             let shippingTemplateType = shippingTemplateType
@@ -149,14 +140,14 @@ public final class CheckoutViewController: ViewController {
             let recipientTemplateType = recipientTemplateType
         else { fatalError("Must provide a recipient template") }
         
-        return storage.elements.map { (key, element) in
+        return storage.elements.map { _, element in
             
             switch element {
                 
             case let .shipping(storage):
                 
                 return shippingTemplateType.init(
-                    storage: [ storage ],
+                    storage: storage,
                     reducer: { storage in
                         
                         return [

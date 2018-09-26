@@ -11,16 +11,6 @@ import TinyKit
 
 public enum CheckoutShippingAction: Action {
     
-    public enum Input {
-        
-//        case city(key: Int, value: String)
-//
-//        case postalCode(key: Int, value: String)
-//
-        case address(CheckoutShippingAddress)
-        
-    }
-    
-    case newInput(Input)
+    case newInput(CheckoutShipping)
     
 }

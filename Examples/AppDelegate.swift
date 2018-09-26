@@ -49,21 +49,13 @@ extension AppDelegate: UIApplicationDelegate {
         checkoutViewController.storage = CheckoutStorage(
             elements: [
                 .shipping(
-                    .address(
-                        CheckoutShippingAddress(
-                            identifier: 0,
-                            text: "hello",
-                            isFirstResponder: false
-                        )
+                    CheckoutShipping(
+                        address: "hello"
                     )
                 ),
-                .shipping(
-                    .address(
-                        CheckoutShippingAddress(
-                            identifier: 1,
-                            text: "world",
-                            isFirstResponder: false
-                        )
+                .recipient(
+                    CheckoutRecipient(
+                        firstName: "world"
                     )
                 )
             ]

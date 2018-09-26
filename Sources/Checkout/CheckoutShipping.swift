@@ -7,41 +7,14 @@
 
 // MARK: - CheckoutShipping
 
-//public protocol CheckoutShipping {
+import TinyCore
 
-    #warning("Maybe this is better than key as identifier.")
-//    var identifier: UUID { get }
+public final class CheckoutShipping: Unique {
     
-//    var address: CheckoutShippingAddress { get set }
-//
-//}
-
-public struct CheckoutShippingAddress {
-
-    public let identifier: Int
-
-    public var text: String
+    public final let identifier = UUID()
     
-    public var isFirstResponder: Bool
+    public final var address: String
     
-    public init(
-        identifier: Int,
-        text: String,
-        isFirstResponder: Bool
-    ) {
-        
-        self.identifier = identifier
-        
-        self.text = text
-        
-        self.isFirstResponder = isFirstResponder
-        
-    }
-
-}
-
-public enum CheckoutShipping {
-    
-    case address(CheckoutShippingAddress)
+    public init(address: String) { self.address = address }
     
 }

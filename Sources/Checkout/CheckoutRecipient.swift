@@ -7,4 +7,14 @@
 
 // MARK: - CheckoutRecipient
 
-public protocol CheckoutRecipient { }
+import TinyCore
+
+public final class CheckoutRecipient: Unique {
+    
+    public final let identifier = UUID()
+    
+    public final var firstName: String
+    
+    public init(firstName: String) { self.firstName = firstName }
+    
+}

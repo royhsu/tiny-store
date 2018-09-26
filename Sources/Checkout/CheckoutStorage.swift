@@ -11,10 +11,12 @@ import TinyCore
 import TinyStorage
 
 #warning("TODO: make a generic ArrayStorage.")
-public final class CheckoutStorage: Storage {
+public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
+    
+    public typealias Element = (key: UUID, value: CheckoutElement)
     
     /// The base.
-    private final var _base: [CheckoutElement]
+    private final var _base: [Element]
     
     private enum State {
         
@@ -24,17 +26,34 @@ public final class CheckoutStorage: Storage {
     
     private final var state: State = .initial
     
-    private final let changes: Observable< AnyCollection< StorageChange<Int, CheckoutElement> > > = Observable()
+    private typealias Change = StorageChange<UUID, CheckoutElement>
+    
+    private typealias Changes = AnyCollection<Change>
+    
+    private final let changes: Observable<Changes> = Observable()
     
     public init(
         elements: [CheckoutElement] = []
-    ) { self._base = elements }
+    ) {
+        
+        self._base = elements.map { element in
+            
+            return (
+                element.identifier,
+                element
+            )
+            
+        }
+        
+    }
+    
+    public convenience init(arrayLiteral elements: CheckoutElement...) { self.init(elements: elements) }
     
     public final var isLoaded: Bool { return (state == .loaded) }
     
     public final func load(
         completion: (
-            (Result< AnyStorage<Int, CheckoutElement> >) -> Void
+            (Result< AnyStorage<UUID, CheckoutElement> >) -> Void
         )?
     ) {
         
@@ -48,11 +67,11 @@ public final class CheckoutStorage: Storage {
                 
                 guard
                     let self = self
-                    else { return }
+                else { return }
                 
                 defer { self.state = .loaded }
                 
-                let changes = self.elements.map(StorageChange.init)
+                let changes = self._base.map(Change.init)
                 
                 self.changes.value = AnyCollection(changes)
                 
@@ -75,7 +94,7 @@ public final class CheckoutStorage: Storage {
                 
                 guard
                     let self = self
-                    else { return }
+                else { return }
                 
                 completion?(
                     .success(
@@ -89,18 +108,28 @@ public final class CheckoutStorage: Storage {
         
     }
     
-    public final func value(forKey key: Int) -> CheckoutElement? { return _base[key] }
+    public final func value(forKey key: UUID) -> CheckoutElement? {
+        
+        return _base.first { $0.key == key }?.value
+        
+    }
     
     public final func setValue(
         _ value: CheckoutElement?,
-        forKey key: Int
+        forKey key: UUID
     ) {
         
         guard
             let value = value
         else { fatalError("Setting the nil value is not allowed.") }
         
-        _base[key] = value
+        guard
+            let index = _base.index(
+                where: { $0.key == key }
+            )
+        else { fatalError("CANNOT find the matched value for key: \(key).") }
+        
+        _base[index] = (key, value)
         
         changes.value = AnyCollection(
             [
@@ -117,16 +146,15 @@ public final class CheckoutStorage: Storage {
     
     public final var count: Int { return _base.count }
     
-    public final var elements: AnyCollection< (key: Int, value: CheckoutElement) > {
-        
-        return AnyCollection(
-            _base.enumerated().map { ($0.offset, $0.element) }
-        )
-        
-    }
+    public final var elements: AnyCollection<Element> { return AnyCollection(_base) }
     
     public final func observe(
-        _ observer: @escaping (_ change: ObservedChange< AnyCollection< StorageChange<Int, CheckoutElement> > >) -> Void
+        _ observer: @escaping (
+            _ change: ObservedChange<
+                AnyCollection< StorageChange<UUID, CheckoutElement> >
+            >
+        )
+        -> Void
     )
     -> Observation { return changes.observe(observer) }
     

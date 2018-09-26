@@ -71,50 +71,73 @@ public final class UICheckoutRecipientView: UITableViewCell {
     @IBOutlet
     private final weak var phoneNumberTextField: UITextField!
     
-    public enum Element: CaseIterable {
+    private final var isLoaded = false
+    
+    public final let actions = Observable<Action>()
+    
+    public final var recipient: CheckoutRecipient? {
         
-        case header, firstName, lastName, title, phoneNumber
+        didSet { updateUI() }
         
     }
     
-    public final var elements = Element.allCases {
+    fileprivate final func updateUI() {
         
-        didSet {
-            
-            let isFirstNameHidden = !elements.contains(.firstName)
-            
-            firstNameLabel.isHidden = isFirstNameHidden
-            
-            firstNameContentView.isHidden = isFirstNameHidden
-            
-            let isLastNameHidden = !elements.contains(.lastName)
-            
-            lastNameLabel.isHidden = isLastNameHidden
-            
-            lastNameContentView.isHidden = isLastNameHidden
-            
-            let isTitleHidden = !elements.contains(.title)
-            
-            titleLabel.isHidden = isTitleHidden
-            
-            titleContentView.isHidden = isTitleHidden
-            
-            let isPhoneNumberHidden = !elements.contains(.phoneNumber)
-            
-            phoneNumberLabel.isHidden = isPhoneNumberHidden
-            
-            phoneNumberContentView.isHidden = isPhoneNumberHidden
-            
-        }
+        guard
+            isLoaded
+        else { return }
+        
+        firstNameTextField.text = recipient?.firstName
         
     }
+    
+    
+//    public enum Element: CaseIterable {
+//
+//        case firstName, lastName, title, phoneNumber
+//
+//    }
+
+//    public final var elements = Element.allCases {
+//
+//        didSet {
+//
+//            let isFirstNameHidden = !elements.contains(.firstName)
+//
+//            firstNameLabel.isHidden = isFirstNameHidden
+//
+//            firstNameContentView.isHidden = isFirstNameHidden
+//
+//            let isLastNameHidden = !elements.contains(.lastName)
+//
+//            lastNameLabel.isHidden = isLastNameHidden
+//
+//            lastNameContentView.isHidden = isLastNameHidden
+//
+//            let isTitleHidden = !elements.contains(.title)
+//
+//            titleLabel.isHidden = isTitleHidden
+//
+//            titleContentView.isHidden = isTitleHidden
+//
+//            let isPhoneNumberHidden = !elements.contains(.phoneNumber)
+//
+//            phoneNumberLabel.isHidden = isPhoneNumberHidden
+//
+//            phoneNumberContentView.isHidden = isPhoneNumberHidden
+//
+//        }
+//
+//    }
     
     public final override func awakeFromNib() {
         
         super.awakeFromNib()
+        
+        isLoaded.toggle()
 
-        #warning("TODO: set up buyer button")
-        //        setUpContentView(buyerContentView)
+        #warning("TODO: make the buyer button independent from this view.")
+//        setUpContentView(buyerContentView)
         
         #warning("TODO: should be defined in the locale system.")
         setUpTitleLabel(
@@ -189,6 +212,8 @@ public final class UICheckoutRecipientView: UITableViewCell {
         setUpContentView(phoneNumberContentView)
         
         setUpBorderView(phoneNumberBottomBorderView)
+        
+        updateUI()
 
     }
 

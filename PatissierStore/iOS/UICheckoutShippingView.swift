@@ -66,48 +66,21 @@ public final class UICheckoutShippingView: UIView, Actionable {
     
     public final let actions = Observable<Action>()
 
-    public final var shippings: [CheckoutShipping] = [] {
+    public final var shipping: CheckoutShipping? {
         
-        didSet {
-            
-            if isLoaded { updateUI() }
-            
-        }
+        didSet { updateUI() }
         
     }
     
     fileprivate final func updateUI() {
         
-        shippings.forEach { shipping in
+        guard
+            isLoaded
+        else { return }
         
-            switch shipping {
-                
-            case let .address(address):
-                
-                addressTextField.text = address.text
-                
-                if address.isFirstResponder {
-                    
-                    #warning("delegate the action to parent do this operation.")
-                    addressTextField.becomeFirstResponder()
-                    
-                }
-                
-            }
-            
-        }
+        addressTextField.text = shipping?.address
         
     }
-    
-//    public final var key: Int?
-//
-//    public final var address: String? {
-//
-//        get { return addressTextField.text }
-//
-//        set { addressTextField.text = newValue }
-//
-//    }
     
     public final override func awakeFromNib() {
         
@@ -173,8 +146,6 @@ public final class UICheckoutShippingView: UIView, Actionable {
         updateUI()
         
     }
-
-    // MARK: Set Up
     
     fileprivate final func setUpTitleLabel(
         _ label: UILabel,
@@ -292,29 +263,13 @@ public final class UICheckoutShippingView: UIView, Actionable {
     @objc
     public final func enterAddress(_ textField: UITextField) {
         
-        var updatedAdress: CheckoutShippingAddress?
-        
-        shippings.enumerated().forEach { index, shipping in
-            
-            guard
-                case var .address(address) = shipping
-            else { return }
-            
-            address.text = textField.text ?? ""
-            
-            updatedAdress = address
-            
-        }
-        
-        updatedAdress?.isFirstResponder = true
-        
         guard
-            let address = updatedAdress
+            var shipping = shipping
         else { return }
         
-        let action: CheckoutShippingAction = .newInput(
-            .address(address)
-        )
+        shipping.address = textField.text ?? ""
+        
+        let action: CheckoutShippingAction = .newInput(shipping)
 
         actions.value = action
         

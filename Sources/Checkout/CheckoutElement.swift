@@ -7,11 +7,25 @@
 
 // MARK: - CheckoutElement
 
-public enum CheckoutElement {
+import TinyCore
+
+public enum CheckoutElement: Unique {
     
     case shipping(CheckoutShipping)
     
     case recipient(CheckoutRecipient)
+    
+    public var identifier: UUID {
+        
+        switch self {
+            
+        case let .shipping(shipping): return shipping.identifier
+            
+        case let .recipient(recipient): return recipient.identifier
+            
+        }
+        
+    }
     
 }
 
