@@ -56,6 +56,15 @@ extension AppDelegate: UIApplicationDelegate {
                             isFirstResponder: false
                         )
                     )
+                ),
+                .shipping(
+                    .address(
+                        CheckoutShippingAddress(
+                            identifier: 1,
+                            text: "world",
+                            isFirstResponder: false
+                        )
+                    )
                 )
             ]
         )

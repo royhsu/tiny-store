@@ -12,8 +12,6 @@ import TinyStorage
 import TinyKit
 import TinyValidation
 
-extension String: CheckoutRecipient { }
-
 public enum CheckoutFormElement {
 
     case shipping(CheckoutShipping)
@@ -181,34 +179,28 @@ public final class CheckoutStorage: Storage {
 //
 //}
 
-#warning("use composition instead of inheritance.")
-public final class CheckoutViewController: NewCollectionViewController {
-    
-    #warning("Shuold make form conform to a dedicated storage.")
-//    public final var form = CheckoutForm() {
-//
-//        willSet { form.errors = errors }
-//
-//    }
+public final class CheckoutViewController: ViewController {
     
     public final var shippingTemplateType: CheckoutShippingTemplate.Type?
     
     public final var recipientTemplateType: CheckoutRecipientTemplate.Type?
     
-    private final var observations: [Observation] = []
+    private final var _actionDispatcher: Optional< (Action) -> Void >
     
-    private typealias CheckoutStorageReducer = StorageReducer<CheckoutStorage, CheckoutSectionCollection>
+    private final var _errorHandler: Optional< (Error) -> Void >
+    
+    private final var _base = NewCollectionViewController()
     
     public final var storage: CheckoutStorage? {
         
         didSet {
-        
+            
             guard
-                let storage =  storage
+                let storage = storage
             else {
                 
                 storageReducer = nil
-                
+
                 return
                     
             }
@@ -222,82 +214,26 @@ public final class CheckoutViewController: NewCollectionViewController {
         
     }
     
-    private final var storageReducer: CheckoutStorageReducer?
+    private typealias CheckoutStorageReducer = StorageReducer<CheckoutStorage, CheckoutSectionCollection>
     
-//    fileprivate func loadStorage() {
-//
-//        storage?.load { [weak self] result in
-//
-//            switch result {
-//
-//            case let .success(storage):
-//
-//                DispatchQueue.main.async {
-//
-//                    self?.layout?.invalidate()
-//
-//                }
-//
-//            case let .failure(error): self?.errors.value = error
-//
-//            }
-//
-//        }
-//
-//    }
+    private final var storageReducer: CheckoutStorageReducer?
     
     public final override func viewDidLoad() {
         
         super.viewDidLoad()
         
-//        form.errors = errors
+        addChild(_base)
         
-//        observations.append(
-//            actions.observe { [unowned self] change in
-//
-//                if let action = change.currentValue as? CheckoutShippingAction {
-//
-//                    switch action {
-//
-//                    case let .newInput(input):
-//
-//                        switch input {
-//
-//                        case let .address(address):
-//
-//                            self.storage?.setValue(
-//                                .shipping(
-//                                    .address(address)
-//                                ),
-//                                forKey: address.identifier
-//                            )
-//
-//                        }
-//
-//                    }
-//
-//                    return
-//
-//                }
-//
-//            }
-//        )
+        view.wrapSubview(_base.view)
         
-//        observations.append(
-//            errors.observe { change in
-//
-//                guard
-//                    let error = change.currentValue
-//                else { return }
-//
-//                #warning("TODO: delegating errors.")
-//                print("\(error)")
-//
-//            }
-//        )
+        _base.didMove(toParent: self)
         
-        layout = TableViewLayout()
-
+        _base.layout = TableViewLayout()
+        
+        dispatchActions()
+        
+        handleErrors()
+        
         storageReducer?.reduce(queue: .main) { [weak self] result in
             
             guard
@@ -308,14 +244,11 @@ public final class CheckoutViewController: NewCollectionViewController {
                 
             case let .success(sections):
                 
-                self.sections = sections
+                self._base.sections = sections
                 
-                self.layout?.invalidate()
+                self._base.layout?.invalidate()
                 
-            case let .failure(error):
-                
-                #warning("error handling")
-                print("\(error)")
+            case let .failure(error): self._errorHandler?(error)
                 
             }
             
@@ -323,8 +256,56 @@ public final class CheckoutViewController: NewCollectionViewController {
         
     }
     
+    fileprivate final func dispatchActions() {
+        
+        _base.setAction { [weak self] action in
+            
+            guard
+                let self = self
+            else { return }
+            
+            if let action = action as? CheckoutShippingAction {
+                
+                switch action {
+                    
+                case let .newInput(input):
+                    
+                    switch input {
+                        
+                    case let .address(address):
+                        
+                        self.storage?.setValue(
+                            .shipping(
+                                .address(address)
+                            ),
+                            forKey: address.identifier
+                        )
+                        
+                    }
+                    
+                }
+                
+                return
+                
+            }
+            
+        }
+        
+    }
+    
+    fileprivate final func handleErrors() {
+        
+        _base.setError { error in
+            
+            print("\(error)")
+            
+        }
+        
+    }
+    
     public typealias CheckoutSectionCollection = [Template]
     
+    #warning("memory leaks by pass function as the closure parameter?")
     fileprivate final func reduce(storage: CheckoutStorage) -> CheckoutSectionCollection {
             
         guard
