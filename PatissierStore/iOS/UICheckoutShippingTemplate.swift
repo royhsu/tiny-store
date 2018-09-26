@@ -19,17 +19,12 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
         
     }
     
-    private let template: ConfigurableTemplate<CheckoutShipping, Configuration>
-    
-    private let key: Int
+    private let template: ConfigurableTemplate< [CheckoutShipping], Configuration>
     
     public init(
-        key: Int,
-        storage: CheckoutShipping,
-        reducer: (CheckoutShipping) -> [Element]
+        storage: [CheckoutShipping],
+        reducer: ( [CheckoutShipping] ) -> [Element]
     ) {
-        
-        self.key = key
         
         self.template = ConfigurableTemplate(
             storage: storage,
@@ -62,9 +57,7 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
             from: Bundle(for: UICheckoutShippingView.self),
             binding: { storage, view in
                 
-                view.key = self.key
-                
-                view.address = storage.address
+                view.shippings = storage
                 
             },
             for: .form

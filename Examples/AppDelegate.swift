@@ -47,10 +47,17 @@ extension AppDelegate: UIApplicationDelegate {
         
         checkoutViewController.layout = TableViewLayout()
         
+        #warning("Manually specify the identifier is dangerous.")
         checkoutViewController.storage = CheckoutStorage(
             elements: [
                 .shipping(
-                    DefaultCheckoutShipping(address: "default")
+                    .address(
+                        CheckoutShippingAddress(
+                            identifier: 0,
+                            text: "hello",
+                            isFirstResponder: false
+                        )
+                    )
                 )
             ]
         )
@@ -66,11 +73,11 @@ extension AppDelegate: UIApplicationDelegate {
     @objc
     public final func done(_ item: UIBarButtonItem) {
         
-        guard
-            let result = checkoutViewController.form.validate()
-        else { return }
-        
-        print("Done", result)
+//        guard
+//            let result = checkoutViewController.form.validate()
+//        else { return }
+//
+//        print("Done", result)
         
     }
     

@@ -14,27 +14,28 @@ import TinyValidation
 
 extension String: CheckoutRecipient { }
 
-//public protocol Shipping { var address: String { get } }
-//
 public enum FormElement {
 
     case shipping(CheckoutShipping)
 
 }
-
-public struct DefaultCheckoutShipping: CheckoutShipping {
-    
-    public var address: String
-    
-    public init(
-        address: String
-    ) {
-        
-        self.address = address
-        
-    }
-    
-}
+//
+//public struct DefaultShippingAddress: CheckoutShippingAddress {
+//
+//
+//    public var address: String
+//
+//    public init(
+//        address: String
+//        ) { self.address = address }
+//
+//}
+//
+//
+//public struct DefaultCheckoutShipping: CheckoutShipping {
+//
+//
+//}
 
 #warning("ArrayStorage")
 public final class CheckoutStorage: Storage {
@@ -122,28 +123,11 @@ public final class CheckoutStorage: Storage {
         forKey key: Int
     ) {
         
-        setValue(
-            value,
-            isSlient: false,
-            forKey: key
-        )
-        
-    }
-    
-    #warning("experiment isSlient")
-    public final func setValue(
-        _ value: FormElement?,
-        isSlient: Bool,
-        forKey key: Int
-    ) {
-        
         guard
             let value = value
         else { fatalError("Setting the nil value is not allowed.") }
         
         _elements[key] = value
-        
-        if isSlient { return }
         
         changes.value = AnyCollection(
             [
@@ -178,11 +162,11 @@ public final class CheckoutStorage: Storage {
 public final class CheckoutViewController: CollectionViewController< CheckoutStorage > {
     
     #warning("Shuold make form conform to a dedicated storage.")
-    public final var form = CheckoutForm() {
-        
-        willSet { form.errors = errors }
-        
-    }
+//    public final var form = CheckoutForm() {
+//
+//        willSet { form.errors = errors }
+//
+//    }
     
     public final var shippingTemplateType: CheckoutShippingTemplate.Type?
     
@@ -194,7 +178,7 @@ public final class CheckoutViewController: CollectionViewController< CheckoutSto
         
         super.viewDidLoad()
         
-        form.errors = errors
+//        form.errors = errors
         
         observations.append(
             actions.observe { [unowned self] change in
@@ -207,26 +191,25 @@ public final class CheckoutViewController: CollectionViewController< CheckoutSto
                         
                         switch input {
                             
-                        case let .city(key, city): print(city)
+//                        case let .city(key, city): print(city)
                             
-                        case let .postalCode(key, postalCode): print(postalCode)
+//                        case let .postalCode(key, postalCode): print(postalCode)
                             
-                        case let .address(key, address):
+                        case let .address(address):
+//
+//                            guard
+//                                case var .shipping(storage)? = self.storage?.value(forKey: address.identifier)
+//                            else { return }
                             
-                            guard
-                                case var .shipping(storage)? = self.storage?.value(forKey: key)
-                            else { return }
-                            
-                            storage.address = address
+//                            address.text = address
                             
                             self.storage?.setValue(
-                                .shipping(storage),
-                                isSlient: true,
-                                forKey: key
+                                .shipping(
+                                    .address(address)
+                                ),
+                                forKey: address.identifier
                             )
-                            
-                            print(self.storage?.value(forKey: key))
-                            
+
                         }
                         
                     }
@@ -269,8 +252,7 @@ public final class CheckoutViewController: CollectionViewController< CheckoutSto
                     
                     return CheckoutTemplate.shipping(
                         shippingTemplateType.init(
-                            key: key,
-                            storage: storage,
+                            storage: [ storage ],
                             reducer: { storage in
                                 
                                 return [

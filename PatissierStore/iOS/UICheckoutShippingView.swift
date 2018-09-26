@@ -62,22 +62,59 @@ public final class UICheckoutShippingView: UIView, Actionable {
     @IBOutlet
     private final weak var addressTextField: UITextField!
     
+    private final var isLoaded = false
+    
     public final let actions = Observable<Action>()
 
-    public final var key: Int?
-    
-    public final var address: String? {
+    public final var shippings: [CheckoutShipping] = [] {
         
-        get { return addressTextField.text }
-        
-        set { addressTextField.text = newValue }
+        didSet {
+            
+            if isLoaded { updateUI() }
+            
+        }
         
     }
+    
+    fileprivate final func updateUI() {
+        
+        shippings.forEach { shipping in
+        
+            switch shipping {
+                
+            case let .address(address):
+                
+                addressTextField.text = address.text
+                
+                if address.isFirstResponder {
+                    
+                    #warning("delegate the action to parent do this operation.")
+                    addressTextField.becomeFirstResponder()
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+//    public final var key: Int?
+//
+//    public final var address: String? {
+//
+//        get { return addressTextField.text }
+//
+//        set { addressTextField.text = newValue }
+//
+//    }
     
     public final override func awakeFromNib() {
         
         super.awakeFromNib()
 
+        isLoaded.toggle()
+        
         setUpTitleLabel(
             cityLabel,
             title: NSLocalizedString(
@@ -133,6 +170,8 @@ public final class UICheckoutShippingView: UIView, Actionable {
         
         setUpBorderView(addressBottomBorderView)
 
+        updateUI()
+        
     }
 
     // MARK: Set Up
@@ -253,17 +292,28 @@ public final class UICheckoutShippingView: UIView, Actionable {
     @objc
     public final func enterAddress(_ textField: UITextField) {
         
+        var updatedAdress: CheckoutShippingAddress?
+        
+        shippings.enumerated().forEach { index, shipping in
+            
+            guard
+                case var .address(address) = shipping
+            else { return }
+            
+            address.text = textField.text ?? ""
+            
+            updatedAdress = address
+            
+        }
+        
+        updatedAdress?.isFirstResponder = true
+        
         guard
-            let key = key
+            let address = updatedAdress
         else { return }
         
-        let address = textField.text ?? ""
-        
         let action: CheckoutShippingAction = .newInput(
-            .address(
-                key: key,
-                value: address
-            )
+            .address(address)
         )
 
         actions.value = action
