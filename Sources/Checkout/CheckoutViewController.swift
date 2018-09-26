@@ -14,9 +14,11 @@ import TinyValidation
 
 extension String: CheckoutRecipient { }
 
-public enum FormElement {
+public enum CheckoutFormElement {
 
     case shipping(CheckoutShipping)
+    
+    case recipient(CheckoutRecipient)
 
 }
 
@@ -24,7 +26,7 @@ public enum FormElement {
 public final class CheckoutStorage: Storage {
     
     /// The base.
-    private final var _elements: [FormElement]
+    private final var _elements: [CheckoutFormElement]
     
     private enum State {
         
@@ -34,17 +36,17 @@ public final class CheckoutStorage: Storage {
     
     private final var state: State = .initial
     
-    private final let changes: Observable< AnyCollection< StorageChange<Int, FormElement> > > = Observable()
+    private final let changes: Observable< AnyCollection< StorageChange<Int, CheckoutFormElement> > > = Observable()
     
     public init(
-        elements: [FormElement] = []
+        elements: [CheckoutFormElement] = []
     ) { self._elements = elements }
     
     public final var isLoaded: Bool { return (state == .loaded) }
     
     public final func load(
         completion: (
-            (Result< AnyStorage<Int, FormElement> >) -> Void
+            (Result< AnyStorage<Int, CheckoutFormElement> >) -> Void
         )?
     ) {
        
@@ -99,10 +101,10 @@ public final class CheckoutStorage: Storage {
         
     }
     
-    public final func value(forKey key: Int) -> FormElement? { return _elements[key] }
+    public final func value(forKey key: Int) -> CheckoutFormElement? { return _elements[key] }
     
     public final func setValue(
-        _ value: FormElement?,
+        _ value: CheckoutFormElement?,
         forKey key: Int
     ) {
         
@@ -127,7 +129,7 @@ public final class CheckoutStorage: Storage {
     
     public final var count: Int { return _elements.count }
     
-    public final var elements: AnyCollection< (key: Int, value: FormElement) > {
+    public final var elements: AnyCollection< (key: Int, value: CheckoutFormElement) > {
         
         return AnyCollection(
             _elements.enumerated().map { ($0.offset, $0.element) }
@@ -136,13 +138,51 @@ public final class CheckoutStorage: Storage {
     }
     
     public final func observe(
-        _ observer: @escaping (_ change: ObservedChange< AnyCollection< StorageChange<Int, FormElement> > >) -> Void
+        _ observer: @escaping (_ change: ObservedChange< AnyCollection< StorageChange<Int, CheckoutFormElement> > >) -> Void
     )
     -> Observation { return changes.observe(observer) }
     
 }
 
-public final class CheckoutViewController: CollectionViewController< CheckoutStorage > {
+//public final class CheckoutStorageReducer {
+//
+//    public typealias CheckoutSectionCollection = [CheckoutTemplate]
+//
+//    public final var storage: CheckoutStorage { return reducer.storage }
+//
+//    private final let reducer: StorageReducer<CheckoutStorage, CheckoutSectionCollection>
+//
+//    public init(
+//        storage: CheckoutStorage,
+//        shippingTemplateType: CheckoutShippingTemplate.Type?,
+//        recipientTemplateType: CheckoutRecipientTemplate.Type?
+//    ) {
+//
+//        self.reducer = StorageReducer(
+//            storage: storage,
+//            reduction:
+//
+//            }
+//        )
+//
+//    }
+//
+//    public final func reduce(
+//        queue: DispatchQueue = .global(qos: .background),
+//        completion: @escaping ( Result<CheckoutSectionCollection> ) -> Void
+//    ) {
+//
+//        reducer.reduce(
+//            queue: queue,
+//            completion: completion
+//        )
+//
+//    }
+//
+//}
+
+#warning("use composition instead of inheritance.")
+public final class CheckoutViewController: NewCollectionViewController {
     
     #warning("Shuold make form conform to a dedicated storage.")
 //    public final var form = CheckoutForm() {
@@ -157,121 +197,183 @@ public final class CheckoutViewController: CollectionViewController< CheckoutSto
     
     private final var observations: [Observation] = []
     
+    private typealias CheckoutStorageReducer = StorageReducer<CheckoutStorage, CheckoutSectionCollection>
+    
+    public final var storage: CheckoutStorage? {
+        
+        didSet {
+        
+            guard
+                let storage =  storage
+            else {
+                
+                storageReducer = nil
+                
+                return
+                    
+            }
+            
+            storageReducer = CheckoutStorageReducer(
+                storage: storage,
+                reduction: reduce
+            )
+            
+        }
+        
+    }
+    
+    private final var storageReducer: CheckoutStorageReducer?
+    
+//    fileprivate func loadStorage() {
+//
+//        storage?.load { [weak self] result in
+//
+//            switch result {
+//
+//            case let .success(storage):
+//
+//                DispatchQueue.main.async {
+//
+//                    self?.layout?.invalidate()
+//
+//                }
+//
+//            case let .failure(error): self?.errors.value = error
+//
+//            }
+//
+//        }
+//
+//    }
+    
     public final override func viewDidLoad() {
         
         super.viewDidLoad()
         
 //        form.errors = errors
         
-        observations.append(
-            actions.observe { [unowned self] change in
-                
-                if let action = change.currentValue as? CheckoutShippingAction {
-                    
-                    switch action {
-                        
-                    case let .newInput(input):
-                        
-                        switch input {
-                            
-                        case let .address(address):
-
-                            self.storage?.setValue(
-                                .shipping(
-                                    .address(address)
-                                ),
-                                forKey: address.identifier
-                            )
-
-                        }
-                        
-                    }
-                    
-                    return
-                    
-                }
-                
-            }
-        )
+//        observations.append(
+//            actions.observe { [unowned self] change in
+//
+//                if let action = change.currentValue as? CheckoutShippingAction {
+//
+//                    switch action {
+//
+//                    case let .newInput(input):
+//
+//                        switch input {
+//
+//                        case let .address(address):
+//
+//                            self.storage?.setValue(
+//                                .shipping(
+//                                    .address(address)
+//                                ),
+//                                forKey: address.identifier
+//                            )
+//
+//                        }
+//
+//                    }
+//
+//                    return
+//
+//                }
+//
+//            }
+//        )
         
-        observations.append(
-            errors.observe { change in
+//        observations.append(
+//            errors.observe { change in
+//
+//                guard
+//                    let error = change.currentValue
+//                else { return }
+//
+//                #warning("TODO: delegating errors.")
+//                print("\(error)")
+//
+//            }
+//        )
+        
+        layout = TableViewLayout()
+
+        storageReducer?.reduce(queue: .main) { [weak self] result in
+            
+            guard
+                let self = self
+            else { return }
+            
+            switch result {
                 
-                guard
-                    let error = change.currentValue
-                else { return }
+            case let .success(sections):
                 
-                #warning("TODO: delegating errors.")
+                self.sections = sections
+                
+                self.layout?.invalidate()
+                
+            case let .failure(error):
+                
+                #warning("error handling")
                 print("\(error)")
                 
             }
-        )
-        
-        storageReducer = { [unowned self] storage in
-            
-            guard
-                let shippingTemplateType = self.shippingTemplateType
-            else { fatalError("Must provide a shipping template") }
-            
-//            guard
-//                let recipientTemplateType = self.recipientTemplateType
-//            else { fatalError("Must provide a recipient template") }
-
-            let templates: [Template] = storage.elements.map { (key, element) in
-             
-                switch element {
-                    
-                case let .shipping(storage):
-                    
-                    return CheckoutTemplate.shipping(
-                        shippingTemplateType.init(
-                            storage: [ storage ],
-                            reducer: { storage in
-                                
-                                return [
-                                    .header,
-                                    .form
-                                ]
-                                
-                            }
-                        )
-                    )
-                    
-                }
-                
-            }
-            
-//            templates.append(
-//                CheckoutTemplate.recipient(
-//                    recipientTemplateType.init(
-//                        storage: "recpient",
-//                        reducer: { storage in
-//
-//                            return [
-//                                .header,
-//                                .form
-//                            ]
-//
-//                        }
-//                    )
-//                )
-//            )
-//
-            return templates
             
         }
         
-//            let redView = View()
-//
-//            redView.backgroundColor = .red
-//
-//            redView.translatesAutoresizingMaskIntoConstraints = false
-//
-//            redView.heightAnchor.constraint(equalToConstant: 150.0).isActive = true
-//
-//            let template: Template = [ redView ]
-//
-//            return [ template ]
+    }
+    
+    public typealias CheckoutSectionCollection = [Template]
+    
+    fileprivate final func reduce(storage: CheckoutStorage) -> CheckoutSectionCollection {
+            
+        guard
+            let shippingTemplateType = shippingTemplateType
+        else { fatalError("Must provide a shipping template") }
+        
+        guard
+            let recipientTemplateType = recipientTemplateType
+        else { fatalError("Must provide a recipient template") }
+        
+        return storage.elements.map { (key, element) in
+            
+            switch element {
+                
+            case let .shipping(storage):
+                
+                return CheckoutTemplate.shipping(
+                    shippingTemplateType.init(
+                        storage: [ storage ],
+                        reducer: { storage in
+                            
+                            return [
+                                .header,
+                                .form
+                            ]
+                            
+                        }
+                    )
+                )
+                
+            case let .recipient(storage):
+                
+                return CheckoutTemplate.recipient(
+                    recipientTemplateType.init(
+                        storage: storage,
+                        reducer: { storage in
+                            
+                            return [
+                                .header,
+                                .form
+                            ]
+                            
+                        }
+                    )
+                )
+                
+            }
+            
+        }
         
     }
     

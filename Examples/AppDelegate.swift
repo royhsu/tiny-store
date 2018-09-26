@@ -45,8 +45,6 @@ extension AppDelegate: UIApplicationDelegate {
         #warning("Use register mechanism instead.")
         checkoutViewController.recipientTemplateType = UICheckoutRecipientTemplate.self
         
-        checkoutViewController.layout = TableViewLayout()
-        
         #warning("Manually specify the identifier is dangerous.")
         checkoutViewController.storage = CheckoutStorage(
             elements: [
