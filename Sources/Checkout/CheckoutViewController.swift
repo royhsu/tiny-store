@@ -19,23 +19,6 @@ public enum FormElement {
     case shipping(CheckoutShipping)
 
 }
-//
-//public struct DefaultShippingAddress: CheckoutShippingAddress {
-//
-//
-//    public var address: String
-//
-//    public init(
-//        address: String
-//        ) { self.address = address }
-//
-//}
-//
-//
-//public struct DefaultCheckoutShipping: CheckoutShipping {
-//
-//
-//}
 
 #warning("ArrayStorage")
 public final class CheckoutStorage: Storage {
@@ -191,18 +174,8 @@ public final class CheckoutViewController: CollectionViewController< CheckoutSto
                         
                         switch input {
                             
-//                        case let .city(key, city): print(city)
-                            
-//                        case let .postalCode(key, postalCode): print(postalCode)
-                            
                         case let .address(address):
-//
-//                            guard
-//                                case var .shipping(storage)? = self.storage?.value(forKey: address.identifier)
-//                            else { return }
-                            
-//                            address.text = address
-                            
+
                             self.storage?.setValue(
                                 .shipping(
                                     .address(address)
