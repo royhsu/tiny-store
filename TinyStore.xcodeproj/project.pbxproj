@@ -18,6 +18,7 @@
 		B03A1C8D21588220000DC2D8 /* TinyStorage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8821588192000DC2D8 /* TinyStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B06F6E58215BB59E00BBCF0F /* CheckoutStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E57215BB59E00BBCF0F /* CheckoutStorage.swift */; };
 		B06F6E5A215C486000BBCF0F /* CheckoutRecipientField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E59215C486000BBCF0F /* CheckoutRecipientField.swift */; };
+		B06F6E5C215C4DFB00BBCF0F /* CheckoutForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E5B215C4DFB00BBCF0F /* CheckoutForm.swift */; };
 		B07A2BDE2159E1BF002EFE87 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */; };
 		B07A2BDF2159E1BF002EFE87 /* CheckoutTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C40F2158B07F00DC9F26 /* CheckoutTemplate.swift */; };
 		B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */; };
@@ -68,6 +69,7 @@
 		B03A1C8821588192000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B06F6E57215BB59E00BBCF0F /* CheckoutStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutStorage.swift; sourceTree = "<group>"; };
 		B06F6E59215C486000BBCF0F /* CheckoutRecipientField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRecipientField.swift; sourceTree = "<group>"; };
+		B06F6E5B215C4DFB00BBCF0F /* CheckoutForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutForm.swift; sourceTree = "<group>"; };
 		B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRecipientTemplate.swift; sourceTree = "<group>"; };
 		B07A2BB32159DA38002EFE87 /* CheckoutRecipientTemplateElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRecipientTemplateElement.swift; sourceTree = "<group>"; };
 		B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingTemplate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */,
+				B06F6E5B215C4DFB00BBCF0F /* CheckoutForm.swift */,
 				B07A2C4E215A2739002EFE87 /* CheckoutField.swift */,
 				B06F6E57215BB59E00BBCF0F /* CheckoutStorage.swift */,
 				B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */,
@@ -312,6 +315,7 @@
 				B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */,
 				B07A2BDF2159E1BF002EFE87 /* CheckoutTemplate.swift in Sources */,
 				B07A2BE62159E1BF002EFE87 /* CheckoutRecipientTemplateElement.swift in Sources */,
+				B06F6E5C215C4DFB00BBCF0F /* CheckoutForm.swift in Sources */,
 				B07A2BE32159E1BF002EFE87 /* CheckoutShippingAction.swift in Sources */,
 				B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */,
 				B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */,

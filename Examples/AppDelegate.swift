@@ -45,7 +45,7 @@ extension AppDelegate: UIApplicationDelegate {
         #warning("Use register mechanism instead.")
         checkoutViewController.recipientTemplateType = UICheckoutRecipientTemplate.self
         
-        checkoutViewController.storage = [
+        checkoutViewController.form = [
             .shipping(
                 CheckoutShippingField(
                     address: "hello"
@@ -72,7 +72,7 @@ extension AppDelegate: UIApplicationDelegate {
         do {
         
             guard
-                let results = try checkoutViewController.storage?.validateAll()
+                let results = try checkoutViewController.form?.validateAll()
             else { return }
 
             print("Done", results)

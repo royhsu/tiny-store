@@ -11,9 +11,9 @@ import TinyCore
 import TinyStorage
 
 #warning("TODO: make a generic ArrayStorage.")
-public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
+internal final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
     
-    public typealias Element = (key: UUID, value: CheckoutField)
+    internal typealias Element = (key: UUID, value: CheckoutField)
     
     /// The base.
     private final var _base: [Element]
@@ -32,7 +32,7 @@ public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
     
     private final let changes: Observable<Changes> = Observable()
     
-    public init(
+    internal init(
         elements: [CheckoutField] = []
     ) {
         
@@ -47,11 +47,11 @@ public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
         
     }
     
-    public convenience init(arrayLiteral elements: CheckoutField...) { self.init(elements: elements) }
+    internal convenience init(arrayLiteral elements: CheckoutField...) { self.init(elements: elements) }
     
-    public final var isLoaded: Bool { return (state == .loaded) }
+    internal final var isLoaded: Bool { return (state == .loaded) }
     
-    public final func load(
+    internal final func load(
         completion: (
             (Result< AnyStorage<UUID, CheckoutField> >) -> Void
         )?
@@ -108,13 +108,13 @@ public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
         
     }
     
-    public final func value(forKey key: UUID) -> CheckoutField? {
+    internal final func value(forKey key: UUID) -> CheckoutField? {
         
         return _base.first { $0.key == key }?.value
         
     }
     
-    public final func setValue(
+    internal final func setValue(
         _ value: CheckoutField?,
         forKey key: UUID
     ) {
@@ -142,13 +142,13 @@ public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
         
     }
     
-    public final func removeAll() { _base.removeAll() }
+    internal final func removeAll() { _base.removeAll() }
     
-    public final var count: Int { return _base.count }
+    internal final var count: Int { return _base.count }
     
-    public final var elements: AnyCollection<Element> { return AnyCollection(_base) }
+    internal final var elements: AnyCollection<Element> { return AnyCollection(_base) }
     
-    public final func validateAll() throws -> AnyCollection<CheckoutResult> {
+    internal final func validateAll() throws -> AnyCollection<CheckoutResult> {
     
         let results = try _base.map { try $0.value.validate() }
         
@@ -156,7 +156,7 @@ public final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
     
     }
     
-    public final func observe(
+    internal final func observe(
         _ observer: @escaping (
             _ change: ObservedChange<
                 AnyCollection< StorageChange<UUID, CheckoutField> >

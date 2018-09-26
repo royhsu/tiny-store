@@ -24,12 +24,12 @@ public final class CheckoutViewController: ViewController {
     
     private final var _base = CollectionViewController()
     
-    public final var storage: CheckoutStorage? {
+    public final var form: CheckoutForm? {
         
         didSet {
             
             guard
-                let storage = storage
+                let storage = form?.storage
             else {
                 
                 storageReducer = nil
@@ -103,7 +103,7 @@ public final class CheckoutViewController: ViewController {
                     
                 case let .newInput(shipping):
                     
-                    self.storage?.setValue(
+                    self.form?.storage.setValue(
                         .shipping(shipping),
                         forKey: shipping.identifier
                     )
