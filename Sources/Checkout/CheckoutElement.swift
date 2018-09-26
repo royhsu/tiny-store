@@ -1,15 +1,23 @@
 //
-//  CheckoutForm.swift
+//  CheckoutElement.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/9/25.
 //
 
-// MARK: - CheckoutForm
+// MARK: - CheckoutElement
 
-import TinyCore
-import TinyValidation
+public enum CheckoutElement {
+    
+    case shipping(CheckoutShipping)
+    
+    case recipient(CheckoutRecipient)
+    
+}
 
+//import TinyCore
+//import TinyValidation
+//
 //public struct CheckoutForm {
 //    
 //    private struct _Shipping: CheckoutShipping {
