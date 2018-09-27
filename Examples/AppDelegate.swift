@@ -61,7 +61,9 @@ extension AppDelegate: UIApplicationDelegate {
             .recipient(
                 CheckoutRecipientField(
                     style: UICheckoutRecipientStyle.self,
-                    firstName: "world"
+                    firstName: "a",
+                    lastName: "b",
+                    phoneNumber: "c"
                 )
             )
         ]

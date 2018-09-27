@@ -55,6 +55,7 @@ public enum CheckoutResult {
 
 }
 
+#warning("the current implementation doesn't allow optional field results.")
 public struct CheckoutShippingResult {
 
     public let identifier: UUID
@@ -79,20 +80,31 @@ public struct CheckoutShippingResult {
 
 }
 
+#warning("the current implementation doesn't allow optional field results.")
 public struct CheckoutRecipientResult {
 
     public let identifier: UUID
 
     public let firstName: String
+    
+    public let lastName: String
+    
+    public let phoneNumber: String
 
     public init(
         identifier: UUID,
-        firstName: String
+        firstName: String,
+        lastName: String,
+        phoneNumber: String
     ) {
 
         self.identifier = identifier
 
         self.firstName = firstName
+        
+        self.lastName = lastName
+        
+        self.phoneNumber = phoneNumber
 
     }
 

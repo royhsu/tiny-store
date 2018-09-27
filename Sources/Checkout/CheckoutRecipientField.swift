@@ -13,14 +13,34 @@ public final class CheckoutRecipientField: Unique {
 
     public final let style: CheckoutRecipientStyle.Type
 
-    public final var firstName: String
+    public final var firstName: String?
 
     public final var firstNameRules: [ AnyValidationRule<String> ]
+    
+    public final var lastName: String?
+    
+    public final var lastNameRules: [ AnyValidationRule<String> ]
+    
+    public final var phoneNumber: String?
+    
+    public final var phoneNumberRules: [ AnyValidationRule<String> ]
 
     public init(
         style: CheckoutRecipientStyle.Type,
-        firstName: String,
+        firstName: String? = nil,
         firstNameRules: [ AnyValidationRule<String> ] = [
+            AnyValidationRule(
+                NotEmptyRule<String>()
+            )
+        ],
+        lastName: String? = nil,
+        lastNameRules: [ AnyValidationRule<String> ] = [
+            AnyValidationRule(
+                NotEmptyRule<String>()
+            )
+        ],
+        phoneNumber: String? = nil,
+        phoneNumberRules: [ AnyValidationRule<String> ] = [
             AnyValidationRule(
                 NotEmptyRule<String>()
             )
@@ -32,6 +52,14 @@ public final class CheckoutRecipientField: Unique {
         self.firstName = firstName
 
         self.firstNameRules = firstNameRules
+        
+        self.lastName = lastName
+        
+        self.lastNameRules = lastNameRules
+        
+        self.phoneNumber = phoneNumber
+        
+        self.phoneNumberRules = phoneNumberRules
 
     }
 
@@ -39,7 +67,9 @@ public final class CheckoutRecipientField: Unique {
 
         return CheckoutRecipientResult(
             identifier: identifier,
-            firstName: try firstName.validated(by: firstNameRules)
+            firstName: try firstName.explicitlyValidated(by: firstNameRules),
+            lastName: try lastName.explicitlyValidated(by: lastNameRules),
+            phoneNumber: try phoneNumber.explicitlyValidated(by: phoneNumberRules)
         )
 
     }

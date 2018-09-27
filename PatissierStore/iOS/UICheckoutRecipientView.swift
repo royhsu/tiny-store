@@ -81,6 +81,10 @@ public final class UICheckoutRecipientView: UITableViewCell {
         else { return }
 
         firstNameTextField.text = recipient?.firstName
+        
+        lastNameTextField.text = recipient?.lastName
+        
+        phoneNumberTextField.text = recipient?.phoneNumber
 
     }
 
@@ -101,7 +105,7 @@ public final class UICheckoutRecipientView: UITableViewCell {
 
         setUpTextField(
             firstNameTextField,
-            action: #selector(enterFirstName)
+            action: #selector(updateFirstName)
         )
 
         setUpContentView(firstNameContentView)
@@ -119,7 +123,7 @@ public final class UICheckoutRecipientView: UITableViewCell {
 
         setUpTextField(
             lastNameTextField,
-            action: #selector(enterLastName)
+            action: #selector(updateLastName)
         )
 
         setUpContentView(lastNameContentView)
@@ -157,7 +161,7 @@ public final class UICheckoutRecipientView: UITableViewCell {
 
         setUpTextField(
             phoneNumberTextField,
-            action: #selector(enterPhoneNumber)
+            action: #selector(updatePhoneNumber)
         )
 
         setUpContentView(phoneNumberContentView)
@@ -283,12 +287,48 @@ public final class UICheckoutRecipientView: UITableViewCell {
     }
 
     @objc
-    public final func enterFirstName(_ textField: UITextField) { }
+    public final func updateFirstName(_ textField: UITextField) {
+        
+        guard
+            let recipient = recipient
+        else { return }
+        
+        recipient.firstName = textField.text ?? ""
+        
+        let action: CheckoutRecipientAction = .updateValue(recipient)
+        
+        actions.value = action
+        
+    }
 
     @objc
-    public final func enterLastName(_ textField: UITextField) { }
+    public final func updateLastName(_ textField: UITextField) {
+        
+        guard
+            let recipient = recipient
+        else { return }
+        
+        recipient.lastName = textField.text ?? ""
+        
+        let action: CheckoutRecipientAction = .updateValue(recipient)
+        
+        actions.value = action
+        
+    }
 
     @objc
-    public final func enterPhoneNumber(_ textField: UITextField) { }
+    public final func updatePhoneNumber(_ textField: UITextField) {
+        
+        guard
+            let recipient = recipient
+        else { return }
+        
+        recipient.phoneNumber = textField.text ?? ""
+        
+        let action: CheckoutRecipientAction = .updateValue(recipient)
+        
+        actions.value = action
+        
+    }
 
 }
