@@ -11,11 +11,6 @@ import TinyKit
 
 public protocol CheckoutRecipientTemplate: Template {
     
-    typealias Element = CheckoutRecipientTemplateElement
-    
-    init(
-        storage: CheckoutRecipientField,
-        reducer: (CheckoutRecipientField) -> [Element]
-    )
+    init(_ field: CheckoutRecipientField)
     
 }

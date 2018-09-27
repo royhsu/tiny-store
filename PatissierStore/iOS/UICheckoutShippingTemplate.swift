@@ -15,28 +15,30 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
     
     public struct Configuration: TemplateConfiguration {
         
-        public typealias Element = UICheckoutShippingTemplate.Element
+        public typealias Element = UICheckoutShippingTemplateElement
         
     }
     
     private let template: ConfigurableTemplate<CheckoutShippingField, Configuration>
     
     public init(
-        storage: CheckoutShippingField,
-        elements: [Element] = [
+        field: CheckoutShippingField,
+        elements: [Configuration.Element] = [
             .header,
             .form
         ]
     ) {
         
         self.template = ConfigurableTemplate(
-            storage: storage,
+            storage: field,
             elements: elements
         )
         
         self.prepare()
         
     }
+    
+    public init(_ field: CheckoutShippingField) { self.init(field: field) }
     
     fileprivate func prepare() {
         
@@ -67,17 +69,5 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
     public var numberOfViews: Int { return template.numberOfViews }
     
     public func view(at index: Int) -> View { return template.view(at: index) }
-    
-}
-
-// MARK: - UICheckoutShippingStyle
-
-public struct UICheckoutShippingStyle: CheckoutShippingStyle {
-    
-    public static func apply(to field: CheckoutShippingField) -> Template {
-        
-        return UICheckoutShippingTemplate(storage: field)
-        
-    }
     
 }

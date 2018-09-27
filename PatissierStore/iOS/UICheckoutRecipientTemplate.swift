@@ -15,25 +15,30 @@ public struct UICheckoutRecipientTemplate: CheckoutRecipientTemplate {
     
     public struct Configuration: TemplateConfiguration {
         
-        public typealias Element = CheckoutRecipientTemplate.Element
+        public typealias Element = UICheckoutRecipientTemplateElement
         
     }
     
     private let template: ConfigurableTemplate<CheckoutRecipientField, Configuration>
     
     public init(
-        storage: CheckoutRecipientField,
-        reducer: (CheckoutRecipientField) -> [Element]
+        field: CheckoutRecipientField,
+        elements: [Configuration.Element] = [
+            .header,
+            .form
+        ]
     ) {
         
         self.template = ConfigurableTemplate(
-            storage: storage,
-            elements: reducer(storage)
+            storage: field,
+            elements: elements
         )
         
         self.prepare()
         
     }
+    
+    public init(_ field: CheckoutRecipientField) { self.init(field: field) }
     
     fileprivate func prepare() {
     
@@ -66,4 +71,3 @@ public struct UICheckoutRecipientTemplate: CheckoutRecipientTemplate {
     public func view(at index: Int) -> View { return template.view(at: index) }
     
 }
-

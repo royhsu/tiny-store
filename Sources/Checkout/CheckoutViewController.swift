@@ -38,7 +38,20 @@ public final class CheckoutViewController: ViewController {
             
             storageReducer = Reducer(
                 storage: storage,
-                reduction: reduce
+                reduction: { storage in
+                    
+                    return storage.elements.map { _, element in
+                        
+                        switch element {
+                            
+                        case let .shipping(field): return field.style.apply(to: field)
+                            
+                        case let .recipient(field): return field.style.apply(to: field)
+                            
+                        }
+                        
+                    }
+                }
             )
             
         }
@@ -122,39 +135,6 @@ public final class CheckoutViewController: ViewController {
             
             #warning("TODO: error handling")
             print("\(error)")
-            
-        }
-        
-    }
-    
-    #warning("memory leaks by pass function as the closure parameter?")
-    fileprivate final func reduce(storage: CheckoutStorage) -> SectionCollection {
-        
-        guard
-            let recipientTemplateType = recipientTemplateType
-        else { fatalError("Must provide a recipient template") }
-        
-        return storage.elements.map { _, element in
-            
-            switch element {
-                
-            case let .shipping(field): return field.style.apply(to: field)
-                
-            case let .recipient(field):
-                
-                return recipientTemplateType.init(
-                    storage: field,
-                    reducer: { field in
-                        
-                        return [
-                            .header,
-                            .form
-                        ]
-                        
-                    }
-                )
-                
-            }
             
         }
         

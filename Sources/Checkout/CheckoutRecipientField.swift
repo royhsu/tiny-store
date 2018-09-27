@@ -14,11 +14,14 @@ public final class CheckoutRecipientField: Unique {
     
     public final let identifier = UUID()
     
+    public final let style: CheckoutRecipientStyle.Type
+    
     public final var firstName: String
     
     public final var firstNameRules: [ AnyValidationRule<String> ]
     
     public init(
+        style: CheckoutRecipientStyle.Type,
         firstName: String,
         firstNameRules: [ AnyValidationRule<String> ] = [
             AnyValidationRule(
@@ -26,6 +29,8 @@ public final class CheckoutRecipientField: Unique {
             )
         ]
     ) {
+        
+        self.style = style
         
         self.firstName = firstName
         

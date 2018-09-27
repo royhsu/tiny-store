@@ -11,17 +11,6 @@ import TinyKit
 
 public protocol CheckoutShippingTemplate: Template {
     
-    typealias Element = CheckoutShippingTemplateElement
-    
-    init(
-        storage: CheckoutShippingField,
-        elements: [Element]
-    )
-    
-}
-
-public protocol CheckoutShippingStyle {
-    
-    static func apply(to field: CheckoutShippingField) -> Template
+    init(_ field: CheckoutShippingField)
     
 }

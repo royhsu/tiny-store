@@ -39,9 +39,6 @@ extension AppDelegate: UIApplicationDelegate {
             action: #selector(done)
         )
         
-        #warning("Use register mechanism instead.")
-        checkoutViewController.recipientTemplateType = UICheckoutRecipientTemplate.self
-        
         checkoutViewController.form = [
             .shipping(
                 CheckoutShippingField(
@@ -51,6 +48,7 @@ extension AppDelegate: UIApplicationDelegate {
             ),
             .recipient(
                 CheckoutRecipientField(
+                    style: UICheckoutRecipientStyle.self,
                     firstName: "world"
                 )
             )
