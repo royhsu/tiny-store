@@ -11,6 +11,7 @@ public enum FormFieldDefinition<RawValue> {
     
     case required(FormField<RawValue>)
     
+    #warning("not implemented. this should validate if and only if user enter value.")
     case optional
     
 }
