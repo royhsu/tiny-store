@@ -7,11 +7,6 @@
 
 // MARK: - CheckoutViewController
 
-import TinyCore
-import TinyStorage
-import TinyKit
-import TinyValidation
-
 public final class CheckoutViewController: ViewController {
     
     public final var recipientTemplateType: CheckoutRecipientTemplate.Type?
@@ -38,7 +33,7 @@ public final class CheckoutViewController: ViewController {
             
             storageReducer = Reducer(
                 storage: storage,
-                reduction: { storage in
+                transform: { storage in
                     
                     return storage.elements.map { _, element in
                         

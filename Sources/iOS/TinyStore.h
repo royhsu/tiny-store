@@ -6,6 +6,9 @@
 //
 
 @import Foundation;
+@import TinyValidation;
+@import TinyStorage;
+@import TinyKit;
 
 FOUNDATION_EXPORT double TinyStoreVersionNumber;
 

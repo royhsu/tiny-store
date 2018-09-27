@@ -6,8 +6,8 @@
 //  Copyright © 2018 TinyWorld. All rights reserved.
 //
 
-@import Foundation;
 @import TinyStore;
+@import UIKit;
 
 FOUNDATION_EXPORT double PatissierStoreVersionNumber;
 

@@ -7,8 +7,6 @@
 
 // MARK: - CheckoutShippingTemplate
 
-import TinyKit
-
 public protocol CheckoutShippingTemplate: Template {
     
     init(_ field: CheckoutShippingField)

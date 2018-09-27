@@ -7,9 +7,6 @@
 
 // MARK: - CheckoutRecipientField
 
-import TinyCore
-import TinyValidation
-
 public final class CheckoutRecipientField: Unique {
     
     public final let identifier = UUID()

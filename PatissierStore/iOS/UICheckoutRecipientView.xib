@@ -12,21 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Equ-P5-OQA" customClass="UICheckoutRecipientView" customModule="PatissierStore" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="244"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="189"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m5J-m4-n3c">
-                    <rect key="frame" x="30" y="20" width="315" height="204"/>
+                    <rect key="frame" x="30" y="20" width="315" height="149"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpM-aP-6od">
-                            <rect key="frame" x="0.0" y="0.0" width="315" height="35"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="35" id="DIh-sz-hSb"/>
-                            </constraints>
-                        </view>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nrq-As-k6g">
-                            <rect key="frame" x="0.0" y="55" width="315" height="64.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="315" height="64.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="3IV-cU-rit">
                                     <rect key="frame" x="0.0" y="0.0" width="110.5" height="64.5"/>
@@ -173,7 +166,7 @@
                             </constraints>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="sQJ-qG-7TC">
-                            <rect key="frame" x="0.0" y="139.5" width="315" height="64.5"/>
+                            <rect key="frame" x="0.0" y="84.5" width="315" height="64.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bme-1G-fYq">
                                     <rect key="frame" x="0.0" y="0.0" width="315" height="14.5"/>
@@ -216,14 +209,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="m5J-m4-n3c" secondAttribute="bottom" constant="20" id="5m1-AB-ZoH"/>
                 <constraint firstItem="m5J-m4-n3c" firstAttribute="leading" secondItem="Equ-P5-OQA" secondAttribute="leading" constant="30" id="7Ma-Ln-cJS"/>
                 <constraint firstItem="m5J-m4-n3c" firstAttribute="top" secondItem="Equ-P5-OQA" secondAttribute="top" constant="20" id="Pdp-Mh-s5G"/>
+                <constraint firstAttribute="bottom" secondItem="m5J-m4-n3c" secondAttribute="bottom" constant="20" id="SE0-7U-23N"/>
                 <constraint firstAttribute="trailing" secondItem="m5J-m4-n3c" secondAttribute="trailing" constant="30" id="bJA-Dn-X8n"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="buyerContentView" destination="qpM-aP-6od" id="IBZ-RC-pat"/>
                 <outlet property="firstNameBottomBorderView" destination="Rlf-UD-WgX" id="3MF-Jb-4wS"/>
                 <outlet property="firstNameContentView" destination="7dq-Y3-Oo4" id="oEI-Cr-aDT"/>
                 <outlet property="firstNameLabel" destination="lMv-eR-k6t" id="POk-R1-pgw"/>
@@ -243,7 +235,7 @@
                 <outlet property="titleLeftBorderView" destination="DyI-Sz-MLg" id="nLv-ir-mFa"/>
                 <outlet property="titleRightBorderView" destination="bhq-xh-RP9" id="5l3-RJ-VGa"/>
             </connections>
-            <point key="canvasLocation" x="-31.199999999999999" y="711.544227886057"/>
+            <point key="canvasLocation" x="-31.199999999999999" y="686.80659670164926"/>
         </view>
     </objects>
 </document>

@@ -7,9 +7,6 @@
 
 // MARK: - CheckoutStorage
 
-import TinyCore
-import TinyStorage
-
 #warning("TODO: make a generic ArrayStorage.")
 internal final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
     

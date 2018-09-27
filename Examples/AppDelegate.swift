@@ -9,17 +9,13 @@
 // MARK: - AppDelegate
 
 import PatissierStore
-import TinyStorage
-import TinyStore
-import TinyKit
-import UIKit
 
 @UIApplicationMain
 public final class AppDelegate: UIResponder {
     
     public final let window = UIWindow(frame: UIScreen.main.bounds)
     
-    public final let checkoutViewController = CheckoutViewController()
+    private final let checkoutViewController = CheckoutViewController()
     
 }
 

@@ -8,10 +8,6 @@
 
 // MARK: - UICheckoutShippingView
 
-import TinyCore
-import TinyKit
-import UIKit
-
 public final class UICheckoutShippingView: UIView, Actionable {
 
     @IBOutlet

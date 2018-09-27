@@ -8,9 +8,6 @@
 
 // MARK: - UICheckoutRecipientTemplate
 
-import TinyKit
-import TinyStore
-
 public struct UICheckoutRecipientTemplate: CheckoutRecipientTemplate {
     
     public struct Configuration: TemplateConfiguration {

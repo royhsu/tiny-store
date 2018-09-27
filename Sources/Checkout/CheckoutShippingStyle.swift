@@ -7,8 +7,6 @@
 
 // MARK: - CheckoutShippingStyle
 
-import TinyKit
-
 public protocol CheckoutShippingStyle {
     
     static func apply(to field: CheckoutShippingField) -> Template

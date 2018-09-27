@@ -8,14 +8,7 @@
 
 // MARK: - UICheckoutRecipientView
 
-import TinyCore
-import TinyKit
-import UIKit
-
 public final class UICheckoutRecipientView: UITableViewCell {
-
-    @IBOutlet
-    private final weak var buyerContentView: UIView!
     
     @IBOutlet
     private final weak var firstNameLabel: UILabel!
@@ -91,53 +84,11 @@ public final class UICheckoutRecipientView: UITableViewCell {
         
     }
     
-    
-//    public enum Element: CaseIterable {
-//
-//        case firstName, lastName, title, phoneNumber
-//
-//    }
-
-//    public final var elements = Element.allCases {
-//
-//        didSet {
-//
-//            let isFirstNameHidden = !elements.contains(.firstName)
-//
-//            firstNameLabel.isHidden = isFirstNameHidden
-//
-//            firstNameContentView.isHidden = isFirstNameHidden
-//
-//            let isLastNameHidden = !elements.contains(.lastName)
-//
-//            lastNameLabel.isHidden = isLastNameHidden
-//
-//            lastNameContentView.isHidden = isLastNameHidden
-//
-//            let isTitleHidden = !elements.contains(.title)
-//
-//            titleLabel.isHidden = isTitleHidden
-//
-//            titleContentView.isHidden = isTitleHidden
-//
-//            let isPhoneNumberHidden = !elements.contains(.phoneNumber)
-//
-//            phoneNumberLabel.isHidden = isPhoneNumberHidden
-//
-//            phoneNumberContentView.isHidden = isPhoneNumberHidden
-//
-//        }
-//
-//    }
-    
     public final override func awakeFromNib() {
         
         super.awakeFromNib()
         
         isLoaded.toggle()
-
-        #warning("TODO: make the buyer button independent from this view.")
-//        setUpContentView(buyerContentView)
         
         #warning("TODO: should be defined in the locale system.")
         setUpTitleLabel(
@@ -262,7 +213,6 @@ public final class UICheckoutRecipientView: UITableViewCell {
         
     }
     
-    
     fileprivate final func setUpActionButton(_ button: UIButton) {
         
         button.contentEdgeInsets = UIEdgeInsets(
@@ -333,24 +283,12 @@ public final class UICheckoutRecipientView: UITableViewCell {
     }
     
     @objc
-    public final func enterFirstName(_ textField: UITextField) {
-        
-        
-        
-    }
+    public final func enterFirstName(_ textField: UITextField) { }
     
     @objc
-    public final func enterLastName(_ textField: UITextField) {
-        
-        
-        
-    }
+    public final func enterLastName(_ textField: UITextField) { }
 
     @objc
-    public final func enterPhoneNumber(_ textField: UITextField) {
-        
-        
-        
-    }
+    public final func enterPhoneNumber(_ textField: UITextField) { }
     
 }

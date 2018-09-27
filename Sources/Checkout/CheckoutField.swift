@@ -7,8 +7,6 @@
 
 // MARK: - CheckoutField
 
-import TinyCore
-
 public enum CheckoutField: Unique {
     
     case shipping(CheckoutShippingField)

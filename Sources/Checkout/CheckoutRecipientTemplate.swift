@@ -7,8 +7,6 @@
 
 // MARK: - CheckoutRecipientTemplate
 
-import TinyKit
-
 public protocol CheckoutRecipientTemplate: Template {
     
     init(_ field: CheckoutRecipientField)

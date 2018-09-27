@@ -8,8 +8,6 @@
 
 // MARK: - UICheckoutSectionHeaderView
 
-import UIKit
-
 public final class UICheckoutSectionHeaderView: UIView {
 
     @IBOutlet
