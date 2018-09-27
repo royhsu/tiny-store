@@ -87,7 +87,7 @@ public final class CheckoutViewController: ViewController {
 
                 self._base.sections = sections
 
-                self._base.layout?.invalidate()
+                self.asyncInvalidateLayout()
 
             case let .failure(error): self._errorHandler?(error)
 
@@ -127,6 +127,9 @@ public final class CheckoutViewController: ViewController {
                                 .shipping(shipping),
                                 forKey: shipping.identifier
                             )
+                            
+                            #warning("better to only reload the related sections.")
+                            self.asyncInvalidateLayout()
 
                         }
                     )
@@ -141,6 +144,16 @@ public final class CheckoutViewController: ViewController {
 
     }
 
+    fileprivate final func asyncInvalidateLayout() {
+        
+        DispatchQueue.main.async { [weak self] in
+            
+            self?._base.layout?.invalidate()
+            
+        }
+        
+    }
+    
     fileprivate final func handleErrors() {
 
         _base.setError { error in

@@ -73,6 +73,11 @@ public final class UICheckoutShippingView: UIView, Actionable {
         guard
             isLoaded
         else { return }
+        
+        cityButton.setTitle(
+            shipping?.city?.name,
+            for: .normal
+        )
 
         addressTextField.text = shipping?.address
 

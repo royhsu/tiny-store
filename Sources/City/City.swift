@@ -7,4 +7,8 @@
 
 // MARK: - City
 
-public protocol City { }
+public protocol City {
+    
+    var name: String { get }
+    
+}

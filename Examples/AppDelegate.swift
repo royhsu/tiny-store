@@ -26,6 +26,16 @@ extension AppDelegate: UIApplicationDelegate {
     public enum Taiwan: City {
 
         case taipei
+        
+        public var name: String {
+            
+            switch self {
+                
+            case .taipei: return "Taipei"
+                
+            }
+            
+        }
 
     }
 
