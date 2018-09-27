@@ -23,12 +23,15 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
     
     public init(
         storage: CheckoutShippingField,
-        reducer: (CheckoutShippingField) -> [Element]
+        elements: [Element] = [
+            .header,
+            .form
+        ]
     ) {
         
         self.template = ConfigurableTemplate(
             storage: storage,
-            elements: reducer(storage)
+            elements: elements
         )
         
         self.prepare()
@@ -64,5 +67,17 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
     public var numberOfViews: Int { return template.numberOfViews }
     
     public func view(at index: Int) -> View { return template.view(at: index) }
+    
+}
+
+// MARK: - UICheckoutShippingStyle
+
+public struct UICheckoutShippingStyle: CheckoutShippingStyle {
+    
+    public static func apply(to field: CheckoutShippingField) -> Template {
+        
+        return UICheckoutShippingTemplate(storage: field)
+        
+    }
     
 }

@@ -15,7 +15,13 @@ public protocol CheckoutShippingTemplate: Template {
     
     init(
         storage: CheckoutShippingField,
-        reducer: (CheckoutShippingField) -> [Element]
+        elements: [Element]
     )
+    
+}
+
+public protocol CheckoutShippingStyle {
+    
+    static func apply(to field: CheckoutShippingField) -> Template
     
 }

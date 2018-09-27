@@ -14,8 +14,6 @@ import TinyValidation
 
 public final class CheckoutViewController: ViewController {
     
-    public final var shippingTemplateType: CheckoutShippingTemplate.Type?
-    
     public final var recipientTemplateType: CheckoutRecipientTemplate.Type?
     
     private final var _actionDispatcher: Optional< (Action) -> Void >
@@ -131,10 +129,6 @@ public final class CheckoutViewController: ViewController {
     
     #warning("memory leaks by pass function as the closure parameter?")
     fileprivate final func reduce(storage: CheckoutStorage) -> SectionCollection {
-            
-        guard
-            let shippingTemplateType = shippingTemplateType
-        else { fatalError("Must provide a shipping template") }
         
         guard
             let recipientTemplateType = recipientTemplateType
@@ -144,25 +138,13 @@ public final class CheckoutViewController: ViewController {
             
             switch element {
                 
-            case let .shipping(storage):
+            case let .shipping(field): return field.style.apply(to: field)
                 
-                return shippingTemplateType.init(
-                    storage: storage,
-                    reducer: { storage in
-                        
-                        return [
-                            .header,
-                            .form
-                        ]
-                        
-                    }
-                )
-                
-            case let .recipient(storage):
+            case let .recipient(field):
                 
                 return recipientTemplateType.init(
-                    storage: storage,
-                    reducer: { storage in
+                    storage: field,
+                    reducer: { field in
                         
                         return [
                             .header,

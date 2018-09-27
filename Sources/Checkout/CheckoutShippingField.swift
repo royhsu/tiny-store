@@ -8,17 +8,21 @@
 // MARK: - CheckoutShippingField
 
 import TinyCore
+import TinyKit
 import TinyValidation
 
 public final class CheckoutShippingField: Unique {
     
     public final let identifier = UUID()
     
+    public final let style: CheckoutShippingStyle.Type
+    
     public final var address: String
     
     public final var addressRules: [ AnyValidationRule<String> ]
     
     public init(
+        style: CheckoutShippingStyle.Type,
         address: String,
         addressRules: [ AnyValidationRule<String> ] = [
             AnyValidationRule(
@@ -26,6 +30,8 @@ public final class CheckoutShippingField: Unique {
             )
         ]
     ) {
+        
+        self.style = style
         
         self.address = address
         

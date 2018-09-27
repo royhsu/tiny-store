@@ -40,14 +40,12 @@ extension AppDelegate: UIApplicationDelegate {
         )
         
         #warning("Use register mechanism instead.")
-        checkoutViewController.shippingTemplateType = UICheckoutShippingTemplate.self
-        
-        #warning("Use register mechanism instead.")
         checkoutViewController.recipientTemplateType = UICheckoutRecipientTemplate.self
         
         checkoutViewController.form = [
             .shipping(
                 CheckoutShippingField(
+                    style: UICheckoutShippingStyle.self,
                     address: "hello"
                 )
             ),
