@@ -61,7 +61,7 @@ extension AppDelegate: UIApplicationDelegate {
             .recipient(
                 CheckoutRecipientField(
                     style: UICheckoutRecipientStyle.self,
-                    firstName: "a",
+                    firstNameDefinition: .optional,
                     lastName: "b",
                     phoneNumber: "c"
                 )
@@ -98,43 +98,65 @@ extension AppDelegate: UIApplicationDelegate {
         
         case cityRequired
         
+        case firstNameRequired
+        
     }
     
     public struct FormResult: CheckoutFormResult {
-        
-        public let city: City
-        
-        public let address: String?
+//
+//        public let city: City
+//
+//        public let address: String?
+//
+        public let firstName: String?
         
         public init(_ fields: AnyCollection<CheckoutField>) throws {
             
-            var city: City?
-            
-            var address: String?
+//            var city: City?
+//
+//            var address: String?
+//
+            var firstName: String?
             
             for field in fields {
                 
                 switch field {
                     
-                case let .shipping(field):
+                case let .shipping(field): break
                     
-                    city = try field.city?.validated()
+//                    city = try field.city?.validated()
+//
+//                    address = try field.address?.validated()
+                    
+                case let .recipient(field):
+                    
+                    switch field.firstNameDefinition {
                         
-                    address = try field.address?.validated()
-                    
-                case let .recipient(field): break
+                    case let .required(field):
+                        
+                        firstName = try field.validated()
+                        
+                    case .optional: break
+                        
+                    }
                     
                 }
                 
             }
             
-            guard
-                let validCity = city
-            else { throw FormResultError.cityRequired }
+//            guard
+//                let validFirstName = firstName
+//            else { throw FormResultError.firstNameRequired }
             
-            self.city = validCity
+            self.firstName = firstName
             
-            self.address = address
+//            guard
+//                let validCity = city
+//            else { throw FormResultError.cityRequired }
+//
+//            self.city = validCity
+//
+//            self.address = address
             
         }
         

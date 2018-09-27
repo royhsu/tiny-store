@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B011237D215D1DDC00A905E3 /* FormFieldDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011237C215D1DDC00A905E3 /* FormFieldDefinition.swift */; };
 		B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */; };
 		B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8021587FF7000DC2D8 /* TinyKit.framework */; };
 		B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */; };
@@ -34,7 +35,7 @@
 		B0A5E96B215D0F9C000D0A1B /* CheckoutAddressFieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E96A215D0F9C000D0A1B /* CheckoutAddressFieldValue.swift */; };
 		B0A5E96D215D0FB6000D0A1B /* CheckoutCityFieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E96C215D0FB6000D0A1B /* CheckoutCityFieldValue.swift */; };
 		B0A5E96F215D128C000D0A1B /* CheckoutFormResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E96E215D128C000D0A1B /* CheckoutFormResult.swift */; };
-		B0A5E971215D17B6000D0A1B /* CheckoutFieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E970215D17B6000D0A1B /* CheckoutFieldValue.swift */; };
+		B0A5E971215D17B6000D0A1B /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E970215D17B6000D0A1B /* FormField.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
 		B0F51CDE21587F2D00B592F5 /* SimpleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F51CDC21587F2B00B592F5 /* SimpleTests.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B011237C215D1DDC00A905E3 /* FormFieldDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldDefinition.swift; sourceTree = "<group>"; };
 		B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8021587FF7000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +96,7 @@
 		B0A5E96A215D0F9C000D0A1B /* CheckoutAddressFieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutAddressFieldValue.swift; sourceTree = "<group>"; };
 		B0A5E96C215D0FB6000D0A1B /* CheckoutCityFieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCityFieldValue.swift; sourceTree = "<group>"; };
 		B0A5E96E215D128C000D0A1B /* CheckoutFormResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFormResult.swift; sourceTree = "<group>"; };
-		B0A5E970215D17B6000D0A1B /* CheckoutFieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFieldValue.swift; sourceTree = "<group>"; };
+		B0A5E970215D17B6000D0A1B /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F51CBF2158773A00B592F5 /* TinyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyStore.h; sourceTree = "<group>"; };
 		B0F51CC02158773A00B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,12 +142,13 @@
 		B0A1C4112158B0AA00DC9F26 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
+				B0A5E970215D17B6000D0A1B /* FormField.swift */,
+				B011237C215D1DDC00A905E3 /* FormFieldDefinition.swift */,
 				B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */,
 				B06F6E81215C972A00BBCF0F /* CheckoutDestination.swift */,
 				B06F6E5B215C4DFB00BBCF0F /* CheckoutForm.swift */,
 				B0A5E96E215D128C000D0A1B /* CheckoutFormResult.swift */,
 				B07A2C4E215A2739002EFE87 /* CheckoutField.swift */,
-				B0A5E970215D17B6000D0A1B /* CheckoutFieldValue.swift */,
 				B06F6E57215BB59E00BBCF0F /* CheckoutStorage.swift */,
 				B06F6E5F215C6D7300BBCF0F /* CheckoutShippingStyle.swift */,
 				B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */,
@@ -335,8 +338,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07A2BDE2159E1BF002EFE87 /* CheckoutViewController.swift in Sources */,
+				B011237D215D1DDC00A905E3 /* FormFieldDefinition.swift in Sources */,
 				B060BE43215CCFCE004DD2B3 /* CheckoutRecipientAction.swift in Sources */,
-				B0A5E971215D17B6000D0A1B /* CheckoutFieldValue.swift in Sources */,
+				B0A5E971215D17B6000D0A1B /* FormField.swift in Sources */,
 				B0A5E96F215D128C000D0A1B /* CheckoutFormResult.swift in Sources */,
 				B07A2BE12159E1BF002EFE87 /* CheckoutShippingTemplate.swift in Sources */,
 				B0A5E96B215D0F9C000D0A1B /* CheckoutAddressFieldValue.swift in Sources */,

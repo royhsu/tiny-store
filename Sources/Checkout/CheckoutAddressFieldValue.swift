@@ -7,7 +7,7 @@
 
 // MARK: - CheckoutAddressFieldValue
 
-public struct CheckoutAddressFieldValue: CheckoutFieldValue {
+public struct CheckoutAddressFieldValue {
     
     public typealias Rule = AnyValidationRule<String>
     

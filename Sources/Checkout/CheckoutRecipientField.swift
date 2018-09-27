@@ -13,9 +13,7 @@ public final class CheckoutRecipientField: Unique {
 
     public final let style: CheckoutRecipientStyle.Type
 
-    public final var firstName: String?
-
-    public final var firstNameRules: [ AnyValidationRule<String> ]
+    public final let firstNameDefinition: FormFieldDefinition<String>
     
     public final var lastName: String?
     
@@ -27,12 +25,11 @@ public final class CheckoutRecipientField: Unique {
 
     public init(
         style: CheckoutRecipientStyle.Type,
-        firstName: String? = nil,
-        firstNameRules: [ AnyValidationRule<String> ] = [
-            AnyValidationRule(
-                NotEmptyRule<String>()
+        firstNameDefinition: FormFieldDefinition<String> = .required(
+            FormField(
+                rules: [ .notEmpty ]
             )
-        ],
+        ),
         lastName: String? = nil,
         lastNameRules: [ AnyValidationRule<String> ] = [
             AnyValidationRule(
@@ -49,9 +46,7 @@ public final class CheckoutRecipientField: Unique {
 
         self.style = style
 
-        self.firstName = firstName
-
-        self.firstNameRules = firstNameRules
+        self.firstNameDefinition = firstNameDefinition
         
         self.lastName = lastName
         
