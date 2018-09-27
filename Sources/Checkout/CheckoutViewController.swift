@@ -109,14 +109,14 @@ public final class CheckoutViewController: ViewController {
 
                 switch action {
 
-                case let .newInput(shipping):
+                case let .updateValue(shipping):
 
                     self.form?.storage.setValue(
                         .shipping(shipping),
                         forKey: shipping.identifier
                     )
 
-                case let .showsCityPicker(shipping):
+                case let .showCityPicker(shipping):
 
                     self._navigation?(
                         CheckoutDestination.cityPicker { city in

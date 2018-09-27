@@ -9,8 +9,8 @@
 
 public enum CheckoutShippingAction: Action {
 
-    case newInput(CheckoutShippingField)
+    case updateValue(CheckoutShippingField)
 
-    case showsCityPicker(CheckoutShippingField)
+    case showCityPicker(CheckoutShippingField)
 
 }

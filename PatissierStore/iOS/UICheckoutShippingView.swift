@@ -107,7 +107,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
 
         setUpActionButton(
             cityButton,
-            action: #selector(showsCityPicker)
+            action: #selector(showCityPicker)
         )
 
         #warning("TODO: should be defined in the locale system.")
@@ -129,7 +129,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
 
         setUpActionButton(
             postalCodeButton,
-            action: #selector(showsPostalCodePicker)
+            action: #selector(showPostalCodePicker)
         )
 
         #warning("TODO: should be defined in the locale system.")
@@ -143,7 +143,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
 
         setUpTextField(
             addressTextField,
-            action: #selector(enterAddress)
+            action: #selector(updateAddress)
         )
 
         setUpContentView(addressContentView)
@@ -277,23 +277,23 @@ public final class UICheckoutShippingView: UIView, Actionable {
     }
 
     @objc
-    public final func showsCityPicker(_ button: UIButton) {
+    public final func showCityPicker(_ button: UIButton) {
 
         guard
             let shipping = shipping
         else { return }
 
-        let action: CheckoutShippingAction = .showsCityPicker(shipping)
+        let action: CheckoutShippingAction = .showCityPicker(shipping)
 
         actions.value = action
 
     }
 
     @objc
-    public final func showsPostalCodePicker(_ button: UIButton) { }
+    public final func showPostalCodePicker(_ button: UIButton) { }
 
     @objc
-    public final func enterAddress(_ textField: UITextField) {
+    public final func updateAddress(_ textField: UITextField) {
 
         guard
             let shipping = shipping
@@ -301,7 +301,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
 
         shipping.address = textField.text ?? ""
 
-        let action: CheckoutShippingAction = .newInput(shipping)
+        let action: CheckoutShippingAction = .updateValue(shipping)
 
         actions.value = action
 
