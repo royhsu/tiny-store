@@ -55,7 +55,7 @@ extension AppDelegate: UIApplicationDelegate {
             .shipping(
                 CheckoutShippingField(
                     style: UICheckoutShippingStyle.self,
-                    address: "hello"
+                    address: nil
                 )
             ),
             .recipient(
@@ -94,16 +94,62 @@ extension AppDelegate: UIApplicationDelegate {
 
     }
 
+    public enum FormResultError: Error {
+        
+        case cityRequired
+        
+    }
+    
+    public struct FormResult: CheckoutFormResult {
+        
+        public let city: City
+        
+        public let address: String?
+        
+        public init(_ fields: AnyCollection<CheckoutField>) throws {
+            
+            var city: City?
+            
+            var address: String?
+            
+            for field in fields {
+                
+                switch field {
+                    
+                case let .shipping(field):
+                    
+                    city = try field.city?.validated()
+                        
+                    address = try field.address?.validated()
+                    
+                case let .recipient(field): break
+                    
+                }
+                
+            }
+            
+            guard
+                let validCity = city
+            else { throw FormResultError.cityRequired }
+            
+            self.city = validCity
+            
+            self.address = address
+            
+        }
+        
+    }
+    
     @objc
     public final func done(_ item: UIBarButtonItem) {
 
         do {
 
             guard
-                let results = try checkoutViewController.form?.validateAll()
+                let result = try checkoutViewController.form?.export(FormResult.self)
             else { return }
 
-            print("Done", results)
+            print("Done", result)
 
         }
         catch { print("\(error)") }

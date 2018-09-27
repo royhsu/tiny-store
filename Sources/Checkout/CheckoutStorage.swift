@@ -145,14 +145,6 @@ internal final class CheckoutStorage: Storage, ExpressibleByArrayLiteral {
 
     internal final var elements: AnyCollection<Element> { return AnyCollection(_base) }
 
-    internal final func validateAll() throws -> AnyCollection<CheckoutResult> {
-
-        let results = try _base.map { try $0.value.validate() }
-
-        return AnyCollection(results)
-
-    }
-
     internal final func observe(
         _ observer: @escaping (
             _ change: ObservedChange<

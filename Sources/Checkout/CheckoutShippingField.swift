@@ -5,7 +5,7 @@
 //  Created by Roy Hsu on 2018/9/25.
 //
 
-// MARK: - CheckoutShippingField
+// MARK: = CheckoutShippingField
 
 public final class CheckoutShippingField: Unique {
 
@@ -13,52 +13,27 @@ public final class CheckoutShippingField: Unique {
 
     public final let style: CheckoutShippingStyle.Type
 
+    public typealias City = CheckoutCityFieldValue
+
+    /// Default is required.
     public final var city: City?
-
-    public final var cityRules: [ AnyValidationRule<City> ]
-
-    public final var address: String?
-
-    public final var addressRules: [ AnyValidationRule<String> ]
+    
+    public typealias Address = CheckoutAddressFieldValue
+    
+    /// Default is required.
+    public final var address: Address?
 
     public init(
         style: CheckoutShippingStyle.Type,
-        city: City? = nil,
-        cityRules: [ AnyValidationRule<City> ] = [
-            AnyValidationRule(
-                NotNilRule()
-            )
-        ],
-        address: String?,
-        addressRules: [ AnyValidationRule<String> ] = [
-            AnyValidationRule(
-                NotNilRule()
-            ),
-            AnyValidationRule(
-                NotEmptyRule()
-            )
-        ]
+        city: City? = City(),
+        address: Address? = Address()
     ) {
 
         self.style = style
 
         self.city = city
 
-        self.cityRules = cityRules
-
         self.address = address
-
-        self.addressRules = addressRules
-
-    }
-
-    public final func validate() throws -> CheckoutShippingResult {
-
-        return CheckoutShippingResult(
-            identifier: identifier,
-            city: try city.explicitlyValidated(by: cityRules),
-            address: try address.explicitlyValidated(by: addressRules)
-        )
 
     }
 

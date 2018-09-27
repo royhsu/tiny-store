@@ -63,15 +63,15 @@ public final class CheckoutRecipientField: Unique {
 
     }
 
-    public func validate() throws -> CheckoutRecipientResult {
+//    public func validate() throws -> CheckoutRecipientResult {
 
-        return CheckoutRecipientResult(
-            identifier: identifier,
-            firstName: try firstName.explicitlyValidated(by: firstNameRules),
-            lastName: try lastName.explicitlyValidated(by: lastNameRules),
-            phoneNumber: try phoneNumber.explicitlyValidated(by: phoneNumberRules)
-        )
+//        return CheckoutRecipientResult(
+//            identifier: identifier,
+//            firstName: try firstName.explicitlyValidated(by: firstNameRules),
+//            lastName: try lastName.explicitlyValidated(by: lastNameRules),
+//            phoneNumber: try phoneNumber.explicitlyValidated(by: phoneNumberRules)
+//        )
 
-    }
+//    }
 
 }

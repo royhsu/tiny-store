@@ -12,3 +12,4 @@ public protocol City {
     var name: String { get }
     
 }
+

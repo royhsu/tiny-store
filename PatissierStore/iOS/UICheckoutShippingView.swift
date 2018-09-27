@@ -75,11 +75,11 @@ public final class UICheckoutShippingView: UIView, Actionable {
         else { return }
         
         cityButton.setTitle(
-            shipping?.city?.name,
+            shipping?.city?.rawValue?.name,
             for: .normal
         )
 
-        addressTextField.text = shipping?.address
+        addressTextField.text = shipping?.address?.rawValue
 
     }
 
@@ -299,7 +299,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
             let shipping = shipping
         else { return }
 
-        shipping.address = textField.text ?? ""
+        shipping.address?.rawValue = textField.text
 
         let action: CheckoutShippingAction = .updateValue(shipping)
 

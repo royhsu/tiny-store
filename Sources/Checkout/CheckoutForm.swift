@@ -16,7 +16,15 @@ public struct CheckoutForm: ExpressibleByArrayLiteral {
     ) { self.storage = CheckoutStorage(elements: fields) }
 
     public init(arrayLiteral fields: CheckoutField...) { self.init(fields: fields) }
-
-    public func validateAll() throws -> AnyCollection<CheckoutResult> { return try storage.validateAll() }
+    
+    public func export(_ resultType: CheckoutFormResult.Type) throws -> CheckoutFormResult {
+        
+        let fields = storage.elements.map { $0.value }
+        
+        return try resultType.init(
+            AnyCollection(fields)
+        )
+        
+    }
 
 }
