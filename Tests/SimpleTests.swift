@@ -10,7 +10,7 @@
 import XCTest
 
 internal final class SimpleTests: XCTestCase {
-    
+
     internal final func test() { }
-    
+
 }

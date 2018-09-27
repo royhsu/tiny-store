@@ -8,7 +8,7 @@
 // MARK: - CheckoutShippingTemplate
 
 public protocol CheckoutShippingTemplate: Template {
-    
+
     init(_ field: CheckoutShippingField)
-    
+
 }

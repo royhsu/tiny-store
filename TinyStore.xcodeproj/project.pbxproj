@@ -21,6 +21,8 @@
 		B06F6E5C215C4DFB00BBCF0F /* CheckoutForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E5B215C4DFB00BBCF0F /* CheckoutForm.swift */; };
 		B06F6E60215C6D7300BBCF0F /* CheckoutShippingStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E5F215C6D7300BBCF0F /* CheckoutShippingStyle.swift */; };
 		B06F6E64215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E63215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift */; };
+		B06F6E82215C972A00BBCF0F /* CheckoutDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E81215C972A00BBCF0F /* CheckoutDestination.swift */; };
+		B06F6E85215C974F00BBCF0F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E84215C974F00BBCF0F /* City.swift */; };
 		B07A2BDE2159E1BF002EFE87 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */; };
 		B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */; };
 		B07A2BE12159E1BF002EFE87 /* CheckoutShippingTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */; };
@@ -71,6 +73,8 @@
 		B06F6E5B215C4DFB00BBCF0F /* CheckoutForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutForm.swift; sourceTree = "<group>"; };
 		B06F6E5F215C6D7300BBCF0F /* CheckoutShippingStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingStyle.swift; sourceTree = "<group>"; };
 		B06F6E63215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRecipientStyle.swift; sourceTree = "<group>"; };
+		B06F6E81215C972A00BBCF0F /* CheckoutDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDestination.swift; sourceTree = "<group>"; };
+		B06F6E84215C974F00BBCF0F /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRecipientTemplate.swift; sourceTree = "<group>"; };
 		B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingTemplate.swift; sourceTree = "<group>"; };
 		B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingField.swift; sourceTree = "<group>"; };
@@ -115,10 +119,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B06F6E83215C974500BBCF0F /* City */ = {
+			isa = PBXGroup;
+			children = (
+				B06F6E84215C974F00BBCF0F /* City.swift */,
+			);
+			path = City;
+			sourceTree = "<group>";
+		};
 		B0A1C4112158B0AA00DC9F26 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
 				B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */,
+				B06F6E81215C972A00BBCF0F /* CheckoutDestination.swift */,
 				B06F6E5B215C4DFB00BBCF0F /* CheckoutForm.swift */,
 				B07A2C4E215A2739002EFE87 /* CheckoutField.swift */,
 				B06F6E57215BB59E00BBCF0F /* CheckoutStorage.swift */,
@@ -155,6 +168,7 @@
 		B0F51CBE2158773A00B592F5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B06F6E83215C974500BBCF0F /* City */,
 				B0F51CC52158778C00B592F5 /* iOS */,
 				B0A1C4112158B0AA00DC9F26 /* Checkout */,
 			);
@@ -309,12 +323,14 @@
 				B07A2BE12159E1BF002EFE87 /* CheckoutShippingTemplate.swift in Sources */,
 				B06F6E5A215C486000BBCF0F /* CheckoutRecipientField.swift in Sources */,
 				B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */,
+				B06F6E82215C972A00BBCF0F /* CheckoutDestination.swift in Sources */,
 				B06F6E5C215C4DFB00BBCF0F /* CheckoutForm.swift in Sources */,
 				B07A2BE32159E1BF002EFE87 /* CheckoutShippingAction.swift in Sources */,
 				B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */,
 				B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */,
 				B06F6E60215C6D7300BBCF0F /* CheckoutShippingStyle.swift in Sources */,
 				B06F6E58215BB59E00BBCF0F /* CheckoutStorage.swift in Sources */,
+				B06F6E85215C974F00BBCF0F /* City.swift in Sources */,
 				B06F6E64215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

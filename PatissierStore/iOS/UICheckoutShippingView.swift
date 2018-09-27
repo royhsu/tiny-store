@@ -57,33 +57,33 @@ public final class UICheckoutShippingView: UIView, Actionable {
 
     @IBOutlet
     private final weak var addressTextField: UITextField!
-    
+
     private final var isLoaded = false
-    
+
     public final let actions = Observable<Action>()
 
     public final var shipping: CheckoutShippingField? {
-        
+
         didSet { updateUI() }
-        
+
     }
-    
+
     fileprivate final func updateUI() {
-        
+
         guard
             isLoaded
         else { return }
-        
+
         addressTextField.text = shipping?.address
-        
+
     }
-    
+
     public final override func awakeFromNib() {
-        
+
         super.awakeFromNib()
 
         isLoaded.toggle()
-        
+
         setUpTitleLabel(
             cityLabel,
             title: NSLocalizedString(
@@ -95,13 +95,16 @@ public final class UICheckoutShippingView: UIView, Actionable {
         setUpContentView(cityContentView)
 
         setUpBorderView(cityBottomBorderView)
-        
+
         setUpBorderView(cityLeftBorderView)
-        
+
         setUpBorderView(cityRightBorderView)
-        
-        setUpActionButton(cityButton)
-        
+
+        setUpActionButton(
+            cityButton,
+            action: #selector(showsCityPicker)
+        )
+
         #warning("TODO: should be defined in the locale system.")
         setUpTitleLabel(
             postalCodeLabel,
@@ -110,16 +113,19 @@ public final class UICheckoutShippingView: UIView, Actionable {
                 comment: ""
             )
         )
-        
+
         setUpContentView(postalCodeContentView)
 
         setUpBorderView(postalCodeBottomBorderView)
-        
+
         setUpBorderView(postalCodeLeftBorderView)
-        
+
         setUpBorderView(postalCodeRightBorderView)
-        
-        setUpActionButton(postalCodeButton)
+
+        setUpActionButton(
+            postalCodeButton,
+            action: #selector(showsPostalCodePicker)
+        )
 
         #warning("TODO: should be defined in the locale system.")
         setUpTitleLabel(
@@ -134,30 +140,30 @@ public final class UICheckoutShippingView: UIView, Actionable {
             addressTextField,
             action: #selector(enterAddress)
         )
-        
+
         setUpContentView(addressContentView)
-        
+
         setUpBorderView(addressBottomBorderView)
 
         updateUI()
-        
+
     }
-    
+
     fileprivate final func setUpTitleLabel(
         _ label: UILabel,
         title: String
     ) {
-        
+
         #warning("TODO: should be defined in the design system.")
         label.font = UIFont(
             name: "Georgia",
             size: 12.0
         )
-        
+
         label.numberOfLines = 1
-        
+
         label.textAlignment = .left
-        
+
         #warning("TODO: should be defined in the design system.")
         label.textColor = UIColor(
             red: 165.0 / 255.0,
@@ -165,15 +171,15 @@ public final class UICheckoutShippingView: UIView, Actionable {
             blue: 178.0 / 255.0,
             alpha: 1.0
         )
-        
+
         label.text = title
-        
+
     }
 
     fileprivate final func setUpContentView(_ view: UIView) { view.backgroundColor = .white }
-    
+
     fileprivate final func setUpBorderView(_ view: UIView) {
-        
+
         #warning("TODO: should be defined in the design system.")
         let borderColor = UIColor(
             red: 165.0 / 255.0,
@@ -183,10 +189,13 @@ public final class UICheckoutShippingView: UIView, Actionable {
         )
 
         view.backgroundColor = borderColor
-        
+
     }
 
-    fileprivate final func setUpActionButton(_ button: UIButton) {
+    fileprivate final func setUpActionButton(
+        _ button: UIButton,
+        action: Selector
+    ) {
 
         button.contentEdgeInsets = UIEdgeInsets(
             top: 10.0,
@@ -211,6 +220,12 @@ public final class UICheckoutShippingView: UIView, Actionable {
             green: 66.0 / 255.0,
             blue: 64.0 / 255.0,
             alpha: 1.0
+        )
+
+        button.addTarget(
+            self,
+            action: action,
+            for: .touchUpInside
         )
 
     }
@@ -246,7 +261,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
             blue: 64.0 / 255.0,
             alpha: 1.0
         )
-        
+
         #warning("FIXME: multiple unneccessary changes are triggered while entering Traditional Chinese.")
         textField.addTarget(
             self,
@@ -255,20 +270,36 @@ public final class UICheckoutShippingView: UIView, Actionable {
         )
 
     }
-    
+
+    @objc
+    public final func showsCityPicker(_ button: UIButton) {
+
+        guard
+            let shipping = shipping
+        else { return }
+
+        let action: CheckoutShippingAction = .showsCityPicker(shipping)
+
+        actions.value = action
+
+    }
+
+    @objc
+    public final func showsPostalCodePicker(_ button: UIButton) { }
+
     @objc
     public final func enterAddress(_ textField: UITextField) {
-        
+
         guard
-            var shipping = shipping
+            let shipping = shipping
         else { return }
-        
+
         shipping.address = textField.text ?? ""
-        
+
         let action: CheckoutShippingAction = .newInput(shipping)
 
         actions.value = action
-        
+
     }
 
 }

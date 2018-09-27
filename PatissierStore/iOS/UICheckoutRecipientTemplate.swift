@@ -9,15 +9,15 @@
 // MARK: - UICheckoutRecipientTemplate
 
 public struct UICheckoutRecipientTemplate: CheckoutRecipientTemplate {
-    
+
     public struct Configuration: TemplateConfiguration {
-        
+
         public typealias Element = UICheckoutRecipientTemplateElement
-        
+
     }
-    
+
     private let template: ConfigurableTemplate<CheckoutRecipientField, Configuration>
-    
+
     public init(
         field: CheckoutRecipientField,
         elements: [Configuration.Element] = [
@@ -25,24 +25,24 @@ public struct UICheckoutRecipientTemplate: CheckoutRecipientTemplate {
             .form
         ]
     ) {
-        
+
         self.template = ConfigurableTemplate(
             storage: field,
             elements: elements
         )
-        
+
         self.prepare()
-        
+
     }
-    
+
     public init(_ field: CheckoutRecipientField) { self.init(field: field) }
-    
+
     fileprivate func prepare() {
-    
+
         template.registerView(
             UICheckoutSectionHeaderView.self,
             from: Bundle(for: UICheckoutSectionHeaderView.self),
-            binding: { storage, view in
+            binding: { _, view in
 
                 #warning("TODO: should be defined in the locale system.")
                 view.titleLabel.text = NSLocalizedString(
@@ -53,18 +53,18 @@ public struct UICheckoutRecipientTemplate: CheckoutRecipientTemplate {
             },
             for: .header
         )
-        
+
         template.registerView(
             UICheckoutRecipientView.self,
             from: Bundle(for: UICheckoutRecipientView.self),
             binding: { recipient, view in view.recipient = recipient },
             for: .form
         )
-    
+
     }
-    
+
     public var numberOfViews: Int { return template.numberOfViews }
-    
+
     public func view(at index: Int) -> View { return template.view(at: index) }
-    
+
 }

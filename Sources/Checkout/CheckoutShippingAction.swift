@@ -8,7 +8,9 @@
 // MARK: - CheckoutShippingAction
 
 public enum CheckoutShippingAction: Action {
-    
+
     case newInput(CheckoutShippingField)
-    
+
+    case showsCityPicker(CheckoutShippingField)
+
 }

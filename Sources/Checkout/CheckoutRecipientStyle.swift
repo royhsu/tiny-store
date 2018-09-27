@@ -8,7 +8,7 @@
 // MARK: - CheckoutRecipientStyle
 
 public protocol CheckoutRecipientStyle {
-    
+
     static func apply(to field: CheckoutRecipientField) -> Template
-    
+
 }

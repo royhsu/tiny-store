@@ -8,7 +8,7 @@
 // MARK: - CheckoutRecipientTemplate
 
 public protocol CheckoutRecipientTemplate: Template {
-    
+
     init(_ field: CheckoutRecipientField)
-    
+
 }

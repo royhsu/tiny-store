@@ -26,27 +26,27 @@ public final class UICheckoutSectionHeaderView: UIView {
     public private(set) final weak var titleLabel: UILabel!
 
     public final override func awakeFromNib() {
-        
+
         super.awakeFromNib()
-        
+
         translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate(
             [ heightAnchor.constraint(equalToConstant: 44.0) ]
         )
 
         setUpSeparatorLineView(topLeftSeparatorLineView)
-        
+
         setUpSeparatorLineView(bottomLeftSeparatorLineView)
-        
+
         setUpSeparatorLineView(topRightSeparatorLineView)
-        
+
         setUpSeparatorLineView(bottomRightSeparatorLineView)
-        
+
         setUpTitleLabel(titleLabel)
 
     }
-    
+
     fileprivate final func setUpSeparatorLineView(_ view: UIView) {
 
         #warning("TODO: should be defined in the design system.")
@@ -56,7 +56,7 @@ public final class UICheckoutSectionHeaderView: UIView {
             blue: 64.0 / 255.0,
             alpha: 1.0
         )
-        
+
         view.backgroundColor = lineColor
 
     }

@@ -8,7 +8,7 @@
 // MARK: - UICheckoutShippingTemplateElement
 
 public enum UICheckoutShippingTemplateElement {
-    
+
     case header, form
-    
+
 }
