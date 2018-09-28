@@ -80,11 +80,11 @@ public final class UICheckoutRecipientView: UITableViewCell {
             isLoaded
         else { return }
 
-        firstNameTextField.text = recipient?.firstName.value
+        firstNameTextField.text = recipient?.firstNameField.value
         
-        lastNameTextField.text = recipient?.lastName.value
+        lastNameTextField.text = recipient?.lastNameField.value
         
-        phoneNumberTextField.text = recipient?.phoneNumber.value
+        phoneNumberTextField.text = recipient?.phoneNumberField.value
 
     }
 
@@ -293,7 +293,7 @@ public final class UICheckoutRecipientView: UITableViewCell {
             let recipient = recipient
         else { return }
         
-        recipient.firstName.value = textField.text
+        recipient.firstNameField.value = textField.text
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
         
@@ -308,7 +308,7 @@ public final class UICheckoutRecipientView: UITableViewCell {
             let recipient = recipient
         else { return }
         
-        recipient.lastName.value = textField.text
+        recipient.lastNameField.value = textField.text
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
         
@@ -323,7 +323,7 @@ public final class UICheckoutRecipientView: UITableViewCell {
             let recipient = recipient
         else { return }
         
-        recipient.phoneNumber.value = textField.text
+        recipient.phoneNumberField.value = textField.text
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
         

@@ -10,7 +10,7 @@
 public enum CheckoutDestination: Destination {
 
     case cityPicker(
-        handler: (City) -> Void
+        completion: (City) -> Void
     )
 
 }

@@ -54,13 +54,14 @@ extension AppDelegate: UIApplicationDelegate {
         checkoutViewController.form = [
             .shipping(
                 CheckoutShippingField(
-                    style: UICheckoutShippingStyle.self
+                    style: UICheckoutShippingStyle.self,
+                    postalCodeField: CheckoutPostalCodeField(definition: .optional)
                 )
             ),
             .recipient(
                 CheckoutRecipientField(
                     style: UICheckoutRecipientStyle.self,
-                    firstName: CheckoutFirstNameField(definition: .optional)
+                    firstNameField: CheckoutFirstNameField(definition: .optional)
                 )
             )
         ]
@@ -139,11 +140,11 @@ extension AppDelegate: UIApplicationDelegate {
                     
                 case let .recipient(field):
                     
-                    firstName = try field.firstName.validate()
+                    firstName = try field.firstNameField.validate()
                     
-                    lastName = try field.lastName.validate()
+                    lastName = try field.lastNameField.validate()
                     
-                    phoneNumber = try field.phoneNumber.validate()
+                    phoneNumber = try field.phoneNumberField.validate()
                     
                 }
                 

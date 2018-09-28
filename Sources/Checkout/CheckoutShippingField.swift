@@ -21,18 +21,18 @@ public final class CheckoutShippingField: Unique {
 
     public init(
         style: CheckoutShippingStyle.Type,
-        city: CheckoutCityField = .init(),
+        cityField: CheckoutCityField = .init(),
         postalCodeField: CheckoutPostalCodeField = .init(),
-        address: CheckoutAddressField = .init()
+        addressField: CheckoutAddressField = .init()
     ) {
 
         self.style = style
 
-        self.cityField = city
+        self.cityField = cityField
         
         self.postalCodeField = postalCodeField
 
-        self.addressField = address
+        self.addressField = addressField
 
     }
 
