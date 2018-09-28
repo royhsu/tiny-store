@@ -5,7 +5,7 @@
 //  Created by Roy Hsu on 2018/9/25.
 //
 
-// MARK: = CheckoutShippingField
+// MARK: - CheckoutShippingField
 
 public final class CheckoutShippingField: Unique {
 

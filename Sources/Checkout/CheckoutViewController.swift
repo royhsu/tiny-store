@@ -36,18 +36,11 @@ public final class CheckoutViewController: ViewController {
             storageReducer = Reducer(
                 storage: storage,
                 transform: { storage in
-
-                    return storage.elements.map { _, element in
-
-                        switch element {
-
-                        case let .shipping(field): return field.style.apply(to: field)
-
-                        case let .recipient(field): return field.style.apply(to: field)
-
-                        }
-
-                    }
+                    
+                    let sections = storage.elements.map { _, element in element.template }
+                    
+                    return sections
+                    
                 }
             )
 

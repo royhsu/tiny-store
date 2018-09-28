@@ -7,7 +7,7 @@
 
 // MARK: - CheckoutField
 
-public enum CheckoutField: Unique {
+public enum CheckoutField: Unique, TemplateRepresentable {
 
     case shipping(CheckoutShippingField)
 
@@ -23,6 +23,18 @@ public enum CheckoutField: Unique {
 
         }
 
+    }
+    
+    public var template: Template {
+        
+        switch self {
+            
+        case let .shipping(field): return field.style.apply(to: field)
+            
+        case let .recipient(field): return field.style.apply(to: field)
+            
+        }
+        
     }
 
 }
