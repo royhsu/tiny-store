@@ -9,7 +9,7 @@
 
 public enum CheckoutShippingAction: Action {
 
-    case updateValue(CheckoutShippingField)
+    case updateField(CheckoutShippingField)
 
     case showPostalCodePicker(CheckoutShippingField)
     

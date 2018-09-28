@@ -309,10 +309,10 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
         recipientField?.firstNameField.value = textField.text
         
         guard
-            let recipient = recipientField
+            let field = recipientField
         else { return }
         
-        let action: CheckoutRecipientAction = .updateValue(recipient)
+        let action: CheckoutRecipientAction = .updateField(field)
         
         actions.value = action
         
@@ -324,10 +324,10 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
         recipientField?.lastNameField.value = textField.text
         
         guard
-            let recipient = recipientField
+            let field = recipientField
         else { return }
         
-        let action: CheckoutRecipientAction = .updateValue(recipient)
+        let action: CheckoutRecipientAction = .updateField(field)
         
         actions.value = action
         
@@ -337,10 +337,10 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
     public final func showPersonTitlePicker(_ button: UIButton) {
         
         guard
-            let recipient = recipientField
+            let field = recipientField
         else { return }
         
-        let action: CheckoutRecipientAction = .showPersonTitlePicker(recipient)
+        let action: CheckoutRecipientAction = .showPersonTitlePicker(field)
         
         actions.value = action
         
@@ -352,10 +352,10 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
         recipientField?.phoneNumberField.value = textField.text
         
         guard
-            let recipient = recipientField
+            let field = recipientField
         else { return }
         
-        let action: CheckoutRecipientAction = .updateValue(recipient)
+        let action: CheckoutRecipientAction = .updateField(field)
         
         actions.value = action
         

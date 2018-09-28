@@ -60,6 +60,14 @@ extension AppDelegate: UIApplicationDelegate {
                     quantity: 5
                 )
             ),
+            .item(
+                CheckoutItemField(
+                    style: UICheckoutItemStyle.self,
+                    title: "Apple Pie",
+                    price: 30.0,
+                    quantity: 2
+                )
+            ),
             .shipping(
                 CheckoutShippingField(
                     style: UICheckoutShippingStyle.self

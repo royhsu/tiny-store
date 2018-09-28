@@ -178,6 +178,14 @@ public final class UICheckoutItemView: UIView, Actionable {
         
         itemField?.quantity = UInt(quantity)
         
+        guard
+            let field = itemField
+        else { return }
+        
+        let action: CheckoutItemAction = .updateField(field)
+        
+        actions.value = action
+        
     }
     
 }

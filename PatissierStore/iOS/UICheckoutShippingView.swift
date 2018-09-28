@@ -285,10 +285,10 @@ public final class UICheckoutShippingView: UIView, Actionable {
     public final func showCityPicker(_ button: UIButton) {
 
         guard
-            let shipping = shippingField
+            let field = shippingField
         else { return }
 
-        let action: CheckoutShippingAction = .showCityPicker(shipping)
+        let action: CheckoutShippingAction = .showCityPicker(field)
 
         actions.value = action
 
@@ -298,10 +298,10 @@ public final class UICheckoutShippingView: UIView, Actionable {
     public final func showPostalCodePicker(_ button: UIButton) {
         
         guard
-            let shipping = shippingField
+            let field = shippingField
         else { return }
         
-        let action: CheckoutShippingAction = .showPostalCodePicker(shipping)
+        let action: CheckoutShippingAction = .showPostalCodePicker(field)
         
         actions.value = action
         
@@ -313,10 +313,10 @@ public final class UICheckoutShippingView: UIView, Actionable {
         shippingField?.addressField.value = textField.text
         
         guard
-            let shipping = shippingField
+            let field = shippingField
         else { return }
 
-        let action: CheckoutShippingAction = .updateValue(shipping)
+        let action: CheckoutShippingAction = .updateField(field)
 
         actions.value = action
 

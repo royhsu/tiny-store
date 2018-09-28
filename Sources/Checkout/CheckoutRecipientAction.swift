@@ -9,7 +9,7 @@
 
 public enum CheckoutRecipientAction: Action {
     
-    case updateValue(CheckoutRecipientField)
+    case updateField(CheckoutRecipientField)
     
     case showPersonTitlePicker(CheckoutRecipientField)
     
