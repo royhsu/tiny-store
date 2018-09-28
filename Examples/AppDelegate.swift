@@ -70,9 +70,9 @@ extension AppDelegate: UIApplicationDelegate {
 
                 switch destination {
 
-                case let .cityPicker(handler):
+                case let .cityPicker(completion):
 
-                    handler(Taiwan.taipei)
+                    completion(Taiwan.taipei)
 
                 }
 
