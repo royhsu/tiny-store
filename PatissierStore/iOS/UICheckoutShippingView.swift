@@ -69,7 +69,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
     }
 
     fileprivate final func updateUI() {
-
+print("CCC", shipping)
         guard
             isLoaded
         else { return }

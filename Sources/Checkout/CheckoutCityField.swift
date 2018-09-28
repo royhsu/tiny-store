@@ -24,3 +24,27 @@ public final class CheckoutCityField: FormField<City> {
     }
     
 }
+
+public struct NewCheckoutCityField: NewFormField {
+    
+    public var value: City?
+    
+    public let rules: [ AnyValidationRule<City> ]
+    
+    public let definition: FormFieldDefinition
+    
+    public init(
+        value: City? = nil,
+        rules: [ AnyValidationRule<City> ] = [],
+        definition: FormFieldDefinition = .required
+    ) {
+        
+        self.value = value
+        
+        self.rules = rules
+        
+        self.definition = definition
+        
+    }
+    
+}

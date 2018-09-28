@@ -7,25 +7,28 @@
 
 // MARK: - CheckoutShippingField
 
-public final class CheckoutShippingField: Unique {
+public struct CheckoutShippingField {
 
-    public final let identifier = UUID()
+    public let identifier: UUID
 
-    public final let style: CheckoutShippingStyle.Type
+    public let style: CheckoutShippingStyle.Type
 
-    public final let cityField: CheckoutCityField
+    public var cityField: NewCheckoutCityField
     
-    public final let postalCodeField: CheckoutPostalCodeField
+    public let postalCodeField: CheckoutPostalCodeField
     
-    public final let addressField: CheckoutAddressField
+    public let addressField: CheckoutAddressField
 
     public init(
+        identifier: UUID = UUID(),
         style: CheckoutShippingStyle.Type,
-        cityField: CheckoutCityField = .init(),
+        cityField: NewCheckoutCityField = .init(),
         postalCodeField: CheckoutPostalCodeField = .init(),
         addressField: CheckoutAddressField = .init()
     ) {
 
+        self.identifier = identifier
+        
         self.style = style
 
         self.cityField = cityField

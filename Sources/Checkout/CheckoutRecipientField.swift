@@ -7,24 +7,27 @@
 
 // MARK: - CheckoutRecipientField
 
-public final class CheckoutRecipientField: Unique {
+public struct CheckoutRecipientField {
 
-    public final let identifier = UUID()
+    public let identifier: UUID
 
-    public final let style: CheckoutRecipientStyle.Type
+    public let style: CheckoutRecipientStyle.Type
 
-    public final let firstNameField: CheckoutFirstNameField
+    public let firstNameField: CheckoutFirstNameField
     
-    public final let lastNameField: CheckoutLastNameField
+    public let lastNameField: CheckoutLastNameField
     
-    public final let phoneNumberField: CheckoutPhoneNumberField
+    public let phoneNumberField: CheckoutPhoneNumberField
 
     public init(
+        identifier: UUID = UUID(),
         style: CheckoutRecipientStyle.Type,
         firstNameField: CheckoutFirstNameField = .init(),
         lastNameField: CheckoutLastNameField = .init(),
         phoneNumberField: CheckoutPhoneNumberField = .init()
     ) {
+        
+        self.identifier = identifier
 
         self.style = style
 

@@ -7,15 +7,65 @@
 
 // MARK: - FormField
 
-open class FormField<Value> {
+public protocol NewFormField {
+
+    associatedtype Value
     
-    public final var value: Value?
+    var value: Value? { get set }
+    
+    var rules: [ AnyValidationRule<Value> ] { get }
+    
+    var definition: FormFieldDefinition { get }
+ 
+}
+
+public extension NewFormField {
+    
+    /// The value must be not nil to pass the the validation if the field marked as `.required`.
+    /// And notice that an `.optional` field will only be validated if it does contain a value.
+    /// You don't have to manually include `NotNilRule` in rules for the field.
+    public func validate() throws -> Value? {
+        
+        switch definition {
+            
+        case .required:
+            
+            let unwrappedValue = try value.explicitlyValidated(
+                by: NotNilRule()
+            )
+            
+            try rules.forEach { rule in _ = try rule.validate(unwrappedValue) }
+            
+            return unwrappedValue
+            
+        case .optional:
+            
+            if let unwrappedValue = value {
+                
+                try rules.forEach { rule in try rule.validate(unwrappedValue) }
+                
+                return unwrappedValue
+                
+            }
+            
+            return nil
+            
+        }
+        
+    }
+    
+}
+
+
+public class FormField<Value> {
+    
+    public var value: Value?
     
     public typealias Rule = AnyValidationRule<Value>
     
-    public final let rules: [Rule]
+    public let rules: [Rule]
     
-    public final let definition: FormFieldDefinition
+    public let definition: FormFieldDefinition
     
     public init(
         value: Value?,
@@ -38,7 +88,7 @@ public extension FormField {
     /// The value must be not nil to pass the the validation if the field marked as `.required`.
     /// And notice that an `.optional` field will only be validated if it does contain a value.
     /// You don't have to manually include `NotNilRule` in rules for the field.
-    public final func validate() throws -> Value? {
+    public func validate() throws -> Value? {
         
         switch definition {
             

@@ -52,6 +52,30 @@ public final class CheckoutViewController: ViewController {
 
     private final var storageReducer: Reducer?
 
+    fileprivate func reduceStorage() {
+        
+        storageReducer?.reduce(queue: .main) { [weak self] result in
+            
+            guard
+                let self = self
+                else { return }
+            
+            switch result {
+                
+            case let .success(sections):
+                
+                self._base.sections = sections
+                
+                self.asyncInvalidateLayout()
+                
+            case let .failure(error): self._errorHandler?(error)
+                
+            }
+            
+        }
+        
+    }
+    
     public final override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -68,25 +92,7 @@ public final class CheckoutViewController: ViewController {
 
         handleErrors()
 
-        storageReducer?.reduce(queue: .main) { [weak self] result in
-
-            guard
-                let self = self
-            else { return }
-
-            switch result {
-
-            case let .success(sections):
-
-                self._base.sections = sections
-
-                self.asyncInvalidateLayout()
-
-            case let .failure(error): self._errorHandler?(error)
-
-            }
-
-        }
+        reduceStorage()
 
     }
 
@@ -109,11 +115,11 @@ public final class CheckoutViewController: ViewController {
                         forKey: shipping.identifier
                     )
 
-                case let .showCityPicker(shipping):
+                case var .showCityPicker(shipping):
 
                     self._navigation?(
                         CheckoutDestination.cityPicker { city in
-
+                            
                             shipping.cityField.value = city
                             
                             self.form?.storage.setValue(
@@ -122,7 +128,7 @@ public final class CheckoutViewController: ViewController {
                             )
                             
                             #warning("better to only reload the related sections.")
-                            self.asyncInvalidateLayout()
+                            self.reduceStorage()
 
                         }
                     )

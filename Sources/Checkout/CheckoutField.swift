@@ -7,7 +7,7 @@
 
 // MARK: - CheckoutField
 
-public enum CheckoutField: Unique, TemplateRepresentable {
+public enum CheckoutField: TemplateRepresentable {
 
     case shipping(CheckoutShippingField)
 
