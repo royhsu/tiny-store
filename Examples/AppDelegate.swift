@@ -105,100 +105,6 @@ extension AppDelegate: UIApplicationDelegate {
         return true
 
     }
-
-    public enum FormResultError: Error {
-        
-        case cityRequired
-        
-        case postalCodeRequired
-        
-        case addressRequired
-        
-        case firstNameRequired
-        
-        case lastNameRequired
-        
-        case phoneNumberRequired
-        
-    }
-    
-    public struct FormResult: CheckoutFormResult {
-
-        public let city: City
-        
-        public let postalCode: String
-
-        public let address: String
-
-        public let firstName: String
-        
-        public let lastName: String
-        
-        public let phoneNumber: String
-        
-        public init(_ fields: AnyCollection<CheckoutField>) throws {
-            
-            var city: City?
-
-            var address: String?
-            
-            var postalCode: String?
-
-            var firstName: String?
-            
-            var lastName: String?
-            
-            var phoneNumber: String?
-            
-            for field in fields {
-                
-                switch field {
-                    
-                case let .item(field):
-                    
-                    break
-                    
-                case let .shipping(field):
-                    
-                    city = try field.cityField.validate()
-                    
-                    postalCode = try field.postalCodeField.validate()
-
-                    address = try field.addressField.validate()
-                    
-                case let .recipient(field):
-                    
-                    firstName = try field.firstNameField.validate()
-                    
-                    lastName = try field.lastNameField.validate()
-                    
-                    phoneNumber = try field.phoneNumberField.validate()
-                    
-                }
-                
-            }
-            
-            if let city = city { self.city = city }
-            else { throw FormResultError.cityRequired }
-
-            if let postalCode = postalCode { self.postalCode = postalCode }
-            else { throw FormResultError.postalCodeRequired }
-
-            if let address = address { self.address = address }
-            else { throw FormResultError.addressRequired }
-            
-            if let firstName = firstName { self.firstName = firstName }
-            else { throw FormResultError.firstNameRequired }
-            
-            if let lastName = lastName { self.lastName = lastName }
-            else { throw FormResultError.lastNameRequired }
-            
-            if let phoneNumber = phoneNumber { self.phoneNumber = phoneNumber }
-            else { throw FormResultError.phoneNumberRequired }
-            
-        }
-        
-    }
     
     @objc
     public final func done(_ item: UIBarButtonItem) {
@@ -206,7 +112,7 @@ extension AppDelegate: UIApplicationDelegate {
         do {
 
             guard
-                let result = try checkoutViewController.form?.export(FormResult.self)
+                let result = try checkoutViewController.form?.export(CheckoutResult.self)
             else { return }
 
             print("Done", result)
