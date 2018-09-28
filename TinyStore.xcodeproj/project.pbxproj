@@ -17,6 +17,7 @@
 		B0112395215DE1D900A905E3 /* CheckoutLastNameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112394215DE1D900A905E3 /* CheckoutLastNameField.swift */; };
 		B0112397215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112396215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift */; };
 		B011239C215E056C00A905E3 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011239A215E056600A905E3 /* MessageField.swift */; };
+		B011239E215E27A900A905E3 /* CheckoutPersonTitleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011239D215E27A900A905E3 /* CheckoutPersonTitleField.swift */; };
 		B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */; };
 		B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8021587FF7000DC2D8 /* TinyKit.framework */; };
 		B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */; };
@@ -85,6 +86,7 @@
 		B0112394215DE1D900A905E3 /* CheckoutLastNameField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutLastNameField.swift; sourceTree = "<group>"; };
 		B0112396215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPhoneNumberField.swift; sourceTree = "<group>"; };
 		B011239A215E056600A905E3 /* MessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
+		B011239D215E27A900A905E3 /* CheckoutPersonTitleField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPersonTitleField.swift; sourceTree = "<group>"; };
 		B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8021587FF7000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +194,7 @@
 				B06F6E59215C486000BBCF0F /* CheckoutRecipientField.swift */,
 				B0112392215DE1BA00A905E3 /* CheckoutFirstNameField.swift */,
 				B0112394215DE1D900A905E3 /* CheckoutLastNameField.swift */,
+				B011239D215E27A900A905E3 /* CheckoutPersonTitleField.swift */,
 				B0112396215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift */,
 				B060BE42215CCFCE004DD2B3 /* CheckoutRecipientAction.swift */,
 			);
@@ -391,6 +394,7 @@
 				B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */,
 				B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */,
 				B0112383215DDA2500A905E3 /* CheckoutCityField.swift in Sources */,
+				B011239E215E27A900A905E3 /* CheckoutPersonTitleField.swift in Sources */,
 				B06F6E60215C6D7300BBCF0F /* CheckoutShippingStyle.swift in Sources */,
 				B06F6E58215BB59E00BBCF0F /* CheckoutStorage.swift in Sources */,
 				B0112385215DDA4800A905E3 /* CheckoutAddressField.swift in Sources */,

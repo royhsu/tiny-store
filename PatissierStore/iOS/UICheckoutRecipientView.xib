@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -224,16 +220,16 @@
                 <outlet property="lastNameContentView" destination="U4v-kq-2Db" id="00S-Cy-gp4"/>
                 <outlet property="lastNameLabel" destination="HYn-Ak-mxt" id="mT0-Nu-wTC"/>
                 <outlet property="lastNameTextField" destination="6KS-B2-gpL" id="SnW-C3-P1Y"/>
+                <outlet property="personTitleBottomBorderView" destination="8tk-EL-9s7" id="B3F-ZZ-B7n"/>
+                <outlet property="personTitleButton" destination="o9P-jS-4LP" id="LpI-wg-gEs"/>
+                <outlet property="personTitleContentView" destination="RxQ-nB-Kvc" id="ZRq-Tr-uxt"/>
+                <outlet property="personTitleLabel" destination="A6z-Sm-phf" id="0kQ-sy-rBq"/>
+                <outlet property="personTitleLeftBorderView" destination="DyI-Sz-MLg" id="nLv-ir-mFa"/>
+                <outlet property="personTitleRightBorderView" destination="bhq-xh-RP9" id="5l3-RJ-VGa"/>
                 <outlet property="phoneNumberBottomBorderView" destination="zy0-rd-a0W" id="Ruc-ua-odK"/>
                 <outlet property="phoneNumberContentView" destination="bR3-Kt-2rt" id="zXm-uI-df8"/>
                 <outlet property="phoneNumberLabel" destination="bme-1G-fYq" id="zDv-5c-NMh"/>
                 <outlet property="phoneNumberTextField" destination="Tko-u4-2AJ" id="8tG-mG-0nq"/>
-                <outlet property="titleBottomBorderView" destination="8tk-EL-9s7" id="B3F-ZZ-B7n"/>
-                <outlet property="titleButton" destination="o9P-jS-4LP" id="LpI-wg-gEs"/>
-                <outlet property="titleContentView" destination="RxQ-nB-Kvc" id="ZRq-Tr-uxt"/>
-                <outlet property="titleLabel" destination="A6z-Sm-phf" id="0kQ-sy-rBq"/>
-                <outlet property="titleLeftBorderView" destination="DyI-Sz-MLg" id="nLv-ir-mFa"/>
-                <outlet property="titleRightBorderView" destination="bhq-xh-RP9" id="5l3-RJ-VGa"/>
             </connections>
             <point key="canvasLocation" x="-31.199999999999999" y="686.80659670164926"/>
         </view>

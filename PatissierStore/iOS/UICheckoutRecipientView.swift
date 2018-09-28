@@ -35,22 +35,22 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
     private final weak var lastNameTextField: UITextField!
 
     @IBOutlet
-    private final weak var titleLabel: UILabel!
+    private final weak var personTitleLabel: UILabel!
 
     @IBOutlet
-    private final weak var titleContentView: UIView!
+    private final weak var personTitleContentView: UIView!
 
     @IBOutlet
-    private final weak var titleBottomBorderView: UIView!
+    private final weak var personTitleBottomBorderView: UIView!
 
     @IBOutlet
-    private final weak var titleLeftBorderView: UIView!
+    private final weak var personTitleLeftBorderView: UIView!
 
     @IBOutlet
-    private final weak var titleRightBorderView: UIView!
+    private final weak var personTitleRightBorderView: UIView!
 
     @IBOutlet
-    private final weak var titleButton: UIButton!
+    private final weak var personTitleButton: UIButton!
 
     @IBOutlet
     private final weak var phoneNumberLabel: UILabel!
@@ -83,6 +83,11 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
         firstNameTextField.text = recipient?.firstNameField.value
         
         lastNameTextField.text = recipient?.lastNameField.value
+        
+        personTitleButton.setTitle(
+            recipient?.personTitleField.value,
+            for: .normal
+        )
         
         phoneNumberTextField.text = recipient?.phoneNumberField.value
 
@@ -133,22 +138,25 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
         #warning("Should define a better key for localization")
         #warning("TODO: should be defined in the locale system.")
         setUpTitleLabel(
-            titleLabel,
+            personTitleLabel,
             title: NSLocalizedString(
                 "Title",
                 comment: ""
             )
         )
 
-        setUpActionButton(titleButton)
+        setUpActionButton(
+            personTitleButton,
+            action: #selector(showPersonTitlePicker)
+        )
 
-        setUpContentView(titleContentView)
+        setUpContentView(personTitleContentView)
 
-        setUpBorderView(titleBottomBorderView)
+        setUpBorderView(personTitleBottomBorderView)
 
-        setUpBorderView(titleLeftBorderView)
+        setUpBorderView(personTitleLeftBorderView)
 
-        setUpBorderView(titleRightBorderView)
+        setUpBorderView(personTitleRightBorderView)
 
         #warning("TODO: should be defined in the locale system.")
         setUpTitleLabel(
@@ -217,7 +225,10 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
 
     }
 
-    fileprivate final func setUpActionButton(_ button: UIButton) {
+    fileprivate final func setUpActionButton(
+        _ button: UIButton,
+        action: Selector
+    ) {
 
         button.contentEdgeInsets = UIEdgeInsets(
             top: 10.0,
@@ -242,6 +253,12 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
             green: 66.0 / 255.0,
             blue: 64.0 / 255.0,
             alpha: 1.0
+        )
+        
+        button.addTarget(
+            self,
+            action: action,
+            for: .touchUpInside
         )
 
     }
@@ -311,6 +328,19 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
         else { return }
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
+        
+        actions.value = action
+        
+    }
+    
+    @objc
+    public final func showPersonTitlePicker(_ button: UIButton) {
+        
+        guard
+            let recipient = recipient
+        else { return }
+        
+        let action: CheckoutRecipientAction = .showPersonTitlePicker(recipient)
         
         actions.value = action
         

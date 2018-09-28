@@ -11,4 +11,6 @@ public enum CheckoutRecipientAction: Action {
     
     case updateValue(CheckoutRecipientField)
     
+    case showPersonTitlePicker(CheckoutRecipientField)
+    
 }

@@ -17,6 +17,8 @@ public struct CheckoutRecipientField {
     
     public var lastNameField: CheckoutLastNameField
     
+    public var personTitleField: CheckoutPersonTitleField
+    
     public var phoneNumberField: CheckoutPhoneNumberField
 
     public init(
@@ -24,6 +26,7 @@ public struct CheckoutRecipientField {
         style: CheckoutRecipientStyle.Type,
         firstNameField: CheckoutFirstNameField = .init(),
         lastNameField: CheckoutLastNameField = .init(),
+        personTitleField: CheckoutPersonTitleField = .init(),
         phoneNumberField: CheckoutPhoneNumberField = .init()
     ) {
         
@@ -34,6 +37,8 @@ public struct CheckoutRecipientField {
         self.firstNameField = firstNameField
         
         self.lastNameField = lastNameField
+        
+        self.personTitleField = personTitleField
         
         self.phoneNumberField = phoneNumberField
 

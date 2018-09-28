@@ -135,6 +135,7 @@ public final class CheckoutViewController: ViewController {
                     
                 case var .showPostalCodePicker(shipping):
                     
+                    #warning("delegate.")
                     shipping.postalCodeField.value = "1234"
                     
                     self.form?.storage.setValue(
@@ -160,6 +161,18 @@ public final class CheckoutViewController: ViewController {
                         .recipient(recipient),
                         forKey: recipient.identifier
                     )
+                    
+                case var .showPersonTitlePicker(recipient):
+                    
+                    #warning("delegate.")
+                    recipient.personTitleField.value = "Mr."
+                    
+                    self.form?.storage.setValue(
+                        .recipient(recipient),
+                        forKey: recipient.identifier
+                    )
+                    
+                    self.reduceStorage()
                     
                 }
                 
