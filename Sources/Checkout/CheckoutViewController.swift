@@ -121,7 +121,7 @@ public final class CheckoutViewController: ViewController {
                     self._navigation?(
                         CheckoutDestination.cityPicker { city in
 
-                            shipping.city?.rawValue = city
+                            shipping.city.rawValue = city
                             
                             self.form?.storage.setValue(
                                 .shipping(shipping),

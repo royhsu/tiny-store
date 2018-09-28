@@ -21,6 +21,22 @@ public struct CheckoutForm: ExpressibleByArrayLiteral {
         
         let fields = storage.elements.map { $0.value }
         
+        #warning("validate all fields.")
+        
+//        try fields.forEach { field in
+//            
+//            switch field {
+//                
+//            case let .shipping(field):
+//                
+//            case let .recipient(field):
+//                
+//                field.
+//                
+//            }
+//            
+//        }
+        
         return try resultType.init(
             AnyCollection(fields)
         )

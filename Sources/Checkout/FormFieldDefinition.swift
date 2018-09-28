@@ -7,27 +7,10 @@
 
 // MARK: - FormFieldDefinition
 
-public enum FormFieldDefinition<RawValue> {
+public enum FormFieldDefinition {
     
-    case required(FormField<RawValue>)
+    case required
     
-    #warning("not implemented. this should validate if and only if user enter value.")
     case optional
-    
-}
-
-public extension FormFieldDefinition {
-    
-    public var rawValue: RawValue? {
-        
-        switch self {
-            
-        case let .required(field): return field.rawValue
-            
-        case .optional: return nil
-            
-        }
-        
-    }
     
 }

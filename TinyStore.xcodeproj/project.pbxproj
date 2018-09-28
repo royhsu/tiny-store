@@ -32,13 +32,11 @@
 		B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */; };
 		B07A2C37215A0A2D002EFE87 /* TinyValidation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */; };
 		B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2C4E215A2739002EFE87 /* CheckoutField.swift */; };
-		B0A5E96B215D0F9C000D0A1B /* CheckoutAddressFieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E96A215D0F9C000D0A1B /* CheckoutAddressFieldValue.swift */; };
-		B0A5E96D215D0FB6000D0A1B /* CheckoutCityFieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E96C215D0FB6000D0A1B /* CheckoutCityFieldValue.swift */; };
 		B0A5E96F215D128C000D0A1B /* CheckoutFormResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E96E215D128C000D0A1B /* CheckoutFormResult.swift */; };
 		B0A5E971215D17B6000D0A1B /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E970215D17B6000D0A1B /* FormField.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
-		B0F51CDE21587F2D00B592F5 /* SimpleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F51CDC21587F2B00B592F5 /* SimpleTests.swift */; };
+		B0F51CDE21587F2D00B592F5 /* FormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F51CDC21587F2B00B592F5 /* FormFieldTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,8 +91,6 @@
 		B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyValidation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A2C4E215A2739002EFE87 /* CheckoutField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutField.swift; sourceTree = "<group>"; };
 		B0A1C41A2158B8A800DC9F26 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
-		B0A5E96A215D0F9C000D0A1B /* CheckoutAddressFieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutAddressFieldValue.swift; sourceTree = "<group>"; };
-		B0A5E96C215D0FB6000D0A1B /* CheckoutCityFieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCityFieldValue.swift; sourceTree = "<group>"; };
 		B0A5E96E215D128C000D0A1B /* CheckoutFormResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFormResult.swift; sourceTree = "<group>"; };
 		B0A5E970215D17B6000D0A1B /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,7 +98,7 @@
 		B0F51CC02158773A00B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0F51CCA215878F800B592F5 /* TinyStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F51CCE215878F800B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0F51CDC21587F2B00B592F5 /* SimpleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTests.swift; sourceTree = "<group>"; };
+		B0F51CDC21587F2B00B592F5 /* FormFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +149,6 @@
 				B06F6E5F215C6D7300BBCF0F /* CheckoutShippingStyle.swift */,
 				B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */,
 				B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */,
-				B0A5E96A215D0F9C000D0A1B /* CheckoutAddressFieldValue.swift */,
-				B0A5E96C215D0FB6000D0A1B /* CheckoutCityFieldValue.swift */,
 				B07A2BBD2159DC90002EFE87 /* CheckoutShippingAction.swift */,
 				B06F6E63215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift */,
 				B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */,
@@ -206,7 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				B0F51CCE215878F800B592F5 /* Info.plist */,
-				B0F51CDC21587F2B00B592F5 /* SimpleTests.swift */,
+				B0F51CDC21587F2B00B592F5 /* FormFieldTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -343,13 +337,11 @@
 				B0A5E971215D17B6000D0A1B /* FormField.swift in Sources */,
 				B0A5E96F215D128C000D0A1B /* CheckoutFormResult.swift in Sources */,
 				B07A2BE12159E1BF002EFE87 /* CheckoutShippingTemplate.swift in Sources */,
-				B0A5E96B215D0F9C000D0A1B /* CheckoutAddressFieldValue.swift in Sources */,
 				B06F6E5A215C486000BBCF0F /* CheckoutRecipientField.swift in Sources */,
 				B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */,
 				B06F6E82215C972A00BBCF0F /* CheckoutDestination.swift in Sources */,
 				B06F6E5C215C4DFB00BBCF0F /* CheckoutForm.swift in Sources */,
 				B07A2BE32159E1BF002EFE87 /* CheckoutShippingAction.swift in Sources */,
-				B0A5E96D215D0FB6000D0A1B /* CheckoutCityFieldValue.swift in Sources */,
 				B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */,
 				B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */,
 				B06F6E60215C6D7300BBCF0F /* CheckoutShippingStyle.swift in Sources */,
@@ -363,7 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0F51CDE21587F2D00B592F5 /* SimpleTests.swift in Sources */,
+				B0F51CDE21587F2D00B592F5 /* FormFieldTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

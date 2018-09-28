@@ -13,20 +13,18 @@ public final class CheckoutShippingField: Unique {
 
     public final let style: CheckoutShippingStyle.Type
 
-    public typealias City = CheckoutCityFieldValue
-
     /// Default is required.
-    public final var city: City?
-    
-    public typealias Address = CheckoutAddressFieldValue
+    public final let city: FormField<City>
     
     /// Default is required.
-    public final var address: Address?
+    public final let address: FormField<String>
 
     public init(
         style: CheckoutShippingStyle.Type,
-        city: City? = City(),
-        address: Address? = Address()
+        city: FormField<City> = FormField(),
+        address: FormField<String> = FormField(
+            rules: [ .notEmpty ]
+        )
     ) {
 
         self.style = style

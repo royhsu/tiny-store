@@ -13,60 +13,36 @@ public final class CheckoutRecipientField: Unique {
 
     public final let style: CheckoutRecipientStyle.Type
 
-    public final let firstNameDefinition: FormFieldDefinition<String>
+    /// Default is required.
+    public final let firstName: FormField<String>
     
-    public final var lastName: String?
+    /// Default is required.
+    public final let lastName: FormField<String>
     
-    public final var lastNameRules: [ AnyValidationRule<String> ]
-    
-    public final var phoneNumber: String?
-    
-    public final var phoneNumberRules: [ AnyValidationRule<String> ]
+    /// Default is required.
+    public final let phoneNumber: FormField<String>
 
     public init(
         style: CheckoutRecipientStyle.Type,
-        firstNameDefinition: FormFieldDefinition<String> = .required(
-            FormField(
-                rules: [ .notEmpty ]
-            )
+        firstName: FormField<String> = FormField(
+            rules: [ .notEmpty ]
         ),
-        lastName: String? = nil,
-        lastNameRules: [ AnyValidationRule<String> ] = [
-            AnyValidationRule(
-                NotEmptyRule<String>()
-            )
-        ],
-        phoneNumber: String? = nil,
-        phoneNumberRules: [ AnyValidationRule<String> ] = [
-            AnyValidationRule(
-                NotEmptyRule<String>()
-            )
-        ]
+        lastName: FormField<String> = FormField(
+            rules: [ .notEmpty ]
+        ),
+        phoneNumber: FormField<String> = FormField(
+            rules: [ .notEmpty ]
+        )
     ) {
 
         self.style = style
 
-        self.firstNameDefinition = firstNameDefinition
+        self.firstName = firstName
         
         self.lastName = lastName
         
-        self.lastNameRules = lastNameRules
-        
         self.phoneNumber = phoneNumber
-        
-        self.phoneNumberRules = phoneNumberRules
 
     }
-
-//    public func validate() throws -> CheckoutRecipientResult {
-
-//        return CheckoutRecipientResult(
-//            identifier: identifier,
-//            firstName: try firstName.explicitlyValidated(by: firstNameRules),
-//            lastName: try lastName.explicitlyValidated(by: lastNameRules),
-//            phoneNumber: try phoneNumber.explicitlyValidated(by: phoneNumberRules)
-//        )
-
-//    }
 
 }

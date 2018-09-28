@@ -54,16 +54,13 @@ extension AppDelegate: UIApplicationDelegate {
         checkoutViewController.form = [
             .shipping(
                 CheckoutShippingField(
-                    style: UICheckoutShippingStyle.self,
-                    address: nil
+                    style: UICheckoutShippingStyle.self
                 )
             ),
             .recipient(
                 CheckoutRecipientField(
                     style: UICheckoutRecipientStyle.self,
-                    firstNameDefinition: .optional,
-                    lastName: "b",
-                    phoneNumber: "c"
+                    firstName: FormField(definition: .optional)
                 )
             )
         ]
@@ -98,65 +95,85 @@ extension AppDelegate: UIApplicationDelegate {
         
         case cityRequired
         
-        case firstNameRequired
+        case addressRequired
+        
+        case lastNameRequired
+        
+        case phoneNumberRequired
         
     }
     
     public struct FormResult: CheckoutFormResult {
-//
-//        public let city: City
-//
-//        public let address: String?
-//
+
+        public let city: City
+
+        public let address: String
+
         public let firstName: String?
+        
+        public let lastName: String
+        
+        public let phoneNumber: String
         
         public init(_ fields: AnyCollection<CheckoutField>) throws {
             
-//            var city: City?
-//
-//            var address: String?
-//
+            var city: City?
+
+            var address: String?
+
             var firstName: String?
+            
+            var lastName: String?
+            
+            var phoneNumber: String?
             
             for field in fields {
                 
                 switch field {
                     
-                case let .shipping(field): break
+                case let .shipping(field):
                     
-//                    city = try field.city?.validated()
-//
-//                    address = try field.address?.validated()
+                    city = try field.city.validate()
+
+                    address = try field.address.validate()
                     
                 case let .recipient(field):
                     
-                    switch field.firstNameDefinition {
-                        
-                    case let .required(field):
-                        
-                        firstName = try field.validated()
-                        
-                    case .optional: break
-                        
-                    }
+                    firstName = try field.firstName.validate()
+                    
+                    lastName = try field.lastName.validate()
+                    
+                    phoneNumber = try field.phoneNumber.validate()
                     
                 }
                 
             }
             
-//            guard
-//                let validFirstName = firstName
-//            else { throw FormResultError.firstNameRequired }
+            guard
+                let validCity = city
+            else { throw FormResultError.cityRequired }
+
+            self.city = validCity
+
+            guard
+                let validAddress = address
+            else { throw FormResultError.addressRequired }
+            
+            self.address = validAddress
             
             self.firstName = firstName
             
-//            guard
-//                let validCity = city
-//            else { throw FormResultError.cityRequired }
-//
-//            self.city = validCity
-//
-//            self.address = address
+            guard
+                let validLastName = lastName
+            else { throw FormResultError.lastNameRequired }
+            
+            self.lastName = validLastName
+            
+            guard
+                let validPhoneNumber = phoneNumber
+            else { throw FormResultError.phoneNumberRequired }
+            
+            self.phoneNumber = validPhoneNumber
             
         }
         

@@ -80,11 +80,11 @@ public final class UICheckoutRecipientView: UITableViewCell {
             isLoaded
         else { return }
 
-        firstNameTextField.text = recipient?.firstNameDefinition.rawValue
+        firstNameTextField.text = recipient?.firstName.rawValue
         
-        lastNameTextField.text = recipient?.lastName
+        lastNameTextField.text = recipient?.lastName.rawValue
         
-        phoneNumberTextField.text = recipient?.phoneNumber
+        phoneNumberTextField.text = recipient?.phoneNumber.rawValue
 
     }
 
@@ -290,11 +290,10 @@ public final class UICheckoutRecipientView: UITableViewCell {
     public final func updateFirstName(_ textField: UITextField) {
         
         guard
-            let recipient = recipient,
-            case let .required(field) = recipient.firstNameDefinition
+            let recipient = recipient
         else { return }
         
-        field.rawValue = textField.text
+        recipient.firstName.rawValue = textField.text
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
         
@@ -309,7 +308,7 @@ public final class UICheckoutRecipientView: UITableViewCell {
             let recipient = recipient
         else { return }
         
-        recipient.lastName = textField.text ?? ""
+        recipient.lastName.rawValue = textField.text
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
         
@@ -324,7 +323,7 @@ public final class UICheckoutRecipientView: UITableViewCell {
             let recipient = recipient
         else { return }
         
-        recipient.phoneNumber = textField.text ?? ""
+        recipient.phoneNumber.rawValue = textField.text
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
         
