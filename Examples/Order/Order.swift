@@ -1,44 +1,18 @@
 //
-//  CheckoutResult.swift
+//  Order.swift
 //  Examples
 //
 //  Created by Roy Hsu on 2018/9/28.
 //  Copyright © 2018 TinyWorld. All rights reserved.
 //
 
-// MARK: - CheckoutResult
+// MARK: - Order
 
 import TinyStore
 
-public enum CheckoutResultError: Error {
+public struct Order: CheckoutOrder {
     
-    case itemRequired
-    
-    case cityRequired
-    
-    case postalCodeRequired
-    
-    case addressRequired
-    
-    case firstNameRequired
-    
-    case lastNameRequired
-    
-    case phoneNumberRequired
-    
-}
-
-public struct CheckoutItem {
-    
-    public let quantity: UInt
-    
-    public init(quantity: UInt) { self.quantity = quantity }
-    
-}
-
-public struct CheckoutResult: CheckoutFormResult {
-    
-    public let items: [CheckoutItem]
+    public let items: [OrderItem]
     
     public let city: City
     
@@ -54,7 +28,7 @@ public struct CheckoutResult: CheckoutFormResult {
     
     public init(_ fields: AnyCollection<CheckoutField>) throws {
         
-        var items: [CheckoutItem] = []
+        var items: [OrderItem] = []
         
         var city: City?
         
@@ -75,7 +49,7 @@ public struct CheckoutResult: CheckoutFormResult {
             case let .item(field):
                 
                 items.append(
-                    CheckoutItem(quantity: field.quantity)
+                    OrderItem(quantity: field.quantity)
                 )
                 
             case let .shipping(field):
@@ -98,26 +72,26 @@ public struct CheckoutResult: CheckoutFormResult {
             
         }
         
-        if items.isEmpty { throw CheckoutResultError.itemRequired }
+        if items.isEmpty { throw OrderError.itemRequired }
         else { self.items = items }
         
         if let city = city { self.city = city }
-        else { throw CheckoutResultError.cityRequired }
+        else { throw OrderError.cityRequired }
         
         if let postalCode = postalCode { self.postalCode = postalCode }
-        else { throw CheckoutResultError.postalCodeRequired }
+        else { throw OrderError.postalCodeRequired }
         
         if let address = address { self.address = address }
-        else { throw CheckoutResultError.addressRequired }
+        else { throw OrderError.addressRequired }
         
         if let firstName = firstName { self.firstName = firstName }
-        else { throw CheckoutResultError.firstNameRequired }
+        else { throw OrderError.firstNameRequired }
         
         if let lastName = lastName { self.lastName = lastName }
-        else { throw CheckoutResultError.lastNameRequired }
+        else { throw OrderError.lastNameRequired }
         
         if let phoneNumber = phoneNumber { self.phoneNumber = phoneNumber }
-        else { throw CheckoutResultError.phoneNumberRequired }
+        else { throw OrderError.phoneNumberRequired }
         
     }
     

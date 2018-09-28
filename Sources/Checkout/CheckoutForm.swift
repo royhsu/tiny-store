@@ -17,7 +17,7 @@ public struct CheckoutForm: ExpressibleByArrayLiteral {
 
     public init(arrayLiteral fields: CheckoutField...) { self.init(fields: fields) }
     
-    public func export(_ resultType: CheckoutFormResult.Type) throws -> CheckoutFormResult {
+    public func export(_ resultType: CheckoutOrder.Type) throws -> CheckoutOrder {
         
         let fields = storage.elements.map { $0.value }
         

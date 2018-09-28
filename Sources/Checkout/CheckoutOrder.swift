@@ -1,13 +1,13 @@
 //
-//  CheckoutFormResult.swift
+//  CheckoutOrder.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/9/27.
 //
 
-// MARK: - CheckoutFormResult
+// MARK: - CheckoutOrder
 
-public protocol CheckoutFormResult {
+public protocol CheckoutOrder {
     
     init(_ fields: AnyCollection<CheckoutField>) throws
     

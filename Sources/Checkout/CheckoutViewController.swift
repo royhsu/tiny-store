@@ -17,22 +17,12 @@ public final class CheckoutViewController: ViewController {
 
     private final var _base = CollectionViewController()
 
-    public final var form: CheckoutForm? {
+    public final var form: CheckoutForm = [] {
 
         didSet {
 
-            guard
-                let storage = form?.storage
-            else {
-
-                storageReducer = nil
-
-                return
-
-            }
-
             storageReducer = Reducer(
-                storage: storage,
+                storage: form.storage,
                 transform: { storage in
                     
                     let sections = storage.elements.map { _, element in element.template }
@@ -134,7 +124,7 @@ public final class CheckoutViewController: ViewController {
             
         case let .updateField(field):
             
-            form?.storage.setValue(
+            form.storage.setValue(
                 .item(field),
                 forKey: field.identifier
             )
@@ -149,7 +139,7 @@ public final class CheckoutViewController: ViewController {
             
         case let .updateField(field):
             
-            form?.storage.setValue(
+            form.storage.setValue(
                 .shipping(field),
                 forKey: field.identifier
             )
@@ -161,7 +151,7 @@ public final class CheckoutViewController: ViewController {
                     
                     field.cityField.value = city
                     
-                    self.form?.storage.setValue(
+                    self.form.storage.setValue(
                         .shipping(field),
                         forKey: field.identifier
                     )
@@ -177,7 +167,7 @@ public final class CheckoutViewController: ViewController {
             #warning("delegate.")
             field.postalCodeField.value = "1234"
             
-            form?.storage.setValue(
+            form.storage.setValue(
                 .shipping(field),
                 forKey: field.identifier
             )
@@ -194,7 +184,7 @@ public final class CheckoutViewController: ViewController {
             
         case let .updateField(field):
             
-            form?.storage.setValue(
+            form.storage.setValue(
                 .recipient(field),
                 forKey: field.identifier
             )
@@ -204,7 +194,7 @@ public final class CheckoutViewController: ViewController {
             #warning("delegate.")
             field.personTitleField.value = "Mr."
             
-            form?.storage.setValue(
+            form.storage.setValue(
                 .recipient(field),
                 forKey: field.identifier
             )
