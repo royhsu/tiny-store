@@ -7,7 +7,6 @@
 
 // MARK: - FormFieldTests
 
-import TinyValidation
 import XCTest
 
 @testable import TinyStore
@@ -16,7 +15,7 @@ internal final class FormFieldTests: XCTestCase {
 
     internal final func testValidateRequiredField() {
         
-        let field = FormField<String>(
+        var field = MessageField(
             value: nil,
             rules: [ .notEmpty ],
             definition: .required
@@ -67,7 +66,7 @@ internal final class FormFieldTests: XCTestCase {
     
     internal final func testValidateOptionalField() {
         
-        let field = FormField<String>(
+        var field = MessageField(
             value: nil,
             rules: [ .notEmpty ],
             definition: .optional

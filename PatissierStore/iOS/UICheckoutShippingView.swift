@@ -69,7 +69,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
     }
 
     fileprivate final func updateUI() {
-print("CCC", shipping)
+
         guard
             isLoaded
         else { return }
@@ -310,11 +310,11 @@ print("CCC", shipping)
     @objc
     public final func updateAddress(_ textField: UITextField) {
 
+        shipping?.addressField.value = textField.text
+        
         guard
             let shipping = shipping
         else { return }
-
-        shipping.addressField.value = textField.text
 
         let action: CheckoutShippingAction = .updateValue(shipping)
 

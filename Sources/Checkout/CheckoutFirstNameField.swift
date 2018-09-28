@@ -7,19 +7,25 @@
 
 // MARK: - CheckoutFirstNameField
 
-public final class CheckoutFirstNameField: FormField<String> {
+public struct CheckoutFirstNameField: FormField {
     
-    public override init(
+    public var value: String?
+    
+    public let rules: [ AnyValidationRule<String> ]
+    
+    public let definition: FormFieldDefinition
+    
+    public init(
         value: String? = nil,
-        rules: [Rule] = [ .notEmpty ],
+        rules: [ AnyValidationRule<String> ] = [ .notEmpty ],
         definition: FormFieldDefinition = .required
     ) {
         
-        super.init(
-            value: value,
-            rules: rules,
-            definition: definition
-        )
+        self.value = value
+        
+        self.rules = rules
+        
+        self.definition = definition
         
     }
     

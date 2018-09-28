@@ -16,6 +16,7 @@
 		B0112393215DE1BA00A905E3 /* CheckoutFirstNameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112392215DE1BA00A905E3 /* CheckoutFirstNameField.swift */; };
 		B0112395215DE1D900A905E3 /* CheckoutLastNameField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112394215DE1D900A905E3 /* CheckoutLastNameField.swift */; };
 		B0112397215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112396215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift */; };
+		B011239C215E056C00A905E3 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011239A215E056600A905E3 /* MessageField.swift */; };
 		B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */; };
 		B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8021587FF7000DC2D8 /* TinyKit.framework */; };
 		B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */; };
@@ -83,6 +84,7 @@
 		B0112392215DE1BA00A905E3 /* CheckoutFirstNameField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFirstNameField.swift; sourceTree = "<group>"; };
 		B0112394215DE1D900A905E3 /* CheckoutLastNameField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutLastNameField.swift; sourceTree = "<group>"; };
 		B0112396215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPhoneNumberField.swift; sourceTree = "<group>"; };
+		B011239A215E056600A905E3 /* MessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
 		B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8021587FF7000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,8 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				B0112388215DDF2A00A905E3 /* Helpers */,
-				B0F51CCE215878F800B592F5 /* Info.plist */,
 				B0F51CDC21587F2B00B592F5 /* FormFieldTests.swift */,
+				B011239A215E056600A905E3 /* MessageField.swift */,
+				B0F51CCE215878F800B592F5 /* Info.plist */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 			files = (
 				B0112390215DDF5200A905E3 /* XCTSuccess.swift in Sources */,
 				B011238F215DDF5200A905E3 /* XCTUnwrapped.swift in Sources */,
+				B011239C215E056C00A905E3 /* MessageField.swift in Sources */,
 				B0F51CDE21587F2D00B592F5 /* FormFieldTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

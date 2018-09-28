@@ -7,19 +7,25 @@
 
 // MARK: - CheckoutPostalCodeField
 
-public final class CheckoutPostalCodeField: FormField<String> {
+public struct CheckoutPostalCodeField: FormField {
     
-    public override init(
+    public var value: String?
+    
+    public let rules: [ AnyValidationRule<String> ]
+    
+    public let definition: FormFieldDefinition
+    
+    public init(
         value: String? = nil,
-        rules: [Rule] = [ .notEmpty ],
+        rules: [ AnyValidationRule<String> ] = [ .notEmpty ],
         definition: FormFieldDefinition = .required
     ) {
         
-        super.init(
-            value: value,
-            rules: rules,
-            definition: definition
-        )
+        self.value = value
+        
+        self.rules = rules
+        
+        self.definition = definition
         
     }
     

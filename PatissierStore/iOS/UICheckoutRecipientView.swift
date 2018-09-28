@@ -289,11 +289,11 @@ public final class UICheckoutRecipientView: UITableViewCell {
     @objc
     public final func updateFirstName(_ textField: UITextField) {
         
+        recipient?.firstNameField.value = textField.text
+        
         guard
             let recipient = recipient
         else { return }
-        
-        recipient.firstNameField.value = textField.text
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
         
@@ -304,11 +304,11 @@ public final class UICheckoutRecipientView: UITableViewCell {
     @objc
     public final func updateLastName(_ textField: UITextField) {
         
+        recipient?.lastNameField.value = textField.text
+        
         guard
             let recipient = recipient
         else { return }
-        
-        recipient.lastNameField.value = textField.text
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
         
@@ -319,11 +319,11 @@ public final class UICheckoutRecipientView: UITableViewCell {
     @objc
     public final func updatePhoneNumber(_ textField: UITextField) {
         
+        recipient?.phoneNumberField.value = textField.text
+        
         guard
             let recipient = recipient
         else { return }
-        
-        recipient.phoneNumberField.value = textField.text
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
         

@@ -13,11 +13,11 @@ public struct CheckoutRecipientField {
 
     public let style: CheckoutRecipientStyle.Type
 
-    public let firstNameField: CheckoutFirstNameField
+    public var firstNameField: CheckoutFirstNameField
     
-    public let lastNameField: CheckoutLastNameField
+    public var lastNameField: CheckoutLastNameField
     
-    public let phoneNumberField: CheckoutPhoneNumberField
+    public var phoneNumberField: CheckoutPhoneNumberField
 
     public init(
         identifier: UUID = UUID(),

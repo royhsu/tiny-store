@@ -13,16 +13,16 @@ public struct CheckoutShippingField {
 
     public let style: CheckoutShippingStyle.Type
 
-    public var cityField: NewCheckoutCityField
+    public var cityField: CheckoutCityField
     
-    public let postalCodeField: CheckoutPostalCodeField
+    public var postalCodeField: CheckoutPostalCodeField
     
-    public let addressField: CheckoutAddressField
+    public var addressField: CheckoutAddressField
 
     public init(
         identifier: UUID = UUID(),
         style: CheckoutShippingStyle.Type,
-        cityField: NewCheckoutCityField = .init(),
+        cityField: CheckoutCityField = .init(),
         postalCodeField: CheckoutPostalCodeField = .init(),
         addressField: CheckoutAddressField = .init()
     ) {

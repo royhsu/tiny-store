@@ -1,21 +1,23 @@
 //
-//  CheckoutPhoneNumberField.swift
-//  TinyStore
+//  MessageField.swift
+//  TinyStoreTests
 //
 //  Created by Roy Hsu on 2018/9/28.
 //
 
-// MARK: - CheckoutPhoneNumberField
+// MARK: - MessageField
 
-public struct CheckoutPhoneNumberField: FormField {
+import TinyStore
+
+internal struct MessageField: FormField {
     
-    public var value: String?
+    internal var value: String?
     
-    public let rules: [ AnyValidationRule<String> ]
+    internal let rules: [ AnyValidationRule<String> ]
     
-    public let definition: FormFieldDefinition
+    internal let definition: FormFieldDefinition
     
-    public init(
+    internal init(
         value: String? = nil,
         rules: [ AnyValidationRule<String> ] = [ .notEmpty ],
         definition: FormFieldDefinition = .required
