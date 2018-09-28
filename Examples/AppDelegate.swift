@@ -54,7 +54,10 @@ extension AppDelegate: UIApplicationDelegate {
         checkoutViewController.form = [
             .item(
                 CheckoutItemField(
-                    style: UICheckoutItemStyle.self
+                    style: UICheckoutItemStyle.self,
+                    title: "Chocolate Cake",
+                    price: 120.0,
+                    quantity: 5
                 )
             ),
             .shipping(

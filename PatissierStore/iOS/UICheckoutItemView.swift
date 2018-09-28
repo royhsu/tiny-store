@@ -41,6 +41,17 @@ public final class UICheckoutItemView: UIView, Actionable {
             isLoaded
         else { return }
         
+        titleLabel.text = itemField?.title
+        
+        if let price = itemField?.price { priceLabel.text = "$\(price)" }
+        else { priceLabel.text = nil }
+
+        let quantity = itemField?.quantity ?? 1
+        
+        quantityStepper.value = Double(quantity)
+        
+        quantityLabel.text = "\(quantity)"
+        
     }
     
     public final override func awakeFromNib() {
@@ -88,10 +99,12 @@ public final class UICheckoutItemView: UIView, Actionable {
     fileprivate final func setUpPriceLabel(_ label: UILabel) {
         
         #warning("TODO: should be defined in the design system.")
-        label.font = UIFont(
-            name: "LuxiMono",
-            size: 12.0
-        )
+        label.font = .systemFont(ofSize: 12.0)
+        
+//        label.font = UIFont(
+//            name: "LuxiMono",
+//            size: 12.0
+//        )
         
         label.numberOfLines = 1
         
@@ -112,10 +125,12 @@ public final class UICheckoutItemView: UIView, Actionable {
     fileprivate final func setUpQuantityLabel(_ label: UILabel) {
         
         #warning("TODO: should be defined in the design system.")
-        label.font = UIFont(
-            name: "LuxiMono",
-            size: 24.0
-        )
+        label.font = .systemFont(ofSize: 24.0)
+        
+//        label.font = UIFont(
+//            name: "LuxiMono",
+//            size: 24.0
+//        )
         
         label.numberOfLines = 1
         
@@ -144,6 +159,24 @@ public final class UICheckoutItemView: UIView, Actionable {
         )
         
         #warning("stepper size.")
+        
+        stepper.addTarget(
+            self,
+            action: #selector(changeQuantity),
+            for: .valueChanged
+        )
+        
+    }
+    
+    @objc
+    public final func changeQuantity(_ stepper: UIStepper) {
+        
+        let quantity = max(
+            0,
+            Int(stepper.value)
+        )
+        
+        itemField?.quantity = UInt(quantity)
         
     }
     

@@ -83,7 +83,7 @@
             <connections>
                 <outlet property="previewImageView" destination="9bw-uG-key" id="XJx-ze-szx"/>
                 <outlet property="priceLabel" destination="tWm-Oh-Qlo" id="r4E-1Q-iww"/>
-                <outlet property="quantityLabel" destination="l9c-cq-Gon" id="BJe-jl-GdX"/>
+                <outlet property="quantityLabel" destination="l9c-cq-Gon" id="h08-oD-zVu"/>
                 <outlet property="quantityStepper" destination="Rau-YT-L9X" id="qwb-rC-Nxx"/>
                 <outlet property="titleLabel" destination="fSY-Hf-TTd" id="2YM-Cd-s6M"/>
             </connections>
