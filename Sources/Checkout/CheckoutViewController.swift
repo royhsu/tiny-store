@@ -108,23 +108,23 @@ public final class CheckoutViewController: ViewController {
 
                 switch action {
 
-                case let .updateValue(shipping):
+                case let .updateValue(field):
 
                     self.form?.storage.setValue(
-                        .shipping(shipping),
-                        forKey: shipping.identifier
+                        .shipping(field),
+                        forKey: field.identifier
                     )
 
-                case var .showCityPicker(shipping):
+                case var .showCityPicker(field):
 
                     self._navigation?(
                         CheckoutDestination.cityPicker { city in
                             
-                            shipping.cityField.value = city
+                            field.cityField.value = city
                             
                             self.form?.storage.setValue(
-                                .shipping(shipping),
-                                forKey: shipping.identifier
+                                .shipping(field),
+                                forKey: field.identifier
                             )
                             
                             #warning("better to only reload the related sections.")
@@ -133,14 +133,14 @@ public final class CheckoutViewController: ViewController {
                         }
                     )
                     
-                case var .showPostalCodePicker(shipping):
+                case var .showPostalCodePicker(field):
                     
                     #warning("delegate.")
-                    shipping.postalCodeField.value = "1234"
+                    field.postalCodeField.value = "1234"
                     
                     self.form?.storage.setValue(
-                        .shipping(shipping),
-                        forKey: shipping.identifier
+                        .shipping(field),
+                        forKey: field.identifier
                     )
                     
                     self.reduceStorage()
@@ -155,21 +155,21 @@ public final class CheckoutViewController: ViewController {
                 
                 switch action {
                     
-                case let .updateValue(recipient):
+                case let .updateValue(field):
                     
                     self.form?.storage.setValue(
-                        .recipient(recipient),
-                        forKey: recipient.identifier
+                        .recipient(field),
+                        forKey: field.identifier
                     )
                     
-                case var .showPersonTitlePicker(recipient):
+                case var .showPersonTitlePicker(field):
                     
                     #warning("delegate.")
-                    recipient.personTitleField.value = "Mr."
+                    field.personTitleField.value = "Mr."
                     
                     self.form?.storage.setValue(
-                        .recipient(recipient),
-                        forKey: recipient.identifier
+                        .recipient(field),
+                        forKey: field.identifier
                     )
                     
                     self.reduceStorage()

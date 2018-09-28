@@ -57,7 +57,7 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
         template.registerView(
             UICheckoutShippingView.self,
             from: Bundle(for: UICheckoutShippingView.self),
-            binding: { shipping, view in view.shipping = shipping },
+            binding: { field, view in view.shippingField = field },
             for: .form
         )
 

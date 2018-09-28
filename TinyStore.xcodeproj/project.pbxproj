@@ -18,6 +18,9 @@
 		B0112397215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112396215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift */; };
 		B011239C215E056C00A905E3 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011239A215E056600A905E3 /* MessageField.swift */; };
 		B011239E215E27A900A905E3 /* CheckoutPersonTitleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011239D215E27A900A905E3 /* CheckoutPersonTitleField.swift */; };
+		B01123A8215E335300A905E3 /* CheckoutItemField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123A7215E335300A905E3 /* CheckoutItemField.swift */; };
+		B01123AA215E337000A905E3 /* CheckoutItemTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123A9215E337000A905E3 /* CheckoutItemTemplate.swift */; };
+		B01123AC215E33AB00A905E3 /* CheckoutItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */; };
 		B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */; };
 		B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8021587FF7000DC2D8 /* TinyKit.framework */; };
 		B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */; };
@@ -87,6 +90,9 @@
 		B0112396215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPhoneNumberField.swift; sourceTree = "<group>"; };
 		B011239A215E056600A905E3 /* MessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
 		B011239D215E27A900A905E3 /* CheckoutPersonTitleField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPersonTitleField.swift; sourceTree = "<group>"; };
+		B01123A7215E335300A905E3 /* CheckoutItemField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemField.swift; sourceTree = "<group>"; };
+		B01123A9215E337000A905E3 /* CheckoutItemTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemTemplate.swift; sourceTree = "<group>"; };
+		B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemStyle.swift; sourceTree = "<group>"; };
 		B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8021587FF7000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +188,9 @@
 				B0A5E96E215D128C000D0A1B /* CheckoutFormResult.swift */,
 				B07A2C4E215A2739002EFE87 /* CheckoutField.swift */,
 				B06F6E57215BB59E00BBCF0F /* CheckoutStorage.swift */,
+				B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */,
+				B01123A9215E337000A905E3 /* CheckoutItemTemplate.swift */,
+				B01123A7215E335300A905E3 /* CheckoutItemField.swift */,
 				B06F6E5F215C6D7300BBCF0F /* CheckoutShippingStyle.swift */,
 				B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */,
 				B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */,
@@ -390,12 +399,15 @@
 				B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */,
 				B06F6E82215C972A00BBCF0F /* CheckoutDestination.swift in Sources */,
 				B06F6E5C215C4DFB00BBCF0F /* CheckoutForm.swift in Sources */,
+				B01123AC215E33AB00A905E3 /* CheckoutItemStyle.swift in Sources */,
 				B07A2BE32159E1BF002EFE87 /* CheckoutShippingAction.swift in Sources */,
 				B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */,
 				B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */,
 				B0112383215DDA2500A905E3 /* CheckoutCityField.swift in Sources */,
 				B011239E215E27A900A905E3 /* CheckoutPersonTitleField.swift in Sources */,
 				B06F6E60215C6D7300BBCF0F /* CheckoutShippingStyle.swift in Sources */,
+				B01123A8215E335300A905E3 /* CheckoutItemField.swift in Sources */,
+				B01123AA215E337000A905E3 /* CheckoutItemTemplate.swift in Sources */,
 				B06F6E58215BB59E00BBCF0F /* CheckoutStorage.swift in Sources */,
 				B0112385215DDA4800A905E3 /* CheckoutAddressField.swift in Sources */,
 				B06F6E85215C974F00BBCF0F /* City.swift in Sources */,

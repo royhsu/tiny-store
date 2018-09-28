@@ -57,7 +57,7 @@ public struct UICheckoutRecipientTemplate: CheckoutRecipientTemplate {
         template.registerView(
             UICheckoutRecipientView.self,
             from: Bundle(for: UICheckoutRecipientView.self),
-            binding: { recipient, view in view.recipient = recipient },
+            binding: { field, view in view.recipientField = field },
             for: .form
         )
 

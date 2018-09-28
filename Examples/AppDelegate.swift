@@ -52,6 +52,11 @@ extension AppDelegate: UIApplicationDelegate {
         )
 
         checkoutViewController.form = [
+            .item(
+                CheckoutItemField(
+                    style: UICheckoutItemStyle.self
+                )
+            ),
             .shipping(
                 CheckoutShippingField(
                     style: UICheckoutShippingStyle.self
@@ -137,6 +142,10 @@ extension AppDelegate: UIApplicationDelegate {
             for field in fields {
                 
                 switch field {
+                    
+                case let .item(field):
+                    
+                    break
                     
                 case let .shipping(field):
                     

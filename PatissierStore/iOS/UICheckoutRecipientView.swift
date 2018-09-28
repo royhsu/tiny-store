@@ -68,7 +68,7 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
 
     public final let actions = Observable<Action>()
 
-    public final var recipient: CheckoutRecipientField? {
+    public final var recipientField: CheckoutRecipientField? {
 
         didSet { updateUI() }
 
@@ -80,16 +80,16 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
             isLoaded
         else { return }
 
-        firstNameTextField.text = recipient?.firstNameField.value
+        firstNameTextField.text = recipientField?.firstNameField.value
         
-        lastNameTextField.text = recipient?.lastNameField.value
+        lastNameTextField.text = recipientField?.lastNameField.value
         
         personTitleButton.setTitle(
-            recipient?.personTitleField.value,
+            recipientField?.personTitleField.value,
             for: .normal
         )
         
-        phoneNumberTextField.text = recipient?.phoneNumberField.value
+        phoneNumberTextField.text = recipientField?.phoneNumberField.value
 
     }
 
@@ -306,10 +306,10 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
     @objc
     public final func updateFirstName(_ textField: UITextField) {
         
-        recipient?.firstNameField.value = textField.text
+        recipientField?.firstNameField.value = textField.text
         
         guard
-            let recipient = recipient
+            let recipient = recipientField
         else { return }
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
@@ -321,10 +321,10 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
     @objc
     public final func updateLastName(_ textField: UITextField) {
         
-        recipient?.lastNameField.value = textField.text
+        recipientField?.lastNameField.value = textField.text
         
         guard
-            let recipient = recipient
+            let recipient = recipientField
         else { return }
         
         let action: CheckoutRecipientAction = .updateValue(recipient)
@@ -337,7 +337,7 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
     public final func showPersonTitlePicker(_ button: UIButton) {
         
         guard
-            let recipient = recipient
+            let recipient = recipientField
         else { return }
         
         let action: CheckoutRecipientAction = .showPersonTitlePicker(recipient)
@@ -349,10 +349,10 @@ public final class UICheckoutRecipientView: UITableViewCell, Actionable {
     @objc
     public final func updatePhoneNumber(_ textField: UITextField) {
         
-        recipient?.phoneNumberField.value = textField.text
+        recipientField?.phoneNumberField.value = textField.text
         
         guard
-            let recipient = recipient
+            let recipient = recipientField
         else { return }
         
         let action: CheckoutRecipientAction = .updateValue(recipient)

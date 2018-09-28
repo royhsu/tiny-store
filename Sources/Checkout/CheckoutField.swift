@@ -9,6 +9,8 @@
 
 public enum CheckoutField: TemplateRepresentable {
 
+    case item(CheckoutItemField)
+    
     case shipping(CheckoutShippingField)
 
     case recipient(CheckoutRecipientField)
@@ -17,6 +19,8 @@ public enum CheckoutField: TemplateRepresentable {
 
         switch self {
 
+        case let .item(field): return field.identifier
+            
         case let .shipping(field): return field.identifier
 
         case let .recipient(field): return field.identifier
@@ -28,6 +32,8 @@ public enum CheckoutField: TemplateRepresentable {
     public var template: Template {
         
         switch self {
+            
+        case let .item(field): return field.style.apply(to: field)
             
         case let .shipping(field): return field.style.apply(to: field)
             

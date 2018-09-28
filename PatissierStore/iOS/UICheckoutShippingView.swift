@@ -62,7 +62,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
 
     public final let actions = Observable<Action>()
 
-    public final var shipping: CheckoutShippingField? {
+    public final var shippingField: CheckoutShippingField? {
 
         didSet { updateUI() }
 
@@ -75,16 +75,16 @@ public final class UICheckoutShippingView: UIView, Actionable {
         else { return }
         
         cityButton.setTitle(
-            shipping?.cityField.value?.name,
+            shippingField?.cityField.value?.name,
             for: .normal
         )
         
         postalCodeButton.setTitle(
-            shipping?.postalCodeField.value,
+            shippingField?.postalCodeField.value,
             for: .normal
         )
 
-        addressTextField.text = shipping?.addressField.value
+        addressTextField.text = shippingField?.addressField.value
 
     }
 
@@ -285,7 +285,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
     public final func showCityPicker(_ button: UIButton) {
 
         guard
-            let shipping = shipping
+            let shipping = shippingField
         else { return }
 
         let action: CheckoutShippingAction = .showCityPicker(shipping)
@@ -298,7 +298,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
     public final func showPostalCodePicker(_ button: UIButton) {
         
         guard
-            let shipping = shipping
+            let shipping = shippingField
         else { return }
         
         let action: CheckoutShippingAction = .showPostalCodePicker(shipping)
@@ -310,10 +310,10 @@ public final class UICheckoutShippingView: UIView, Actionable {
     @objc
     public final func updateAddress(_ textField: UITextField) {
 
-        shipping?.addressField.value = textField.text
+        shippingField?.addressField.value = textField.text
         
         guard
-            let shipping = shipping
+            let shipping = shippingField
         else { return }
 
         let action: CheckoutShippingAction = .updateValue(shipping)
