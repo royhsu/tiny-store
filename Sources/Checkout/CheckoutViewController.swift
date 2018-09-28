@@ -9,8 +9,6 @@
 
 public final class CheckoutViewController: ViewController {
 
-    public final var recipientTemplateType: CheckoutRecipientTemplate.Type?
-
     private final var _actionDispatcher: Optional< (Action) -> Void >
 
     private final var _errorHandler: Optional< (Error) -> Void >

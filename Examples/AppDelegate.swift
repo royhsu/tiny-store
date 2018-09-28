@@ -84,7 +84,7 @@ extension AppDelegate: UIApplicationDelegate {
 
             if let destination = destination as? CheckoutDestination {
 
-                switch destination {
+                switch destination { 
 
                 case let .cityPicker(completion):
 
