@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B011237D215D1DDC00A905E3 /* FormFieldDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011237C215D1DDC00A905E3 /* FormFieldDefinition.swift */; };
+		B0112383215DDA2500A905E3 /* CheckoutCityField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112382215DDA2500A905E3 /* CheckoutCityField.swift */; };
+		B0112385215DDA4800A905E3 /* CheckoutAddressField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112384215DDA4800A905E3 /* CheckoutAddressField.swift */; };
+		B0112387215DDA7100A905E3 /* CheckoutPostalCodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112386215DDA7100A905E3 /* CheckoutPostalCodeField.swift */; };
+		B011238F215DDF5200A905E3 /* XCTUnwrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112389215DDF2A00A905E3 /* XCTUnwrapped.swift */; };
+		B0112390215DDF5200A905E3 /* XCTSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011238A215DDF2A00A905E3 /* XCTSuccess.swift */; };
 		B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */; };
 		B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8021587FF7000DC2D8 /* TinyKit.framework */; };
 		B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */; };
@@ -67,6 +72,11 @@
 
 /* Begin PBXFileReference section */
 		B011237C215D1DDC00A905E3 /* FormFieldDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldDefinition.swift; sourceTree = "<group>"; };
+		B0112382215DDA2500A905E3 /* CheckoutCityField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCityField.swift; sourceTree = "<group>"; };
+		B0112384215DDA4800A905E3 /* CheckoutAddressField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutAddressField.swift; sourceTree = "<group>"; };
+		B0112386215DDA7100A905E3 /* CheckoutPostalCodeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPostalCodeField.swift; sourceTree = "<group>"; };
+		B0112389215DDF2A00A905E3 /* XCTUnwrapped.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTUnwrapped.swift; sourceTree = "<group>"; };
+		B011238A215DDF2A00A905E3 /* XCTSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTSuccess.swift; sourceTree = "<group>"; };
 		B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8021587FF7000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +137,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0112388215DDF2A00A905E3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B0112389215DDF2A00A905E3 /* XCTUnwrapped.swift */,
+				B011238A215DDF2A00A905E3 /* XCTSuccess.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		B06F6E83215C974500BBCF0F /* City */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +168,9 @@
 				B06F6E5F215C6D7300BBCF0F /* CheckoutShippingStyle.swift */,
 				B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */,
 				B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */,
+				B0112382215DDA2500A905E3 /* CheckoutCityField.swift */,
+				B0112386215DDA7100A905E3 /* CheckoutPostalCodeField.swift */,
+				B0112384215DDA4800A905E3 /* CheckoutAddressField.swift */,
 				B07A2BBD2159DC90002EFE87 /* CheckoutShippingAction.swift */,
 				B06F6E63215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift */,
 				B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */,
@@ -199,6 +221,7 @@
 		B0F51CCB215878F800B592F5 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B0112388215DDF2A00A905E3 /* Helpers */,
 				B0F51CCE215878F800B592F5 /* Info.plist */,
 				B0F51CDC21587F2B00B592F5 /* FormFieldTests.swift */,
 			);
@@ -331,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0112387215DDA7100A905E3 /* CheckoutPostalCodeField.swift in Sources */,
 				B07A2BDE2159E1BF002EFE87 /* CheckoutViewController.swift in Sources */,
 				B011237D215D1DDC00A905E3 /* FormFieldDefinition.swift in Sources */,
 				B060BE43215CCFCE004DD2B3 /* CheckoutRecipientAction.swift in Sources */,
@@ -344,8 +368,10 @@
 				B07A2BE32159E1BF002EFE87 /* CheckoutShippingAction.swift in Sources */,
 				B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */,
 				B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */,
+				B0112383215DDA2500A905E3 /* CheckoutCityField.swift in Sources */,
 				B06F6E60215C6D7300BBCF0F /* CheckoutShippingStyle.swift in Sources */,
 				B06F6E58215BB59E00BBCF0F /* CheckoutStorage.swift in Sources */,
+				B0112385215DDA4800A905E3 /* CheckoutAddressField.swift in Sources */,
 				B06F6E85215C974F00BBCF0F /* City.swift in Sources */,
 				B06F6E64215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift in Sources */,
 			);
@@ -355,6 +381,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0112390215DDF5200A905E3 /* XCTSuccess.swift in Sources */,
+				B011238F215DDF5200A905E3 /* XCTUnwrapped.swift in Sources */,
 				B0F51CDE21587F2D00B592F5 /* FormFieldTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

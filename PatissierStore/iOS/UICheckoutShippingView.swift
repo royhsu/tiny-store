@@ -75,11 +75,16 @@ public final class UICheckoutShippingView: UIView, Actionable {
         else { return }
         
         cityButton.setTitle(
-            shipping?.city.rawValue?.name,
+            shipping?.cityField.value?.name,
+            for: .normal
+        )
+        
+        postalCodeButton.setTitle(
+            shipping?.postalCodeField.value,
             for: .normal
         )
 
-        addressTextField.text = shipping?.address.rawValue
+        addressTextField.text = shipping?.addressField.value
 
     }
 
@@ -290,7 +295,17 @@ public final class UICheckoutShippingView: UIView, Actionable {
     }
 
     @objc
-    public final func showPostalCodePicker(_ button: UIButton) { }
+    public final func showPostalCodePicker(_ button: UIButton) {
+        
+        guard
+            let shipping = shipping
+        else { return }
+        
+        let action: CheckoutShippingAction = .showPostalCodePicker(shipping)
+        
+        actions.value = action
+        
+    }
 
     @objc
     public final func updateAddress(_ textField: UITextField) {
@@ -299,7 +314,7 @@ public final class UICheckoutShippingView: UIView, Actionable {
             let shipping = shipping
         else { return }
 
-        shipping.address.rawValue = textField.text
+        shipping.addressField.value = textField.text
 
         let action: CheckoutShippingAction = .updateValue(shipping)
 

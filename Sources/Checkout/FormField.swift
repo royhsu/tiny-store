@@ -7,23 +7,23 @@
 
 // MARK: - FormField
 
-#warning("missing test.")
-#warning("This approach cannot protect api mis-use, e.g. passing without correct default rules for dedicate fields.")
-public final class FormField<RawValue> {
+open class FormField<Value> {
     
-    public final var rawValue: RawValue?
+    public final var value: Value?
     
-    public final var rules: [ AnyValidationRule<RawValue> ]
+    public typealias Rule = AnyValidationRule<Value>
     
-    public final var definition: FormFieldDefinition
+    public final let rules: [Rule]
+    
+    public final let definition: FormFieldDefinition
     
     public init(
-        rawValue: RawValue? = nil,
-        rules: [ AnyValidationRule<RawValue> ] = [],
-        definition: FormFieldDefinition = .required
+        value: Value?,
+        rules: [Rule],
+        definition: FormFieldDefinition
     ) {
         
-        self.rawValue = rawValue
+        self.value = value
         
         self.rules = rules
         
@@ -33,38 +33,36 @@ public final class FormField<RawValue> {
     
 }
 
-#warning("missing test.")
 public extension FormField {
     
-    /// The raw value must be not nil to pass the the validation.
-    /// So you don't have to manually include NotNilRule in your rules.
-    public final func validate() throws -> RawValue? {
+    /// The value must be not nil to pass the the validation if the field marked as `.required`.
+    /// And notice that an `.optional` field will only be validated if it does contain a value.
+    /// You don't have to manually include `NotNilRule` in rules for the field.
+    public final func validate() throws -> Value? {
         
         switch definition {
             
         case .required:
             
-            let value = try rawValue.explicitlyValidated(
+            let unwrappedValue = try value.explicitlyValidated(
                 by: NotNilRule()
             )
             
-            try rules.forEach { rule in _ = try rule.validate(value) }
+            try rules.forEach { rule in _ = try rule.validate(unwrappedValue) }
             
-            return value
+            return unwrappedValue
             
         case .optional:
             
-            var value: RawValue?
-            
-            if let rawValue = rawValue {
+            if let unwrappedValue = value {
                 
-                try rules.forEach { rule in try rule.validate(rawValue) }
+                try rules.forEach { rule in try rule.validate(unwrappedValue) }
                 
-                value = rawValue
+                return unwrappedValue
                 
             }
             
-            return value
+            return nil
             
         }
         

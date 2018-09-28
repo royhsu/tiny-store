@@ -60,7 +60,7 @@ extension AppDelegate: UIApplicationDelegate {
             .recipient(
                 CheckoutRecipientField(
                     style: UICheckoutRecipientStyle.self,
-                    firstName: FormField(definition: .optional)
+                    firstName: CheckoutFirstNameField(definition: .optional)
                 )
             )
         ]
@@ -133,9 +133,9 @@ extension AppDelegate: UIApplicationDelegate {
                     
                 case let .shipping(field):
                     
-                    city = try field.city.validate()
+                    city = try field.cityField.validate()
 
-                    address = try field.address.validate()
+                    address = try field.addressField.validate()
                     
                 case let .recipient(field):
                     

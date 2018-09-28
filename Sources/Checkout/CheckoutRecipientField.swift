@@ -13,26 +13,17 @@ public final class CheckoutRecipientField: Unique {
 
     public final let style: CheckoutRecipientStyle.Type
 
-    /// Default is required.
-    public final let firstName: FormField<String>
+    public final let firstName: CheckoutFirstNameField
     
-    /// Default is required.
-    public final let lastName: FormField<String>
+    public final let lastName: CheckoutLastNameField
     
-    /// Default is required.
-    public final let phoneNumber: FormField<String>
+    public final let phoneNumber: CheckoutPhoneNumberField
 
     public init(
         style: CheckoutRecipientStyle.Type,
-        firstName: FormField<String> = FormField(
-            rules: [ .notEmpty ]
-        ),
-        lastName: FormField<String> = FormField(
-            rules: [ .notEmpty ]
-        ),
-        phoneNumber: FormField<String> = FormField(
-            rules: [ .notEmpty ]
-        )
+        firstName: CheckoutFirstNameField = .init(),
+        lastName: CheckoutLastNameField = .init(),
+        phoneNumber: CheckoutPhoneNumberField = .init()
     ) {
 
         self.style = style
@@ -45,4 +36,64 @@ public final class CheckoutRecipientField: Unique {
 
     }
 
+}
+
+// MARK: - CheckoutFirstNameField
+
+public final class CheckoutFirstNameField: FormField<String> {
+    
+    public override init(
+        value: String? = nil,
+        rules: [Rule] = [ .notEmpty ],
+        definition: FormFieldDefinition = .required
+    ) {
+        
+        super.init(
+            value: value,
+            rules: rules,
+            definition: definition
+        )
+        
+    }
+    
+}
+
+// MARK: - CheckoutLastNameField
+
+public final class CheckoutLastNameField: FormField<String> {
+    
+    public override init(
+        value: String? = nil,
+        rules: [Rule] = [ .notEmpty ],
+        definition: FormFieldDefinition = .required
+    ) {
+        
+        super.init(
+            value: value,
+            rules: rules,
+            definition: definition
+        )
+        
+    }
+    
+}
+
+// MARK: - CheckoutPhoneNumberField
+
+public final class CheckoutPhoneNumberField: FormField<String> {
+    
+    public override init(
+        value: String? = nil,
+        rules: [Rule] = [ .notEmpty ],
+        definition: FormFieldDefinition = .required
+    ) {
+        
+        super.init(
+            value: value,
+            rules: rules,
+            definition: definition
+        )
+        
+    }
+    
 }

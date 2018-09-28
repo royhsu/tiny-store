@@ -11,6 +11,8 @@ public enum CheckoutShippingAction: Action {
 
     case updateValue(CheckoutShippingField)
 
+    case showPostalCodePicker(CheckoutShippingField)
+    
     case showCityPicker(CheckoutShippingField)
 
 }

@@ -13,25 +13,26 @@ public final class CheckoutShippingField: Unique {
 
     public final let style: CheckoutShippingStyle.Type
 
-    /// Default is required.
-    public final let city: FormField<City>
+    public final let cityField: CheckoutCityField
     
-    /// Default is required.
-    public final let address: FormField<String>
+    public final let postalCodeField: CheckoutPostalCodeField
+    
+    public final let addressField: CheckoutAddressField
 
     public init(
         style: CheckoutShippingStyle.Type,
-        city: FormField<City> = FormField(),
-        address: FormField<String> = FormField(
-            rules: [ .notEmpty ]
-        )
+        city: CheckoutCityField = .init(),
+        postalCodeField: CheckoutPostalCodeField = .init(),
+        address: CheckoutAddressField = .init()
     ) {
 
         self.style = style
 
-        self.city = city
+        self.cityField = city
+        
+        self.postalCodeField = postalCodeField
 
-        self.address = address
+        self.addressField = address
 
     }
 

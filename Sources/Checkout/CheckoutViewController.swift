@@ -114,7 +114,7 @@ public final class CheckoutViewController: ViewController {
                     self._navigation?(
                         CheckoutDestination.cityPicker { city in
 
-                            shipping.city.rawValue = city
+                            shipping.cityField.value = city
                             
                             self.form?.storage.setValue(
                                 .shipping(shipping),
@@ -126,6 +126,10 @@ public final class CheckoutViewController: ViewController {
 
                         }
                     )
+                    
+                case let .showPostalCodePicker(shipping):
+                    
+                    #warning("not implemented.")
 
                 }
 
