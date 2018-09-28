@@ -54,14 +54,12 @@ extension AppDelegate: UIApplicationDelegate {
         checkoutViewController.form = [
             .shipping(
                 CheckoutShippingField(
-                    style: UICheckoutShippingStyle.self,
-                    postalCodeField: CheckoutPostalCodeField(definition: .optional)
+                    style: UICheckoutShippingStyle.self
                 )
             ),
             .recipient(
                 CheckoutRecipientField(
-                    style: UICheckoutRecipientStyle.self,
-                    firstNameField: CheckoutFirstNameField(definition: .optional)
+                    style: UICheckoutRecipientStyle.self
                 )
             )
         ]
@@ -96,7 +94,11 @@ extension AppDelegate: UIApplicationDelegate {
         
         case cityRequired
         
+        case postalCodeRequired
+        
         case addressRequired
+        
+        case firstNameRequired
         
         case lastNameRequired
         
@@ -107,10 +109,12 @@ extension AppDelegate: UIApplicationDelegate {
     public struct FormResult: CheckoutFormResult {
 
         public let city: City
+        
+        public let postalCode: String
 
         public let address: String
 
-        public let firstName: String?
+        public let firstName: String
         
         public let lastName: String
         
@@ -121,6 +125,8 @@ extension AppDelegate: UIApplicationDelegate {
             var city: City?
 
             var address: String?
+            
+            var postalCode: String?
 
             var firstName: String?
             
@@ -135,6 +141,8 @@ extension AppDelegate: UIApplicationDelegate {
                 case let .shipping(field):
                     
                     city = try field.cityField.validate()
+                    
+                    postalCode = try field.postalCodeField.validate()
 
                     address = try field.addressField.validate()
                     
@@ -150,31 +158,23 @@ extension AppDelegate: UIApplicationDelegate {
                 
             }
             
-            guard
-                let validCity = city
+            if let city = city { self.city = city }
             else { throw FormResultError.cityRequired }
 
-            self.city = validCity
+            if let postalCode = postalCode { self.postalCode = postalCode }
+            else { throw FormResultError.postalCodeRequired }
 
-            guard
-                let validAddress = address
+            if let address = address { self.address = address }
             else { throw FormResultError.addressRequired }
             
-            self.address = validAddress
+            if let firstName = firstName { self.firstName = firstName }
+            else { throw FormResultError.firstNameRequired }
             
-            self.firstName = firstName
-            
-            guard
-                let validLastName = lastName
+            if let lastName = lastName { self.lastName = lastName }
             else { throw FormResultError.lastNameRequired }
             
-            self.lastName = validLastName
-            
-            guard
-                let validPhoneNumber = phoneNumber
+            if let phoneNumber = phoneNumber { self.phoneNumber = phoneNumber }
             else { throw FormResultError.phoneNumberRequired }
-            
-            self.phoneNumber = validPhoneNumber
             
         }
         

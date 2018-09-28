@@ -133,14 +133,36 @@ public final class CheckoutViewController: ViewController {
                         }
                     )
                     
-                case let .showPostalCodePicker(shipping):
+                case var .showPostalCodePicker(shipping):
                     
-                    #warning("not implemented.")
+                    shipping.postalCodeField.value = "1234"
+                    
+                    self.form?.storage.setValue(
+                        .shipping(shipping),
+                        forKey: shipping.identifier
+                    )
+                    
+                    self.reduceStorage()
 
                 }
 
                 return
 
+            }
+            
+            if let action = action as? CheckoutRecipientAction {
+                
+                switch action {
+                    
+                case let .updateValue(recipient):
+                    
+                    self.form?.storage.setValue(
+                        .recipient(recipient),
+                        forKey: recipient.identifier
+                    )
+                    
+                }
+                
             }
 
         }
