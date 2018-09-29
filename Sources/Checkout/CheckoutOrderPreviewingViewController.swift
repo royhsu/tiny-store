@@ -1,13 +1,13 @@
 //
-//  CheckoutOrderPreviewViewController.swift
+//  CheckoutOrderPreviewingViewController.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/9/29.
 //
 
-// MARK: - CheckoutOrderPreviewViewController
+// MARK: - CheckoutOrderPreviewingViewController
 
-open class CheckoutOrderPreviewViewController: ViewController, CheckoutOrderPreviewingStep {
+open class CheckoutOrderPreviewingViewController: ViewController, CheckoutOrderPreviewingStep {
     
     private final let base = CollectionViewController()
     

@@ -63,7 +63,7 @@ extension AppDelegate: UIApplicationDelegate {
         
         checkoutFlowViewController.orderFillingStep = orderViewController
         
-        let orderPreviewViewController = CheckoutOrderPreviewViewController()
+        let orderPreviewViewController = CheckoutOrderPreviewingViewController()
         
         checkoutFlowViewController.orderPreviewingStep = orderPreviewViewController
         

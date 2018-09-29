@@ -42,7 +42,7 @@
 		B06F6E64215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E63215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift */; };
 		B06F6E82215C972A00BBCF0F /* CheckoutDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E81215C972A00BBCF0F /* CheckoutDestination.swift */; };
 		B06F6E85215C974F00BBCF0F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E84215C974F00BBCF0F /* City.swift */; };
-		B07A2BDE2159E1BF002EFE87 /* CheckoutOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C41A2158B8A800DC9F26 /* CheckoutOrderViewController.swift */; };
+		B07A2BDE2159E1BF002EFE87 /* CheckoutOrderFillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C41A2158B8A800DC9F26 /* CheckoutOrderFillingViewController.swift */; };
 		B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */; };
 		B07A2BE12159E1BF002EFE87 /* CheckoutShippingTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */; };
 		B07A2BE32159E1BF002EFE87 /* CheckoutShippingAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BBD2159DC90002EFE87 /* CheckoutShippingAction.swift */; };
@@ -51,7 +51,7 @@
 		B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2C4E215A2739002EFE87 /* CheckoutField.swift */; };
 		B0A5E96F215D128C000D0A1B /* CheckoutOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E96E215D128C000D0A1B /* CheckoutOrder.swift */; };
 		B0A5E971215D17B6000D0A1B /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E970215D17B6000D0A1B /* FormField.swift */; };
-		B0B5D43B215F42A00093EE01 /* CheckoutOrderPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B5D43A215F42A00093EE01 /* CheckoutOrderPreviewViewController.swift */; };
+		B0B5D43B215F42A00093EE01 /* CheckoutOrderPreviewingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B5D43A215F42A00093EE01 /* CheckoutOrderPreviewingViewController.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
 		B0F51CDE21587F2D00B592F5 /* FormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F51CDC21587F2B00B592F5 /* FormFieldTests.swift */; };
@@ -125,10 +125,10 @@
 		B07A2BD32159DE73002EFE87 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyValidation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A2C4E215A2739002EFE87 /* CheckoutField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutField.swift; sourceTree = "<group>"; };
-		B0A1C41A2158B8A800DC9F26 /* CheckoutOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutOrderViewController.swift; sourceTree = "<group>"; };
+		B0A1C41A2158B8A800DC9F26 /* CheckoutOrderFillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutOrderFillingViewController.swift; sourceTree = "<group>"; };
 		B0A5E96E215D128C000D0A1B /* CheckoutOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutOrder.swift; sourceTree = "<group>"; };
 		B0A5E970215D17B6000D0A1B /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
-		B0B5D43A215F42A00093EE01 /* CheckoutOrderPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutOrderPreviewViewController.swift; sourceTree = "<group>"; };
+		B0B5D43A215F42A00093EE01 /* CheckoutOrderPreviewingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutOrderPreviewingViewController.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F51CBF2158773A00B592F5 /* TinyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyStore.h; sourceTree = "<group>"; };
 		B0F51CC02158773A00B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -199,8 +199,8 @@
 				B01123B5215E600700A905E3 /* CheckoutFlowController.swift */,
 				B03E7275215FA01C00FC249A /* CheckoutOrderFillingStep.swift */,
 				B03E7277215FA15F00FC249A /* CheckoutOrderPreviewingStep.swift */,
-				B0A1C41A2158B8A800DC9F26 /* CheckoutOrderViewController.swift */,
-				B0B5D43A215F42A00093EE01 /* CheckoutOrderPreviewViewController.swift */,
+				B0A1C41A2158B8A800DC9F26 /* CheckoutOrderFillingViewController.swift */,
+				B0B5D43A215F42A00093EE01 /* CheckoutOrderPreviewingViewController.swift */,
 				B06F6E81215C972A00BBCF0F /* CheckoutDestination.swift */,
 				B06F6E5B215C4DFB00BBCF0F /* CheckoutForm.swift */,
 				B0A5E96E215D128C000D0A1B /* CheckoutOrder.swift */,
@@ -435,9 +435,9 @@
 			files = (
 				B0112387215DDA7100A905E3 /* CheckoutPostalCodeField.swift in Sources */,
 				B0112393215DE1BA00A905E3 /* CheckoutFirstNameField.swift in Sources */,
-				B07A2BDE2159E1BF002EFE87 /* CheckoutOrderViewController.swift in Sources */,
+				B07A2BDE2159E1BF002EFE87 /* CheckoutOrderFillingViewController.swift in Sources */,
 				B011237D215D1DDC00A905E3 /* FormFieldDefinition.swift in Sources */,
-				B0B5D43B215F42A00093EE01 /* CheckoutOrderPreviewViewController.swift in Sources */,
+				B0B5D43B215F42A00093EE01 /* CheckoutOrderPreviewingViewController.swift in Sources */,
 				B060BE43215CCFCE004DD2B3 /* CheckoutRecipientAction.swift in Sources */,
 				B0A5E971215D17B6000D0A1B /* FormField.swift in Sources */,
 				B0A5E96F215D128C000D0A1B /* CheckoutOrder.swift in Sources */,

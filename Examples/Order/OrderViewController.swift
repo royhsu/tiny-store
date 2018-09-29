@@ -10,7 +10,7 @@
 
 import PatissierStore
 
-public final class OrderViewController: CheckoutOrderViewController, CheckoutOrderFillingStep {
+public final class OrderViewController: CheckoutOrderFillingViewController, CheckoutOrderFillingStep {
     
     public init() {
         

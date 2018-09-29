@@ -1,13 +1,13 @@
 //
-//  CheckoutOrderViewController.swift
+//  CheckoutOrderFillingViewController.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/9/24.
 //
 
-// MARK: - CheckoutOrderViewController
+// MARK: - CheckoutOrderFillingViewController
 
-open class CheckoutOrderViewController: ViewController {
+open class CheckoutOrderFillingViewController: ViewController {
 
     private final var _actionDispatcher: Optional< (Action) -> Void >
 
