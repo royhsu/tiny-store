@@ -11,13 +11,17 @@ public final class CheckoutFlowController: ViewController {
     
     public enum Step {
         
-        case makingOrder(OrderStepViewController)
+        case makeOrder(OrderStepViewController)
+        
+        case end(ViewController)
         
         var viewController: ViewController {
             
             switch self {
                 
-            case let .makingOrder(controller): return controller
+            case let .makeOrder(controller): return controller
+                
+            case let .end(controller): return controller
                 
             }
             
@@ -25,13 +29,26 @@ public final class CheckoutFlowController: ViewController {
         
     }
     
-    public private(set) var step: Step? {
+    /// A flow shouldn't be interrupted after it gets started.
+    /// Please make sure to check this value before an operation tries to do so.
+    public final var isFlowRunning: Bool { return (step != nil) }
+    
+    private final var step: Step? {
+        
+        willSet(newStep) {
+            
+            if
+                isFlowRunning,
+                newStep != nil
+            { fatalError("The flow is running and shouldn't be interrupted.") }
+            
+        }
         
         didSet {
             
             switch step {
                 
-            case let .makingOrder(viewController)?:
+            case let .makeOrder(viewController)?:
                 
                 viewController.makeOrder { result in
                     
@@ -56,6 +73,13 @@ public final class CheckoutFlowController: ViewController {
                     animated: true
                 )
                 
+            case let .end(viewController)?:
+                
+                base.pushViewController(
+                    viewController,
+                    animated: true
+                )
+                
             case .none:
                 
                 base.setViewControllers(
@@ -73,7 +97,7 @@ public final class CheckoutFlowController: ViewController {
     
     public final var orderViewController: OrderStepViewController? {
         
-        didSet { startFlowIfStepsReady() }
+        didSet { startFlowIfAvailable() }
         
     }
     
@@ -100,14 +124,15 @@ public final class CheckoutFlowController: ViewController {
 
         base.didMove(toParent: self)
         
-        startFlowIfStepsReady()
+        startFlowIfAvailable()
         
     }
     
-    fileprivate final func startFlowIfStepsReady() {
+    fileprivate final func startFlowIfAvailable() {
         
         guard
             isViewLoaded,
+            !isFlowRunning,
             let firstStep = firstStep()
         else { return }
         
@@ -121,7 +146,7 @@ public final class CheckoutFlowController: ViewController {
             let orderViewController = orderViewController
         else { return nil }
         
-        return .makingOrder(orderViewController)
+        return .makeOrder(orderViewController)
         
     }
     
