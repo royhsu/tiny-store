@@ -11,21 +11,21 @@ public final class CheckoutFlowController: ViewController {
     
     public enum Step {
         
-        case makeOrder(OrderStepViewController)
+        case fillOutOrder(OrderStepViewController)
         
         case previewOrder(CheckoutOrderPreviewViewController)
         
-        case finished(ViewController)
+        case finishPayment(ViewController)
         
         var viewController: ViewController {
             
             switch self {
                 
-            case let .makeOrder(controller): return controller
+            case let .fillOutOrder(controller): return controller
                 
             case let .previewOrder(controller): return controller
                 
-            case let .finished(controller): return controller
+            case let .finishPayment(controller): return controller
                 
             }
             
@@ -45,7 +45,7 @@ public final class CheckoutFlowController: ViewController {
             
             switch step {
                 
-            case let .makeOrder(viewController)?:
+            case let .fillOutOrder(viewController)?:
                 
                 viewController.makeOrder { [weak self] result in
                     
@@ -83,7 +83,7 @@ public final class CheckoutFlowController: ViewController {
                     animated: true
                 )
                 
-            case let .finished(viewController)?:
+            case let .finishPayment(viewController)?:
                 
                 base.pushViewController(
                     viewController,
@@ -133,21 +133,6 @@ public final class CheckoutFlowController: ViewController {
     
     /// The base.
     private final lazy var base: NavigationController = { return NavigationController(rootViewController: plainViewController) }()
-
-//    public init() {
-//
-//        super.init(
-//            nibName: nil,
-//            bundle: nil
-//        )
-//
-//    }
-//
-//    public required init?(coder aDecoder: NSCoder) {
-//
-//        super.init(coder: aDecoder)
-//
-//    }
     
     public final override func viewDidLoad() {
         
@@ -170,7 +155,7 @@ public final class CheckoutFlowController: ViewController {
             !isFlowRunning,
             var steps = generateSteps(),
             !steps.isEmpty
-        else { return }queuedSteps
+        else { return }
         
         let firstStep = steps.removeFirst()
         
@@ -189,7 +174,7 @@ public final class CheckoutFlowController: ViewController {
         else { return nil }
         
         return [
-            .makeOrder(orderViewController),
+            .fillOutOrder(orderViewController),
             .previewOrder(orderPreviewStepViewController)
         ]
         
@@ -197,7 +182,7 @@ public final class CheckoutFlowController: ViewController {
     
     fileprivate final func nextStep() -> Step {
         
-        if queuedSteps.isEmpty { return .finished(plainViewController) }
+        if queuedSteps.isEmpty { return .finishPayment(plainViewController) }
         
         let nextStep = queuedSteps.removeFirst()
         
