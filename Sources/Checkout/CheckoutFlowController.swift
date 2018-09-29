@@ -11,13 +11,13 @@ public final class CheckoutFlowController: ViewController {
     
     public enum Step {
         
-        case fillingOrder(OrderStepViewController)
+        case makingOrder(OrderStepViewController)
         
         var viewController: ViewController {
             
             switch self {
                 
-            case let .fillingOrder(controller): return controller
+            case let .makingOrder(controller): return controller
                 
             }
             
@@ -31,7 +31,7 @@ public final class CheckoutFlowController: ViewController {
             
             switch step {
                 
-            case let .fillingOrder(viewController)?:
+            case let .makingOrder(viewController)?:
                 
                 viewController.makeOrder { result in
                     
@@ -121,7 +121,7 @@ public final class CheckoutFlowController: ViewController {
             let orderViewController = orderViewController
         else { return nil }
         
-        return .fillingOrder(orderViewController)
+        return .makingOrder(orderViewController)
         
     }
     
