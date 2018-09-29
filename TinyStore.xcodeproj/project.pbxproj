@@ -188,6 +188,10 @@
 		B0A1C4112158B0AA00DC9F26 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
+				B0B5D438215F418C0093EE01 /* Item */,
+				B0B5D436215F415E0093EE01 /* Recipient */,
+				B0B5D437215F41760093EE01 /* Shipping */,
+				B0B5D439215F41CE0093EE01 /* Field */,
 				B01123B5215E600700A905E3 /* CheckoutFlowController.swift */,
 				B0B5D432215EEC3B0093EE01 /* CheckoutOrderStep.swift */,
 				B0A1C41A2158B8A800DC9F26 /* CheckoutOrderViewController.swift */,
@@ -196,27 +200,55 @@
 				B0A5E96E215D128C000D0A1B /* CheckoutOrder.swift */,
 				B07A2C4E215A2739002EFE87 /* CheckoutField.swift */,
 				B06F6E57215BB59E00BBCF0F /* CheckoutStorage.swift */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
+		B0B5D436215F415E0093EE01 /* Recipient */ = {
+			isa = PBXGroup;
+			children = (
+				B06F6E63215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift */,
+				B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */,
+				B06F6E59215C486000BBCF0F /* CheckoutRecipientField.swift */,
+				B060BE42215CCFCE004DD2B3 /* CheckoutRecipientAction.swift */,
+			);
+			path = Recipient;
+			sourceTree = "<group>";
+		};
+		B0B5D437215F41760093EE01 /* Shipping */ = {
+			isa = PBXGroup;
+			children = (
+				B06F6E5F215C6D7300BBCF0F /* CheckoutShippingStyle.swift */,
+				B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */,
+				B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */,
+				B07A2BBD2159DC90002EFE87 /* CheckoutShippingAction.swift */,
+			);
+			path = Shipping;
+			sourceTree = "<group>";
+		};
+		B0B5D438215F418C0093EE01 /* Item */ = {
+			isa = PBXGroup;
+			children = (
 				B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */,
 				B01123A9215E337000A905E3 /* CheckoutItemTemplate.swift */,
 				B01123A7215E335300A905E3 /* CheckoutItemField.swift */,
 				B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */,
-				B06F6E5F215C6D7300BBCF0F /* CheckoutShippingStyle.swift */,
-				B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */,
-				B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		B0B5D439215F41CE0093EE01 /* Field */ = {
+			isa = PBXGroup;
+			children = (
 				B0112382215DDA2500A905E3 /* CheckoutCityField.swift */,
 				B0112386215DDA7100A905E3 /* CheckoutPostalCodeField.swift */,
 				B0112384215DDA4800A905E3 /* CheckoutAddressField.swift */,
-				B07A2BBD2159DC90002EFE87 /* CheckoutShippingAction.swift */,
-				B06F6E63215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift */,
-				B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */,
-				B06F6E59215C486000BBCF0F /* CheckoutRecipientField.swift */,
 				B0112392215DE1BA00A905E3 /* CheckoutFirstNameField.swift */,
 				B0112394215DE1D900A905E3 /* CheckoutLastNameField.swift */,
 				B011239D215E27A900A905E3 /* CheckoutPersonTitleField.swift */,
 				B0112396215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift */,
-				B060BE42215CCFCE004DD2B3 /* CheckoutRecipientAction.swift */,
 			);
-			path = Checkout;
+			path = Field;
 			sourceTree = "<group>";
 		};
 		B0F51CB02158772000B592F5 = {

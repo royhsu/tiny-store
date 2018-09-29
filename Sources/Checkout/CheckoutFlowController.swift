@@ -151,9 +151,3 @@ public final class CheckoutFlowController: ViewController {
     }
     
 }
-
-// MARK: - NavigationController
-
-import UIKit
-
-public typealias NavigationController = UINavigationController
