@@ -10,17 +10,7 @@
 
 import PatissierStore
 
-public final class OrderViewController: ViewController, CheckoutOrderStep {
-    
-    private final let _base = CheckoutOrderViewController()
-    
-    public final var form: CheckoutForm {
-        
-        get { return _base.form }
-        
-        set { _base.form = newValue }
-        
-    }
+public final class OrderViewController: CheckoutOrderViewController, CheckoutOrderStep {
     
     public init() {
         
@@ -43,12 +33,6 @@ public final class OrderViewController: ViewController, CheckoutOrderStep {
             action: #selector(done)
         )
         
-        addChild(_base)
-        
-        view.wrapSubview(_base.view)
-        
-        _base.didMove(toParent: self)
-        
         navigate { destination in
             
             if let destination = destination as? CheckoutDestination {
@@ -69,15 +53,11 @@ public final class OrderViewController: ViewController, CheckoutOrderStep {
         
     }
     
-    private final var orderCompletion: Optional< (Result<CheckoutOrder>) -> Void >
+    private final var _makeOrder: Optional< (Result<CheckoutOrder>) -> Void >
     
-    public final func navigate(
-        _ navigation: @escaping (Destination) -> Void
-    ) { _base.navigate(navigation) }
-    
-    public final func setOrder(
+    public final func makeOrder(
         _ completion: @escaping (Result<CheckoutOrder>) -> Void
-    ) { orderCompletion = completion }
+    ) { _makeOrder = completion }
     
     @objc
     public final func done(_ item: UIBarButtonItem) {
@@ -86,14 +66,14 @@ public final class OrderViewController: ViewController, CheckoutOrderStep {
             
             let order = try form.export(Order.self)
             
-            orderCompletion?(
+            _makeOrder?(
                 .success(order)
             )
             
         }
         catch {
             
-            orderCompletion?(
+            _makeOrder?(
                 .failure(error)
             )
             

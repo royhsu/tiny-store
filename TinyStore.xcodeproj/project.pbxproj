@@ -22,7 +22,7 @@
 		B01123AA215E337000A905E3 /* CheckoutItemTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123A9215E337000A905E3 /* CheckoutItemTemplate.swift */; };
 		B01123AC215E33AB00A905E3 /* CheckoutItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */; };
 		B01123B0215E3E2E00A905E3 /* CheckoutItemAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */; };
-		B01123B6215E600700A905E3 /* CheckoutFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123B5215E600700A905E3 /* CheckoutFlow.swift */; };
+		B01123B6215E600700A905E3 /* CheckoutFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123B5215E600700A905E3 /* CheckoutFlowController.swift */; };
 		B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */; };
 		B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8021587FF7000DC2D8 /* TinyKit.framework */; };
 		B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */; };
@@ -97,7 +97,7 @@
 		B01123A9215E337000A905E3 /* CheckoutItemTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemTemplate.swift; sourceTree = "<group>"; };
 		B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemStyle.swift; sourceTree = "<group>"; };
 		B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemAction.swift; sourceTree = "<group>"; };
-		B01123B5215E600700A905E3 /* CheckoutFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFlow.swift; sourceTree = "<group>"; };
+		B01123B5215E600700A905E3 /* CheckoutFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFlowController.swift; sourceTree = "<group>"; };
 		B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8021587FF7000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +188,8 @@
 		B0A1C4112158B0AA00DC9F26 /* Checkout */ = {
 			isa = PBXGroup;
 			children = (
+				B01123B5215E600700A905E3 /* CheckoutFlowController.swift */,
+				B0B5D432215EEC3B0093EE01 /* CheckoutOrderStep.swift */,
 				B0A1C41A2158B8A800DC9F26 /* CheckoutOrderViewController.swift */,
 				B06F6E81215C972A00BBCF0F /* CheckoutDestination.swift */,
 				B06F6E5B215C4DFB00BBCF0F /* CheckoutForm.swift */,
@@ -213,8 +215,6 @@
 				B011239D215E27A900A905E3 /* CheckoutPersonTitleField.swift */,
 				B0112396215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift */,
 				B060BE42215CCFCE004DD2B3 /* CheckoutRecipientAction.swift */,
-				B0B5D432215EEC3B0093EE01 /* CheckoutOrderStep.swift */,
-				B01123B5215E600700A905E3 /* CheckoutFlow.swift */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -410,7 +410,7 @@
 				B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */,
 				B06F6E82215C972A00BBCF0F /* CheckoutDestination.swift in Sources */,
 				B06F6E5C215C4DFB00BBCF0F /* CheckoutForm.swift in Sources */,
-				B01123B6215E600700A905E3 /* CheckoutFlow.swift in Sources */,
+				B01123B6215E600700A905E3 /* CheckoutFlowController.swift in Sources */,
 				B01123AC215E33AB00A905E3 /* CheckoutItemStyle.swift in Sources */,
 				B07A2BE32159E1BF002EFE87 /* CheckoutShippingAction.swift in Sources */,
 				B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */,

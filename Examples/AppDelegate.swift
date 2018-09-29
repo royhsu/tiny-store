@@ -59,12 +59,14 @@ extension AppDelegate: UIApplicationDelegate {
             )
         ]
         
-        let checkoutFlowViewController = CheckoutFlowViewController()
+        let checkoutFlowViewController = CheckoutFlowController()
         
-        checkoutFlowViewController.flow = CheckoutFlow(
-            navigation: NavigationController.self,
-            firstStep: orderViewController
-        )
+        checkoutFlowViewController.orderViewController = orderViewController
+        
+//        checkoutFlowViewController.flow = CheckoutFlow(
+//            navigation: NavigationController.self,
+//            firstStep: orderViewController
+//        )
 
         window.rootViewController = checkoutFlowViewController
 

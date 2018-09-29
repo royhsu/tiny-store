@@ -7,7 +7,7 @@
 
 // MARK: - CheckoutOrderViewController
 
-public final class CheckoutOrderViewController: ViewController {
+open class CheckoutOrderViewController: ViewController {
 
     private final var _actionDispatcher: Optional< (Action) -> Void >
 
@@ -64,7 +64,7 @@ public final class CheckoutOrderViewController: ViewController {
         
     }
     
-    public final override func viewDidLoad() {
+    open override func viewDidLoad() {
 
         super.viewDidLoad()
 
