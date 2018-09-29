@@ -10,7 +10,7 @@
 
 import PatissierStore
 
-public final class OrderViewController: CheckoutOrderViewController, CheckoutOrderStep {
+public final class OrderViewController: CheckoutOrderViewController, CheckoutOrderFillingStep {
     
     public init() {
         
@@ -55,7 +55,7 @@ public final class OrderViewController: CheckoutOrderViewController, CheckoutOrd
     
     private final var _makeOrder: Optional< (Result<CheckoutOrder>) -> Void >
     
-    public final func makeOrder(
+    public final func fillOutOrder(
         _ completion: @escaping (Result<CheckoutOrder>) -> Void
     ) { _makeOrder = completion }
     

@@ -7,7 +7,7 @@
 
 // MARK: - CheckoutOrderPreviewViewController
 
-open class CheckoutOrderPreviewViewController: ViewController {
+open class CheckoutOrderPreviewViewController: ViewController, CheckoutOrderPreviewingStep {
     
     private final let base = CollectionViewController()
     
@@ -32,5 +32,11 @@ open class CheckoutOrderPreviewViewController: ViewController {
         base.layout = TableViewLayout()
         
     }
+    
+    fileprivate var _makeOrder: Optional< (Result<Void>) -> Void >
+    
+    public final func makeOrder(
+        _ completion: @escaping (Result<Void>) -> Void
+    ) { _makeOrder = completion }
     
 }

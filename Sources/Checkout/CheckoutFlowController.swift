@@ -11,33 +11,19 @@ public final class CheckoutFlowController: ViewController {
     
     public enum Step {
         
-        case fillOutOrder(OrderStepViewController)
+        case orderFilling(OrderFillingStep)
         
-        case previewOrder(CheckoutOrderPreviewViewController)
+        case orderPreviewing(OrderPreviewingStep)
         
-        case finishPayment(ViewController)
-        
-        var viewController: ViewController {
-            
-            switch self {
-                
-            case let .fillOutOrder(controller): return controller
-                
-            case let .previewOrder(controller): return controller
-                
-            case let .finishPayment(controller): return controller
-                
-            }
-            
-        }
+        case paymentFinished(ViewController)
         
     }
     
     /// A flow shouldn't be interrupted after it gets started.
     /// Please make sure to check this value before an operation tries to do so.
-    public final var isFlowRunning: Bool { return !queuedSteps.isEmpty }
+    public final var isRunning: Bool { return !stepQueue.isEmpty }
     
-    fileprivate final var queuedSteps: [Step] = []
+    fileprivate final var stepQueue: [Step] = []
     
     private final var step: Step? {
         
@@ -45,9 +31,9 @@ public final class CheckoutFlowController: ViewController {
             
             switch step {
                 
-            case let .fillOutOrder(viewController)?:
+            case let .orderFilling(step)?:
                 
-                viewController.makeOrder { [weak self] result in
+                step.fillOutOrder { [weak self] result in
                     
                     guard
                         let self = self
@@ -72,27 +58,28 @@ public final class CheckoutFlowController: ViewController {
                 }
                 
                 base.setViewControllers(
-                    [ viewController ],
+                    [ step ],
                     animated: true
                 )
                 
-            case let .previewOrder(viewController)?:
+            case let .orderPreviewing(step)?:
                 
+                #warning("add an abstract layer that encapsulate pushViewController(:animated:) into base.next(step).")
                 base.pushViewController(
-                    viewController,
+                    step,
                     animated: true
                 )
                 
-            case let .finishPayment(viewController)?:
+            case let .paymentFinished(step)?:
                 
                 base.pushViewController(
-                    viewController,
+                    step,
                     animated: true
                 )
                 
             case .none:
                 
-                queuedSteps = []
+                stepQueue = []
                 
                 base.setViewControllers(
                     [ plainViewController ],
@@ -105,17 +92,17 @@ public final class CheckoutFlowController: ViewController {
         
     }
     
-    public typealias OrderStepViewController = CheckoutOrderStep & ViewController
+    public typealias OrderFillingStep = CheckoutOrderFillingStep & ViewController
     
-    public final var orderViewController: OrderStepViewController? {
+    public final var orderFillingStep: OrderFillingStep? {
         
         didSet { startFlowIfAvailable() }
         
     }
     
-    public typealias OrderPreviewStepViewController = CheckoutOrderPreviewViewController
+    public typealias OrderPreviewingStep = CheckoutOrderPreviewingStep & ViewController
     
-    public final var orderPreviewViewController: OrderPreviewStepViewController? {
+    public final var orderPreviewingStep: OrderPreviewingStep? {
         
         didSet { startFlowIfAvailable() }
         
@@ -152,14 +139,14 @@ public final class CheckoutFlowController: ViewController {
         
         guard
             isViewLoaded,
-            !isFlowRunning,
+            !isRunning,
             var steps = generateSteps(),
             !steps.isEmpty
         else { return }
         
         let firstStep = steps.removeFirst()
         
-        queuedSteps = steps
+        stepQueue = steps
         
         step = firstStep
         
@@ -169,22 +156,22 @@ public final class CheckoutFlowController: ViewController {
         
         #warning("log some warning if any dependency is missing.")
         guard
-            let orderViewController = orderViewController,
-            let orderPreviewStepViewController = orderPreviewViewController
+            let orderViewController = orderFillingStep,
+            let orderPreviewStepViewController = orderPreviewingStep
         else { return nil }
         
         return [
-            .fillOutOrder(orderViewController),
-            .previewOrder(orderPreviewStepViewController)
+            .orderFilling(orderViewController),
+            .orderPreviewing(orderPreviewStepViewController)
         ]
         
     }
     
     fileprivate final func nextStep() -> Step {
         
-        if queuedSteps.isEmpty { return .finishPayment(plainViewController) }
+        if stepQueue.isEmpty { return .paymentFinished(plainViewController) }
         
-        let nextStep = queuedSteps.removeFirst()
+        let nextStep = stepQueue.removeFirst()
         
         return nextStep
         
