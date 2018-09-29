@@ -1,36 +1,42 @@
 //
-//  CheckoutFlowViewController.swift
+//  CheckoutFlow.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/9/28.
 //
 
-// MARK: - CheckoutFlowViewController
+// MARK: - CheckoutFlow
 
-public struct CheckoutFlowController {
+public struct CheckoutFlow {
     
-    public enum State {
+    public enum Step {
         
-        case fillingOrder(CheckoutOrderViewController)
+        case fillingOrder(OrderStep)
         
     }
     
-    public private(set) var state: State
+    public private(set) var step: Step
     
-    internal let navigationController: NavigationController
+    public typealias Navigation = NavigationController
+    
+    private let navigation: Navigation
+    
+    public typealias OrderStep = CheckoutOrderStep & ViewController
  
-    internal let orderController: CheckoutOrderViewController
+    private let orderStep: OrderStep
+    
+    public var viewController: ViewController { return navigation }
     
     public init(
         navigation navigationType: NavigationController.Type,
-        order orderType: CheckoutOrderViewController.Type
+        firstStep: OrderStep
     ) {
         
-        self.orderController = orderType.init()
+        self.orderStep = firstStep
         
-        self.navigationController = navigationType.init(root: orderController)
+        self.navigation = navigationType.init(root: firstStep)
         
-        self.state = .fillingOrder(orderController)
+        self.step = .fillingOrder(firstStep)
         
         self.prepare()
         
@@ -38,7 +44,7 @@ public struct CheckoutFlowController {
     
     fileprivate func prepare() {
         
-        orderController.setOrder { result in
+        orderStep.setOrder { result in
             
             switch result {
                 
@@ -62,29 +68,29 @@ public struct CheckoutFlowController {
 
 public final class CheckoutFlowViewController: ViewController {
     
-    public final var flowController: CheckoutFlowController? {
+    public final var flow: CheckoutFlow? {
         
-        didSet(oldFlowController) {
+        didSet(oldFlow) {
             
             guard
                 isViewLoaded
             else { return }
             
-            oldFlowController?.navigationController.willMove(toParent: nil)
+            oldFlow?.viewController.willMove(toParent: nil)
             
-            oldFlowController?.navigationController.view.removeFromSuperview()
+            oldFlow?.viewController.view.removeFromSuperview()
             
-            oldFlowController?.navigationController.removeFromParent()
+            oldFlow?.viewController.removeFromParent()
             
             guard
-                let newFlowController = flowController
+                let newFlow = flow
             else { return }
                 
-            addChild(newFlowController.navigationController)
+            addChild(newFlow.viewController)
             
-            view.wrapSubview(newFlowController.navigationController.view)
+            view.wrapSubview(newFlow.viewController.view)
             
-            newFlowController.navigationController.didMove(toParent: self)
+            newFlow.viewController.didMove(toParent: self)
             
         }
         
@@ -95,14 +101,14 @@ public final class CheckoutFlowViewController: ViewController {
         super.viewDidLoad()
         
         guard
-            let flowController = flowController
+            let flow = flow
         else { return }
         
-        addChild(flowController.navigationController)
+        addChild(flow.viewController)
         
-        view.wrapSubview(flowController.navigationController.view)
+        view.wrapSubview(flow.viewController.view)
         
-        flowController.navigationController.didMove(toParent: self)
+        flow.viewController.didMove(toParent: self)
         
     }
     

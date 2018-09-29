@@ -10,9 +10,9 @@
 
 import PatissierStore
 
-public final class OrderViewController: CheckoutOrderViewController {
+public final class OrderViewController: ViewController, CheckoutOrderStep {
     
-    private final let _base = CheckoutViewController()
+    private final let _base = CheckoutOrderViewController()
     
     public final var form: CheckoutForm {
         
@@ -21,6 +21,17 @@ public final class OrderViewController: CheckoutOrderViewController {
         set { _base.form = newValue }
         
     }
+    
+    public init() {
+        
+        super.init(
+            nibName: nil,
+            bundle: nil
+        )
+        
+    }
+    
+    public required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
     
     public final override func viewDidLoad() {
         
@@ -37,6 +48,24 @@ public final class OrderViewController: CheckoutOrderViewController {
         view.wrapSubview(_base.view)
         
         _base.didMove(toParent: self)
+        
+        navigate { destination in
+            
+            if let destination = destination as? CheckoutDestination {
+                
+                switch destination {
+                    
+                case let .cityPicker(completion):
+                    
+                    completion(Taiwan.taipei)
+                    
+                }
+                
+                return
+                
+            }
+            
+        }
         
     }
     

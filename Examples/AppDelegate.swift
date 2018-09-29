@@ -28,67 +28,43 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
 
+        let orderViewController = OrderViewController()
+        
+        orderViewController.form = [
+            .item(
+                CheckoutItemField(
+                    style: UICheckoutItemStyle.self,
+                    title: "Chocolate Cake",
+                    price: 120.0,
+                    quantity: 5
+                )
+            ),
+            .item(
+                CheckoutItemField(
+                    style: UICheckoutItemStyle.self,
+                    title: "Apple Pie",
+                    price: 30.0,
+                    quantity: 2
+                )
+            ),
+            .shipping(
+                CheckoutShippingField(
+                    style: UICheckoutShippingStyle.self
+                )
+            ),
+            .recipient(
+                CheckoutRecipientField(
+                    style: UICheckoutRecipientStyle.self
+                )
+            )
+        ]
+        
         let checkoutFlowViewController = CheckoutFlowViewController()
         
-        checkoutFlowViewController.flowController = CheckoutFlowController(
+        checkoutFlowViewController.flow = CheckoutFlow(
             navigation: NavigationController.self,
-            order: OrderViewController.self
+            firstStep: orderViewController
         )
-        
-        switch checkoutFlowViewController.flowController?.state {
-            
-        case var .fillingOrder(controller)?:
-            
-            controller.form = [
-                .item(
-                    CheckoutItemField(
-                        style: UICheckoutItemStyle.self,
-                        title: "Chocolate Cake",
-                        price: 120.0,
-                        quantity: 5
-                    )
-                ),
-                .item(
-                    CheckoutItemField(
-                        style: UICheckoutItemStyle.self,
-                        title: "Apple Pie",
-                        price: 30.0,
-                        quantity: 2
-                    )
-                ),
-                .shipping(
-                    CheckoutShippingField(
-                        style: UICheckoutShippingStyle.self
-                    )
-                ),
-                .recipient(
-                    CheckoutRecipientField(
-                        style: UICheckoutRecipientStyle.self
-                    )
-                )
-            ]
-            
-            controller.navigate { destination in
-                
-                if let destination = destination as? CheckoutDestination {
-                    
-                    switch destination {
-                        
-                    case let .cityPicker(completion):
-                        
-                        completion(Taiwan.taipei)
-                        
-                    }
-                    
-                    return
-                    
-                }
-                
-            }
-            
-        case .none: break
-            
-        }
 
         window.rootViewController = checkoutFlowViewController
 
