@@ -15,7 +15,7 @@ open class CheckoutOrderViewController: ViewController {
 
     private final var _navigation: Optional< (Destination) -> Void >
 
-    private final var _base = CollectionViewController()
+    private final let base = CollectionViewController()
 
     public final var form: CheckoutForm = [] {
 
@@ -52,7 +52,7 @@ open class CheckoutOrderViewController: ViewController {
                 
             case let .success(sections):
                 
-                self._base.sections = sections
+                self.base.sections = sections
                 
                 self.asyncInvalidateLayout()
                 
@@ -68,13 +68,13 @@ open class CheckoutOrderViewController: ViewController {
 
         super.viewDidLoad()
 
-        addChild(_base)
+        addChild(base)
 
-        view.wrapSubview(_base.view)
+        view.wrapSubview(base.view)
 
-        _base.didMove(toParent: self)
+        base.didMove(toParent: self)
 
-        _base.layout = TableViewLayout()
+        base.layout = TableViewLayout()
 
         dispatchActions()
 
@@ -86,7 +86,7 @@ open class CheckoutOrderViewController: ViewController {
     
     fileprivate final func dispatchActions() {
 
-        _base.setAction { [weak self] action in
+        base.setAction { [weak self] action in
 
             if let action = action as? CheckoutItemAction {
                 
@@ -112,7 +112,7 @@ open class CheckoutOrderViewController: ViewController {
         
         DispatchQueue.main.async { [weak self] in
             
-            self?._base.layout?.invalidate()
+            self?.base.layout?.invalidate()
             
         }
         
@@ -207,7 +207,7 @@ open class CheckoutOrderViewController: ViewController {
     
     fileprivate final func handleErrors() {
 
-        _base.setError { error in
+        base.setError { error in
 
             #warning("TODO: error handling")
             print("\(error)")

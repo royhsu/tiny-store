@@ -63,11 +63,10 @@ extension AppDelegate: UIApplicationDelegate {
         
         checkoutFlowViewController.orderViewController = orderViewController
         
-//        checkoutFlowViewController.flow = CheckoutFlow(
-//            navigation: NavigationController.self,
-//            firstStep: orderViewController
-//        )
-
+        let orderPreviewViewController = CheckoutOrderPreviewViewController()
+        
+        checkoutFlowViewController.orderPreviewViewController = orderPreviewViewController
+        
         window.rootViewController = checkoutFlowViewController
 
         window.makeKeyAndVisible()
