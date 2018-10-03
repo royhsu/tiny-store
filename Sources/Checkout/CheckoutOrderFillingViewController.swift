@@ -74,7 +74,7 @@ open class CheckoutOrderFillingViewController: ViewController {
 
         base.didMove(toParent: self)
 
-        base.layout = TableViewLayout()
+        base.layout = ListViewLayout()
 
         dispatchActions()
 

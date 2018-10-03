@@ -21,7 +21,6 @@ public final class AppDelegate: UIResponder {
 
 extension AppDelegate: UIApplicationDelegate {
 
-
     public final func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?

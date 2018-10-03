@@ -29,7 +29,7 @@ open class CheckoutOrderPreviewingViewController: ViewController, CheckoutOrderP
         
         base.didMove(toParent: self)
         
-        base.layout = TableViewLayout()
+        base.layout = ListViewLayout()
         
     }
     
