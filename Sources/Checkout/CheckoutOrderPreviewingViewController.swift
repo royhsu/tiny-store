@@ -13,9 +13,9 @@ open class CheckoutOrderPreviewingViewController: ViewController, CheckoutOrderP
     
     public var _sections: SectionCollection {
         
-        get { return base.sections }
+        get { return base.collectionView.sections }
         
-        set { base.sections = newValue }
+        set { base.collectionView.sections = newValue }
         
     }
     
@@ -28,8 +28,6 @@ open class CheckoutOrderPreviewingViewController: ViewController, CheckoutOrderP
         view.wrapSubview(base.view)
         
         base.didMove(toParent: self)
-        
-        base.layout = ListViewLayout()
         
     }
     

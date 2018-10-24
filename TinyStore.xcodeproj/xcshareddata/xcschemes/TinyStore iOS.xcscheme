@@ -42,10 +42,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B00D96062030753600EF0B7A"
-               BuildableName = "TinyKit.framework"
-               BlueprintName = "TinyKit iOS"
-               ReferencedContainer = "container:tiny-kit/TinyKit.xcodeproj">
+               BlueprintIdentifier = "B063818F21450513004BC4DC"
+               BuildableName = "TinyValidation.framework"
+               BlueprintName = "TinyValidation iOS"
+               ReferencedContainer = "container:tiny-validation/TinyValidation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -56,10 +56,10 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B063818F21450513004BC4DC"
-               BuildableName = "TinyValidation.framework"
-               BlueprintName = "TinyValidation iOS"
-               ReferencedContainer = "container:tiny-validation/TinyValidation.xcodeproj">
+               BlueprintIdentifier = "B00D96062030753600EF0B7A"
+               BuildableName = "TinyKit.framework"
+               BlueprintName = "TinyKit iOS"
+               ReferencedContainer = "container:tiny-kit/TinyKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry

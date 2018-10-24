@@ -52,7 +52,7 @@ open class CheckoutOrderFillingViewController: ViewController {
                 
             case let .success(sections):
                 
-                self.base.sections = sections
+                self.base.collectionView.sections = sections
                 
                 self.asyncInvalidateLayout()
                 
@@ -74,7 +74,7 @@ open class CheckoutOrderFillingViewController: ViewController {
 
         base.didMove(toParent: self)
 
-        base.layout = ListViewLayout()
+        base.collectionView.applyLayout(ListViewLayout.self)
 
         dispatchActions()
 
@@ -111,8 +111,8 @@ open class CheckoutOrderFillingViewController: ViewController {
     fileprivate final func asyncInvalidateLayout() {
         
         DispatchQueue.main.async { [weak self] in
-            
-            self?.base.layout?.invalidate()
+           
+            self?.base.collectionView.layout?.invalidate()
             
         }
         

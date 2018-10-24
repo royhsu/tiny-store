@@ -8,10 +8,10 @@
       location = "group:tiny-storage/TinyStorage.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:tiny-kit/TinyKit.xcodeproj">
+      location = "group:tiny-validation/TinyValidation.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:tiny-validation/TinyValidation.xcodeproj">
+      location = "group:tiny-kit/TinyKit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:TinyStore.xcodeproj">
