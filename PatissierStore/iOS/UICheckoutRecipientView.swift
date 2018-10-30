@@ -8,7 +8,7 @@
 
 // MARK: - UICheckoutRecipientView
 
-public final class UICheckoutRecipientView: UITableViewCell, Actionable {
+public final class UICheckoutRecipientView: UIView, Actionable {
 
     @IBOutlet
     private final weak var firstNameLabel: UILabel!

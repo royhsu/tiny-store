@@ -27,47 +27,73 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
 
-        let orderViewController = OrderViewController()
+//        let orderViewController = OrderViewController()
+//
+//        orderViewController.form = [
+//            .item(
+//                CheckoutItemField(
+//                    style: UICheckoutItemStyle.self,
+//                    title: "Chocolate Cake",
+//                    price: 120.0,
+//                    quantity: 5
+//                )
+//            ),
+//            .item(
+//                CheckoutItemField(
+//                    style: UICheckoutItemStyle.self,
+//                    title: "Apple Pie",
+//                    price: 30.0,
+//                    quantity: 2
+//                )
+//            ),
+//            .shipping(
+//                CheckoutShippingField(
+//                    style: UICheckoutShippingStyle.self
+//                )
+//            ),
+//            .recipient(
+//                CheckoutRecipientField(
+//                    style: UICheckoutRecipientStyle.self
+//                )
+//            )
+//        ]
+//
+//        let checkoutFlowViewController = CheckoutFlowController()
+//
+//        checkoutFlowViewController.orderFillingStep = orderViewController
+//
+//        let orderPreviewViewController = CheckoutOrderPreviewingViewController()
+//
+//        checkoutFlowViewController.orderPreviewingStep = orderPreviewViewController
+//
+//        window.rootViewController = checkoutFlowViewController
         
-        orderViewController.form = [
-            .item(
-                CheckoutItemField(
-                    style: UICheckoutItemStyle.self,
-                    title: "Chocolate Cake",
-                    price: 120.0,
-                    quantity: 5
-                )
-            ),
-            .item(
-                CheckoutItemField(
-                    style: UICheckoutItemStyle.self,
-                    title: "Apple Pie",
-                    price: 30.0,
-                    quantity: 2
-                )
-            ),
-            .shipping(
-                CheckoutShippingField(
-                    style: UICheckoutShippingStyle.self
-                )
-            ),
-            .recipient(
-                CheckoutRecipientField(
-                    style: UICheckoutRecipientStyle.self
-                )
+        let collectionViewController = CollectionViewController()
+        
+        collectionViewController.collectionView.applyLayout(ListViewLayout.self)
+        
+        struct Item: NewCheckoutItem {
+            
+            let title: String
+            
+            let price: Double
+            
+            let quantityField = NewCheckoutQuantityField()
+            
+        }
+        
+        collectionViewController.collectionView.sections = [
+            NewCheckoutItemTemplate(
+                storage: Item(
+                    title: "Knee-length Wool Skirt",
+                    price: 19.0
+                ),
+                elements: [ .title ]
             )
         ]
-        
-        let checkoutFlowViewController = CheckoutFlowController()
-        
-        checkoutFlowViewController.orderFillingStep = orderViewController
-        
-        let orderPreviewViewController = CheckoutOrderPreviewingViewController()
-        
-        checkoutFlowViewController.orderPreviewingStep = orderPreviewViewController
-        
-        window.rootViewController = checkoutFlowViewController
 
+        window.rootViewController = collectionViewController
+        
         window.makeKeyAndVisible()
 
         return true
