@@ -103,6 +103,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="quantityStepperWrapperView" destination="bNw-Q8-hiQ" id="qZl-LQ-zy3"/>
                 <outlet property="titleLabel" destination="Uqb-5D-bWB" id="1oS-ug-amq"/>
             </connections>
             <point key="canvasLocation" x="140" y="-119.1904047976012"/>
