@@ -7,13 +7,27 @@
 
 // MARK: - NewCheckoutItem
 
-public protocol NewCheckoutItem {
+public struct NewCheckoutItem {
     
-    var title: String { get }
+    public let title = Observable<String?>()
     
-    var price: Double { get }
+    public var price: Double?
     
-    var quantityField: NewCheckoutQuantityField { get }
+    public var quantity: UInt
+    
+    public init(
+        title: String? = nil,
+        price: Double? = nil,
+        quantity: UInt = 0
+    ) {
+        
+        self.price = price
+        
+        self.quantity = quantity
+        
+        self.title.value = title
+        
+    }
     
 }
 
@@ -42,55 +56,62 @@ public struct NewCheckoutQuantityField: FormField {
     
 }
 
-public struct NewCheckoutItemTemplate: Template {
+internal final class QuantityStepper: UIStepper {
     
-    public struct Configuration: TemplateConfiguration {
+    internal final var valueDidChange: ( (Double) -> Void )?
+    
+    internal override init(frame: CGRect) {
         
-        public enum Element {
-            
-            case title
-            
-        }
+        super.init(frame: frame)
+        
+        prepare()
         
     }
     
-    private let base: ConfigurableTemplate<NewCheckoutItem, Configuration>
-    
-    public init(
-        storage: NewCheckoutItem,
-        elements: [Configuration.Element]
-    ) {
+    internal required init?(coder aDecoder: NSCoder) {
         
-        self.base = ConfigurableTemplate(
-            storage: storage,
-            elements: elements
-        )
+        super.init(coder: aDecoder)
         
-        self.prepare()
+        prepare()
         
     }
-    
-    fileprivate func prepare() {
+  
+    fileprivate final func prepare() {
         
-        base.registerView(
-            UILabel.self,
-            binding: { storage, label in
-                
-                label.numberOfLines = 0
-                
-                label.backgroundColor = .white
-                
-                label.text = "Title: \(storage.title)"
-                
-            },
-            for: .title
+        addTarget(
+            self,
+            action: #selector(changeValue),
+            for: .valueChanged
         )
         
     }
     
-    public var numberOfViews: Int { return base.numberOfViews }
-    
-    public func view(at index: Int) -> View { return base.view(at: index) }
+    @objc
+    public final func changeValue(_ sender: QuantityStepper) { valueDidChange?(value) }
     
 }
 
+public struct NewCheckoutItemTemplate: Template {
+    
+    private let base: UINewCheckoutItemView
+    
+    public init(
+        title: String? = nil
+    ) {
+        
+        let base = UIView.loadView(
+            UINewCheckoutItemView.self,
+            from: Bundle(for: UINewCheckoutItemView.self)
+        )!
+        
+        base.titleLabel.text = title
+        
+        self.base = base
+        
+    }
+    
+    public var numberOfViews: Int { return 1 }
+    
+    public func view(at index: Int) -> View { return base }
+    
+}

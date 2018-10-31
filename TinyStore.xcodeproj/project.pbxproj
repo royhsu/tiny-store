@@ -51,6 +51,8 @@
 		B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */; };
 		B07A2C37215A0A2D002EFE87 /* TinyValidation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */; };
 		B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2C4E215A2739002EFE87 /* CheckoutField.swift */; };
+		B0A069FA21897FED00BA4CA5 /* UINewCheckoutItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A069F921897FED00BA4CA5 /* UINewCheckoutItemView.swift */; };
+		B0A069FC21898CBC00BA4CA5 /* UINewCheckoutItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A069FB2189803E00BA4CA5 /* UINewCheckoutItemView.xib */; };
 		B0A5E96F215D128C000D0A1B /* CheckoutOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E96E215D128C000D0A1B /* CheckoutOrder.swift */; };
 		B0A5E971215D17B6000D0A1B /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A5E970215D17B6000D0A1B /* FormField.swift */; };
 		B0B5D43B215F42A00093EE01 /* CheckoutOrderPreviewingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B5D43A215F42A00093EE01 /* CheckoutOrderPreviewingViewController.swift */; };
@@ -129,6 +131,8 @@
 		B07A2BD32159DE73002EFE87 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyValidation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A2C4E215A2739002EFE87 /* CheckoutField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutField.swift; sourceTree = "<group>"; };
+		B0A069F921897FED00BA4CA5 /* UINewCheckoutItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINewCheckoutItemView.swift; sourceTree = "<group>"; };
+		B0A069FB2189803E00BA4CA5 /* UINewCheckoutItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UINewCheckoutItemView.xib; path = "/Users/roy/Documents/Developer/swift/tiny-store/Sources/Checkout/Item/UINewCheckoutItemView.xib"; sourceTree = "<absolute>"; };
 		B0A1C41A2158B8A800DC9F26 /* CheckoutOrderFillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutOrderFillingViewController.swift; sourceTree = "<group>"; };
 		B0A5E96E215D128C000D0A1B /* CheckoutOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutOrder.swift; sourceTree = "<group>"; };
 		B0A5E970215D17B6000D0A1B /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 				B01123A9215E337000A905E3 /* CheckoutItemTemplate.swift */,
 				B01123A7215E335300A905E3 /* CheckoutItemField.swift */,
 				B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */,
+				B0A069F921897FED00BA4CA5 /* UINewCheckoutItemView.swift */,
+				B0A069FB2189803E00BA4CA5 /* UINewCheckoutItemView.xib */,
 				B0191E7F218862540048FC0C /* NewCheckoutItem.swift */,
 				B0191E812188631C0048FC0C /* NewCheckoutOrder.swift */,
 			);
@@ -422,6 +428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A069FC21898CBC00BA4CA5 /* UINewCheckoutItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +478,7 @@
 				B0112385215DDA4800A905E3 /* CheckoutAddressField.swift in Sources */,
 				B06F6E85215C974F00BBCF0F /* City.swift in Sources */,
 				B06F6E64215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift in Sources */,
+				B0A069FA21897FED00BA4CA5 /* UINewCheckoutItemView.swift in Sources */,
 				B03E7278215FA15F00FC249A /* CheckoutOrderPreviewingStep.swift in Sources */,
 				B0112395215DE1D900A905E3 /* CheckoutLastNameField.swift in Sources */,
 			);
