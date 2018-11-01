@@ -28,6 +28,7 @@
 		B02B0247218B07D200772118 /* CheckoutItemTitleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B0246218B07D200772118 /* CheckoutItemTitleField.swift */; };
 		B02B0249218B0A4700772118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02B0248218B0A4700772118 /* Assets.xcassets */; };
 		B02B024B218B33FF00772118 /* CheckoutItemDescriptionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B024A218B33FF00772118 /* CheckoutItemDescriptionField.swift */; };
+		B02B024D218B375800772118 /* CheckoutItemPriceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B024C218B375800772118 /* CheckoutItemPriceField.swift */; };
 		B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */; };
 		B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8021587FF7000DC2D8 /* TinyKit.framework */; };
 		B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */; };
@@ -116,6 +117,7 @@
 		B02B0246218B07D200772118 /* CheckoutItemTitleField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemTitleField.swift; sourceTree = "<group>"; };
 		B02B0248218B0A4700772118 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B02B024A218B33FF00772118 /* CheckoutItemDescriptionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemDescriptionField.swift; sourceTree = "<group>"; };
+		B02B024C218B375800772118 /* CheckoutItemPriceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemPriceField.swift; sourceTree = "<group>"; };
 		B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8021587FF7000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,6 +262,7 @@
 			children = (
 				B02B0246218B07D200772118 /* CheckoutItemTitleField.swift */,
 				B02B024A218B33FF00772118 /* CheckoutItemDescriptionField.swift */,
+				B02B024C218B375800772118 /* CheckoutItemPriceField.swift */,
 				B0191E7F218862540048FC0C /* CheckoutItemQuantityField.swift */,
 				B0A069F921897FED00BA4CA5 /* UICheckoutItemView.swift */,
 				B0A069FB2189803E00BA4CA5 /* UICheckoutItemView.xib */,
@@ -508,6 +511,7 @@
 				B06F6E64215C6DDE00BBCF0F /* CheckoutRecipientStyle.swift in Sources */,
 				B0A069FA21897FED00BA4CA5 /* UICheckoutItemView.swift in Sources */,
 				B03E7278215FA15F00FC249A /* CheckoutOrderPreviewingStep.swift in Sources */,
+				B02B024D218B375800772118 /* CheckoutItemPriceField.swift in Sources */,
 				B0112395215DE1D900A905E3 /* CheckoutLastNameField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

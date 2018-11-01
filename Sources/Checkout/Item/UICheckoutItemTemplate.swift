@@ -13,6 +13,8 @@ public struct UICheckoutItemTemplate: Template {
     
     private let descriptionField: CheckoutItemDescriptionField
     
+    private let priceField: CheckoutItemPriceField
+    
     private let quantityField: CheckoutItemQuantityField
     
     private let base: UICheckoutItemView
@@ -20,12 +22,15 @@ public struct UICheckoutItemTemplate: Template {
     public init(
         titleField: CheckoutItemTitleField,
         descriptionField: CheckoutItemDescriptionField,
+        priceField: CheckoutItemPriceField,
         quantityField: CheckoutItemQuantityField
     ) {
         
         self.titleField = titleField
         
         self.descriptionField = descriptionField
+        
+        self.priceField = priceField
         
         self.quantityField = quantityField
         
@@ -37,6 +42,11 @@ public struct UICheckoutItemTemplate: Template {
         base.titleLabel.text = titleField.title.value
         
         base.descriptionLabel.text = descriptionField.description.value
+        
+        let price = priceField.price.value ?? 0.0
+        
+        #warning("add currency formatter.")
+        base.priceLabel.text = "$ \(price)"
         
         base.quantityStepper.value = quantityField.quantity.value ?? 1
         

@@ -80,6 +80,10 @@ extension AppDelegate: UIApplicationDelegate {
         
         description.value = "Dark Blue - S"
         
+        let price = Observable<Double>()
+        
+        price.value = 19.0
+        
         let quantity = Observable<Int>()
         
         quantity.value = 3
@@ -88,6 +92,7 @@ extension AppDelegate: UIApplicationDelegate {
             UICheckoutItemTemplate(
                 titleField: .init(title: title),
                 descriptionField: .init(description: description),
+                priceField: .init(price: price),
                 quantityField: .init(quantity: quantity)
             )
         ]
