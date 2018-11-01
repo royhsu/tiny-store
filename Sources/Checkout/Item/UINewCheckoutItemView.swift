@@ -10,24 +10,85 @@
 public final class UINewCheckoutItemView: UIView {
     
     @IBOutlet
-    public private(set) final weak var titleLabel: UILabel! {
+    public private(set) weak var previewImageView: UIImageView! {
         
         didSet {
             
-            titleLabel.font = .preferredFont(forTextStyle: .body)
+            previewImageView.backgroundColor = .lightGray
             
-            titleLabel.adjustsFontForContentSizeCategory = true
+            previewImageView.contentMode = .scaleAspectFill
             
-            titleLabel.text = nil
+            previewImageView.layer.borderColor = UIColor.darkGray.cgColor
             
-            titleLabel.textColor = .black
+            previewImageView.layer.borderWidth = 0.5
             
         }
         
     }
     
     @IBOutlet
-    private final weak var quantityStepperContainerView: UIView!
+    public private(set) final weak var titleLabel: UILabel! {
+        
+        didSet {
+            
+            titleLabel.adjustsFontForContentSizeCategory = true
+            
+            titleLabel.font = .preferredFont(forTextStyle: .body)
+            
+            titleLabel.numberOfLines = 0
+            
+            titleLabel.text = nil
+            
+        }
+        
+    }
+    
+    @IBOutlet
+    public private(set) final weak var descriptionLabel: UILabel! {
+        
+        didSet {
+            
+            descriptionLabel.adjustsFontForContentSizeCategory = true
+            
+            descriptionLabel.font = .preferredFont(forTextStyle: .body)
+            
+            descriptionLabel.numberOfLines = 0
+            
+            descriptionLabel.text = nil
+            
+            descriptionLabel.textColor = .darkGray
+            
+        }
+        
+    }
+    
+    @IBOutlet
+    public private(set) final weak var priceLabel: UILabel! {
+        
+        didSet {
+            
+            priceLabel.adjustsFontForContentSizeCategory = true
+            
+            priceLabel.font = .preferredFont(forTextStyle: .body)
+            
+            priceLabel.text = nil
+            
+            priceLabel.textAlignment = .right
+            
+        }
+        
+    }
+    
+    @IBOutlet
+    private final weak var quantityStepperContainerView: UIView! {
+        
+        didSet {
+            
+            quantityStepperContainerView.backgroundColor = nil
+            
+        }
+        
+    }
     
     public final let quantityStepper: UICheckoutStepper = {
         

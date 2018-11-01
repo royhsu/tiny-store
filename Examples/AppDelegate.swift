@@ -72,16 +72,6 @@ extension AppDelegate: UIApplicationDelegate {
         
         collectionViewController.collectionView.applyLayout(ListViewLayout.self)
         
-//        struct Item: NewCheckoutItem {
-//            
-//            let title: String
-//            
-//            let price: Double
-//            
-//            let quantityField = NewCheckoutQuantityField()
-//            
-//        }
-        
         collectionViewController.collectionView.sections = [
             NewCheckoutItemTemplate(
                 title: "Knee-length Wool Skirt"
