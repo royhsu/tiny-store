@@ -62,7 +62,7 @@ public final class UICheckoutStepper: UIView {
         
     }
     
-    public final var _minimumValue: Int = 0
+    private final var _minimumValue: Int = 0
     
     public final var minimumValue: Int {
         
@@ -79,7 +79,7 @@ public final class UICheckoutStepper: UIView {
         
     }
     
-    public final var _maximumValue: Int = 10
+    private final var _maximumValue: Int = 10
     
     public final var maximumValue: Int {
         
@@ -104,6 +104,8 @@ public final class UICheckoutStepper: UIView {
             
             valueTextField.text = "\(_value)"
             
+            valueDidChange?(_value)
+            
         }
         
     }
@@ -127,6 +129,8 @@ public final class UICheckoutStepper: UIView {
         }
         
     }
+    
+    public final var valueDidChange: ( (Int) -> Void )?
     
     public final override var tintColor: UIColor! {
         

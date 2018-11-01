@@ -22,11 +22,12 @@
 		B01123AC215E33AB00A905E3 /* CheckoutItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */; };
 		B01123B0215E3E2E00A905E3 /* CheckoutItemAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */; };
 		B01123B6215E600700A905E3 /* CheckoutFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123B5215E600700A905E3 /* CheckoutFlowController.swift */; };
-		B0191E80218862540048FC0C /* NewCheckoutItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0191E7F218862540048FC0C /* NewCheckoutItem.swift */; };
+		B0191E80218862540048FC0C /* CheckoutItemQuantityField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0191E7F218862540048FC0C /* CheckoutItemQuantityField.swift */; };
 		B0191E822188631D0048FC0C /* NewCheckoutOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0191E812188631C0048FC0C /* NewCheckoutOrder.swift */; };
 		B02B0245218AF85900772118 /* UICheckoutItemTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */; };
 		B02B0247218B07D200772118 /* CheckoutItemTitleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B0246218B07D200772118 /* CheckoutItemTitleField.swift */; };
 		B02B0249218B0A4700772118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02B0248218B0A4700772118 /* Assets.xcassets */; };
+		B02B024B218B33FF00772118 /* CheckoutItemDescriptionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B024A218B33FF00772118 /* CheckoutItemDescriptionField.swift */; };
 		B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */; };
 		B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8021587FF7000DC2D8 /* TinyKit.framework */; };
 		B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */; };
@@ -109,11 +110,12 @@
 		B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemStyle.swift; sourceTree = "<group>"; };
 		B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemAction.swift; sourceTree = "<group>"; };
 		B01123B5215E600700A905E3 /* CheckoutFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFlowController.swift; sourceTree = "<group>"; };
-		B0191E7F218862540048FC0C /* NewCheckoutItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCheckoutItem.swift; sourceTree = "<group>"; };
+		B0191E7F218862540048FC0C /* CheckoutItemQuantityField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemQuantityField.swift; sourceTree = "<group>"; };
 		B0191E812188631C0048FC0C /* NewCheckoutOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCheckoutOrder.swift; sourceTree = "<group>"; };
 		B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutItemTemplate.swift; sourceTree = "<group>"; };
 		B02B0246218B07D200772118 /* CheckoutItemTitleField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemTitleField.swift; sourceTree = "<group>"; };
 		B02B0248218B0A4700772118 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B02B024A218B33FF00772118 /* CheckoutItemDescriptionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemDescriptionField.swift; sourceTree = "<group>"; };
 		B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8021587FF7000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,6 +259,8 @@
 			isa = PBXGroup;
 			children = (
 				B02B0246218B07D200772118 /* CheckoutItemTitleField.swift */,
+				B02B024A218B33FF00772118 /* CheckoutItemDescriptionField.swift */,
+				B0191E7F218862540048FC0C /* CheckoutItemQuantityField.swift */,
 				B0A069F921897FED00BA4CA5 /* UICheckoutItemView.swift */,
 				B0A069FB2189803E00BA4CA5 /* UICheckoutItemView.xib */,
 				B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */,
@@ -266,7 +270,6 @@
 				B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */,
 				B0A069FF2189948200BA4CA5 /* UICheckoutStepper.xib */,
 				B0A06A032189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift */,
-				B0191E7F218862540048FC0C /* NewCheckoutItem.swift */,
 				B0191E812188631C0048FC0C /* NewCheckoutOrder.swift */,
 			);
 			path = Item;
@@ -476,6 +479,7 @@
 				B0A5E971215D17B6000D0A1B /* FormField.swift in Sources */,
 				B0A5E96F215D128C000D0A1B /* CheckoutOrder.swift in Sources */,
 				B0A06A042189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift in Sources */,
+				B02B024B218B33FF00772118 /* CheckoutItemDescriptionField.swift in Sources */,
 				B0112397215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift in Sources */,
 				B03E7276215FA01D00FC249A /* CheckoutOrderFillingStep.swift in Sources */,
 				B02B0245218AF85900772118 /* UICheckoutItemTemplate.swift in Sources */,
@@ -488,7 +492,7 @@
 				B06F6E82215C972A00BBCF0F /* CheckoutDestination.swift in Sources */,
 				B06F6E5C215C4DFB00BBCF0F /* CheckoutForm.swift in Sources */,
 				B01123B6215E600700A905E3 /* CheckoutFlowController.swift in Sources */,
-				B0191E80218862540048FC0C /* NewCheckoutItem.swift in Sources */,
+				B0191E80218862540048FC0C /* CheckoutItemQuantityField.swift in Sources */,
 				B01123AC215E33AB00A905E3 /* CheckoutItemStyle.swift in Sources */,
 				B07A2BE32159E1BF002EFE87 /* CheckoutShippingAction.swift in Sources */,
 				B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */,

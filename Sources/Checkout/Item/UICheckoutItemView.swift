@@ -50,7 +50,7 @@ public final class UICheckoutItemView: UIView {
             
             descriptionLabel.adjustsFontForContentSizeCategory = true
             
-            descriptionLabel.font = .preferredFont(forTextStyle: .body)
+            descriptionLabel.font = .preferredFont(forTextStyle: .caption1)
             
             descriptionLabel.numberOfLines = 0
             

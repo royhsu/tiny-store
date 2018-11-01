@@ -76,11 +76,19 @@ extension AppDelegate: UIApplicationDelegate {
         
         title.value = "Knee-length Wool Skirt"
         
+        let description = Observable<String>()
+        
+        description.value = "Dark Blue - S"
+        
+        let quantity = Observable<Int>()
+        
+        quantity.value = 3
+        
         collectionViewController.collectionView.sections = [
             UICheckoutItemTemplate(
-                titleField: CheckoutItemTitleField(
-                    title: title
-                )
+                titleField: .init(title: title),
+                descriptionField: .init(description: description),
+                quantityField: .init(quantity: quantity)
             )
         ]
 

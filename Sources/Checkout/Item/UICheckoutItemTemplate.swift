@@ -11,13 +11,23 @@ public struct UICheckoutItemTemplate: Template {
     
     private let titleField: CheckoutItemTitleField
     
+    private let descriptionField: CheckoutItemDescriptionField
+    
+    private let quantityField: CheckoutItemQuantityField
+    
     private let base: UICheckoutItemView
     
     public init(
-        titleField: CheckoutItemTitleField
+        titleField: CheckoutItemTitleField,
+        descriptionField: CheckoutItemDescriptionField,
+        quantityField: CheckoutItemQuantityField
     ) {
         
         self.titleField = titleField
+        
+        self.descriptionField = descriptionField
+        
+        self.quantityField = quantityField
         
         let base = UIView.loadView(
             UICheckoutItemView.self,
@@ -25,6 +35,18 @@ public struct UICheckoutItemTemplate: Template {
         )!
         
         base.titleLabel.text = titleField.title.value
+        
+        base.descriptionLabel.text = descriptionField.description.value
+        
+        base.quantityStepper.value = quantityField.quantity.value ?? 1
+        
+        base.quantityStepper.valueDidChange = { value in
+            
+            quantityField.quantity.value = value
+            
+            print(quantityField.quantity.value)
+            
+        }
         
         self.base = base
         
