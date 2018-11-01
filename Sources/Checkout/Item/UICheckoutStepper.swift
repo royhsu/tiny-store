@@ -9,6 +9,7 @@
 
 public final class UICheckoutStepper: UIView {
     
+    #warning("image size is not set properly.")
     @IBOutlet
     private final var decreaseButton: UIButton! {
         
@@ -26,6 +27,7 @@ public final class UICheckoutStepper: UIView {
         
     }
     
+    #warning("image size is not set properly.")
     @IBOutlet
     private final var increaseButton: UIButton! {
         
