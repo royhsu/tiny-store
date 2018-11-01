@@ -15,6 +15,8 @@ public struct CheckoutItemDescriptionField: Field {
     
     public let rules: [AnyValidationRule<String>] = []
     
+    public let isRequired = true
+    
     public init(description: Observable<String>) { self.description = description }
     
 }

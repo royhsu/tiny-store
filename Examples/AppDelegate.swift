@@ -95,13 +95,16 @@ extension AppDelegate: UIApplicationDelegate {
             quantityField: .init(quantity: quantity)
         )
         
-        if let jsonData = try? JSONEncoder().encode(itemForm) {
+        do {
         
-            let json = try? JSONSerialization.jsonObject(with: jsonData)
+            let data = try JSONEncoder().encode(itemForm)
+        
+            let json = try JSONSerialization.jsonObject(with: data)
             
             print(json)
             
         }
+        catch { print("\(error)") }
         
         collectionViewController.collectionView.sections = [
             UICheckoutItemTemplate(

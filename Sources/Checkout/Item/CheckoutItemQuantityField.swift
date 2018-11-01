@@ -15,6 +15,8 @@ public struct CheckoutItemQuantityField: Field {
     
     #warning("add validation rules.")
     public let rules: [ AnyValidationRule<Int> ]
+    
+    public let isRequired = true
 
     public let definition: FormFieldDefinition
     

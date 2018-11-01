@@ -15,6 +15,8 @@ public struct CheckoutItemTitleField: Field {
     
     public let rules: [AnyValidationRule<String>] = []
     
+    public let isRequired = true
+    
     public init(title: Observable<String>) { self.title = title }
     
 }
@@ -27,6 +29,8 @@ public protocol Field: Encodable {
     
     var rules: [AnyValidationRule<Value>] { get }
     
+    var isRequired: Bool { get }
+    
 }
 
 public extension Field {
@@ -35,17 +39,29 @@ public extension Field {
         
         var container = encoder.singleValueContainer()
         
-        if let value = content.value {
+        if isRequired {
+            
+            let value = try content.value.explicitlyValidated(
+                by: NotNilRule()
+            )
             
             try rules.forEach { rule in _ = try rule.validate(value) }
             
             try container.encode(value)
             
-            return
+        }
+        else {
+        
+            if let value = content.value {
+                
+                try rules.forEach { rule in _ = try rule.validate(value) }
+                
+                try container.encode(value)
+                
+            }
+            else { try container.encodeNil() }
             
         }
-        
-        try container.encodeNil()
         
     }
     
