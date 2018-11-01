@@ -78,9 +78,10 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bNw-Q8-hiQ">
-                                    <rect key="frame" x="0.0" y="43" width="198" height="44"/>
+                                    <rect key="frame" x="0.0" y="43" width="100" height="44"/>
                                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstAttribute="width" priority="750" constant="100" id="Ctk-xi-sLL"/>
                                         <constraint firstAttribute="height" constant="44" id="bak-Z4-6li"/>
                                     </constraints>
                                 </view>
@@ -90,7 +91,7 @@
                                 <constraint firstItem="tgj-dS-gyV" firstAttribute="top" secondItem="mmd-Q4-KMj" secondAttribute="top" id="BgT-Cb-YYg"/>
                                 <constraint firstAttribute="trailing" secondItem="tgj-dS-gyV" secondAttribute="trailing" id="SY9-tV-T9I"/>
                                 <constraint firstItem="bNw-Q8-hiQ" firstAttribute="leading" secondItem="mmd-Q4-KMj" secondAttribute="leading" id="XIY-gb-2wb"/>
-                                <constraint firstAttribute="trailing" secondItem="bNw-Q8-hiQ" secondAttribute="trailing" id="bpI-Mu-XoW"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bNw-Q8-hiQ" secondAttribute="trailing" id="bpI-Mu-XoW"/>
                                 <constraint firstItem="bNw-Q8-hiQ" firstAttribute="top" secondItem="tgj-dS-gyV" secondAttribute="bottom" constant="8" symbolic="YES" id="evi-mw-T68"/>
                                 <constraint firstItem="tgj-dS-gyV" firstAttribute="leading" secondItem="mmd-Q4-KMj" secondAttribute="leading" id="qaL-47-rkt"/>
                             </constraints>
