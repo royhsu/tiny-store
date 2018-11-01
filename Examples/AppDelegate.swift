@@ -8,7 +8,7 @@
 
 // MARK: - AppDelegate
 
-import PatissierStore
+import TinyStore
 
 @UIApplicationMain
 public final class AppDelegate: UIResponder {

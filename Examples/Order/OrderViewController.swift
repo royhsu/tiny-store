@@ -8,7 +8,7 @@
 
 // MARK: - OrderViewController
 
-import PatissierStore
+import TinyStore
 
 public final class OrderViewController: CheckoutOrderFillingViewController, CheckoutOrderFillingStep {
     

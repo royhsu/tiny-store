@@ -93,15 +93,15 @@ internal final class QuantityStepper: UIStepper {
 
 public struct NewCheckoutItemTemplate: Template {
     
-    private let base: UINewCheckoutItemView
+    private let base: UICheckoutItemView
     
     public init(
         title: String? = nil
     ) {
         
         let base = UIView.loadView(
-            UINewCheckoutItemView.self,
-            from: Bundle(for: UINewCheckoutItemView.self)
+            UICheckoutItemView.self,
+            from: Bundle(for: UICheckoutItemView.self)
         )!
         
         base.titleLabel.text = title
