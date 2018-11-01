@@ -72,9 +72,15 @@ extension AppDelegate: UIApplicationDelegate {
         
         collectionViewController.collectionView.applyLayout(ListViewLayout.self)
         
+        let title = Observable<String>()
+        
+        title.value = "Knee-length Wool Skirt"
+        
         collectionViewController.collectionView.sections = [
-            NewCheckoutItemTemplate(
-                title: "Knee-length Wool Skirt"
+            UICheckoutItemTemplate(
+                titleField: CheckoutItemTitleField(
+                    title: title
+                )
             )
         ]
 

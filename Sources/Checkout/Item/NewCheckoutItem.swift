@@ -5,32 +5,6 @@
 //  Created by Roy Hsu on 2018/10/30.
 //
 
-// MARK: - NewCheckoutItem
-
-public struct NewCheckoutItem {
-    
-    public let title = Observable<String?>()
-    
-    public var price: Double?
-    
-    public var quantity: UInt
-    
-    public init(
-        title: String? = nil,
-        price: Double? = nil,
-        quantity: UInt = 0
-    ) {
-        
-        self.price = price
-        
-        self.quantity = quantity
-        
-        self.title.value = title
-        
-    }
-    
-}
-
 public struct NewCheckoutQuantityField: FormField {
     
     public var value: UInt?
@@ -91,27 +65,3 @@ internal final class QuantityStepper: UIStepper {
     
 }
 
-public struct NewCheckoutItemTemplate: Template {
-    
-    private let base: UICheckoutItemView
-    
-    public init(
-        title: String? = nil
-    ) {
-        
-        let base = UIView.loadView(
-            UICheckoutItemView.self,
-            from: Bundle(for: UICheckoutItemView.self)
-        )!
-        
-        base.titleLabel.text = title
-        
-        self.base = base
-        
-    }
-    
-    public var numberOfViews: Int { return 1 }
-    
-    public func view(at index: Int) -> View { return base }
-    
-}
