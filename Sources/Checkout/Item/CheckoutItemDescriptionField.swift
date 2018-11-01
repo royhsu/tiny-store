@@ -7,9 +7,11 @@
 
 // MARK: - CheckoutItemDescriptionField
 
-public struct CheckoutItemDescriptionField {
+public struct CheckoutItemDescriptionField: Field {
     
     public let description: Observable<String>
+    
+    public var content: Observable<String> { return description }
     
     public init(description: Observable<String>) { self.description = description }
     

@@ -88,12 +88,27 @@ extension AppDelegate: UIApplicationDelegate {
         
         quantity.value = 3
         
+        let itemForm = CheckoutItemForm(
+            titleField: .init(title: title),
+            descriptionField: .init(description: description),
+            priceField: .init(price: price),
+            quantityField: .init(quantity: quantity)
+        )
+        
+        if let jsonData = try? JSONEncoder().encode(itemForm) {
+        
+            let json = try? JSONSerialization.jsonObject(with: jsonData)
+            
+            print(json)
+            
+        }
+        
         collectionViewController.collectionView.sections = [
             UICheckoutItemTemplate(
-                titleField: .init(title: title),
-                descriptionField: .init(description: description),
-                priceField: .init(price: price),
-                quantityField: .init(quantity: quantity)
+                titleField: itemForm.titleField,
+                descriptionField: itemForm.descriptionField,
+                priceField: itemForm.priceField,
+                quantityField: itemForm.quantityField
             )
         ]
 

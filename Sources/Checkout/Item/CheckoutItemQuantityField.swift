@@ -7,9 +7,11 @@
 
 // MARK: - CheckoutItemQuantityField
 
-public struct CheckoutItemQuantityField {
+public struct CheckoutItemQuantityField: Field {
     
     public let quantity: Observable<Int>
+    
+    public var content: Observable<Int> { return quantity }
     
     #warning("add validation rules.")
     public let rules: [ AnyValidationRule<Int> ]

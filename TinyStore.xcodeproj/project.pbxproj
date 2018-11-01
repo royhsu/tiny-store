@@ -18,7 +18,7 @@
 		B0112397215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112396215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift */; };
 		B011239C215E056C00A905E3 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011239A215E056600A905E3 /* MessageField.swift */; };
 		B011239E215E27A900A905E3 /* CheckoutPersonTitleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011239D215E27A900A905E3 /* CheckoutPersonTitleField.swift */; };
-		B01123A8215E335300A905E3 /* CheckoutItemField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123A7215E335300A905E3 /* CheckoutItemField.swift */; };
+		B01123A8215E335300A905E3 /* CheckoutItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123A7215E335300A905E3 /* CheckoutItemForm.swift */; };
 		B01123AC215E33AB00A905E3 /* CheckoutItemStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */; };
 		B01123B0215E3E2E00A905E3 /* CheckoutItemAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */; };
 		B01123B6215E600700A905E3 /* CheckoutFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123B5215E600700A905E3 /* CheckoutFlowController.swift */; };
@@ -107,7 +107,7 @@
 		B0112396215DE1FD00A905E3 /* CheckoutPhoneNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPhoneNumberField.swift; sourceTree = "<group>"; };
 		B011239A215E056600A905E3 /* MessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
 		B011239D215E27A900A905E3 /* CheckoutPersonTitleField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutPersonTitleField.swift; sourceTree = "<group>"; };
-		B01123A7215E335300A905E3 /* CheckoutItemField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemField.swift; sourceTree = "<group>"; };
+		B01123A7215E335300A905E3 /* CheckoutItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemForm.swift; sourceTree = "<group>"; };
 		B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemStyle.swift; sourceTree = "<group>"; };
 		B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemAction.swift; sourceTree = "<group>"; };
 		B01123B5215E600700A905E3 /* CheckoutFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFlowController.swift; sourceTree = "<group>"; };
@@ -264,11 +264,11 @@
 				B02B024A218B33FF00772118 /* CheckoutItemDescriptionField.swift */,
 				B02B024C218B375800772118 /* CheckoutItemPriceField.swift */,
 				B0191E7F218862540048FC0C /* CheckoutItemQuantityField.swift */,
+				B01123A7215E335300A905E3 /* CheckoutItemForm.swift */,
 				B0A069F921897FED00BA4CA5 /* UICheckoutItemView.swift */,
 				B0A069FB2189803E00BA4CA5 /* UICheckoutItemView.xib */,
 				B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */,
 				B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */,
-				B01123A7215E335300A905E3 /* CheckoutItemField.swift */,
 				B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */,
 				B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */,
 				B0A069FF2189948200BA4CA5 /* UICheckoutStepper.xib */,
@@ -503,7 +503,7 @@
 				B0112383215DDA2500A905E3 /* CheckoutCityField.swift in Sources */,
 				B011239E215E27A900A905E3 /* CheckoutPersonTitleField.swift in Sources */,
 				B06F6E60215C6D7300BBCF0F /* CheckoutShippingStyle.swift in Sources */,
-				B01123A8215E335300A905E3 /* CheckoutItemField.swift in Sources */,
+				B01123A8215E335300A905E3 /* CheckoutItemForm.swift in Sources */,
 				B06F6E58215BB59E00BBCF0F /* CheckoutStorage.swift in Sources */,
 				B0A069FE2189947400BA4CA5 /* UICheckoutStepper.swift in Sources */,
 				B0112385215DDA4800A905E3 /* CheckoutAddressField.swift in Sources */,
