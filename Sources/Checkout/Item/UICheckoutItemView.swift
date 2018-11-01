@@ -92,10 +92,14 @@ public final class UICheckoutItemView: UIView {
     
     public final let quantityStepper: UICheckoutStepper = {
         
-        return UIView.loadView(
+        let stepper = UIView.loadView(
             UICheckoutStepper.self,
             from: Bundle(for: UICheckoutStepper.self)
         )!
+        
+        stepper.tintColor = .black
+        
+        return stepper
         
     }()
     

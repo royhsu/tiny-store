@@ -20,7 +20,7 @@ public final class UICheckoutStepper: UIView {
                 for: .touchUpInside
             )
             
-            decreaseButton.tintColor = .black
+            decreaseButton.tintColor = tintColor
             
         }
         
@@ -37,7 +37,7 @@ public final class UICheckoutStepper: UIView {
                 for: .touchUpInside
             )
             
-            increaseButton.tintColor = .black
+            increaseButton.tintColor = tintColor
             
         }
         
@@ -126,6 +126,19 @@ public final class UICheckoutStepper: UIView {
         
     }
     
+    public final override var tintColor: UIColor! {
+        
+        didSet {
+            
+            decreaseButton.tintColor = tintColor
+            
+            increaseButton.tintColor = tintColor
+            
+            layer.borderColor = tintColor.cgColor
+            
+        }
+        
+    }
     
     public final override func awakeFromNib() {
         
@@ -133,7 +146,7 @@ public final class UICheckoutStepper: UIView {
         
         backgroundColor = .clear
         
-        layer.borderColor = UIColor.black.cgColor
+        layer.borderColor = tintColor.cgColor
         
         layer.borderWidth = 0.5
         
