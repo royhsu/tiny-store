@@ -13,6 +13,9 @@ public struct CheckoutItemPriceField: Field {
     
     public var content: Observable<Double> { return price }
     
+    #warning("add validation rules.")
+    public let rules: [AnyValidationRule<Double>] = []
+    
     public init(price: Observable<Double>) { self.price = price }
     
 }

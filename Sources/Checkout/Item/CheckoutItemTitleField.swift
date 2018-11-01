@@ -13,6 +13,8 @@ public struct CheckoutItemTitleField: Field {
     
     public var content: Observable<String> { return title }
     
+    public let rules: [AnyValidationRule<String>] = []
+    
     public init(title: Observable<String>) { self.title = title }
     
 }
@@ -23,6 +25,8 @@ public protocol Field: Encodable {
     
     var content: Observable<Value> { get }
     
+    var rules: [AnyValidationRule<Value>] { get }
+    
 }
 
 public extension Field {
@@ -32,6 +36,8 @@ public extension Field {
         var container = encoder.singleValueContainer()
         
         if let value = content.value {
+            
+            try rules.forEach { rule in _ = try rule.validate(value) }
             
             try container.encode(value)
             

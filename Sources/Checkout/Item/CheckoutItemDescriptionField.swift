@@ -13,6 +13,8 @@ public struct CheckoutItemDescriptionField: Field {
     
     public var content: Observable<String> { return description }
     
+    public let rules: [AnyValidationRule<String>] = []
+    
     public init(description: Observable<String>) { self.description = description }
     
 }
