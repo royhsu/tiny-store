@@ -10,10 +10,24 @@
 public final class UINewCheckoutItemView: UIView {
     
     @IBOutlet
-    public private(set) final weak var titleLabel: UILabel!
+    public private(set) final weak var titleLabel: UILabel! {
+        
+        didSet {
+            
+            titleLabel.font = .preferredFont(forTextStyle: .body)
+            
+            titleLabel.adjustsFontForContentSizeCategory = true
+            
+            titleLabel.text = nil
+            
+            titleLabel.textColor = .black
+            
+        }
+        
+    }
     
     @IBOutlet
-    private final weak var quantityStepperWrapperView: UIView!
+    private final weak var quantityStepperContainerView: UIView!
     
     public final let quantityStepper: UICheckoutStepper = {
         
@@ -28,7 +42,7 @@ public final class UINewCheckoutItemView: UIView {
         
         super.awakeFromNib()
         
-        quantityStepperWrapperView.wrapSubview(quantityStepper)
+        quantityStepperContainerView.wrapSubview(quantityStepper)
         
     }
     
