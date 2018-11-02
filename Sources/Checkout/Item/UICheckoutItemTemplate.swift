@@ -44,7 +44,7 @@ public struct UICheckoutItemTemplate: Template {
             from: Bundle(for: UICheckoutItemView.self)
         )!
         
-        base.selectionView.isSelected = selectionField.selection.value ?? false
+        base.selectionView.isSelected = selectionField.selection.value ?? true
         
         base.titleLabel.text = titleField.title.value
         

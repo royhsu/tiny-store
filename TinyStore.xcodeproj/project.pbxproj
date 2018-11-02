@@ -23,7 +23,6 @@
 		B01123B0215E3E2E00A905E3 /* CheckoutItemAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */; };
 		B01123B6215E600700A905E3 /* CheckoutFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123B5215E600700A905E3 /* CheckoutFlowController.swift */; };
 		B0191E80218862540048FC0C /* CheckoutItemQuantityField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0191E7F218862540048FC0C /* CheckoutItemQuantityField.swift */; };
-		B0191E822188631D0048FC0C /* NewCheckoutOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0191E812188631C0048FC0C /* NewCheckoutOrder.swift */; };
 		B02B0245218AF85900772118 /* UICheckoutItemTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */; };
 		B02B0247218B07D200772118 /* CheckoutItemTitleField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B0246218B07D200772118 /* CheckoutItemTitleField.swift */; };
 		B02B0249218B0A4700772118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02B0248218B0A4700772118 /* Assets.xcassets */; };
@@ -114,7 +113,6 @@
 		B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemAction.swift; sourceTree = "<group>"; };
 		B01123B5215E600700A905E3 /* CheckoutFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFlowController.swift; sourceTree = "<group>"; };
 		B0191E7F218862540048FC0C /* CheckoutItemQuantityField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemQuantityField.swift; sourceTree = "<group>"; };
-		B0191E812188631C0048FC0C /* NewCheckoutOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCheckoutOrder.swift; sourceTree = "<group>"; };
 		B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutItemTemplate.swift; sourceTree = "<group>"; };
 		B02B0246218B07D200772118 /* CheckoutItemTitleField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemTitleField.swift; sourceTree = "<group>"; };
 		B02B0248218B0A4700772118 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -279,7 +277,6 @@
 				B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */,
 				B0A069FF2189948200BA4CA5 /* UICheckoutStepper.xib */,
 				B0A06A032189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift */,
-				B0191E812188631C0048FC0C /* NewCheckoutOrder.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -479,7 +476,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0112387215DDA7100A905E3 /* CheckoutPostalCodeField.swift in Sources */,
-				B0191E822188631D0048FC0C /* NewCheckoutOrder.swift in Sources */,
 				B0112393215DE1BA00A905E3 /* CheckoutFirstNameField.swift in Sources */,
 				B07A2BDE2159E1BF002EFE87 /* CheckoutOrderFillingViewController.swift in Sources */,
 				B011237D215D1DDC00A905E3 /* FormFieldDefinition.swift in Sources */,
