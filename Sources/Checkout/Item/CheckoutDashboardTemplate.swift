@@ -97,6 +97,50 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
+    private let payTotalField: UICheckoutDashboardMainField = {
+        
+        let field = UIView.loadView(
+            UICheckoutDashboardMainField.self,
+            from: Bundle(for: UICheckoutDashboardMainField.self)
+        )!
+        
+        field.titleLabel.text = NSLocalizedString(
+            "Pay Total",
+            comment: ""
+        )
+        
+        return field
+        
+    }()
+    
+    private let payTotalFieldTopMarginView: UIView = {
+        
+        let view = UIView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(
+            [ view.heightAnchor.constraint(equalToConstant: 16.0) ]
+        )
+        
+        return view
+        
+    }()
+    
+    private let payTotalFieldBottomMarginView: UIView = {
+        
+        let view = UIView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(
+            [ view.heightAnchor.constraint(equalToConstant: 8.0) ]
+        )
+        
+        return view
+        
+    }()
+    
     private var views: [UIView] {
         
         return [
@@ -105,7 +149,10 @@ public struct UICheckoutDashboardTemplate: Template {
             subTotalFieldBottomMarginView,
             shippingFieldTopMarginView,
             shippingField,
-            shippingFieldBottomMarginView
+            shippingFieldBottomMarginView,
+            payTotalFieldTopMarginView,
+            payTotalField,
+            payTotalFieldBottomMarginView
         ]
         
     }
