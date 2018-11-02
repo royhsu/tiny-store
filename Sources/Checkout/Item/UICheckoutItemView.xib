@@ -21,14 +21,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSD-cQ-nTz">
-                            <rect key="frame" x="0.0" y="0.0" width="22" height="87"/>
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="87"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7B-gE-pFO">
-                                    <rect key="frame" x="0.0" y="4" width="22" height="22"/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7B-gE-pFO" customClass="UICheckoutSelectionView" customModule="TinyStore" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="4" width="44" height="44"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="22" id="8Ef-Iq-Oa1"/>
-                                        <constraint firstAttribute="height" constant="22" id="cWW-aD-k0K"/>
+                                        <constraint firstAttribute="width" constant="44" id="8Ef-Iq-Oa1"/>
+                                        <constraint firstAttribute="height" constant="44" id="cWW-aD-k0K"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -40,7 +39,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hc-gH-b0w">
-                            <rect key="frame" x="30" y="0.0" width="60" height="87"/>
+                            <rect key="frame" x="52" y="0.0" width="60" height="87"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Civ-mJ-foD">
                                     <rect key="frame" x="0.0" y="0.0" width="60" height="70"/>
@@ -58,10 +57,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmd-Q4-KMj">
-                            <rect key="frame" x="98" y="0.0" width="198" height="87"/>
+                            <rect key="frame" x="120" y="0.0" width="176" height="87"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacingType="standard" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgj-dS-gyV">
-                                    <rect key="frame" x="0.0" y="0.0" width="198" height="35"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="176" height="35"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqb-5D-bWB">
                                             <rect key="frame" x="0.0" y="0.0" width="33.5" height="20.5"/>
@@ -126,6 +125,7 @@
                 <outlet property="previewImageView" destination="Civ-mJ-foD" id="S1B-xd-JNF"/>
                 <outlet property="priceLabel" destination="4S3-9b-ErI" id="Ooc-fa-ly4"/>
                 <outlet property="quantityStepperContainerView" destination="bNw-Q8-hiQ" id="qZl-LQ-zy3"/>
+                <outlet property="selectionView" destination="B7B-gE-pFO" id="kMT-i0-YmX"/>
                 <outlet property="titleLabel" destination="Uqb-5D-bWB" id="1oS-ug-amq"/>
             </connections>
             <point key="canvasLocation" x="140" y="-115.59220389805098"/>

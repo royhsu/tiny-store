@@ -10,7 +10,18 @@
 public final class UICheckoutItemView: UIView {
     
     @IBOutlet
-    public private(set) weak var previewImageView: UIImageView! {
+    public private(set) final weak var selectionView: UICheckoutSelectionView! {
+        
+        didSet {
+            
+            selectionView.tintColor = .black
+            
+        }
+        
+    }
+    
+    @IBOutlet
+    public private(set) final weak var previewImageView: UIImageView! {
         
         didSet {
             
@@ -103,7 +114,7 @@ public final class UICheckoutItemView: UIView {
         
     }()
     
-    public override func awakeFromNib() {
+    public final override func awakeFromNib() {
         
         super.awakeFromNib()
         
