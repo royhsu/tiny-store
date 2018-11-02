@@ -67,6 +67,20 @@ public extension Field {
     
 }
 
+extension Observable: Decodable where Value: Decodable {
+    
+    public convenience init(from decoder: Decoder) throws {
+        
+        let container = try decoder.singleValueContainer()
+        
+        self.init()
+        
+        self.value = try container.decode(Value.self)
+        
+    }
+    
+}
+
 extension Observable: Encodable where Value: Encodable {
     
     public func encode(to encoder: Encoder) throws {

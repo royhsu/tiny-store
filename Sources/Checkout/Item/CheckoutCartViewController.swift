@@ -7,7 +7,7 @@
 
 // MARK: - CheckoutCartViewController
 
-public final class CheckoutCartViewController: ViewController {
+public final class CheckoutCartViewController<ItemForm>: ViewController where ItemForm: CheckoutItemForm {
     
     private final let base: CollectionViewController = {
         
@@ -19,7 +19,7 @@ public final class CheckoutCartViewController: ViewController {
         
     }()
     
-    public final var itemForms: [CheckoutItemForm] = [] {
+    public final var itemForms: [ItemForm] = [] {
         
         didSet {
             

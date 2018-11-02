@@ -68,49 +68,77 @@ extension AppDelegate: UIApplicationDelegate {
 //
 //        window.rootViewController = checkoutFlowViewController
         
-        let cartViewController = CheckoutCartViewController()
+        let cartViewController = CheckoutCartViewController<CheckoutDefaultItemForm>()
         
-        let selection = Observable<Bool>()
+        struct Item {
+            
+            let title: String
+            
+            let color: String
+            
+            let size: String
+            
+            let price: Double
+            
+        }
         
-        selection.value = true
+        let items = [
+            Item(
+                title: "Knee-length Wool Skirt",
+                color: "Dark Blue",
+                size: "S",
+                price: 19.0
+            )
+        ]
         
-        let title = Observable<String>()
-        
-        title.value = "Knee-length Wool Skirt"
-        
-        let description = Observable<String>()
-        
-        description.value = "Dark Blue - S"
-        
-        let price = Observable<Double>()
-        
-        price.value = 19.0
-        
-        let quantity = Observable<Int>()
-        
-        quantity.value = 3
-        
-        let itemForm = CheckoutItemForm(
-            selectionField: .init(selection: selection),
-            titleField: .init(title: title),
-            descriptionField: .init(description: description),
-            priceField: .init(price: price),
-            quantityField: .init(quantity: quantity)
-        )
-        
-        cartViewController.itemForms = [ itemForm ]
+        cartViewController.itemForms = items.map { item in
+            
+            let selection = Observable<Bool>()
+            
+            selection.value = true
+            
+            let title = Observable<String>()
+    
+            title.value = item.title
+    
+            let description = Observable<String>()
+            
+            description.value = "\(item.color) - \(item.size)"
+            
+            let color = Observable<String>()
+    
+            color.value = item.color
+            
+            let price = Observable<Double>()
+    
+            price.value = item.price
+    
+            let quantity = Observable<Int>()
+    
+            quantity.value = 1
+
+            return CheckoutDefaultItemForm(
+                selectionField: .init(selection: selection),
+                titleField: .init(title: title),
+                descriptionField: .init(description: description),
+                colorField: .init(color: color),
+                priceField: .init(price: price),
+                quantityField: .init(quantity: quantity)
+            )
+            
+        }
         
         do {
-        
-            let data = try JSONEncoder().encode(itemForm)
-        
+
+            let data = try JSONEncoder().encode(cartViewController.itemForms)
+            
             let json = try JSONSerialization.jsonObject(with: data)
             
             print(json)
             
         }
         catch { print("\(error)") }
-
+        
         window.rootViewController = cartViewController
         
         window.makeKeyAndVisible()

@@ -7,27 +7,43 @@
 
 // MARK: - CheckoutItemForm
 
-public struct CheckoutItemForm: Encodable {
+public protocol CheckoutItemForm: Encodable {
     
+    var selectionField: CheckoutItemSelectionField { get }
+    
+    var titleField: CheckoutItemTitleField { get }
+    
+    var descriptionField: CheckoutItemDescriptionField { get }
+    
+    var priceField: CheckoutItemPriceField { get }
+    
+    var quantityField: CheckoutItemQuantityField { get }
+    
+}
+
+// MARK: - CheckoutDefaultItemForm
+
+public struct CheckoutDefaultItemForm: CheckoutItemForm {
+
     private enum CodingKeys: String, CodingKey {
         
-        case selectionField = "isSelected"
-        
         case titleField = "title"
-        
-        case descriptionField = "description"
-        
+
+        case colorField = "color"
+
         case priceField = "price"
-        
+
         case quantityField = "quantity"
-        
+
     }
-    
+
     public let selectionField: CheckoutItemSelectionField
     
     public let titleField: CheckoutItemTitleField
     
     public let descriptionField: CheckoutItemDescriptionField
+    
+    public let colorField: CheckoutItemColorField
     
     public let priceField: CheckoutItemPriceField
     
@@ -37,6 +53,7 @@ public struct CheckoutItemForm: Encodable {
         selectionField: CheckoutItemSelectionField,
         titleField: CheckoutItemTitleField,
         descriptionField: CheckoutItemDescriptionField,
+        colorField: CheckoutItemColorField,
         priceField: CheckoutItemPriceField,
         quantityField: CheckoutItemQuantityField
     ) {
@@ -46,6 +63,8 @@ public struct CheckoutItemForm: Encodable {
         self.titleField = titleField
         
         self.descriptionField = descriptionField
+        
+        self.colorField = colorField
         
         self.priceField = priceField
         
