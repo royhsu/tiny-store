@@ -44,7 +44,9 @@ public struct UICheckoutItemTemplate: Template {
             from: Bundle(for: UICheckoutItemView.self)
         )!
         
-        base.selectionView.isSelected = selectionField.selection.value ?? true
+        base.isSelected = selectionField.selection.value ?? true
+        
+        base.isSelectedDidChange = { selectionField.selection.value = $0 }
         
         base.titleLabel.text = titleField.title.value
         
@@ -57,13 +59,7 @@ public struct UICheckoutItemTemplate: Template {
         
         base.quantityStepper.value = quantityField.quantity.value ?? 1
         
-        base.quantityStepper.valueDidChange = { value in
-            
-            quantityField.quantity.value = value
-            
-            print(quantityField.quantity.value)
-            
-        }
+        base.quantityStepper.valueDidChange = { quantityField.quantity.value = $0 }
         
         self.base = base
         

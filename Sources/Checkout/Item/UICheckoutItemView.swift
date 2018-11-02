@@ -10,7 +10,7 @@
 public final class UICheckoutItemView: UIView {
     
     @IBOutlet
-    public private(set) final weak var selectionView: UICheckoutSelectionView! {
+    private final weak var selectionView: UICheckoutSelectionView! {
         
         didSet {
             
@@ -18,17 +18,25 @@ public final class UICheckoutItemView: UIView {
             
             selectionView.isSelectedDidChange = { [weak self] isSelected in
                 
-                guard
-                    let self = self
-                else { return }
+                self?.contentStackView.alpha = isSelected ? 1.0 : 0.5
                 
-                self.contentStackView.alpha = isSelected ? 1.0 : 0.5
+                self?.isSelectedDidChange?(isSelected)
                 
             }
             
         }
         
     }
+    
+    public final var isSelected: Bool {
+        
+        get { return selectionView.isSelected }
+        
+        set { selectionView.isSelected = newValue }
+        
+    }
+    
+    public final var isSelectedDidChange: ( (Bool) -> Void )?
     
     @IBOutlet
     private final weak var contentStackView: UIStackView!
