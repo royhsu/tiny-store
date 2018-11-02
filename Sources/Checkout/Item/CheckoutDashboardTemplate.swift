@@ -141,6 +141,27 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
+    private let checkoutButtonWrapperView: UICheckoutDashboardButtonWrapperView = {
+        
+        let view = UIView.loadView(
+            UICheckoutDashboardButtonWrapperView.self,
+            from: Bundle(for: UICheckoutDashboardButtonWrapperView.self)
+        )!
+        
+        let buttonTitle = NSLocalizedString(
+            "Checkout",
+            comment: ""
+        )
+        
+        view.button.setTitle(
+            buttonTitle + " →",
+            for: .normal
+        )
+        
+        return view
+        
+    }()
+    
     private var views: [UIView] {
         
         return [
@@ -152,7 +173,8 @@ public struct UICheckoutDashboardTemplate: Template {
             shippingFieldBottomMarginView,
             payTotalFieldTopMarginView,
             payTotalField,
-            payTotalFieldBottomMarginView
+            payTotalFieldBottomMarginView,
+            checkoutButtonWrapperView
         ]
         
     }

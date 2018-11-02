@@ -57,6 +57,8 @@
 		B0772EC6218C39D70082C055 /* UICheckoutDashboardSubField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0772EC5218C39D70082C055 /* UICheckoutDashboardSubField.xib */; };
 		B0772EC8218C419A0082C055 /* UICheckoutDashboardMainField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EC7218C419A0082C055 /* UICheckoutDashboardMainField.swift */; };
 		B0772ECA218C41CB0082C055 /* UICheckoutDashboardMainField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0772EC9218C41CB0082C055 /* UICheckoutDashboardMainField.xib */; };
+		B0772ECC218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ECB218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift */; };
+		B0772ECE218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0772ECD218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib */; };
 		B07A2BDE2159E1BF002EFE87 /* CheckoutOrderFillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C41A2158B8A800DC9F26 /* CheckoutOrderFillingViewController.swift */; };
 		B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */; };
 		B07A2BE12159E1BF002EFE87 /* CheckoutShippingTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */; };
@@ -152,6 +154,8 @@
 		B0772EC5218C39D70082C055 /* UICheckoutDashboardSubField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICheckoutDashboardSubField.xib; sourceTree = "<group>"; };
 		B0772EC7218C419A0082C055 /* UICheckoutDashboardMainField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutDashboardMainField.swift; sourceTree = "<group>"; };
 		B0772EC9218C41CB0082C055 /* UICheckoutDashboardMainField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICheckoutDashboardMainField.xib; sourceTree = "<group>"; };
+		B0772ECB218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutDashboardButtonWrapperView.swift; sourceTree = "<group>"; };
+		B0772ECD218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICheckoutDashboardButtonWrapperView.xib; sourceTree = "<group>"; };
 		B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRecipientTemplate.swift; sourceTree = "<group>"; };
 		B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingTemplate.swift; sourceTree = "<group>"; };
 		B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingField.swift; sourceTree = "<group>"; };
@@ -299,6 +303,8 @@
 				B0772EC5218C39D70082C055 /* UICheckoutDashboardSubField.xib */,
 				B0772EC7218C419A0082C055 /* UICheckoutDashboardMainField.swift */,
 				B0772EC9218C41CB0082C055 /* UICheckoutDashboardMainField.xib */,
+				B0772ECB218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift */,
+				B0772ECD218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib */,
 				B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */,
 				B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */,
 			);
@@ -483,6 +489,7 @@
 				B0772ECA218C41CB0082C055 /* UICheckoutDashboardMainField.xib in Resources */,
 				B02B0249218B0A4700772118 /* Assets.xcassets in Resources */,
 				B0772EC6218C39D70082C055 /* UICheckoutDashboardSubField.xib in Resources */,
+				B0772ECE218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib in Resources */,
 				B0A06A002189948200BA4CA5 /* UICheckoutStepper.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0112387215DDA7100A905E3 /* CheckoutPostalCodeField.swift in Sources */,
+				B0772ECC218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift in Sources */,
 				B0112393215DE1BA00A905E3 /* CheckoutFirstNameField.swift in Sources */,
 				B07A2BDE2159E1BF002EFE87 /* CheckoutOrderFillingViewController.swift in Sources */,
 				B011237D215D1DDC00A905E3 /* FormFieldDefinition.swift in Sources */,
