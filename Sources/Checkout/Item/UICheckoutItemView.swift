@@ -135,6 +135,8 @@ public final class UICheckoutItemView: UIView {
         
         super.awakeFromNib()
         
+        backgroundColor = .clear
+        
         quantityStepperContainerView.wrapSubview(quantityStepper)
         
     }

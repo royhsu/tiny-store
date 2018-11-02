@@ -23,10 +23,14 @@ public final class CheckoutCartViewController<ItemForm>: ViewController where It
         
         didSet {
             
-            base.collectionView.sections = itemForms.map { itemForm in
+            var templates: [Template] = []
+            
+            for index in 0..<itemForms.count {
+                
+                let itemForm = itemForms[index]
                 
                 #warning("inject the cross-platform template.")
-                return UICheckoutItemTemplate(
+                var template = UICheckoutItemTemplate(
                     selectionField: itemForm.selectionField,
                     titleField: itemForm.titleField,
                     descriptionField: itemForm.descriptionField,
@@ -34,7 +38,15 @@ public final class CheckoutCartViewController<ItemForm>: ViewController where It
                     quantityField: itemForm.quantityField
                 )
                 
+                let isLastSection = (index + 1 == itemForms.count)
+                
+                template.isSeparatorHidden = isLastSection
+                
+                templates.append(template)
+                
             }
+            
+            base.collectionView.sections = templates
             
             base.collectionView.layout?.invalidate()
             
@@ -45,6 +57,9 @@ public final class CheckoutCartViewController<ItemForm>: ViewController where It
     public final override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        #warning("development only")
+        base.view.backgroundColor = .white
         
         addChild(base)
         

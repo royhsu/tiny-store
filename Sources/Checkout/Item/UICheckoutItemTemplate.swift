@@ -9,6 +9,8 @@
 
 public struct UICheckoutItemTemplate: Template {
     
+    public var isSeparatorHidden = false
+    
     private let selectionField: CheckoutItemSelectionField
     
     private let titleField: CheckoutItemTitleField
@@ -19,7 +21,60 @@ public struct UICheckoutItemTemplate: Template {
     
     private let quantityField: CheckoutItemQuantityField
     
-    private let base: UICheckoutItemView
+    private var views: [UIView] {
+        
+        return
+            isSeparatorHidden
+            ? [ topMarginView, itemView, bottomMarginView ]
+            : [ topMarginView, itemView, bottomMarginView, separatorView ]
+        
+    }
+    
+    private let itemView: UICheckoutItemView
+    
+    private let topMarginView: UIView = {
+        
+        let view = UIView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(
+            [ view.heightAnchor.constraint(equalToConstant: 12.0) ]
+        )
+        
+        return view
+        
+    }()
+    
+    private let bottomMarginView: UIView = {
+        
+        let view = UIView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(
+            [ view.heightAnchor.constraint(equalToConstant: 12.0) ]
+        )
+        
+        return view
+        
+    }()
+    
+    private let separatorView: UIView = {
+        
+        let view = UIView()
+        
+        view.backgroundColor = .lightGray
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(
+            [ view.heightAnchor.constraint(equalToConstant: 0.5) ]
+        )
+        
+        return view
+        
+    }()
     
     public init(
         selectionField: CheckoutItemSelectionField,
@@ -39,34 +94,34 @@ public struct UICheckoutItemTemplate: Template {
         
         self.quantityField = quantityField
         
-        let base = UIView.loadView(
+        let itemView = UIView.loadView(
             UICheckoutItemView.self,
             from: Bundle(for: UICheckoutItemView.self)
         )!
         
-        base.isSelected = selectionField.selection.value ?? true
+        itemView.isSelected = selectionField.selection.value ?? true
         
-        base.isSelectedDidChange = { selectionField.selection.value = $0 }
+        itemView.isSelectedDidChange = { selectionField.selection.value = $0 }
         
-        base.titleLabel.text = titleField.title.value
+        itemView.titleLabel.text = titleField.title.value
         
-        base.descriptionLabel.text = descriptionField.description.value
+        itemView.descriptionLabel.text = descriptionField.description.value
         
         let price = priceField.price.value ?? 0.0
         
         #warning("add currency formatter.")
-        base.priceLabel.text = "$ \(price)"
+        itemView.priceLabel.text = "$ \(price)"
         
-        base.quantityStepper.value = quantityField.quantity.value ?? 1
+        itemView.quantityStepper.value = quantityField.quantity.value ?? 1
         
-        base.quantityStepper.valueDidChange = { quantityField.quantity.value = $0 }
+        itemView.quantityStepper.valueDidChange = { quantityField.quantity.value = $0 }
         
-        self.base = base
+        self.itemView = itemView
         
     }
     
-    public var numberOfViews: Int { return 1 }
+    public var numberOfViews: Int { return views.count }
     
-    public func view(at index: Int) -> View { return base }
+    public func view(at index: Int) -> View { return views[index] }
     
 }

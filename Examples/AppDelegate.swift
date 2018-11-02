@@ -88,6 +88,18 @@ extension AppDelegate: UIApplicationDelegate {
                 color: "Dark Blue",
                 size: "S",
                 price: 19.0
+            ),
+            Item(
+                title: "Long-sleeved Blouse",
+                color: "Light Blue",
+                size: "S",
+                price: 13.0
+            ),
+            Item(
+                title: "High Heels",
+                color: "Purple Diamond",
+                size: "8",
+                price: 35.0
             )
         ]
         
