@@ -29,9 +29,13 @@ public class UICheckoutSelectionView: UIView {
             #warning("switch images when the isSelected changes.")
             imageView.backgroundColor = isSelected ? tintColor : nil
             
+            isSelectedDidChange?(isSelected)
+            
         }
         
     }
+    
+    public final var isSelectedDidChange: ( (Bool) -> Void )?
     
     public final override var tintColor: UIColor! {
         

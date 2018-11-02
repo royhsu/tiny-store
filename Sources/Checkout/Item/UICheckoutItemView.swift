@@ -16,9 +16,22 @@ public final class UICheckoutItemView: UIView {
             
             selectionView.tintColor = .black
             
+            selectionView.isSelectedDidChange = { [weak self] isSelected in
+                
+                guard
+                    let self = self
+                else { return }
+                
+                self.contentStackView.alpha = isSelected ? 1.0 : 0.5
+                
+            }
+            
         }
         
     }
+    
+    @IBOutlet
+    private final weak var contentStackView: UIStackView!
     
     @IBOutlet
     public private(set) final weak var previewImageView: UIImageView! {

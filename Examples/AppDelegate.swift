@@ -74,7 +74,7 @@ extension AppDelegate: UIApplicationDelegate {
         
         let selection = Observable<Bool>()
         
-        selection.value = false
+        selection.value = true
         
         let title = Observable<String>()
         
