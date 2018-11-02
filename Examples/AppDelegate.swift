@@ -72,6 +72,10 @@ extension AppDelegate: UIApplicationDelegate {
         
         collectionViewController.collectionView.applyLayout(ListViewLayout.self)
         
+        let selection = Observable<Bool>()
+        
+        selection.value = false
+        
         let title = Observable<String>()
         
         title.value = "Knee-length Wool Skirt"
@@ -89,6 +93,7 @@ extension AppDelegate: UIApplicationDelegate {
         quantity.value = 3
         
         let itemForm = CheckoutItemForm(
+            selectionField: .init(selection: selection),
             titleField: .init(title: title),
             descriptionField: .init(description: description),
             priceField: .init(price: price),
@@ -108,6 +113,7 @@ extension AppDelegate: UIApplicationDelegate {
         
         collectionViewController.collectionView.sections = [
             UICheckoutItemTemplate(
+                selectionField: itemForm.selectionField,
                 titleField: itemForm.titleField,
                 descriptionField: itemForm.descriptionField,
                 priceField: itemForm.priceField,

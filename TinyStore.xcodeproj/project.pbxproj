@@ -30,6 +30,7 @@
 		B02B024B218B33FF00772118 /* CheckoutItemDescriptionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B024A218B33FF00772118 /* CheckoutItemDescriptionField.swift */; };
 		B02B024D218B375800772118 /* CheckoutItemPriceField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B024C218B375800772118 /* CheckoutItemPriceField.swift */; };
 		B02B0250218BD5F100772118 /* UICheckoutSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B024F218BD5F100772118 /* UICheckoutSelectionView.swift */; };
+		B02B0252218BDD6800772118 /* CheckoutItemSelectionField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B0251218BDD6800772118 /* CheckoutItemSelectionField.swift */; };
 		B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */; };
 		B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8021587FF7000DC2D8 /* TinyKit.framework */; };
 		B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */; };
@@ -120,6 +121,7 @@
 		B02B024A218B33FF00772118 /* CheckoutItemDescriptionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemDescriptionField.swift; sourceTree = "<group>"; };
 		B02B024C218B375800772118 /* CheckoutItemPriceField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemPriceField.swift; sourceTree = "<group>"; };
 		B02B024F218BD5F100772118 /* UICheckoutSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutSelectionView.swift; sourceTree = "<group>"; };
+		B02B0251218BDD6800772118 /* CheckoutItemSelectionField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemSelectionField.swift; sourceTree = "<group>"; };
 		B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8021587FF7000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,6 +264,7 @@
 		B0B5D438215F418C0093EE01 /* Item */ = {
 			isa = PBXGroup;
 			children = (
+				B02B0251218BDD6800772118 /* CheckoutItemSelectionField.swift */,
 				B02B0246218B07D200772118 /* CheckoutItemTitleField.swift */,
 				B02B024A218B33FF00772118 /* CheckoutItemDescriptionField.swift */,
 				B02B024C218B375800772118 /* CheckoutItemPriceField.swift */,
@@ -497,6 +500,7 @@
 				B0A06A022189A01500BA4CA5 /* UINibWrapperView.swift in Sources */,
 				B06F6E82215C972A00BBCF0F /* CheckoutDestination.swift in Sources */,
 				B06F6E5C215C4DFB00BBCF0F /* CheckoutForm.swift in Sources */,
+				B02B0252218BDD6800772118 /* CheckoutItemSelectionField.swift in Sources */,
 				B01123B6215E600700A905E3 /* CheckoutFlowController.swift in Sources */,
 				B0191E80218862540048FC0C /* CheckoutItemQuantityField.swift in Sources */,
 				B01123AC215E33AB00A905E3 /* CheckoutItemStyle.swift in Sources */,

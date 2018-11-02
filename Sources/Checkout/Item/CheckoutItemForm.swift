@@ -11,6 +11,8 @@ public struct CheckoutItemForm: Encodable {
     
     private enum CodingKeys: String, CodingKey {
         
+        case selectionField = "isSelected"
+        
         case titleField = "title"
         
         case descriptionField = "description"
@@ -21,6 +23,8 @@ public struct CheckoutItemForm: Encodable {
         
     }
     
+    public let selectionField: CheckoutItemSelectionField
+    
     public let titleField: CheckoutItemTitleField
     
     public let descriptionField: CheckoutItemDescriptionField
@@ -30,11 +34,14 @@ public struct CheckoutItemForm: Encodable {
     public let quantityField: CheckoutItemQuantityField
     
     public init(
+        selectionField: CheckoutItemSelectionField,
         titleField: CheckoutItemTitleField,
         descriptionField: CheckoutItemDescriptionField,
         priceField: CheckoutItemPriceField,
         quantityField: CheckoutItemQuantityField
     ) {
+        
+        self.selectionField = selectionField
         
         self.titleField = titleField
         

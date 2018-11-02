@@ -22,10 +22,11 @@ public class UICheckoutSelectionView: UIView {
         
     }()
     
-    public private(set) var isSelected = false {
+    public final var isSelected = false {
         
         didSet {
             
+            #warning("switch images when the isSelected changes.")
             imageView.backgroundColor = isSelected ? tintColor : nil
             
         }

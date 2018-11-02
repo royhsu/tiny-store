@@ -9,6 +9,8 @@
 
 public struct UICheckoutItemTemplate: Template {
     
+    private let selectionField: CheckoutItemSelectionField
+    
     private let titleField: CheckoutItemTitleField
     
     private let descriptionField: CheckoutItemDescriptionField
@@ -20,11 +22,14 @@ public struct UICheckoutItemTemplate: Template {
     private let base: UICheckoutItemView
     
     public init(
+        selectionField: CheckoutItemSelectionField,
         titleField: CheckoutItemTitleField,
         descriptionField: CheckoutItemDescriptionField,
         priceField: CheckoutItemPriceField,
         quantityField: CheckoutItemQuantityField
     ) {
+        
+        self.selectionField = selectionField
         
         self.titleField = titleField
         
@@ -38,6 +43,8 @@ public struct UICheckoutItemTemplate: Template {
             UICheckoutItemView.self,
             from: Bundle(for: UICheckoutItemView.self)
         )!
+        
+        base.selectionView.isSelected = selectionField.selection.value ?? false
         
         base.titleLabel.text = titleField.title.value
         
