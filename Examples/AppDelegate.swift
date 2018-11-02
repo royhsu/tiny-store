@@ -68,9 +68,7 @@ extension AppDelegate: UIApplicationDelegate {
 //
 //        window.rootViewController = checkoutFlowViewController
         
-        let collectionViewController = CollectionViewController()
-        
-        collectionViewController.collectionView.applyLayout(ListViewLayout.self)
+        let cartViewController = CheckoutCartViewController()
         
         let selection = Observable<Bool>()
         
@@ -100,6 +98,8 @@ extension AppDelegate: UIApplicationDelegate {
             quantityField: .init(quantity: quantity)
         )
         
+        cartViewController.itemForms = [ itemForm ]
+        
         do {
         
             let data = try JSONEncoder().encode(itemForm)
@@ -110,18 +110,8 @@ extension AppDelegate: UIApplicationDelegate {
             
         }
         catch { print("\(error)") }
-        
-        collectionViewController.collectionView.sections = [
-            UICheckoutItemTemplate(
-                selectionField: itemForm.selectionField,
-                titleField: itemForm.titleField,
-                descriptionField: itemForm.descriptionField,
-                priceField: itemForm.priceField,
-                quantityField: itemForm.quantityField
-            )
-        ]
 
-        window.rootViewController = collectionViewController
+        window.rootViewController = cartViewController
         
         window.makeKeyAndVisible()
 

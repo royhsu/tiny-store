@@ -114,11 +114,7 @@ public final class UICheckoutItemView: UIView {
     @IBOutlet
     private final weak var quantityStepperContainerView: UIView! {
         
-        didSet {
-            
-            quantityStepperContainerView.backgroundColor = nil
-            
-        }
+        didSet { quantityStepperContainerView.backgroundColor = nil }
         
     }
     
