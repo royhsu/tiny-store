@@ -51,6 +51,7 @@
 		B06F6E85215C974F00BBCF0F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06F6E84215C974F00BBCF0F /* City.swift */; };
 		B0772EBC218BF2720082C055 /* CheckoutCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EBB218BF2720082C055 /* CheckoutCartViewController.swift */; };
 		B0772EBE218C01A50082C055 /* CheckoutItemColorField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EBD218C01A50082C055 /* CheckoutItemColorField.swift */; };
+		B0772EC0218C2B220082C055 /* CheckoutDefaultItemForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EBF218C2B220082C055 /* CheckoutDefaultItemForm.swift */; };
 		B07A2BDE2159E1BF002EFE87 /* CheckoutOrderFillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A1C41A2158B8A800DC9F26 /* CheckoutOrderFillingViewController.swift */; };
 		B07A2BE02159E1BF002EFE87 /* CheckoutShippingField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */; };
 		B07A2BE12159E1BF002EFE87 /* CheckoutShippingTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */; };
@@ -140,6 +141,7 @@
 		B06F6E84215C974F00BBCF0F /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B0772EBB218BF2720082C055 /* CheckoutCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCartViewController.swift; sourceTree = "<group>"; };
 		B0772EBD218C01A50082C055 /* CheckoutItemColorField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemColorField.swift; sourceTree = "<group>"; };
+		B0772EBF218C2B220082C055 /* CheckoutDefaultItemForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDefaultItemForm.swift; sourceTree = "<group>"; };
 		B07A2BAF2159D9D4002EFE87 /* CheckoutRecipientTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutRecipientTemplate.swift; sourceTree = "<group>"; };
 		B07A2BB52159DA67002EFE87 /* CheckoutShippingTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingTemplate.swift; sourceTree = "<group>"; };
 		B07A2BB92159DB59002EFE87 /* CheckoutShippingField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutShippingField.swift; sourceTree = "<group>"; };
@@ -273,16 +275,17 @@
 				B02B024C218B375800772118 /* CheckoutItemPriceField.swift */,
 				B0191E7F218862540048FC0C /* CheckoutItemQuantityField.swift */,
 				B01123A7215E335300A905E3 /* CheckoutItemForm.swift */,
+				B0772EBF218C2B220082C055 /* CheckoutDefaultItemForm.swift */,
 				B02B024F218BD5F100772118 /* UICheckoutSelectionView.swift */,
+				B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */,
+				B0A069FF2189948200BA4CA5 /* UICheckoutStepper.xib */,
+				B0A06A032189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift */,
 				B0A069F921897FED00BA4CA5 /* UICheckoutItemView.swift */,
 				B0A069FB2189803E00BA4CA5 /* UICheckoutItemView.xib */,
 				B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */,
 				B0772EBB218BF2720082C055 /* CheckoutCartViewController.swift */,
 				B01123AB215E33AB00A905E3 /* CheckoutItemStyle.swift */,
 				B01123AF215E3E2E00A905E3 /* CheckoutItemAction.swift */,
-				B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */,
-				B0A069FF2189948200BA4CA5 /* UICheckoutStepper.xib */,
-				B0A06A032189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				B07A2BE52159E1BF002EFE87 /* CheckoutRecipientTemplate.swift in Sources */,
 				B07A2C4F215A2739002EFE87 /* CheckoutField.swift in Sources */,
 				B0112383215DDA2500A905E3 /* CheckoutCityField.swift in Sources */,
+				B0772EC0218C2B220082C055 /* CheckoutDefaultItemForm.swift in Sources */,
 				B011239E215E27A900A905E3 /* CheckoutPersonTitleField.swift in Sources */,
 				B06F6E60215C6D7300BBCF0F /* CheckoutShippingStyle.swift in Sources */,
 				B01123A8215E335300A905E3 /* CheckoutItemForm.swift in Sources */,
