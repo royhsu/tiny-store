@@ -69,76 +69,7 @@ extension AppDelegate: UIApplicationDelegate {
 //        window.rootViewController = checkoutFlowViewController
         
 //        let cartViewController = CheckoutCartViewController<CheckoutDefaultItemForm>()
-//
-//        struct Item {
-//
-//            let title: String
-//
-//            let color: String
-//
-//            let size: String
-//
-//            let price: Double
-//
-//        }
-//
-//        let items = [
-//            Item(
-//                title: "Knee-length Wool Skirt",
-//                color: "Dark Blue",
-//                size: "S",
-//                price: 19.0
-//            ),
-//            Item(
-//                title: "Long-sleeved Blouse",
-//                color: "Light Blue",
-//                size: "S",
-//                price: 13.0
-//            ),
-//            Item(
-//                title: "High Heels",
-//                color: "Purple Diamond",
-//                size: "8",
-//                price: 35.0
-//            )
-//        ]
-//
-//        cartViewController.itemForms = items.map { item in
-//
-//            let selection = Observable<Bool>()
-//
-//            selection.value = true
-//
-//            let title = Observable<String>()
-//
-//            title.value = item.title
-//
-//            let description = Observable<String>()
-//
-//            description.value = "\(item.color) - \(item.size)"
-//
-//            let color = Observable<String>()
-//
-//            color.value = item.color
-//
-//            let price = Observable<Double>()
-//
-//            price.value = item.price
-//
-//            let quantity = Observable<Int>()
-//
-//            quantity.value = 1
-//
-//            return CheckoutDefaultItemForm(
-//                selectionField: .init(selection: selection),
-//                titleField: .init(title: title),
-//                descriptionField: .init(description: description),
-//                colorField: .init(color: color),
-//                priceField: .init(price: price),
-//                quantityField: .init(quantity: quantity)
-//            )
-//
-//        }
+
 //
 //        do {
 //
@@ -151,17 +82,13 @@ extension AppDelegate: UIApplicationDelegate {
 //        }
 //        catch { print("\(error)") }
         
-        let collectionViewController = CollectionViewController()
+//        let viewController = UICheckoutDashboardViewController()
+//
+//        viewController.view.backgroundColor = .white
         
-        collectionViewController.collectionView.backgroundColor = .white
+        let viewController = UICheckoutViewController()
         
-        collectionViewController.collectionView.applyLayout(ListViewLayout.self)
-        
-        collectionViewController.collectionView.sections = [
-            UICheckoutDashboardTemplate()
-        ]
-        
-        window.rootViewController = collectionViewController
+        window.rootViewController = viewController
         
         window.makeKeyAndVisible()
 

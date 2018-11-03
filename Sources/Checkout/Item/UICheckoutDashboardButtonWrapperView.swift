@@ -23,4 +23,12 @@ public final class UICheckoutDashboardButtonWrapperView: UIView {
         
     }
     
+    public final override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        
+        backgroundColor = nil
+        
+    }
+    
 }

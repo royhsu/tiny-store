@@ -58,9 +58,6 @@ public final class CheckoutCartViewController<ItemForm>: ViewController where It
         
         super.viewDidLoad()
         
-        #warning("development only")
-        base.view.backgroundColor = .white
-        
         addChild(base)
         
         view.wrapSubview(base.view)
