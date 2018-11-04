@@ -15,6 +15,8 @@ public final class UICheckoutDashboardViewController: UIViewController {
         
         super.viewDidLoad()
         
+        base.collectionView.alwaysBounceVertical = false
+        
         base.collectionView.applyLayout(ListViewLayout.self)
         
         base.collectionView.sections = [

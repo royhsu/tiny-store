@@ -22,6 +22,7 @@ public final class UICheckoutViewController: UIViewController {
         
     }()
     
+    #warning("injectable.")
     private final let backgroundViewController: CheckoutCartViewController<CheckoutDefaultItemForm> = {
         
         let controller = CheckoutCartViewController<CheckoutDefaultItemForm>()
@@ -125,13 +126,19 @@ public final class UICheckoutViewController: UIViewController {
         
         addChild(backgroundViewController)
         
-        checkoutView.backgroundContainerView.wrapSubview(backgroundViewController.view)
+        checkoutView.backgroundContainerView.wrapSubview(
+            backgroundViewController.view,
+            within: \.layoutMarginsGuide
+        )
         
         backgroundViewController.didMove(toParent: self)
         
         addChild(dashboardViewController)
         
-        checkoutView.dashboardContainerView.wrapSubview(dashboardViewController.view)
+        checkoutView.dashboardContainerView.wrapSubview(
+            dashboardViewController.view,
+            within: \.layoutMarginsGuide
+        )
         
         dashboardViewController.didMove(toParent: self)
         
