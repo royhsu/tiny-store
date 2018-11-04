@@ -65,15 +65,17 @@ public class UICheckoutSelectionView: UIView {
     
     fileprivate final func prepare() {
     
-        let constraints = wrapSubview(imageView)
+        wrapSubview(imageView) { constraints in
         
-        constraints.leadingConstraint.constant = -8.0
-        
-        constraints.topConstraint.constant = -8.0
-        
-        constraints.trailingConstraint.constant = 8.0
-        
-        constraints.bottomConstraint.constant = 8.0
+            constraints.leadingConstraint.constant = -8.0
+            
+            constraints.topConstraint.constant = -8.0
+            
+            constraints.trailingConstraint.constant = 8.0
+            
+            constraints.bottomConstraint.constant = 8.0
+            
+        }
         
         imageView.layer.borderColor = tintColor.cgColor
         
