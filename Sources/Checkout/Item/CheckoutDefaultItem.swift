@@ -11,48 +11,48 @@ public struct CheckoutDefaultItem: CheckoutItem {
     
     private enum CodingKeys: String, CodingKey {
         
-        case titleField = "title"
+        case title = "title"
         
-        case colorField = "color"
+        case color = "color"
         
-        case priceField = "price"
+        case price = "price"
         
-        case quantityField = "quantity"
+        case quantity = "quantity"
         
     }
     
-    public let selectionField: CheckoutItemSelection
+    public let selection: CheckoutItemSelection
     
-    public let titleField: CheckoutItemTitle
+    public let title: CheckoutItemTitle
     
-    public let descriptionField: CheckoutItemDescription
+    public let description: CheckoutItemDescription
     
-    public let colorField: CheckoutItemColor
+    public let color: CheckoutItemColor
     
-    public let priceField: CheckoutItemPrice
+    public let price: CheckoutItemPrice
     
-    public let quantityField: CheckoutItemQuantity
+    public let quantity: CheckoutItemQuantity
     
     public init(
-        selectionField: CheckoutItemSelection,
-        titleField: CheckoutItemTitle,
-        descriptionField: CheckoutItemDescription,
-        colorField: CheckoutItemColor,
-        priceField: CheckoutItemPrice,
-        quantityField: CheckoutItemQuantity
+        selection: CheckoutItemSelection,
+        title: CheckoutItemTitle,
+        description: CheckoutItemDescription,
+        color: CheckoutItemColor,
+        price: CheckoutItemPrice,
+        quantity: CheckoutItemQuantity
     ) {
         
-        self.selectionField = selectionField
+        self.selection = selection
         
-        self.titleField = titleField
+        self.title = title
         
-        self.descriptionField = descriptionField
+        self.description = description
         
-        self.colorField = colorField
+        self.color = color
         
-        self.priceField = priceField
+        self.price = price
         
-        self.quantityField = quantityField
+        self.quantity = quantity
         
     }
     

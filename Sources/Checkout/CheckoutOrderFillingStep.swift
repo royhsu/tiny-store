@@ -10,7 +10,7 @@
 public protocol CheckoutOrderFillingStep {
     
     func fillOutOrder(
-        _ completion: @escaping (Result<CheckoutOrder>) -> Void
+        _ completion: @escaping (Result<Void>) -> Void
     )
     
 }

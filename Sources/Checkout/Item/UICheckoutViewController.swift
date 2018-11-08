@@ -63,22 +63,22 @@ public final class UICheckoutViewController: UIViewController {
         controller.itemForms = items.map { item in
 
             return CheckoutDefaultItem(
-                selectionField: .init(
+                selection: .init(
                     property: Observable(true)
                 ),
-                titleField: .init(
+                title: .init(
                     property: Observable(item.title)
                 ),
-                descriptionField: .init(
+                description: .init(
                     property:  Observable("\(item.color) - \(item.size)")
                 ),
-                colorField: .init(
+                color: .init(
                     property: Observable(item.color)
                 ),
-                priceField: .init(
+                price: .init(
                     property: Observable(item.price)
                 ),
-                quantityField: .init(
+                quantity: .init(
                     property: Observable(1)
                 )
             )

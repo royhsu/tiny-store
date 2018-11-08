@@ -7,7 +7,7 @@
 
 // MARK: - CheckoutCartViewController
 
-public final class CheckoutCartViewController<ItemForm>: ViewController where ItemForm: CheckoutItem {
+public final class CheckoutCartViewController<Item>: ViewController where Item: CheckoutItem {
     
     private final let base: CollectionViewController = {
         
@@ -19,7 +19,7 @@ public final class CheckoutCartViewController<ItemForm>: ViewController where It
         
     }()
     
-    public final var itemForms: [ItemForm] = [] {
+    public final var itemForms: [Item] = [] {
         
         didSet {
             
@@ -31,11 +31,11 @@ public final class CheckoutCartViewController<ItemForm>: ViewController where It
                 
                 #warning("inject the cross-platform template.")
                 var template = UICheckoutItemTemplate(
-                    selectionField: itemForm.selectionField,
-                    titleField: itemForm.titleField,
-                    descriptionField: itemForm.descriptionField,
-                    priceField: itemForm.priceField,
-                    quantityField: itemForm.quantityField
+                    selectionField: itemForm.selection,
+                    titleField: itemForm.title,
+                    descriptionField: itemForm.description,
+                    priceField: itemForm.price,
+                    quantityField: itemForm.quantity
                 )
                 
                 let isLastSection = (index + 1 == itemForms.count)

@@ -9,10 +9,6 @@
 
 public struct CheckoutRecipientField {
 
-    public let identifier: UUID
-
-    public let style: CheckoutRecipientStyle.Type
-
     public var firstNameField: CheckoutFirstNameField
     
     public var lastNameField: CheckoutLastNameField
@@ -22,17 +18,11 @@ public struct CheckoutRecipientField {
     public var phoneNumberField: CheckoutPhoneNumberField
 
     public init(
-        identifier: UUID = UUID(),
-        style: CheckoutRecipientStyle.Type,
         firstNameField: CheckoutFirstNameField = .init(),
         lastNameField: CheckoutLastNameField = .init(),
         personTitleField: CheckoutPersonTitleField = .init(),
         phoneNumberField: CheckoutPhoneNumberField = .init()
     ) {
-        
-        self.identifier = identifier
-
-        self.style = style
 
         self.firstNameField = firstNameField
         
