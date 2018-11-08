@@ -1,13 +1,13 @@
 //
-//  CheckoutItemSelection.swift
+//  CheckoutSelection.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/2.
 //
 
-// MARK: - CheckoutItemSelection
+// MARK: - CheckoutSelection
 
-public struct CheckoutItemSelection: Content {
+public struct CheckoutSelection: Content {
     
     public let property: Observable<Bool>
     

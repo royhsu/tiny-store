@@ -23,6 +23,9 @@ public protocol Content: Encodable {
 
 public extension Content {
     
+    /// The value must be not nil to pass the the validation if the property is required.
+    /// Otherwise the property will only be validated if it does contain a value.
+    /// You DO NOT have to manually include `NotNilRule` in rules for the property. The `isRequired` property implicitly takes care of the nil case.
     public func encode(to encoder: Encoder) throws {
         
         var container = encoder.singleValueContainer()

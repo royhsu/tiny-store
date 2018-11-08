@@ -7,7 +7,7 @@
 
 // MARK: - City
 
-public protocol City {
+public protocol City: Encodable {
     
     var name: String { get }
     

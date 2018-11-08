@@ -21,7 +21,7 @@ public struct CheckoutDefaultItem: CheckoutItem {
         
     }
     
-    public let selection: CheckoutItemSelection
+    public let selection: CheckoutSelection
     
     public let title: CheckoutItemTitle
     
@@ -34,7 +34,7 @@ public struct CheckoutDefaultItem: CheckoutItem {
     public let quantity: CheckoutItemQuantity
     
     public init(
-        selection: CheckoutItemSelection,
+        selection: CheckoutSelection,
         title: CheckoutItemTitle,
         description: CheckoutItemDescription,
         color: CheckoutItemColor,

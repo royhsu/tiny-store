@@ -10,7 +10,7 @@
 
 import TinyStore
 
-public enum Taiwan: City {
+public enum Taiwan: String, City {
     
     case taipei
     

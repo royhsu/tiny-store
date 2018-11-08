@@ -31,11 +31,11 @@ public final class CheckoutCartViewController<Item>: ViewController where Item: 
                 
                 #warning("inject the cross-platform template.")
                 var template = UICheckoutItemTemplate(
-                    selectionField: itemForm.selection,
-                    titleField: itemForm.title,
-                    descriptionField: itemForm.description,
-                    priceField: itemForm.price,
-                    quantityField: itemForm.quantity
+                    selection: itemForm.selection,
+                    title: itemForm.title,
+                    description: itemForm.description,
+                    price: itemForm.price,
+                    quantity: itemForm.quantity
                 )
                 
                 let isLastSection = (index + 1 == itemForms.count)

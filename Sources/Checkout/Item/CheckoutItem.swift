@@ -9,7 +9,7 @@
 
 public protocol CheckoutItem: Encodable {
     
-    var selection: CheckoutItemSelection { get }
+    var selection: CheckoutSelection { get }
     
     var title: CheckoutItemTitle { get }
     
