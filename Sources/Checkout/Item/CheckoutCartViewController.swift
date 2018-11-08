@@ -19,7 +19,7 @@ public final class CheckoutCartViewController: ViewController {
         
     }()
     
-    public final var items: [NewCheckoutItem] = [] {
+    public final var items: [CheckoutItem] = [] {
         
         didSet {
             

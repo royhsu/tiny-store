@@ -7,30 +7,16 @@
 
 // MARK: - CheckoutItem
 
-public protocol CheckoutItem: Encodable {
+public protocol CheckoutItem {
     
-    var selection: CheckoutSelection { get }
+    var isSelected: Content<Bool> { get }
     
-    var title: CheckoutItemTitle { get }
+    var title: Content<String> { get }
     
-    var description: CheckoutItemDescription { get }
+    var description: Content<String> { get }
     
-    var price: CheckoutItemPrice { get }
+    var price: Content<Double> { get }
     
-    var quantity: CheckoutItemQuantity { get }
-    
-}
-
-public protocol NewCheckoutItem {
-    
-    var isSelected: NewContent<Bool> { get }
-    
-    var title: NewContent<String> { get }
-    
-    var description: NewContent<String> { get }
-    
-    var price: NewContent<Double> { get }
-    
-    var quantity: NewContent<Int> { get }
+    var quantity: Content<Int> { get }
     
 }

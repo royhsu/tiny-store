@@ -11,7 +11,7 @@ public struct UICheckoutItemTemplate: Template {
     
     public var isSeparatorHidden = false
     
-    private let item: NewCheckoutItem
+    private let item: CheckoutItem
     
     private var views: [UIView] {
         
@@ -71,7 +71,7 @@ public struct UICheckoutItemTemplate: Template {
         
     }()
     
-    public init(item: NewCheckoutItem) {
+    public init(item: CheckoutItem) {
         
         self.item = item
         

@@ -7,19 +7,7 @@
 
 // MARK: - Content
 
-public protocol Content: Encodable {
-    
-    associatedtype Value: Encodable
-    
-    var property: Observable<Value> { get }
-    
-    var rules: [AnyValidationRule<Value>] { get }
-    
-    var isRequired: Bool { get }
-    
-}
-
-public struct NewContent<Value> {
+public struct Content<Value> {
     
     public let property: Observable<Value>
     
@@ -38,82 +26,6 @@ public struct NewContent<Value> {
         self.rules = rules
         
         self.isRequired = isRequired
-        
-    }
-    
-}
-
-extension NewContent: Encodable where Value: Encodable {
-    
-    /// The value must be not nil to pass the the validation if the property is required.
-    /// Otherwise the property will only be validated if it does contain a value.
-    /// You DO NOT have to manually include `NotNilRule` in rules for the property. The `isRequired` property implicitly takes care of the nil case.
-    public func encode(to encoder: Encoder) throws {
-        
-        var container = encoder.singleValueContainer()
-        
-        if isRequired {
-            
-            let value = try property.value.explicitlyValidated(
-                by: NotNilRule()
-            )
-            
-            try rules.forEach { rule in _ = try rule.validate(value) }
-            
-            try container.encode(value)
-            
-        }
-        else {
-            
-            if let value = property.value {
-                
-                try rules.forEach { rule in _ = try rule.validate(value) }
-                
-                try container.encode(value)
-                
-            }
-            else { try container.encodeNil() }
-            
-        }
-        
-    }
-    
-}
-
-// MARK: - Encodable (Default Implementation)
-
-public extension Content {
-    
-    /// The value must be not nil to pass the the validation if the property is required.
-    /// Otherwise the property will only be validated if it does contain a value.
-    /// You DO NOT have to manually include `NotNilRule` in rules for the property. The `isRequired` property implicitly takes care of the nil case.
-    public func encode(to encoder: Encoder) throws {
-        
-        var container = encoder.singleValueContainer()
-        
-        if isRequired {
-            
-            let value = try property.value.explicitlyValidated(
-                by: NotNilRule()
-            )
-            
-            try rules.forEach { rule in _ = try rule.validate(value) }
-            
-            try container.encode(value)
-            
-        }
-        else {
-            
-            if let value = property.value {
-                
-                try rules.forEach { rule in _ = try rule.validate(value) }
-                
-                try container.encode(value)
-                
-            }
-            else { try container.encodeNil() }
-            
-        }
         
     }
     
