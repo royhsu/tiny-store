@@ -20,3 +20,17 @@ public protocol CheckoutItem: Encodable {
     var quantity: CheckoutItemQuantity { get }
     
 }
+
+public protocol NewCheckoutItem {
+    
+    var isSelected: NewContent<Bool> { get }
+    
+    var title: NewContent<String> { get }
+    
+    var description: NewContent<String> { get }
+    
+    var price: NewContent<Double> { get }
+    
+    var quantity: NewContent<Int> { get }
+    
+}

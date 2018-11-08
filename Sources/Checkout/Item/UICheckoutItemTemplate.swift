@@ -11,15 +11,7 @@ public struct UICheckoutItemTemplate: Template {
     
     public var isSeparatorHidden = false
     
-    private let selection: CheckoutSelection
-    
-    private let title: CheckoutItemTitle
-    
-    private let description: CheckoutItemDescription
-    
-    private let price: CheckoutItemPrice
-    
-    private let quantity: CheckoutItemQuantity
+    private let item: NewCheckoutItem
     
     private var views: [UIView] {
         
@@ -30,7 +22,10 @@ public struct UICheckoutItemTemplate: Template {
         
     }
     
-    private let itemView: UICheckoutItemView
+    private let itemView: UICheckoutItemView = UIView.loadView(
+        UICheckoutItemView.self,
+        from: Bundle(for: UICheckoutItemView.self)
+    )!
     
     private let topMarginView: UIView = {
         
@@ -76,47 +71,32 @@ public struct UICheckoutItemTemplate: Template {
         
     }()
     
-    public init(
-        selection: CheckoutSelection,
-        title: CheckoutItemTitle,
-        description: CheckoutItemDescription,
-        price: CheckoutItemPrice,
-        quantity: CheckoutItemQuantity
-    ) {
+    public init(item: NewCheckoutItem) {
         
-        self.selection = selection
+        self.item = item
         
-        self.title = title
+        self.prepare()
         
-        self.description = description
+    }
+    
+    fileprivate func prepare() {
         
-        self.price = price
+        itemView.isSelected = item.isSelected.property.value ?? true
         
-        self.quantity = quantity
+        itemView.isSelectedDidChange = { self.item.isSelected.property.value = $0 }
         
-        let itemView = UIView.loadView(
-            UICheckoutItemView.self,
-            from: Bundle(for: UICheckoutItemView.self)
-        )!
+        itemView.titleLabel.text = item.title.property.value
         
-        itemView.isSelected = selection.property.value ?? true
+        itemView.descriptionLabel.text = item.description.property.value
         
-        itemView.isSelectedDidChange = { selection.property.value = $0 }
-        
-        itemView.titleLabel.text = title.property.value
-        
-        itemView.descriptionLabel.text = description.property.value
-        
-        let price = price.property.value ?? 0.0
+        let price = item.price.property.value ?? 0.0
         
         #warning("add currency formatter.")
         itemView.priceLabel.text = "$ \(price)"
         
-        itemView.quantityStepper.value = quantity.property.value ?? 1
+        itemView.quantityStepper.value = item.quantity.property.value ?? 1
         
-        itemView.quantityStepper.valueDidChange = { quantity.property.value = $0 }
-        
-        self.itemView = itemView
+        itemView.quantityStepper.valueDidChange = { self.item.quantity.property.value = $0 }
         
     }
     

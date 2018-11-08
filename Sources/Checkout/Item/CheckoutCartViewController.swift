@@ -7,7 +7,7 @@
 
 // MARK: - CheckoutCartViewController
 
-public final class CheckoutCartViewController<Item>: ViewController where Item: CheckoutItem {
+public final class CheckoutCartViewController: ViewController {
     
     private final let base: CollectionViewController = {
         
@@ -19,26 +19,20 @@ public final class CheckoutCartViewController<Item>: ViewController where Item: 
         
     }()
     
-    public final var itemForms: [Item] = [] {
+    public final var items: [NewCheckoutItem] = [] {
         
         didSet {
             
             var templates: [Template] = []
             
-            for index in 0..<itemForms.count {
+            for index in 0..<items.count {
                 
-                let itemForm = itemForms[index]
+                let item = items[index]
                 
                 #warning("inject the cross-platform template.")
-                var template = UICheckoutItemTemplate(
-                    selection: itemForm.selection,
-                    title: itemForm.title,
-                    description: itemForm.description,
-                    price: itemForm.price,
-                    quantity: itemForm.quantity
-                )
+                var template = UICheckoutItemTemplate(item: item)
                 
-                let isLastSection = (index + 1 == itemForms.count)
+                let isLastSection = (index + 1 == items.count)
                 
                 template.isSeparatorHidden = isLastSection
                 

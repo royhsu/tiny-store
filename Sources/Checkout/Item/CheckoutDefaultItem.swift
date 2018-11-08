@@ -7,6 +7,51 @@
 
 // MARK: - CheckoutDefaultItem
 
+public struct CheckoutSkirtItem: NewCheckoutItem {
+    
+    public let isSelected: NewContent<Bool>
+    
+    public let title: NewContent<String>
+    
+    private let _description: String
+    
+    public var description: NewContent<String> { return NewContent(value: _description) }
+    
+    public let color: NewContent<String>
+    
+    public let size: NewContent<String>
+    
+    public let price: NewContent<Double>
+    
+    public let quantity: NewContent<Int>
+    
+    public init(
+        isSelected: Bool,
+        title: String,
+        color: String,
+        size: String,
+        price: Double,
+        quantity: Int
+    ) {
+        
+        self.isSelected = NewContent(value: isSelected)
+        
+        self.title = NewContent(value: title)
+        
+        self._description = "\(color) - \(size)"
+        
+        self.color = NewContent(value: color)
+        
+        self.size = NewContent(value: size)
+        
+        self.price = NewContent(value: price)
+        
+        self.quantity = NewContent(value: quantity)
+        
+    }
+    
+}
+
 public struct CheckoutDefaultItem: CheckoutItem {
     
     private enum CodingKeys: String, CodingKey {

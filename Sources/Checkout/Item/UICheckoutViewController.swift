@@ -23,67 +23,53 @@ public final class UICheckoutViewController: UIViewController {
     }()
     
     #warning("injectable.")
-    private final let backgroundViewController: CheckoutCartViewController<CheckoutDefaultItem> = {
+    private final let backgroundViewController: CheckoutCartViewController = {
         
-        let controller = CheckoutCartViewController<CheckoutDefaultItem>()
+        let controller = CheckoutCartViewController()
 
-        struct Item {
+//        struct Item {
+//
+//            let title: String
+//
+//            let color: String
+//
+//            let size: String
+//
+//            let price: Double
+//
+//        }
+//
+//        let items = [
+//            Item(
+//                title: "Knee-length Wool Skirt",
+//                color: "Dark Blue",
+//                size: "S",
+//                price: 19.0
+//            ),
+//            Item(
+//                title: "Long-sleeved Blouse",
+//                color: "Light Blue",
+//                size: "S",
+//                price: 13.0
+//            ),
+//            Item(
+//                title: "High Heels",
+//                color: "Purple Diamond",
+//                size: "8",
+//                price: 35.0
+//            )
+//        ]
 
-            let title: String
-
-            let color: String
-
-            let size: String
-
-            let price: Double
-
-        }
-
-        let items = [
-            Item(
+        controller.items = [
+            CheckoutSkirtItem(
+                isSelected: true,
                 title: "Knee-length Wool Skirt",
                 color: "Dark Blue",
                 size: "S",
-                price: 19.0
-            ),
-            Item(
-                title: "Long-sleeved Blouse",
-                color: "Light Blue",
-                size: "S",
-                price: 13.0
-            ),
-            Item(
-                title: "High Heels",
-                color: "Purple Diamond",
-                size: "8",
-                price: 35.0
+                price: 19.0,
+                quantity: 1
             )
         ]
-
-        controller.itemForms = items.map { item in
-
-            return CheckoutDefaultItem(
-                selection: .init(
-                    property: Observable(true)
-                ),
-                title: .init(
-                    property: Observable(item.title)
-                ),
-                description: .init(
-                    property:  Observable("\(item.color) - \(item.size)")
-                ),
-                color: .init(
-                    property: Observable(item.color)
-                ),
-                price: .init(
-                    property: Observable(item.price)
-                ),
-                quantity: .init(
-                    property: Observable(1)
-                )
-            )
-
-        }
         
         return controller
         
