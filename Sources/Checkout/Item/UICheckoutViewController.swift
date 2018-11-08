@@ -23,9 +23,9 @@ public final class UICheckoutViewController: UIViewController {
     }()
     
     #warning("injectable.")
-    private final let backgroundViewController: CheckoutCartViewController<CheckoutDefaultItemForm> = {
+    private final let backgroundViewController: CheckoutCartViewController<CheckoutDefaultItem> = {
         
-        let controller = CheckoutCartViewController<CheckoutDefaultItemForm>()
+        let controller = CheckoutCartViewController<CheckoutDefaultItem>()
 
         struct Item {
 
@@ -62,37 +62,25 @@ public final class UICheckoutViewController: UIViewController {
 
         controller.itemForms = items.map { item in
 
-            let selection = Observable<Bool>()
-
-            selection.value = true
-
-            let title = Observable<String>()
-
-            title.value = item.title
-
-            let description = Observable<String>()
-
-            description.value = "\(item.color) - \(item.size)"
-
-            let color = Observable<String>()
-
-            color.value = item.color
-
-            let price = Observable<Double>()
-
-            price.value = item.price
-
-            let quantity = Observable<Int>()
-
-            quantity.value = 1
-
-            return CheckoutDefaultItemForm(
-                selectionField: .init(selection: selection),
-                titleField: .init(title: title),
-                descriptionField: .init(description: description),
-                colorField: .init(color: color),
-                priceField: .init(price: price),
-                quantityField: .init(quantity: quantity)
+            return CheckoutDefaultItem(
+                selectionField: .init(
+                    property: Observable(true)
+                ),
+                titleField: .init(
+                    property: Observable(item.title)
+                ),
+                descriptionField: .init(
+                    property:  Observable("\(item.color) - \(item.size)")
+                ),
+                colorField: .init(
+                    property: Observable(item.color)
+                ),
+                priceField: .init(
+                    property: Observable(item.price)
+                ),
+                quantityField: .init(
+                    property: Observable(1)
+                )
             )
 
         }

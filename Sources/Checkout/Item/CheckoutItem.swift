@@ -1,23 +1,23 @@
 //
-//  CheckoutItemForm.swift
+//  CheckoutItem.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/9/28.
 //
 
-// MARK: - CheckoutItemForm
+// MARK: - CheckoutItem
 
-public protocol CheckoutItemForm: Encodable {
+public protocol CheckoutItem: Encodable {
     
-    var selectionField: CheckoutItemSelectionField { get }
+    var selectionField: CheckoutItemSelection { get }
     
-    var titleField: CheckoutItemTitleField { get }
+    var titleField: CheckoutItemTitle { get }
     
-    var descriptionField: CheckoutItemDescriptionField { get }
+    var descriptionField: CheckoutItemDescription { get }
     
-    var priceField: CheckoutItemPriceField { get }
+    var priceField: CheckoutItemPrice { get }
     
-    var quantityField: CheckoutItemQuantityField { get }
+    var quantityField: CheckoutItemQuantity { get }
     
 }
 

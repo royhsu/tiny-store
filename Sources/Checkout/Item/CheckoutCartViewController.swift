@@ -7,7 +7,7 @@
 
 // MARK: - CheckoutCartViewController
 
-public final class CheckoutCartViewController<ItemForm>: ViewController where ItemForm: CheckoutItemForm {
+public final class CheckoutCartViewController<ItemForm>: ViewController where ItemForm: CheckoutItem {
     
     private final let base: CollectionViewController = {
         
