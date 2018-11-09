@@ -1,13 +1,13 @@
 //
-//  CheckoutSkirtItem.swift
+//  CheckoutApparelItem.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/2.
 //
 
-// MARK: - CheckoutSkirtItem
+// MARK: - CheckoutApparelItem
 
-public struct CheckoutSkirtItem: CheckoutItem {
+public struct CheckoutApparelItem: CheckoutItem {
     
     public let isSelected: Content<Bool>
     

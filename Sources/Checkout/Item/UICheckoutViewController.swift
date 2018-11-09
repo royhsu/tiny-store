@@ -42,7 +42,7 @@ public final class UICheckoutViewController: UIViewController {
 //            )
 
         controller.items = [
-            CheckoutSkirtItem(
+            CheckoutApparelItem(
                 isSelected: true,
                 title: "Knee-length Wool Skirt",
                 color: "Dark Blue",
