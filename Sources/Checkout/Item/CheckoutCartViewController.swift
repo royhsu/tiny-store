@@ -9,25 +9,36 @@
 
 public final class CheckoutCartViewController: ViewController {
     
-    private final let base: CollectionViewController = {
+    private final lazy var base: CollectionViewController = {
         
         let controller = CollectionViewController()
         
         controller.collectionView.applyLayout(ListViewLayout.self)
         
+        controller.collectionView.sections = cart
+        
         return controller
         
     }()
     
-    public final var cart = CheckoutCart() {
+    public final let cart: CheckoutCart
+    
+    public init(cart: CheckoutCart? = nil) {
         
-        didSet {
-            
-            base.collectionView.sections = cart
-            
-            base.collectionView.layout?.invalidate()
-            
-        }
+        self.cart = cart ?? CheckoutCart()
+        
+        super.init(
+            nibName: nil,
+            bundle: nil
+        )
+        
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        
+        self.cart = CheckoutCart()
+        
+        super.init(coder: aDecoder)
         
     }
     

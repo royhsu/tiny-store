@@ -22,10 +22,37 @@ public final class UICheckoutViewController: UIViewController {
         
     }()
     
+    fileprivate final var observations: [Observation] = []
+    
     #warning("injectable.")
-    private final let backgroundViewController: CheckoutCartViewController = {
+    private final lazy var cartViewController: CheckoutCartViewController = {
         
-        let controller = CheckoutCartViewController()
+        let controller = CheckoutCartViewController(
+            cart: [
+                .item(
+                    CheckoutApparelItem(
+                        isSelected: true,
+                        title: "Knee-length Wool Skirt",
+                        color: "Dark Blue",
+                        size: "S",
+                        price: 19.0,
+                        quantity: 1
+                    ),
+                    style: UICheckoutItemTemplate.self,
+                    configure: { template in }
+                )
+            ]
+        )
+        
+        let cart = controller.cart
+        
+        observations.append(
+            cart.totalAmount.observe { [weak self] change in
+                
+                self?.dashboardViewController.dashboard.subTotal.value = cart.totalAmount.value
+                
+            }
+        )
 
 //            Item(
 //                title: "Long-sleeved Blouse",
@@ -40,34 +67,13 @@ public final class UICheckoutViewController: UIViewController {
 //                size: "8",
 //                price: 35.0
 //            )
-
-        controller.cart = [
-            .item(
-                CheckoutApparelItem(
-                    isSelected: true,
-                    title: "Knee-length Wool Skirt",
-                    color: "Dark Blue",
-                    size: "S",
-                    price: 19.0,
-                    quantity: 1
-                ),
-                style: UICheckoutItemTemplate.self,
-                configure: { template in }
-            )
-        ]
         
         return controller
         
     }()
     
     #warning("injectable.")
-    private final let dashboardViewController: UICheckoutDashboardViewController = {
-        
-        let controller = UICheckoutDashboardViewController()
-        
-        return controller
-        
-    }()
+    public final var dashboardViewController = UICheckoutDashboardViewController()
     
     public final let visualEffectView = UIVisualEffectView(
         effect: UIBlurEffect(style: .regular)
@@ -83,14 +89,14 @@ public final class UICheckoutViewController: UIViewController {
         
         visualEffectView.contentView.wrapSubview(checkoutView)
         
-        addChild(backgroundViewController)
+        addChild(cartViewController)
         
         checkoutView.backgroundContainerView.wrapSubview(
-            backgroundViewController.view,
+            cartViewController.view,
             within: \.layoutMarginsGuide
         )
         
-        backgroundViewController.didMove(toParent: self)
+        cartViewController.didMove(toParent: self)
         
         addChild(dashboardViewController)
         

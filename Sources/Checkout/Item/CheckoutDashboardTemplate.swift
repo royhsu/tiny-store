@@ -7,9 +7,9 @@
 
 // MARK: - CheckoutDashboardTemplate
 
-public struct UICheckoutDashboardTemplate: Template {
+public final class UICheckoutDashboardTemplate: Template {
     
-    private let subTotalField: UICheckoutDashboardSubField = {
+    private final let subTotalField: UICheckoutDashboardSubField = {
         
         let field = UIView.loadView(
             UICheckoutDashboardSubField.self,
@@ -25,7 +25,7 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private let subTotalFieldTopMarginView: UIView = {
+    private final let subTotalFieldTopMarginView: UIView = {
         
         let view = UIView()
         
@@ -39,7 +39,7 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private let subTotalFieldBottomMarginView: UIView = {
+    private final let subTotalFieldBottomMarginView: UIView = {
         
         let view = UIView()
         
@@ -53,7 +53,7 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private let shippingField: UICheckoutDashboardSubField = {
+    private final let shippingField: UICheckoutDashboardSubField = {
         
         let field = UIView.loadView(
             UICheckoutDashboardSubField.self,
@@ -69,7 +69,7 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private let shippingFieldTopMarginView: UIView = {
+    private final let shippingFieldTopMarginView: UIView = {
         
         let view = UIView()
         
@@ -83,7 +83,7 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private let shippingFieldBottomMarginView: UIView = {
+    private final let shippingFieldBottomMarginView: UIView = {
         
         let view = UIView()
         
@@ -97,7 +97,7 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private let payTotalField: UICheckoutDashboardMainField = {
+    private final let payTotalField: UICheckoutDashboardMainField = {
         
         let field = UIView.loadView(
             UICheckoutDashboardMainField.self,
@@ -113,7 +113,7 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private let payTotalFieldTopMarginView: UIView = {
+    private final let payTotalFieldTopMarginView: UIView = {
         
         let view = UIView()
         
@@ -127,7 +127,7 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private let payTotalFieldBottomMarginView: UIView = {
+    private final let payTotalFieldBottomMarginView: UIView = {
         
         let view = UIView()
         
@@ -141,7 +141,7 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private let checkoutButtonWrapperView: UICheckoutDashboardButtonWrapperView = {
+    private final let checkoutButtonWrapperView: UICheckoutDashboardButtonWrapperView = {
         
         let view = UIView.loadView(
             UICheckoutDashboardButtonWrapperView.self,
@@ -162,7 +162,7 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private var views: [UIView] {
+    private final var views: [UIView] {
         
         return [
             subTotalFieldTopMarginView,
@@ -179,10 +179,38 @@ public struct UICheckoutDashboardTemplate: Template {
         
     }
     
-    public init() { }
+    fileprivate final var observations: [Observation] = []
     
-    public var numberOfViews: Int { return views.count }
+    private final let dashboard: CheckoutDashboard
     
-    public func view(at index: Int) -> View { return views[index] }
+    public init(dashboard: CheckoutDashboard) {
+        
+        self.dashboard = dashboard
+        
+        self.prepare()
+        
+    }
+    
+    fileprivate final func prepare() {
+        
+        self.observations.append(
+            dashboard.subTotal.observe { [weak self] change in
+                
+                DispatchQueue.main.async {
+                
+                    let subTotal = change.currentValue ?? 0.0
+                    
+                    self?.subTotalField.amountLabel.text = "$ \(subTotal)"
+                    
+                }
+                
+            }
+        )
+        
+    }
+    
+    public final var numberOfViews: Int { return views.count }
+    
+    public final func view(at index: Int) -> View { return views[index] }
     
 }
