@@ -7,36 +7,6 @@
 
 // MARK: - CheckoutCartViewController
 
-public enum CheckoutCartElement {
-    
-    case item(
-        CheckoutItem,
-        style: CheckoutItemTemplate.Type,
-        configure: (CheckoutItemTemplate) -> Void
-    )
-    
-    public var template: Template {
-        
-        switch self {
-            
-        case let .item(
-            item,
-            style,
-            configure
-        ):
-            
-            let template = style.init(item: item)
-            
-            configure(template)
-            
-            return template
-            
-        }
-        
-    }
-    
-}
-
 public final class CheckoutCartViewController: ViewController {
     
     private final let base: CollectionViewController = {
@@ -49,28 +19,11 @@ public final class CheckoutCartViewController: ViewController {
         
     }()
     
-    public final var elements: [CheckoutCartElement] = [] {
+    public final var cart = CheckoutCart() {
         
         didSet {
             
-            var templates: [Template] = []
-            
-            for index in 0..<elements.count {
-                
-                let element = elements[index]
-                
-                let template = element.template
-                    
-//                let isLastSection = (index + 1 == elements.count)
-                
-                #warning("Unable to configure the template internally.")
-//                template.isSeparatorHidden = isLastSection
-                
-                templates.append(template)
-                
-            }
-            
-            base.collectionView.sections = templates
+            base.collectionView.sections = cart
             
             base.collectionView.layout?.invalidate()
             

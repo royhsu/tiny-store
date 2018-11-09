@@ -14,6 +14,7 @@
 		B01123B6215E600700A905E3 /* CheckoutFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123B5215E600700A905E3 /* CheckoutFlowController.swift */; };
 		B020D4F52195350200EC93E3 /* CheckoutItemTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F42195350200EC93E3 /* CheckoutItemTemplate.swift */; };
 		B020D4F721953B0200EC93E3 /* Content+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F621953B0200EC93E3 /* Content+Codable.swift */; };
+		B020D4F921955D3400EC93E3 /* CheckoutCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F821955D3400EC93E3 /* CheckoutCart.swift */; };
 		B02B0245218AF85900772118 /* UICheckoutItemTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */; };
 		B02B0249218B0A4700772118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02B0248218B0A4700772118 /* Assets.xcassets */; };
 		B02B0250218BD5F100772118 /* UICheckoutSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B024F218BD5F100772118 /* UICheckoutSelectionView.swift */; };
@@ -91,6 +92,7 @@
 		B01123B5215E600700A905E3 /* CheckoutFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutFlowController.swift; sourceTree = "<group>"; };
 		B020D4F42195350200EC93E3 /* CheckoutItemTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemTemplate.swift; sourceTree = "<group>"; };
 		B020D4F621953B0200EC93E3 /* Content+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content+Codable.swift"; sourceTree = "<group>"; };
+		B020D4F821955D3400EC93E3 /* CheckoutCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCart.swift; sourceTree = "<group>"; };
 		B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutItemTemplate.swift; sourceTree = "<group>"; };
 		B02B0248218B0A4700772118 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B02B024F218BD5F100772118 /* UICheckoutSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutSelectionView.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 			children = (
 				B01123A7215E335300A905E3 /* CheckoutItem.swift */,
 				B020D4F42195350200EC93E3 /* CheckoutItemTemplate.swift */,
+				B020D4F821955D3400EC93E3 /* CheckoutCart.swift */,
 				B0772EBB218BF2720082C055 /* CheckoutCartViewController.swift */,
 				B0772EC1218C33500082C055 /* CheckoutDashboardTemplate.swift */,
 				B0772EBF218C2B220082C055 /* CheckoutApparelItem.swift */,
@@ -423,6 +426,7 @@
 				B0772ED6218C4CC60082C055 /* UICheckoutViewController.swift in Sources */,
 				B0772EC8218C419A0082C055 /* UICheckoutDashboardMainField.swift in Sources */,
 				B01123A8215E335300A905E3 /* CheckoutItem.swift in Sources */,
+				B020D4F921955D3400EC93E3 /* CheckoutCart.swift in Sources */,
 				B0A069FE2189947400BA4CA5 /* UICheckoutStepper.swift in Sources */,
 				B06F6E85215C974F00BBCF0F /* City.swift in Sources */,
 				B020D4F721953B0200EC93E3 /* Content+Codable.swift in Sources */,

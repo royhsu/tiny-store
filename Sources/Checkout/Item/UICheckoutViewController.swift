@@ -41,7 +41,7 @@ public final class UICheckoutViewController: UIViewController {
 //                price: 35.0
 //            )
 
-        controller.elements = [
+        controller.cart = [
             .item(
                 CheckoutApparelItem(
                     isSelected: true,
