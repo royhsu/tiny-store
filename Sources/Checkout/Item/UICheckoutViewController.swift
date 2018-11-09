@@ -67,7 +67,8 @@ public final class UICheckoutViewController: UIViewController {
                 color: "Dark Blue",
                 size: "S",
                 price: 19.0,
-                quantity: 1
+                quantity: 1,
+                template: UICheckoutItemTemplate.self
             )
         ]
         

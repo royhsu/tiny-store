@@ -7,7 +7,7 @@
 
 // MARK: - UICheckoutItemTemplate
 
-public struct UICheckoutItemTemplate: Template {
+public struct UICheckoutItemTemplate: CheckoutItemTemplate {
     
     public var isSeparatorHidden = false
     

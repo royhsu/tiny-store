@@ -29,8 +29,7 @@ public final class CheckoutCartViewController: ViewController {
                 
                 let item = items[index]
                 
-                #warning("inject the cross-platform template.")
-                var template = UICheckoutItemTemplate(item: item)
+                var template = item.template.init(item: item)
                 
                 let isLastSection = (index + 1 == items.count)
                 

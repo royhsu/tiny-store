@@ -19,4 +19,6 @@ public protocol CheckoutItem {
     
     var quantity: Content<Int> { get }
     
+    var template: CheckoutItemTemplate.Type { get }
+    
 }
