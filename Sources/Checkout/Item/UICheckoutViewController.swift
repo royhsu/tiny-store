@@ -27,38 +27,19 @@ public final class UICheckoutViewController: UIViewController {
         
         let controller = CheckoutCartViewController()
 
-//        struct Item {
-//
-//            let title: String
-//
-//            let color: String
-//
-//            let size: String
-//
-//            let price: Double
-//
-//        }
-//
-//        let items = [
-//            Item(
-//                title: "Knee-length Wool Skirt",
-//                color: "Dark Blue",
-//                size: "S",
-//                price: 19.0
-//            ),
 //            Item(
 //                title: "Long-sleeved Blouse",
 //                color: "Light Blue",
 //                size: "S",
 //                price: 13.0
-//            ),
+//            )
+        
 //            Item(
 //                title: "High Heels",
 //                color: "Purple Diamond",
 //                size: "8",
 //                price: 35.0
 //            )
-//        ]
 
         controller.items = [
             CheckoutSkirtItem(
@@ -68,7 +49,7 @@ public final class UICheckoutViewController: UIViewController {
                 size: "S",
                 price: 19.0,
                 quantity: 1,
-                template: UICheckoutItemTemplate.self
+                style: UICheckoutItemTemplate.self
             )
         ]
         

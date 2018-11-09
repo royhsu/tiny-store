@@ -29,7 +29,7 @@ public final class CheckoutCartViewController: ViewController {
                 
                 let item = items[index]
                 
-                var template = item.template.init(item: item)
+                var template = item.style.init(item: item)
                 
                 let isLastSection = (index + 1 == items.count)
                 

@@ -25,7 +25,7 @@ public struct CheckoutSkirtItem: CheckoutItem {
     
     public let quantity: Content<Int>
     
-    public let template: CheckoutItemTemplate.Type
+    public let style: CheckoutItemTemplate.Type
     
     public init(
         isSelected: Bool,
@@ -34,7 +34,7 @@ public struct CheckoutSkirtItem: CheckoutItem {
         size: String,
         price: Double,
         quantity: Int,
-        template: CheckoutItemTemplate.Type
+        style: CheckoutItemTemplate.Type
     ) {
         
         self.isSelected = Content(value: isSelected)
@@ -51,7 +51,7 @@ public struct CheckoutSkirtItem: CheckoutItem {
         
         self.quantity = Content(value: quantity)
         
-        self.template = template
+        self.style = style
         
     }
     
