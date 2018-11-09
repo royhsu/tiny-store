@@ -41,15 +41,18 @@ public final class UICheckoutViewController: UIViewController {
 //                price: 35.0
 //            )
 
-        controller.items = [
-            CheckoutApparelItem(
-                isSelected: true,
-                title: "Knee-length Wool Skirt",
-                color: "Dark Blue",
-                size: "S",
-                price: 19.0,
-                quantity: 1,
-                style: UICheckoutItemTemplate.self
+        controller.elements = [
+            .item(
+                CheckoutApparelItem(
+                    isSelected: true,
+                    title: "Knee-length Wool Skirt",
+                    color: "Dark Blue",
+                    size: "S",
+                    price: 19.0,
+                    quantity: 1
+                ),
+                style: UICheckoutItemTemplate.self,
+                configure: { template in }
             )
         ]
         
