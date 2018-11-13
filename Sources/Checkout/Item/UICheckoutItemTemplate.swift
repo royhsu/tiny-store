@@ -96,6 +96,8 @@ public struct UICheckoutItemTemplate: CheckoutItemTemplate {
         
         itemView.quantityStepper.minimumValue = 1
         
+        itemView.quantityStepper.maximumValue = 99
+        
         itemView.quantityStepper.value = item.quantity.property.value ?? 1
         
         itemView.quantityStepper.valueDidChange = { self.item.quantity.property.value = $0 }

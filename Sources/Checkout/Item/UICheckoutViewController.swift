@@ -87,6 +87,17 @@ public final class UICheckoutViewController: UIViewController {
         
         controller.dashboard.subTotal.value = cartViewController.cart.totalAmount.value
         
+        let buttonTitle = NSLocalizedString(
+            "Checkout",
+            comment: ""
+        )
+        
+        controller.template.setAction(title: buttonTitle + " →") { [weak self] in
+            
+            print("Clicked!")
+            
+        }
+        
         return controller
         
     }()

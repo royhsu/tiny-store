@@ -43,6 +43,7 @@ public final class CheckoutCart: ExpressibleByArrayLiteral, SectionCollection {
     
     fileprivate final var observations: [Observation] = []
     
+    #warning("should be a read-only property.")
     public final let totalAmount: Observable<Double>
     
     public init() {

@@ -141,21 +141,17 @@ public final class UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private final let checkoutButtonWrapperView: UICheckoutDashboardButtonWrapperView = {
+    private final lazy var checkoutButtonWrapperView: UICheckoutDashboardButtonWrapperView = {
         
         let view = UIView.loadView(
             UICheckoutDashboardButtonWrapperView.self,
             from: Bundle(for: UICheckoutDashboardButtonWrapperView.self)
         )!
         
-        let buttonTitle = NSLocalizedString(
-            "Checkout",
-            comment: ""
-        )
-        
-        view.button.setTitle(
-            buttonTitle + " →",
-            for: .normal
+        view.button.addTarget(
+            self,
+            action: #selector(action),
+            for: .touchUpInside
         )
         
         return view
@@ -240,5 +236,24 @@ public final class UICheckoutDashboardTemplate: Template {
     public final var numberOfViews: Int { return views.count }
     
     public final func view(at index: Int) -> View { return views[index] }
+
+    fileprivate final var _actionHandler: ( () -> Void )?
+    
+    public final func setAction(
+        title: String,
+        handler: @escaping () -> Void
+    ) {
+
+        checkoutButtonWrapperView.button.setTitle(
+            title,
+            for: .normal
+        )
+
+        _actionHandler = handler
+
+    }
+    
+    @objc
+    public final func action(_ sender: Any) { _actionHandler?() }
     
 }

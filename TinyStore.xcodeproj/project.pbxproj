@@ -15,6 +15,7 @@
 		B020D4F52195350200EC93E3 /* CheckoutItemTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F42195350200EC93E3 /* CheckoutItemTemplate.swift */; };
 		B020D4F721953B0200EC93E3 /* Content+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F621953B0200EC93E3 /* Content+Codable.swift */; };
 		B020D4F921955D3400EC93E3 /* CheckoutCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F821955D3400EC93E3 /* CheckoutCart.swift */; };
+		B020D4FD219AB78900EC93E3 /* CheckoutDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4FC219AB78900EC93E3 /* CheckoutDashboard.swift */; };
 		B02B0245218AF85900772118 /* UICheckoutItemTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */; };
 		B02B0249218B0A4700772118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02B0248218B0A4700772118 /* Assets.xcassets */; };
 		B02B0250218BD5F100772118 /* UICheckoutSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B024F218BD5F100772118 /* UICheckoutSelectionView.swift */; };
@@ -93,6 +94,7 @@
 		B020D4F42195350200EC93E3 /* CheckoutItemTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutItemTemplate.swift; sourceTree = "<group>"; };
 		B020D4F621953B0200EC93E3 /* Content+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content+Codable.swift"; sourceTree = "<group>"; };
 		B020D4F821955D3400EC93E3 /* CheckoutCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCart.swift; sourceTree = "<group>"; };
+		B020D4FC219AB78900EC93E3 /* CheckoutDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDashboard.swift; sourceTree = "<group>"; };
 		B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutItemTemplate.swift; sourceTree = "<group>"; };
 		B02B0248218B0A4700772118 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B02B024F218BD5F100772118 /* UICheckoutSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutSelectionView.swift; sourceTree = "<group>"; };
@@ -214,6 +216,8 @@
 				B0A069F921897FED00BA4CA5 /* UICheckoutItemView.swift */,
 				B0A069FB2189803E00BA4CA5 /* UICheckoutItemView.xib */,
 				B02B0244218AF85900772118 /* UICheckoutItemTemplate.swift */,
+				B020D4FC219AB78900EC93E3 /* CheckoutDashboard.swift */,
+				B0772ED3218C4B630082C055 /* UICheckoutDashboardViewController.swift */,
 				B0772EC3218C39AF0082C055 /* UICheckoutDashboardSubField.swift */,
 				B0772EC5218C39D70082C055 /* UICheckoutDashboardSubField.xib */,
 				B0772EC7218C419A0082C055 /* UICheckoutDashboardMainField.swift */,
@@ -223,7 +227,6 @@
 				B0772ED1218C4A310082C055 /* UICheckoutView.swift */,
 				B0772ECF218C49520082C055 /* UICheckoutView.xib */,
 				B0772ED5218C4CC60082C055 /* UICheckoutViewController.swift */,
-				B0772ED3218C4B630082C055 /* UICheckoutDashboardViewController.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				B0A069FE2189947400BA4CA5 /* UICheckoutStepper.swift in Sources */,
 				B06F6E85215C974F00BBCF0F /* City.swift in Sources */,
 				B020D4F721953B0200EC93E3 /* Content+Codable.swift in Sources */,
+				B020D4FD219AB78900EC93E3 /* CheckoutDashboard.swift in Sources */,
 				B0A069FA21897FED00BA4CA5 /* UICheckoutItemView.swift in Sources */,
 				B03E7278215FA15F00FC249A /* CheckoutOrderPreviewingStep.swift in Sources */,
 				B0772ED82193D78E0082C055 /* Content.swift in Sources */,
