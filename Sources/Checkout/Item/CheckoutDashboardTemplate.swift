@@ -193,7 +193,13 @@ public final class UICheckoutDashboardTemplate: Template {
     
     fileprivate final func prepare() {
         
-        self.observations.append(
+        let subTotal = dashboard.subTotal.value ?? 0.0
+        
+        subTotalField.amountLabel.text = "$ \(subTotal)"
+        
+        payTotalField.amountLabel.text = "$ \(subTotal)"
+        
+        observations.append(
             dashboard.subTotal.observe { [weak self] change in
                 
                 DispatchQueue.main.async {
@@ -201,6 +207,28 @@ public final class UICheckoutDashboardTemplate: Template {
                     let subTotal = change.currentValue ?? 0.0
                     
                     self?.subTotalField.amountLabel.text = "$ \(subTotal)"
+                    
+                    let payTotal = self?.dashboard.payTotal ?? 0.0
+                    
+                    self?.payTotalField.amountLabel.text = "$ \(payTotal)"
+                    
+                }
+                
+            }
+        )
+        
+        observations.append(
+            dashboard.shipping.observe { [weak self] change in
+                
+                DispatchQueue.main.async {
+                    
+                    let shipping = change.currentValue ?? 0.0
+                    
+                    self?.shippingField.amountLabel.text = "$ \(shipping)"
+                    
+                    let payTotal = self?.dashboard.payTotal ?? 0.0
+                    
+                    self?.payTotalField.amountLabel.text = "$ \(payTotal)"
                     
                 }
                 

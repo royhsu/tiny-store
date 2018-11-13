@@ -24,7 +24,6 @@ public final class UICheckoutViewController: UIViewController {
     
     fileprivate final var observations: [Observation] = []
     
-    #warning("injectable.")
     private final lazy var cartViewController: CheckoutCartViewController = {
         
         let controller = CheckoutCartViewController(
@@ -36,6 +35,30 @@ public final class UICheckoutViewController: UIViewController {
                         color: "Dark Blue",
                         size: "S",
                         price: 19.0,
+                        quantity: 1
+                    ),
+                    style: UICheckoutItemTemplate.self,
+                    configure: { template in }
+                ),
+                .item(
+                    CheckoutApparelItem(
+                        isSelected: true,
+                        title: "Long-sleeved Blouse",
+                        color: "Light Blue",
+                        size: "S",
+                        price: 13.0,
+                        quantity: 1
+                    ),
+                    style: UICheckoutItemTemplate.self,
+                    configure: { template in }
+                ),
+                .item(
+                    CheckoutApparelItem(
+                        isSelected: true,
+                        title: "High Heels",
+                        color: "Purple Diamond",
+                        size: "8",
+                        price: 35.0,
                         quantity: 1
                     ),
                     style: UICheckoutItemTemplate.self,
@@ -53,27 +76,20 @@ public final class UICheckoutViewController: UIViewController {
                 
             }
         )
-
-//            Item(
-//                title: "Long-sleeved Blouse",
-//                color: "Light Blue",
-//                size: "S",
-//                price: 13.0
-//            )
-        
-//            Item(
-//                title: "High Heels",
-//                color: "Purple Diamond",
-//                size: "8",
-//                price: 35.0
-//            )
         
         return controller
         
     }()
     
-    #warning("injectable.")
-    public final var dashboardViewController = UICheckoutDashboardViewController()
+    public final lazy var dashboardViewController: UICheckoutDashboardViewController = {
+        
+        let controller = UICheckoutDashboardViewController()
+        
+        controller.dashboard.subTotal.value = cartViewController.cart.totalAmount.value
+        
+        return controller
+        
+    }()
     
     public final let visualEffectView = UIVisualEffectView(
         effect: UIBlurEffect(style: .regular)
