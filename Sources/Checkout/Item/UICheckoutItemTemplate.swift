@@ -94,6 +94,8 @@ public struct UICheckoutItemTemplate: CheckoutItemTemplate {
         #warning("add currency formatter.")
         itemView.priceLabel.text = "$ \(price)"
         
+        itemView.quantityStepper.minimumValue = 1
+        
         itemView.quantityStepper.value = item.quantity.property.value ?? 1
         
         itemView.quantityStepper.valueDidChange = { self.item.quantity.property.value = $0 }
