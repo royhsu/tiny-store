@@ -1,15 +1,15 @@
 //
-//  UICheckoutViewController.swift
+//  UICheckoutController.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/2.
 //
 
-// MARK: - UICheckoutViewController
+// MARK: - UICheckoutController
 
 import MapKit
 
-public final class UICheckoutViewController: UIViewController {
+public final class UICheckoutController: UIViewController {
     
     private final let checkoutView: UICheckoutView = {
         
@@ -23,6 +23,14 @@ public final class UICheckoutViewController: UIViewController {
     }()
     
     fileprivate final var observations: [Observation] = []
+    
+    private final lazy var backgroundNavigationController: UINavigationController = {
+        
+        let controller = UINavigationController(rootViewController: cartViewController)
+        
+        return controller
+        
+    }()
     
     private final lazy var cartViewController: CheckoutCartViewController = {
         
@@ -116,14 +124,11 @@ public final class UICheckoutViewController: UIViewController {
         
         visualEffectView.contentView.wrapSubview(checkoutView)
         
-        addChild(cartViewController)
+        addChild(backgroundNavigationController)
         
-        checkoutView.backgroundContainerView.wrapSubview(
-            cartViewController.view,
-            within: \.layoutMarginsGuide
-        )
+        checkoutView.backgroundContainerView.wrapSubview(backgroundNavigationController.view)
         
-        cartViewController.didMove(toParent: self)
+        backgroundNavigationController.didMove(toParent: self)
         
         addChild(dashboardViewController)
         

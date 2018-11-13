@@ -43,7 +43,7 @@
 		B0772ED0218C49520082C055 /* UICheckoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0772ECF218C49520082C055 /* UICheckoutView.xib */; };
 		B0772ED2218C4A310082C055 /* UICheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ED1218C4A310082C055 /* UICheckoutView.swift */; };
 		B0772ED4218C4B630082C055 /* UICheckoutDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ED3218C4B630082C055 /* UICheckoutDashboardViewController.swift */; };
-		B0772ED6218C4CC60082C055 /* UICheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ED5218C4CC60082C055 /* UICheckoutViewController.swift */; };
+		B0772ED6218C4CC60082C055 /* UICheckoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ED5218C4CC60082C055 /* UICheckoutController.swift */; };
 		B0772ED82193D78E0082C055 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ED72193D78E0082C055 /* Content.swift */; };
 		B0772EDB2193E0F20082C055 /* CheckoutApparelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EBF218C2B220082C055 /* CheckoutApparelItem.swift */; };
 		B07A2C37215A0A2D002EFE87 /* TinyValidation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */; };
@@ -120,7 +120,7 @@
 		B0772ECF218C49520082C055 /* UICheckoutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICheckoutView.xib; sourceTree = "<group>"; };
 		B0772ED1218C4A310082C055 /* UICheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutView.swift; sourceTree = "<group>"; };
 		B0772ED3218C4B630082C055 /* UICheckoutDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutDashboardViewController.swift; sourceTree = "<group>"; };
-		B0772ED5218C4CC60082C055 /* UICheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutViewController.swift; sourceTree = "<group>"; };
+		B0772ED5218C4CC60082C055 /* UICheckoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutController.swift; sourceTree = "<group>"; };
 		B0772ED72193D78E0082C055 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		B07A2BCF2159DE73002EFE87 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A2BD12159DE73002EFE87 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,7 +226,7 @@
 				B0772ECD218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib */,
 				B0772ED1218C4A310082C055 /* UICheckoutView.swift */,
 				B0772ECF218C49520082C055 /* UICheckoutView.xib */,
-				B0772ED5218C4CC60082C055 /* UICheckoutViewController.swift */,
+				B0772ED5218C4CC60082C055 /* UICheckoutController.swift */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -426,7 +426,7 @@
 				B0A06A022189A01500BA4CA5 /* UINibWrapperView.swift in Sources */,
 				B06F6E82215C972A00BBCF0F /* CheckoutDestination.swift in Sources */,
 				B01123B6215E600700A905E3 /* CheckoutFlowController.swift in Sources */,
-				B0772ED6218C4CC60082C055 /* UICheckoutViewController.swift in Sources */,
+				B0772ED6218C4CC60082C055 /* UICheckoutController.swift in Sources */,
 				B0772EC8218C419A0082C055 /* UICheckoutDashboardMainField.swift in Sources */,
 				B01123A8215E335300A905E3 /* CheckoutItem.swift in Sources */,
 				B020D4F921955D3400EC93E3 /* CheckoutCart.swift in Sources */,

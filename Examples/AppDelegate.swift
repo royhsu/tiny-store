@@ -86,7 +86,7 @@ extension AppDelegate: UIApplicationDelegate {
 //
 //        viewController.view.backgroundColor = .white
         
-        let viewController = UICheckoutViewController()
+        let viewController = UICheckoutController()
         
         window.rootViewController = viewController
         
