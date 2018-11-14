@@ -103,6 +103,8 @@ public final class UICheckoutItemView: UIView {
             
             priceLabel.font = .preferredFont(forTextStyle: .body)
             
+            priceLabel.adjustsFontSizeToFitWidth = true
+            
             priceLabel.text = nil
             
             priceLabel.textAlignment = .right

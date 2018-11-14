@@ -86,7 +86,47 @@ extension AppDelegate: UIApplicationDelegate {
 //
 //        viewController.view.backgroundColor = .white
         
-        let viewController = UICheckoutController()
+//        let viewController = UICheckoutController()
+
+        struct Service: CheckoutShippingService {
+            
+            let isSelected: Content<Bool>
+            
+            let title: Content<String>
+            
+            let price: Content<Double>
+            
+            init(
+                isSelected: Bool = false,
+                title: String,
+                price: Double
+            ) {
+                
+                self.isSelected = Content(value: isSelected)
+                
+                self.title = Content(value: title)
+                
+                self.price = Content(value: price)
+                
+            }
+            
+        }
+        
+        let viewController = CheckoutShippingViewController(
+            [
+                .service(
+                    UICheckoutShippingServiceTemplate(
+                        Service(
+                            isSelected: false,
+                            title: "DHL",
+                            price: 3.0
+                        )
+                    )
+                )
+            ]
+        )
+        
+        viewController.view.backgroundColor = .white
         
         window.rootViewController = viewController
         

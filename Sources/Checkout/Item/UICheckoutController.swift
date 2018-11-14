@@ -7,6 +7,7 @@
 
 // MARK: - UICheckoutController
 
+#warning("development only.")
 import MapKit
 
 public final class UICheckoutController: UIViewController {

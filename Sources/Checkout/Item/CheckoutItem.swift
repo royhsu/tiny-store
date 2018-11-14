@@ -7,6 +7,7 @@
 
 // MARK: - CheckoutItem
 
+#warning("rename to CheckoutCartItem.")
 public protocol CheckoutItem {
     
     var isSelected: Content<Bool> { get }
