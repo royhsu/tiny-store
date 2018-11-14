@@ -74,6 +74,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="priceLabel" destination="39M-m5-Cw4" id="TV3-0p-Oe0"/>
+                <outlet property="selectionView" destination="OeX-vr-fiV" id="LSg-rq-yjQ"/>
                 <outlet property="titleLabel" destination="qOA-jc-LNu" id="S2U-hD-g59"/>
             </connections>
             <point key="canvasLocation" x="53.600000000000001" y="-232.08395802098951"/>

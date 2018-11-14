@@ -7,16 +7,18 @@
 
 // MARK: - UICheckoutShippingServiceTemplate
 
-public struct UICheckoutShippingServiceTemplate: CheckoutShippingServiceTemplate {
+public final class UICheckoutShippingServiceTemplate: CheckoutShippingServiceTemplate {
     
-    private let serviceView = UIView.loadView(
+    fileprivate final var observations: [Observation] = []
+    
+    private final let serviceView = UIView.loadView(
         UICheckoutShippingServiceView.self,
         from: Bundle(for: UICheckoutShippingServiceView.self)
     )!
     
-    private let views: [UIView]
+    private final let views: [UIView]
     
-    public let service: CheckoutShippingService
+    public final let service: CheckoutShippingService
     
     public init(_ service: CheckoutShippingService) {
         
@@ -28,7 +30,24 @@ public struct UICheckoutShippingServiceTemplate: CheckoutShippingServiceTemplate
         
     }
     
-    fileprivate func prepare() {
+    fileprivate final func prepare() {
+        
+        serviceView.isSelected = service.isSelected.property.value ?? true
+        
+        serviceView.isSelectedDidChange = { self.service.isSelected.property.value = $0 }
+
+        // Broken.
+//        observations.append(
+//            service.isSelected.property.observe { change in
+//
+//                DispatchQueue.main.async {
+//
+//                    self.serviceView.isSelected = change.currentValue ?? false
+//
+//                }
+//
+//            }
+//        )
         
         serviceView.titleLabel.text = service.title.property.value
         
@@ -38,8 +57,8 @@ public struct UICheckoutShippingServiceTemplate: CheckoutShippingServiceTemplate
         
     }
     
-    public var numberOfViews: Int { return views.count }
+    public final var numberOfViews: Int { return views.count }
     
-    public func view(at index: Int) -> View { return views[index] }
+    public final func view(at index: Int) -> View { return views[index] }
     
 }

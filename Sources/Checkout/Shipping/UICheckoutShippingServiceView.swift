@@ -10,6 +10,33 @@
 public final class UICheckoutShippingServiceView: UIView {
     
     @IBOutlet
+    private final weak var selectionView: UICheckoutSelectionView! {
+        
+        didSet {
+            
+            selectionView.tintColor = .black
+            
+            selectionView.isSelectedDidChange = { [weak self] isSelected in
+                
+                self?.isSelectedDidChange?(isSelected)
+                
+            }
+            
+        }
+        
+    }
+    
+    public final var isSelected: Bool {
+        
+        get { return selectionView.isSelected }
+        
+        set { selectionView.isSelected = newValue }
+        
+    }
+    
+    public final var isSelectedDidChange: ( (Bool) -> Void )?
+    
+    @IBOutlet
     public private(set) final weak var titleLabel: UILabel! {
         
         didSet {

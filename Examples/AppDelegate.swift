@@ -117,8 +117,17 @@ extension AppDelegate: UIApplicationDelegate {
                 .service(
                     UICheckoutShippingServiceTemplate(
                         Service(
+                            isSelected: true,
+                            title: "UPS",
+                            price: 3.0
+                        )
+                    )
+                ),
+                .service(
+                    UICheckoutShippingServiceTemplate(
+                        Service(
                             isSelected: false,
-                            title: "DHL",
+                            title: "DHL Express",
                             price: 3.0
                         )
                     )
