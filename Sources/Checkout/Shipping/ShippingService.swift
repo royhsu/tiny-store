@@ -1,13 +1,13 @@
 //
-//  CheckoutShippingService.swift
+//  ShippingService.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/13.
 //
 
-// MARK: - CheckoutShippingService
+// MARK: - ShippingService
 
-public protocol CheckoutShippingService {
+public protocol ShippingService {
     
     var isSelected: Content<Bool> { get }
     

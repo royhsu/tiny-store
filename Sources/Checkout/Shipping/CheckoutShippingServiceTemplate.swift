@@ -9,6 +9,6 @@
 
 public protocol CheckoutShippingServiceTemplate: Template {
     
-    var service: CheckoutShippingService { get }
+    var service: ShippingService { get }
     
 }

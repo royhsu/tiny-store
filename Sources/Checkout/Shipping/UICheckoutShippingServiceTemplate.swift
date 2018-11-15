@@ -12,15 +12,15 @@ public final class UICheckoutShippingServiceTemplate: CheckoutShippingServiceTem
     fileprivate final var observations: [Observation] = []
     
     private final let serviceView = UIView.loadView(
-        UICheckoutShippingServiceView.self,
-        from: Bundle(for: UICheckoutShippingServiceView.self)
+        UIShippingServiceView.self,
+        from: Bundle(for: UIShippingServiceView.self)
     )!
     
     private final let views: [UIView]
     
-    public final let service: CheckoutShippingService
+    public final let service: ShippingService
     
-    public init(_ service: CheckoutShippingService) {
+    public init(_ service: ShippingService) {
         
         self.service = service
         

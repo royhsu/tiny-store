@@ -1,13 +1,13 @@
 //
-//  UICheckoutShippingServiceView.swift
+//  UIShippingServiceView.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/13.
 //
 
-// MARK: - UICheckoutShippingServiceView
+// MARK: - UIShippingServiceView
 
-public final class UICheckoutShippingServiceView: UIView {
+public final class UIShippingServiceView: UIView {
     
     @IBOutlet
     private final weak var selectionView: UICheckoutSelectionView! {

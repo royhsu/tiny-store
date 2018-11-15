@@ -88,58 +88,72 @@ extension AppDelegate: UIApplicationDelegate {
         
 //        let viewController = UICheckoutController()
 
-        struct Service: CheckoutShippingService {
-            
+        struct Service: ShippingService {
+
             let isSelected: Content<Bool>
-            
+
             let title: Content<String>
-            
+
             let price: Content<Double>
-            
+
             init(
                 isSelected: Bool = false,
                 title: String,
                 price: Double
             ) {
-                
+
                 self.isSelected = Content(value: isSelected)
-                
+
                 self.title = Content(value: title)
-                
+
                 self.price = Content(value: price)
-                
+
             }
-            
+
         }
+//
+//        let viewController = CheckoutShippingViewController(
+//            [
+//                .service(
+//                    UICheckoutShippingServiceTemplate(
+//                        Service(
+//                            isSelected: false,
+//                            title: "UPS",
+//                            price: 3.0
+//                        )
+//                    )
+//                ),
+//                .service(
+//                    UICheckoutShippingServiceTemplate(
+//                        Service(
+//                            isSelected: false,
+//                            title: "DHL Express",
+//                            price: 3.0
+//                        )
+//                    )
+//                )
+//            ]
+//        )
+//
+//        viewController.view.backgroundColor = .white
         
-        let viewController = CheckoutShippingViewController(
-            [
-                .service(
-                    UICheckoutShippingServiceTemplate(
-                        Service(
-                            isSelected: false,
-                            title: "UPS",
-                            price: 3.0
-                        )
-                    )
-                ),
-                .service(
-                    UICheckoutShippingServiceTemplate(
-                        Service(
-                            isSelected: false,
-                            title: "DHL Express",
-                            price: 3.0
-                        )
-                    )
-                )
-            ]
-        )
+        let viewController = UIShippingServiceViewController()
         
         viewController.view.backgroundColor = .white
         
         window.rootViewController = viewController
         
         window.makeKeyAndVisible()
+        
+        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 3.0) {
+            
+            viewController.service = Service(
+                isSelected: false,
+                title: "UPS",
+                price: 3.0
+            )
+            
+        }
 
         return true
 
