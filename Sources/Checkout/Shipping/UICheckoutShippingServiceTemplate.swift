@@ -32,23 +32,10 @@ public final class UICheckoutShippingServiceTemplate: CheckoutShippingServiceTem
     
     fileprivate final func prepare() {
         
-        serviceView.isSelected = service.isSelected.property.value ?? true
+        serviceView.isSelected = service.isSelected.property.value ?? false
         
-        serviceView.isSelectedDidChange = { self.service.isSelected.property.value = $0 }
+        serviceView.isSelectedDidChange = { [weak self] in self?.service.isSelected.property.value = $0 }
 
-        // Broken.
-//        observations.append(
-//            service.isSelected.property.observe { change in
-//
-//                DispatchQueue.main.async {
-//
-//                    self.serviceView.isSelected = change.currentValue ?? false
-//
-//                }
-//
-//            }
-//        )
-        
         serviceView.titleLabel.text = service.title.property.value
         
         let price = service.price.property.value ?? 0.0

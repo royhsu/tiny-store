@@ -25,45 +25,7 @@ public final class CheckoutShipping: ExpressibleByArrayLiteral, SectionCollectio
         
     }
     
-    private final var selectedIndex: Int? {
-        
-        didSet {
-            
-            DispatchQueue.main.async { [weak self] in
-                
-                guard
-                    let self = self
-                else { return }
-                
-                self.observations = []
-                
-                self.updateSelectedService()
-                
-                for index in 0..<self.elements.count {
-
-                    let element = self.elements[index]
-
-                    guard
-                        let template = element.template as? CheckoutShippingServiceTemplate
-                    else { continue }
- 
-                    self.observations.append(
-                        template.service.isSelected.property.observe { change in
-
-                            let isSelected = (change.currentValue == true)
-                            
-                            if isSelected { self.selectedIndex = index }
-
-                        }
-                    )
-
-                }
-                
-            }
-            
-        }
-        
-    }
+    public final let selectedIndex = Content(value: 0)
     
     fileprivate final var observations: [Observation] = []
     
@@ -87,43 +49,53 @@ public final class CheckoutShipping: ExpressibleByArrayLiteral, SectionCollectio
  
     fileprivate final func prepare() {
         
-        var initialIndex: Int?
-        
         for index in 0..<elements.count {
             
             let element = elements[index]
             
             if let template = element.template as? CheckoutShippingServiceTemplate {
+                
+                let isSelected = (index == selectedIndex.property.value)
+                
+                template.service.isSelected.property.value = isSelected
+                
+                observations.append(
+                    template.service.isSelected.property.observe { [weak self] change in
+                        
+                        let isSelected = (change.currentValue == true)
+
+                        if isSelected { self?.selectedIndex.property.value = index }
+                        
+                    }
+                )
             
-                let isSelected = (template.service.isSelected.property.value == true)
-                
-                if isSelected { initialIndex = index }
-                
             }
             
         }
         
-        selectedIndex = initialIndex
-        
-    }
-    
-    fileprivate final func updateSelectedService() {
-        
-        guard
-            let selectedIndex = selectedIndex
-        else { return }
-        
-        for index in 0..<elements.count {
-            
-            let element = elements[index]
-            
-            let isSelected = (index == selectedIndex)
-            
-            let template = element.template as? CheckoutShippingServiceTemplate
-            
-            template?.service.isSelected.property.value = isSelected
-            
-        }
+        // Make sure there is only one service selected every time.
+        observations.append(
+            selectedIndex.property.observe { [weak self] change in
+                
+                guard
+                    let self = self,
+                    let selectedIndex = change.currentValue
+                else { return }
+                
+                for index in 0..<self.elements.count {
+                    
+                    if index == selectedIndex { continue }
+                    
+                    let element = self.elements[index]
+                    
+                    let template = element.template as? CheckoutShippingServiceTemplate
+                    
+                    template?.service.isSelected.property.value = false
+                    
+                }
+                
+            }
+        )
         
     }
     
