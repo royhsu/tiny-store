@@ -103,7 +103,75 @@ public final class UICheckoutController: UIViewController {
         
         controller.template.setAction(title: buttonTitle + " →") { [weak self] in
             
-            print("Clicked!")
+            guard let self = self else { return }
+            
+            struct Service: ShippingService {
+                
+                let isSelected: Content<Bool>
+                
+                let title: Content<String>
+                
+                let price: Content<Double>
+                
+                init(
+                    isSelected: Bool = false,
+                    title: String,
+                    price: Double
+                ) {
+                    
+                    self.isSelected = Content(value: isSelected)
+                    
+                    self.title = Content(value: title)
+                    
+                    self.price = Content(value: price)
+                    
+                }
+                
+            }
+
+            let viewController = ShippingServiceListViewController(
+                [
+                    .item(
+                        UIShippingServiceViewController(
+                            Service(
+                                isSelected: false,
+                                title: "UPS",
+                                price: 3.0
+                            )
+                        )
+                    ),
+                    .item(
+                        UIShippingServiceViewController(
+                            Service(
+                                isSelected: false,
+                                title: "DHL Express",
+                                price: 5.0
+                            )
+                        )
+                    )
+                ]
+            )
+            
+            let list = viewController.list
+            
+            let dashboard = self.dashboardViewController.dashboard
+            
+            dashboard.shipping.value = list.selectedService?.price.property.value ?? 0.0
+            
+            self.observations.append(
+                list.selectedItemIndex.observe { change in
+                    
+                    let price = list.selectedService?.price.property.value ?? 0.0
+                    
+                    dashboard.shipping.value = price
+                    
+                }
+            )
+            
+            self.backgroundNavigationController.pushViewController(
+                viewController,
+                animated: true
+            )
             
         }
         

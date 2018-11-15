@@ -7,6 +7,7 @@
 
 // MARK: - ShippingServiceList
 
+#warning("generalize to a sinlge selection list for reusability.")
 public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollection {
     
     public enum Element: ViewCollection {
@@ -39,6 +40,7 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
     
     fileprivate final var observations: [Observation] = []
     
+    #warning("confusing name while accessing element(at: index).")
     public final let selectedItemIndex = Observable<Int>()
     
     public init() {
@@ -103,7 +105,7 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
                         switch self.elements[index] {
                             
                         case let .item(controller): controller.service?.isSelected.property.value = false
-                                
+                            
                         }
                         
                     }
@@ -112,6 +114,20 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
                 
             }
         )
+        
+    }
+    
+    public final var selectedService: ShippingService? {
+        
+        guard let selectedItemIndex = selectedItemIndex.value else { return nil }
+        
+        let element = elements[selectedItemIndex]
+        
+        switch element {
+            
+        case let .item(controller): return controller.service
+            
+        }
         
     }
     
