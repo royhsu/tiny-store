@@ -7,6 +7,7 @@
 
 // MARK: - CheckoutShippingServiceTemplate
 
+@available(*, deprecated: 1.0)
 public protocol CheckoutShippingServiceTemplate: Template {
     
     var service: ShippingService { get }

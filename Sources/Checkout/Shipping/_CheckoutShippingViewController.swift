@@ -7,6 +7,7 @@
 
 // MARK: - CheckoutShippingViewController
 
+@available(*, deprecated: 1.0)
 public final class CheckoutShippingViewController: ViewController {
     
     private final lazy var base: CollectionViewController = {

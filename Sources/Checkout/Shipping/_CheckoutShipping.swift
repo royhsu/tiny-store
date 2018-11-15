@@ -7,6 +7,7 @@
 
 // MARK: - CheckoutShipping
 
+@available(*, deprecated: 1.0)
 public final class CheckoutShipping: ExpressibleByArrayLiteral, SectionCollection {
     
     public enum Element: TemplateRepresentable {

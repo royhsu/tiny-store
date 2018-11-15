@@ -5,27 +5,11 @@
 //  Created by Roy Hsu on 2018/11/15.
 //
 
-// MARK: - PriceFormatter
-
-public protocol PriceFormatter {
-    
-    func string(from price: Double) -> String
-    
-}
-
-// MARK: - DefaultPriceFormatter
-
-internal struct DefaultPriceFormatter: PriceFormatter {
-    
-    internal func string(from price: Double) -> String { return "$ \(price)" }
-    
-}
-
 // MARK: - UIShippingServiceViewController
 
 #warning("Use Binding objects to replace the trivial implementation for updating.")
 #warning("Generalize the view and make this controller generic and cross-platfrom compatible.")
-public final class UIShippingServiceViewController: UIViewController {
+public final class UIShippingServiceViewController: UIViewController, ShippingServiceController {
     
     private final lazy var serviceView: UIShippingServiceView = {
         
@@ -114,9 +98,13 @@ public final class UIShippingServiceViewController: UIViewController {
                 
                 self.isSelectedUpdating = true
                 
-                self.serviceView.isSelected = change.currentValue ?? false
+                DispatchQueue.main.async {
                 
-                self.isSelectedUpdating = false
+                    self.serviceView.isSelected = change.currentValue ?? false
+                    
+                    self.isSelectedUpdating = false
+                    
+                }
                 
             },
             service.title.property.observe { [weak self] change in
@@ -125,9 +113,13 @@ public final class UIShippingServiceViewController: UIViewController {
                 
                 self.isTitleUpdating = true
                 
-                self.serviceView.titleLabel.text = change.currentValue
+                DispatchQueue.main.async {
                 
-                self.isTitleUpdating = false
+                    self.serviceView.titleLabel.text = change.currentValue
+                    
+                    self.isTitleUpdating = false
+                    
+                }
                 
             },
             service.price.property.observe { [weak self] change in
@@ -139,11 +131,15 @@ public final class UIShippingServiceViewController: UIViewController {
                 
                 self.isPriceUpdating = true
                 
-                let price = service.price.property.value ?? 0.0
-                
-                self.serviceView.priceLabel.text = self.priceFormatter.string(from: price)
-                
-                self.isPriceUpdating = false
+                DispatchQueue.main.async {
+                    
+                    let price = service.price.property.value ?? 0.0
+                    
+                    self.serviceView.priceLabel.text = self.priceFormatter.string(from: price)
+                    
+                    self.isPriceUpdating = false
+                    
+                }
                 
             }
         ]

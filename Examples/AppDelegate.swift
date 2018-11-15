@@ -111,49 +111,35 @@ extension AppDelegate: UIApplicationDelegate {
             }
 
         }
-//
-//        let viewController = CheckoutShippingViewController(
-//            [
-//                .service(
-//                    UICheckoutShippingServiceTemplate(
-//                        Service(
-//                            isSelected: false,
-//                            title: "UPS",
-//                            price: 3.0
-//                        )
-//                    )
-//                ),
-//                .service(
-//                    UICheckoutShippingServiceTemplate(
-//                        Service(
-//                            isSelected: false,
-//                            title: "DHL Express",
-//                            price: 3.0
-//                        )
-//                    )
-//                )
-//            ]
-//        )
-//
-//        viewController.view.backgroundColor = .white
-        
-        let viewController = UIShippingServiceViewController()
+
+        let viewController = ShippingServiceListViewController(
+            [
+                .item(
+                    UIShippingServiceViewController(
+                        Service(
+                            isSelected: false,
+                            title: "UPS",
+                            price: 3.0
+                        )
+                    )
+                ),
+                .item(
+                    UIShippingServiceViewController(
+                        Service(
+                            isSelected: false,
+                            title: "DHL Express",
+                            price: 3.0
+                        )
+                    )
+                )
+            ]
+        )
         
         viewController.view.backgroundColor = .white
         
         window.rootViewController = viewController
         
         window.makeKeyAndVisible()
-        
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 3.0) {
-            
-            viewController.service = Service(
-                isSelected: false,
-                title: "UPS",
-                price: 3.0
-            )
-            
-        }
 
         return true
 
