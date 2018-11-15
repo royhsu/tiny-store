@@ -8,6 +8,7 @@
 // MARK: - ShippingServiceList
 
 #warning("generalize to a sinlge selection list for reusability.")
+#warning("prevent the selection being cancelled once selected.")
 public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollection {
     
     public enum Element: ViewCollection {
@@ -77,7 +78,20 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
                     
                     let isSelected = (change.currentValue == true)
                     
-                    if isSelected { self?.selectedItemIndex.property.value = index }
+                    let selectedItemIndex = self?.selectedItemIndex.property.value
+                    
+                    let isSameItemSelectionToggled = (selectedItemIndex == index)
+                    
+                    if isSameItemSelectionToggled {
+                        
+                        self?.selectedItemIndex.property.value = isSelected ? index : nil
+                        
+                    }
+                    else {
+                        
+                        if isSelected { self?.selectedItemIndex.property.value = index }
+                        
+                    }
                     
                 }
                 
