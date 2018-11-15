@@ -16,7 +16,7 @@ public struct Content<Value> {
     public var isRequired: Bool
     
     public init(
-        value: Value,
+        value: Value? = nil,
         rules: [AnyValidationRule<Value>] = [],
         isRequired: Bool = true
     ) {

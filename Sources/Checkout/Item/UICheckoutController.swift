@@ -159,7 +159,7 @@ public final class UICheckoutController: UIViewController {
             dashboard.shipping.value = list.selectedService?.price.property.value ?? 0.0
             
             self.observations.append(
-                list.selectedItemIndex.observe { change in
+                list.selectedItemIndex.property.observe { change in
                     
                     let price = list.selectedService?.price.property.value ?? 0.0
                     

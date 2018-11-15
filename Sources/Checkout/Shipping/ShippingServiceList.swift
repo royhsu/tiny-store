@@ -41,7 +41,7 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
     fileprivate final var observations: [Observation] = []
     
     #warning("confusing name while accessing element(at: index).")
-    public final let selectedItemIndex = Observable<Int>()
+    public final let selectedItemIndex = Content<Int>()
     
     public init() {
         
@@ -77,7 +77,7 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
                     
                     let isSelected = (change.currentValue == true)
                     
-                    if isSelected { self?.selectedItemIndex.value = index }
+                    if isSelected { self?.selectedItemIndex.property.value = index }
                     
                 }
                 
@@ -85,11 +85,11 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
             
         }
         
-        selectedItemIndex.value = initialSelectedItemIndex
+        selectedItemIndex.property.value = initialSelectedItemIndex
         
         // Make sure there is only one service selected every time.
         observations.append(
-            selectedItemIndex.observe { [weak self] change in
+            selectedItemIndex.property.observe { [weak self] change in
                 
                 guard
                     let self = self,
@@ -119,7 +119,7 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
     
     public final var selectedService: ShippingService? {
         
-        guard let selectedItemIndex = selectedItemIndex.value else { return nil }
+        guard let selectedItemIndex = selectedItemIndex.property.value else { return nil }
         
         let element = elements[selectedItemIndex]
         
