@@ -37,6 +37,10 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
     
     private final let elements: [Element]
     
+    fileprivate final var observations: [Observation] = []
+    
+    public final let selectedItemIndex = Observable<Int>()
+    
     public init() {
         
         self.elements = []
@@ -53,7 +57,63 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
         
     }
     
-    fileprivate final func prepare() { }
+    fileprivate final func prepare() {
+        
+        let initialSelectedItemIndex = elements.isEmpty ? nil : 0
+        
+        observations = elements.enumerated().compactMap { index, element in
+            
+            switch element {
+            
+            case let .item(controller):
+                
+                let isInitialSelectedItem = (index == initialSelectedItemIndex)
+                
+                if isInitialSelectedItem { controller.service?.isSelected.property.value = true }
+                
+                return controller.service?.isSelected.property.observe { [weak self] change in
+                    
+                    let isSelected = (change.currentValue == true)
+                    
+                    if isSelected { self?.selectedItemIndex.value = index }
+                    
+                }
+                
+            }
+            
+        }
+        
+        selectedItemIndex.value = initialSelectedItemIndex
+        
+        // Make sure there is only one service selected every time.
+        observations.append(
+            selectedItemIndex.observe { [weak self] change in
+                
+                guard
+                    let self = self,
+                    let selectedIndex = change.currentValue
+                else { return }
+                
+                for index in 0..<self.elements.count {
+                    
+                    let isSelected = (index == selectedIndex)
+                    
+                    if !isSelected {
+                        
+                        switch self.elements[index] {
+                            
+                        case let .item(controller): controller.service?.isSelected.property.value = false
+                                
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+        )
+        
+    }
     
     public final var count: Int { return elements.count }
     
