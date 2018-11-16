@@ -147,6 +147,51 @@ extension AppDelegate: UIApplicationDelegate {
         }
         
         let viewController = ShippingController()
+        
+        struct Service: ShippingService {
+            
+            let isSelected: Content<Bool>
+            
+            let title: Content<String>
+            
+            let price: Content<Double>
+            
+            init(
+                isSelected: Bool = false,
+                title: String,
+                price: Double
+                ) {
+                
+                self.isSelected = Content(value: isSelected)
+                
+                self.title = Content(value: title)
+                
+                self.price = Content(value: price)
+                
+            }
+            
+        }
+        
+        viewController.serviceList.elements = [
+            .item(
+                UIShippingServiceViewController(
+                    Service(
+                        isSelected: false,
+                        title: "UPS",
+                        price: 3.0
+                    )
+                )
+            ),
+            .item(
+                UIShippingServiceViewController(
+                    Service(
+                        isSelected: false,
+                        title: "DHL Express",
+                        price: 5.0
+                    )
+                )
+            )
+        ]
 
         viewController.destination = Destination(
             recipient:
@@ -162,7 +207,7 @@ extension AppDelegate: UIApplicationDelegate {
             )
         )
 
-        viewController.view.backgroundColor = .white
+        viewController.view.backgroundColor = .red
         
         window.rootViewController = viewController
         

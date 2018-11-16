@@ -9,6 +9,10 @@
 
 public final class ShippingController: ViewController {
     
+    private final let serviceListViewController = ShippingServiceListViewController()
+    
+    public final var serviceList: ShippingServiceList { return serviceListViewController.list }
+    
     private final let destinationWrapperView = View()
     
     public final var destination: ShippingDestination? {
@@ -58,6 +62,25 @@ public final class ShippingController: ViewController {
         destinationWrapperView.wrapSubview(_destinationViewController.view)
         
         _destinationViewController.didMove(toParent: self)
+        
+        addChild(serviceListViewController)
+        
+        let serviceListView = serviceListViewController.view!
+        
+        serviceListView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(serviceListView)
+        
+        NSLayoutConstraint.activate(
+            [
+                view.leadingAnchor.constraint(equalTo: serviceListView.leadingAnchor),
+                view.topAnchor.constraint(equalTo: serviceListView.topAnchor),
+                view.trailingAnchor.constraint(equalTo: serviceListView.trailingAnchor),
+                serviceListView.bottomAnchor.constraint(equalTo: destinationWrapperView.topAnchor)
+            ]
+        )
+        
+        serviceListViewController.didMove(toParent: self)
         
     }
     

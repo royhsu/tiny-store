@@ -37,7 +37,21 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
         
     }
     
-    private final let elements: [Element]
+    fileprivate final var isPrepared = false
+    
+    public final var elements: [Element] {
+        
+        willSet { observations = [] }
+        
+        didSet {
+            
+            guard isPrepared else { return }
+            
+            handleElements()
+            
+        }
+        
+    }
     
     fileprivate final var observations: [Observation] = []
     
@@ -60,14 +74,14 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
         
     }
     
-    fileprivate final func prepare() {
+    fileprivate func handleElements() {
         
         let initialSelectedItemIndex = elements.isEmpty ? nil : 0
         
         observations = elements.enumerated().compactMap { index, element in
             
             switch element {
-            
+                
             case let .item(controller):
                 
                 let isInitialSelectedItem = (index == initialSelectedItemIndex)
@@ -108,7 +122,7 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
                 guard
                     let self = self,
                     let selectedIndex = change.currentValue
-                else { return }
+                    else { return }
                 
                 for index in 0..<self.elements.count {
                     
@@ -128,6 +142,14 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
                 
             }
         )
+        
+    }
+    
+    fileprivate final func prepare() {
+        
+        defer { isPrepared = true }
+        
+        handleElements()
         
     }
     
