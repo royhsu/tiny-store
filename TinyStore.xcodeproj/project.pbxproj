@@ -57,6 +57,9 @@
 		B085D8D4219D5AC4009F1585 /* ShippingServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D3219D5AC4009F1585 /* ShippingServiceController.swift */; };
 		B085D8D6219D5AE9009F1585 /* PriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D5219D5AE9009F1585 /* PriceFormatter.swift */; };
 		B085D8D8219D5B00009F1585 /* DefaultPriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D7219D5B00009F1585 /* DefaultPriceFormatter.swift */; };
+		B085D8DA219E8650009F1585 /* BindedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D9219E8650009F1585 /* BindedViewController.swift */; };
+		B085D8DC219EA13B009F1585 /* UIShippingDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8DB219EA13A009F1585 /* UIShippingDestinationView.swift */; };
+		B085D8DE219EA15B009F1585 /* UIShippingDestinationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B085D8DD219EA15B009F1585 /* UIShippingDestinationView.xib */; };
 		B0A069FA21897FED00BA4CA5 /* UICheckoutItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A069F921897FED00BA4CA5 /* UICheckoutItemView.swift */; };
 		B0A069FC21898CBC00BA4CA5 /* UICheckoutItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A069FB2189803E00BA4CA5 /* UICheckoutItemView.xib */; };
 		B0A069FE2189947400BA4CA5 /* UICheckoutStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */; };
@@ -146,6 +149,9 @@
 		B085D8D3219D5AC4009F1585 /* ShippingServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceController.swift; sourceTree = "<group>"; };
 		B085D8D5219D5AE9009F1585 /* PriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormatter.swift; sourceTree = "<group>"; };
 		B085D8D7219D5B00009F1585 /* DefaultPriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPriceFormatter.swift; sourceTree = "<group>"; };
+		B085D8D9219E8650009F1585 /* BindedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindedViewController.swift; sourceTree = "<group>"; };
+		B085D8DB219EA13A009F1585 /* UIShippingDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIShippingDestinationView.swift; sourceTree = "<group>"; };
+		B085D8DD219EA15B009F1585 /* UIShippingDestinationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIShippingDestinationView.xib; sourceTree = "<group>"; };
 		B0A069F921897FED00BA4CA5 /* UICheckoutItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutItemView.swift; sourceTree = "<group>"; };
 		B0A069FB2189803E00BA4CA5 /* UICheckoutItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UICheckoutItemView.xib; path = "/Users/roy/Documents/Developer/swift/tiny-store/Sources/Checkout/Item/UICheckoutItemView.xib"; sourceTree = "<absolute>"; };
 		B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutStepper.swift; sourceTree = "<group>"; };
@@ -206,6 +212,8 @@
 				B085D8CB219D1E52009F1585 /* UIShippingServiceViewController.swift */,
 				B020D501219AC51800EC93E3 /* UIShippingServiceView.swift */,
 				B020D503219AC53300EC93E3 /* UIShippingServiceView.xib */,
+				B085D8DB219EA13A009F1585 /* UIShippingDestinationView.swift */,
+				B085D8DD219EA15B009F1585 /* UIShippingDestinationView.xib */,
 			);
 			path = Shipping;
 			sourceTree = "<group>";
@@ -233,6 +241,7 @@
 				B0B5D43A215F42A00093EE01 /* CheckoutOrderPreviewingViewController.swift */,
 				B06F6E81215C972A00BBCF0F /* CheckoutDestination.swift */,
 				B085D8CF219D59E8009F1585 /* ViewCollection.swift */,
+				B085D8D9219E8650009F1585 /* BindedViewController.swift */,
 				B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */,
 			);
 			path = Checkout;
@@ -433,6 +442,7 @@
 				B0772ED0218C49520082C055 /* UICheckoutView.xib in Resources */,
 				B02B0249218B0A4700772118 /* Assets.xcassets in Resources */,
 				B0772EC6218C39D70082C055 /* UICheckoutDashboardSubField.xib in Resources */,
+				B085D8DE219EA15B009F1585 /* UIShippingDestinationView.xib in Resources */,
 				B0772ECE218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib in Resources */,
 				B0A06A002189948200BA4CA5 /* UICheckoutStepper.xib in Resources */,
 				B020D504219AC53300EC93E3 /* UIShippingServiceView.xib in Resources */,
@@ -475,12 +485,14 @@
 				B0A069FE2189947400BA4CA5 /* UICheckoutStepper.swift in Sources */,
 				B085D8CE219D51B3009F1585 /* ShippingServiceListViewController.swift in Sources */,
 				B06F6E85215C974F00BBCF0F /* City.swift in Sources */,
+				B085D8DA219E8650009F1585 /* BindedViewController.swift in Sources */,
 				B085D8D8219D5B00009F1585 /* DefaultPriceFormatter.swift in Sources */,
 				B020D4F721953B0200EC93E3 /* Content+Codable.swift in Sources */,
 				B085D8D2219D5A04009F1585 /* ShippingServiceList.swift in Sources */,
 				B085D8CC219D1E52009F1585 /* UIShippingServiceViewController.swift in Sources */,
 				B020D4FD219AB78900EC93E3 /* CheckoutDashboard.swift in Sources */,
 				B0A069FA21897FED00BA4CA5 /* UICheckoutItemView.swift in Sources */,
+				B085D8DC219EA13B009F1585 /* UIShippingDestinationView.swift in Sources */,
 				B03E7278215FA15F00FC249A /* CheckoutOrderPreviewingStep.swift in Sources */,
 				B085D8D4219D5AC4009F1585 /* ShippingServiceController.swift in Sources */,
 				B0772ED82193D78E0082C055 /* Content.swift in Sources */,
