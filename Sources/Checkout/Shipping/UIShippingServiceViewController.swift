@@ -65,18 +65,18 @@ public final class UIShippingServiceViewController: UIViewController, ShippingSe
         
         super.viewDidLoad()
         
+        renderView()
+        
+        observeModelChanges()
+        
+        handleViewActions()
+        
         view.addGestureRecognizer(
             UITapGestureRecognizer(
                 target: self,
                 action: #selector(toggleSelection)
             )
         )
-        
-        renderView()
-        
-        observeModelChanges()
-        
-        handleViewActions()
         
     }
     

@@ -83,11 +83,87 @@ extension AppDelegate: UIApplicationDelegate {
 //        catch { print("\(error)") }
         
 //        let viewController = UICheckoutDashboardViewController()
-//
-//        viewController.view.backgroundColor = .white
-        
-        let viewController = UICheckoutController()
 
+//        let viewController = UICheckoutController()
+        
+        struct Recipient: ShippingRecipient {
+            
+            let name: Content<String>
+            
+            init(name: String) { self.name = Content(value: name) }
+            
+        }
+        
+        struct Address: ShippingAddress {
+            
+            let title: Content<String>
+            
+            let postalCode: Content<String>
+            
+            let country: Content<String>
+            
+            let state: Content<String>
+            
+            let city: Content<String>
+            
+            let line1: Content<String>
+            
+            let line2: Content<String>
+            
+            init(
+                title: String,
+                postalCode: String,
+                country: String,
+                state: String,
+                city: String,
+                line1: String,
+                line2: String
+            ) {
+                
+                self.title = Content(value: title)
+                
+                self.postalCode = Content(value: postalCode)
+                
+                self.country = Content(value: country)
+                
+                self.state = Content(value: state)
+                
+                self.city = Content(value: city)
+                
+                self.line1 = Content(value: line1)
+                
+                self.line2 = Content(value: line2)
+                
+            }
+            
+        }
+        
+        struct Destination: ShippingDestination {
+            
+            let recipient: ShippingRecipient
+            
+            let address: ShippingAddress
+    
+        }
+        
+        let viewController = UIShippingDestinationViewController()
+        
+        viewController.destination = Destination(
+            recipient:
+            Recipient(name: "Emily"),
+            address: Address(
+                title: "Company",
+                postalCode: "10600",
+                country: "US",
+                state: "CA",
+                city: "Cupertino",
+                line1: "North Tantau Avenue",
+                line2: "4F"
+            )
+        )
+
+        viewController.view.backgroundColor = .white
+        
         window.rootViewController = viewController
         
         window.makeKeyAndVisible()
