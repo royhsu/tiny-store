@@ -146,8 +146,8 @@ extension AppDelegate: UIApplicationDelegate {
     
         }
         
-        let viewController = UIShippingDestinationViewController()
-        
+        let viewController = ShippingController()
+
         viewController.destination = Destination(
             recipient:
             Recipient(name: "Emily"),

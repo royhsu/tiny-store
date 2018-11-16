@@ -122,7 +122,16 @@ public final class UIShippingDestinationViewController: UIViewController, Shippi
 
         destinationView.cardTitleLabel.text = destination.address.title.property.value
 
-        destinationView.cardAddressLabel.text = destination.address.line1.property.value
+        var address = destination.address.line1.property.value
+        
+        if let line2 = destination.address.line2.property.value {
+            
+            if address == nil { address = line2  }
+            else { address?.append("\n\(line2)") }
+            
+        }
+        
+        destinationView.cardAddressLabel.text = address
         
     }
     
