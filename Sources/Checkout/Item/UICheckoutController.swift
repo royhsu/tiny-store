@@ -111,7 +111,9 @@ public final class UICheckoutController: UIViewController {
     
     private final lazy var backgroundNavigationController: UINavigationController = {
         
-        let controller = UINavigationController(rootViewController: cartViewController)
+        let controller = UINavigationController(
+            rootViewController: wrapViewController(cartViewController)
+        )
         
         return controller
         
@@ -168,6 +170,11 @@ public final class UICheckoutController: UIViewController {
                 self?.dashboardViewController.dashboard.subTotal.value = cart.totalAmount.value
                 
             }
+        )
+        
+        controller.title = NSLocalizedString(
+            "Cart",
+            comment: ""
         )
         
         return controller
@@ -242,8 +249,13 @@ public final class UICheckoutController: UIViewController {
                 }
             )
             
+            viewController.title = NSLocalizedString(
+                "Shipping & Delivery",
+                comment: ""
+            )
+            
             self.backgroundNavigationController.pushViewController(
-                viewController,
+                self.wrapViewController(viewController),
                 animated: true
             )
             
@@ -281,6 +293,27 @@ public final class UICheckoutController: UIViewController {
         )
         
         dashboardViewController.didMove(toParent: self)
+        
+    }
+    
+    fileprivate final func wrapViewController(_ viewController: ViewController) -> ViewController {
+        
+        let containerViewController = ViewController()
+        
+        containerViewController.title = viewController.title
+        
+        let containerView = containerViewController.view!
+        
+        containerViewController.addChild(viewController)
+        
+        containerView.wrapSubview(
+            viewController.view,
+            within: \.layoutMarginsGuide
+        )
+        
+        viewController.didMove(toParent: containerViewController)
+        
+        return containerViewController
         
     }
     
