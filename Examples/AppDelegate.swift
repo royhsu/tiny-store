@@ -26,20 +26,8 @@ extension AppDelegate: UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     )
     -> Bool {
-
-//        let checkoutFlowViewController = CheckoutFlowController()
-//
-//        checkoutFlowViewController.orderFillingStep = orderViewController
-//
-//        let orderPreviewViewController = CheckoutOrderPreviewingViewController()
-//
-//        checkoutFlowViewController.orderPreviewingStep = orderPreviewViewController
-//
-//        window.rootViewController = checkoutFlowViewController
         
         let viewController = UICheckoutController()
-        
-//        viewController.view.backgroundColor = .red
         
         window.rootViewController = viewController
         
