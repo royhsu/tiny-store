@@ -10,6 +10,90 @@
 #warning("development only.")
 import MapKit
 
+struct Recipient: ShippingRecipient {
+    
+    let name: Content<String>
+    
+    init(name: String) { self.name = Content(value: name) }
+    
+}
+
+struct Address: ShippingAddress {
+    
+    let title: Content<String>
+    
+    let postalCode: Content<String>
+    
+    let country: Content<String>
+    
+    let state: Content<String>
+    
+    let city: Content<String>
+    
+    let line1: Content<String>
+    
+    let line2: Content<String>
+    
+    init(
+        title: String,
+        postalCode: String,
+        country: String,
+        state: String,
+        city: String,
+        line1: String,
+        line2: String
+    ) {
+        
+        self.title = Content(value: title)
+        
+        self.postalCode = Content(value: postalCode)
+        
+        self.country = Content(value: country)
+        
+        self.state = Content(value: state)
+        
+        self.city = Content(value: city)
+        
+        self.line1 = Content(value: line1)
+        
+        self.line2 = Content(value: line2)
+        
+    }
+    
+}
+
+struct Destination: ShippingDestination {
+    
+    let recipient: ShippingRecipient
+    
+    let address: ShippingAddress
+    
+}
+
+struct Service: ShippingService {
+    
+    let isSelected: Content<Bool>
+    
+    let title: Content<String>
+    
+    let price: Content<Double>
+    
+    init(
+        isSelected: Bool = false,
+        title: String,
+        price: Double
+    ) {
+        
+        self.isSelected = Content(value: isSelected)
+        
+        self.title = Content(value: title)
+        
+        self.price = Content(value: price)
+        
+    }
+    
+}
+
 public final class UICheckoutController: UIViewController {
     
     private final let checkoutView: UICheckoutView = {
@@ -105,63 +189,53 @@ public final class UICheckoutController: UIViewController {
             
             guard let self = self else { return }
             
-            struct Service: ShippingService {
-                
-                let isSelected: Content<Bool>
-                
-                let title: Content<String>
-                
-                let price: Content<Double>
-                
-                init(
-                    isSelected: Bool = false,
-                    title: String,
-                    price: Double
-                ) {
-                    
-                    self.isSelected = Content(value: isSelected)
-                    
-                    self.title = Content(value: title)
-                    
-                    self.price = Content(value: price)
-                    
-                }
-                
-            }
-
-            let viewController = ShippingServiceListViewController(
-                [
-                    .item(
-                        UIShippingServiceViewController(
-                            Service(
-                                isSelected: false,
-                                title: "UPS",
-                                price: 3.0
-                            )
-                        )
-                    ),
-                    .item(
-                        UIShippingServiceViewController(
-                            Service(
-                                isSelected: false,
-                                title: "DHL Express",
-                                price: 5.0
-                            )
+            let viewController = ShippingController()
+            
+            viewController.serviceList.elements = [
+                .item(
+                    UIShippingServiceViewController(
+                        Service(
+                            isSelected: false,
+                            title: "UPS",
+                            price: 3.0
                         )
                     )
-                ]
+                ),
+                .item(
+                    UIShippingServiceViewController(
+                        Service(
+                            isSelected: false,
+                            title: "DHL Express",
+                            price: 5.0
+                        )
+                    )
+                )
+            ]
+            
+            viewController.destination = Destination(
+                recipient:
+                Recipient(name: "Emily"),
+                address: Address(
+                    title: "Company",
+                    postalCode: "10600",
+                    country: "US",
+                    state: "CA",
+                    city: "Cupertino",
+                    line1: "North Tantau Avenue",
+                    line2: "4F"
+                )
             )
             
-            let list = viewController.list
+            let serviceList = viewController.serviceList
             
             let dashboard = self.dashboardViewController.dashboard
             
-            dashboard.shipping.value = list.selectedService?.price.property.value ?? 0.0
+            dashboard.shipping.value = serviceList.selectedService?.price.property.value ?? 0.0
             
             self.observations.append(
-                list.selectedItemIndex.property.observe { change in
+                serviceList.selectedItemIndex.property.observe { change in
                     
-                    let price = list.selectedService?.price.property.value ?? 0.0
+                    let price = serviceList.selectedService?.price.property.value ?? 0.0
                     
                     dashboard.shipping.value = price
                     

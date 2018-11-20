@@ -7,10 +7,10 @@
 
 // MARK: - CheckoutDestination
 
-public enum CheckoutDestination: Destination {
-
-    case cityPicker(
-        completion: (City) -> Void
-    )
-
-}
+//public enum CheckoutDestination: Destination {
+//
+//    case cityPicker(
+//        completion: (City) -> Void
+//    )
+//
+//}
