@@ -7,7 +7,7 @@
 
 // MARK: - CheckoutCart
 
-public final class CheckoutCart: ExpressibleByArrayLiteral, SectionCollection {
+public final class CheckoutCart: DSL {
     
     public enum Element: ViewCollection {
         

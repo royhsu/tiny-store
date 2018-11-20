@@ -7,7 +7,7 @@
 
 // MARK: - ShippingServiceList
 
-public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollection {
+public final class ShippingServiceList: DSL {
     
     public enum Element: ViewCollection {
         
