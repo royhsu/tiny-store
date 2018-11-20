@@ -122,7 +122,7 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
                 guard
                     let self = self,
                     let selectedIndex = change.currentValue
-                    else { return }
+                else { return }
                 
                 for index in 0..<self.elements.count {
                     
