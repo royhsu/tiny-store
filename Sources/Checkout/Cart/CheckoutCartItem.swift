@@ -1,14 +1,13 @@
 //
-//  CheckoutItem.swift
+//  CheckoutCartItem.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/9/28.
 //
 
-// MARK: - CheckoutItem
+// MARK: - CheckoutCartItem
 
-#warning("rename to CheckoutCartItem.")
-public protocol CheckoutItem {
+public protocol CheckoutCartItem {
     
     var isSelected: Content<Bool> { get }
     

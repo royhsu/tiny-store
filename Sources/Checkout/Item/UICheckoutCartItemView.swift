@@ -1,13 +1,13 @@
 //
-//  UICheckoutItemView.swift
+//  UICheckoutCartItemView.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/10/31.
 //
 
-// MARK: - UICheckoutItemView
+// MARK: - UICheckoutCartItemView
 
-public final class UICheckoutItemView: UIView {
+public final class UICheckoutCartItemView: UIView {
     
     @IBOutlet
     private final weak var selectionView: UICheckoutSelectionView! {

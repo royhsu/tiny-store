@@ -7,7 +7,7 @@
 
 // MARK: - CheckoutApparelItem
 
-public struct CheckoutApparelItem: CheckoutItem {
+public struct CheckoutApparelItem: CheckoutCartItem {
     
     public let isSelected: Content<Bool>
     

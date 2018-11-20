@@ -40,10 +40,7 @@ public final class UIShippingServiceViewController: UIViewController, ShippingSe
     
     fileprivate final var isSelectedUpdating = false
     
-    fileprivate final var isTitleUpdating = false
-    
-    fileprivate final var isPriceUpdating = false
-    
+    #warning("move into service view.")
     public final var priceFormatter: PriceFormatter = DefaultPriceFormatter()
     
     public init(_ service: ShippingService? = nil) {
@@ -116,41 +113,6 @@ public final class UIShippingServiceViewController: UIViewController, ShippingSe
                     
                 }
                 
-            },
-            service.title.property.observe { [weak self] change in
-                
-                guard let self = self else { return }
-                
-                self.isTitleUpdating = true
-                
-                DispatchQueue.main.async {
-                
-                    self.serviceView.titleLabel.text = change.currentValue
-                    
-                    self.isTitleUpdating = false
-                    
-                }
-                
-            },
-            service.price.property.observe { [weak self] change in
-                
-                guard
-                    let self = self,
-                    let service = self.service
-                else { return }
-                
-                self.isPriceUpdating = true
-                
-                DispatchQueue.main.async {
-                    
-                    let price = service.price.property.value ?? 0.0
-                    
-                    self.serviceView.priceLabel.text = self.priceFormatter.string(from: price)
-                    
-                    self.isPriceUpdating = false
-                    
-                }
-                
             }
         ]
         
@@ -158,7 +120,7 @@ public final class UIShippingServiceViewController: UIViewController, ShippingSe
     
     fileprivate final func handleViewActions() {
         
-        serviceView.isSelectedDidChange = { [weak self] in
+        serviceView.isSelectedDidChange = { [weak self] isSelected in
             
             guard
                 let self = self,
@@ -167,7 +129,7 @@ public final class UIShippingServiceViewController: UIViewController, ShippingSe
             
             if self.isSelectedUpdating { return }
             
-            service.isSelected.property.value = $0
+            service.isSelected.property.value = isSelected
             
         }
         

@@ -7,8 +7,6 @@
 
 // MARK: - ShippingServiceList
 
-#warning("generalize to a sinlge selection list for reusability.")
-#warning("prevent the selection being cancelled once selected.")
 public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollection {
     
     public enum Element: ViewCollection {
@@ -55,8 +53,50 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
     
     fileprivate final var observations: [Observation] = []
     
-    #warning("confusing name while accessing element(at: index).")
-    public final let selectedItemIndex = Content<Int>()
+    private final var selectedItemIndex: Int? {
+        
+        didSet {
+            
+            defer { selectedServiceDidChange?(selectedService) }
+            
+            guard let selectedItemIndex = selectedItemIndex else { return }
+            
+            // Make sure there is only one service selected every time.
+            for index in 0..<self.elements.count {
+                
+                let isSelected = (index == selectedItemIndex)
+                
+                if !isSelected {
+                    
+                    switch elements[index] {
+                        
+                    case let .item(controller): controller.service?.isSelected.property.value = false
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    public final var selectedService: ShippingService? {
+        
+        guard let selectedItemIndex = selectedItemIndex else { return nil }
+        
+        let element = elements[selectedItemIndex]
+        
+        switch element {
+            
+        case let .item(controller): return controller.service
+            
+        }
+        
+    }
+    
+    public final var selectedServiceDidChange: ( (ShippingService?) -> Void )?
     
     public init() {
         
@@ -71,6 +111,14 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
         self.elements = elements
         
         self.prepare()
+        
+    }
+    
+    fileprivate final func prepare() {
+        
+        defer { isPrepared = true }
+        
+        handleElements()
         
     }
     
@@ -90,20 +138,20 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
                 
                 return controller.service?.isSelected.property.observe { [weak self] change in
                     
+                    guard let self = self else { return }
+                    
                     let isSelected = (change.currentValue == true)
                     
-                    let selectedItemIndex = self?.selectedItemIndex.property.value
-                    
-                    let isSameItemSelectionToggled = (selectedItemIndex == index)
+                    let isSameItemSelectionToggled = (self.selectedItemIndex == index)
                     
                     if isSameItemSelectionToggled {
                         
-                        self?.selectedItemIndex.property.value = isSelected ? index : nil
+                        self.selectedItemIndex = isSelected ? index : nil
                         
                     }
                     else {
                         
-                        if isSelected { self?.selectedItemIndex.property.value = index }
+                        if isSelected { self.selectedItemIndex = index }
                         
                     }
                     
@@ -113,57 +161,7 @@ public final class ShippingServiceList: ExpressibleByArrayLiteral, SectionCollec
             
         }
         
-        selectedItemIndex.property.value = initialSelectedItemIndex
-        
-        // Make sure there is only one service selected every time.
-        observations.append(
-            selectedItemIndex.property.observe { [weak self] change in
-                
-                guard
-                    let self = self,
-                    let selectedIndex = change.currentValue
-                else { return }
-                
-                for index in 0..<self.elements.count {
-                    
-                    let isSelected = (index == selectedIndex)
-                    
-                    if !isSelected {
-                        
-                        switch self.elements[index] {
-                            
-                        case let .item(controller): controller.service?.isSelected.property.value = false
-                            
-                        }
-                        
-                    }
-                    
-                }
-                
-            }
-        )
-        
-    }
-    
-    fileprivate final func prepare() {
-        
-        defer { isPrepared = true }
-        
-        handleElements()
-        
-    }
-    
-    public final var selectedService: ShippingService? {
-        
-        guard let selectedItemIndex = selectedItemIndex.property.value else { return nil }
-        
-        let element = elements[selectedItemIndex]
-        
-        switch element {
-            
-        case let .item(controller): return controller.service
-            
-        }
+        selectedItemIndex = initialSelectedItemIndex
         
     }
     

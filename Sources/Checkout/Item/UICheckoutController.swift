@@ -121,9 +121,11 @@ public final class UICheckoutController: UIViewController {
     
     private final lazy var cartViewController: CheckoutCartViewController = {
         
-        let controller = CheckoutCartViewController(
-            cart: [
-                .item(
+        let viewController = CheckoutCartViewController()
+        
+        viewController.cart.elements = [
+            .item(
+                UICheckoutCartItemViewController(
                     CheckoutApparelItem(
                         isSelected: true,
                         title: "Knee-length Wool Skirt",
@@ -131,11 +133,11 @@ public final class UICheckoutController: UIViewController {
                         size: "S",
                         price: 19.0,
                         quantity: 1
-                    ),
-                    style: UICheckoutItemTemplate.self,
-                    configure: { template in }
-                ),
-                .item(
+                    )
+                )
+            ),
+            .item(
+                UICheckoutCartItemViewController(
                     CheckoutApparelItem(
                         isSelected: true,
                         title: "Long-sleeved Blouse",
@@ -143,11 +145,11 @@ public final class UICheckoutController: UIViewController {
                         size: "S",
                         price: 13.0,
                         quantity: 1
-                    ),
-                    style: UICheckoutItemTemplate.self,
-                    configure: { template in }
-                ),
-                .item(
+                    )
+                )
+            ),
+            .item(
+                UICheckoutCartItemViewController(
                     CheckoutApparelItem(
                         isSelected: true,
                         title: "High Heels",
@@ -155,29 +157,25 @@ public final class UICheckoutController: UIViewController {
                         size: "8",
                         price: 35.0,
                         quantity: 1
-                    ),
-                    style: UICheckoutItemTemplate.self,
-                    configure: { template in }
+                    )
                 )
-            ]
-        )
+            )
+        ]
         
-        let cart = controller.cart
+        let cart = viewController.cart
         
-        observations.append(
-            cart.totalAmount.observe { [weak self] change in
-                
-                self?.dashboardViewController.dashboard.subTotal.value = cart.totalAmount.value
-                
-            }
-        )
+        cart.totalAmountDidChange = { [weak self] change in
+
+            self?.dashboardViewController.dashboard.subTotal.value = cart.totalAmount
+
+        }
         
-        controller.title = NSLocalizedString(
+        viewController.title = NSLocalizedString(
             "Cart",
             comment: ""
         )
         
-        return controller
+        return viewController
         
     }()
     
@@ -185,7 +183,7 @@ public final class UICheckoutController: UIViewController {
         
         let controller = UICheckoutDashboardViewController()
         
-        controller.dashboard.subTotal.value = cartViewController.cart.totalAmount.value
+        controller.dashboard.subTotal.value = cartViewController.cart.totalAmount
         
         let buttonTitle = NSLocalizedString(
             "Checkout",
@@ -239,15 +237,13 @@ public final class UICheckoutController: UIViewController {
             
             dashboard.shipping.value = serviceList.selectedService?.price.property.value ?? 0.0
             
-            self.observations.append(
-                serviceList.selectedItemIndex.property.observe { change in
+            serviceList.selectedServiceDidChange = { selectedService in
                     
-                    let price = serviceList.selectedService?.price.property.value ?? 0.0
-                    
-                    dashboard.shipping.value = price
-                    
-                }
-            )
+                let price = serviceList.selectedService?.price.property.value ?? 0.0
+                
+                dashboard.shipping.value = price
+                
+            }
             
             viewController.title = NSLocalizedString(
                 "Shipping & Delivery",

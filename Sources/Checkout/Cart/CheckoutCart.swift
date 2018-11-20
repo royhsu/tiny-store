@@ -9,29 +9,25 @@
 
 public final class CheckoutCart: ExpressibleByArrayLiteral, SectionCollection {
     
-    public enum Element {
+    public enum Element: ViewCollection {
         
-        case item(
-            CheckoutItem,
-            style: CheckoutItemTemplate.Type,
-            configure: (CheckoutItemTemplate) -> Void
-        )
+        case item(CheckoutCartItemController & ViewController)
         
-        public var template: Template {
+        public var numberOfViews: Int {
             
             switch self {
                 
-            case let .item(
-                item,
-                style,
-                configure
-            ):
+            case .item: return 1
                 
-                let template = style.init(item: item)
+            }
+            
+        }
+        
+        public func view(at index: Int) -> View {
+            
+            switch self {
                 
-                configure(template)
-                
-                return template
+            case let .item(controller): return controller.view
                 
             }
             
@@ -39,18 +35,31 @@ public final class CheckoutCart: ExpressibleByArrayLiteral, SectionCollection {
         
     }
     
-    private final let elements: [Element]
+    fileprivate final var isPrepared = false
+    
+    public final var elements: [Element] {
+        
+        willSet { observations = [] }
+        
+        didSet {
+            
+            guard isPrepared else { return }
+            
+            handleElements()
+            
+        }
+        
+    }
     
     fileprivate final var observations: [Observation] = []
     
-    #warning("should be a read-only property.")
-    public final let totalAmount: Observable<Double>
+    public final var totalAmount: Double { return elements.totalAmount }
+    
+    public final var totalAmountDidChange: ( (Double) -> Void )?
     
     public init() {
         
         self.elements = []
-
-        self.totalAmount = Observable(0.0)
         
         self.prepare()
         
@@ -60,30 +69,34 @@ public final class CheckoutCart: ExpressibleByArrayLiteral, SectionCollection {
         
         self.elements = elements
         
-        let totalAmount = CheckoutCart.calculateTotalAmount(for: elements)
-        
-        self.totalAmount = Observable(totalAmount)
-        
         self.prepare()
         
     }
     
     fileprivate final func prepare() {
         
+        defer { isPrepared = true }
+        
+        handleElements()
+        
+    }
+    
+    fileprivate final func handleElements() {
+        
         for element in elements {
             
             switch element {
                 
-            case let .item(item, _, _):
+            case let .item(controller):
+                
+                guard let item = controller.item else { return }
                 
                 observations.append(
                     item.isSelected.property.observe { [weak self] _ in
                         
-                        guard
-                            let self = self
-                        else { return }
+                        guard let self = self else { return }
                         
-                        self.totalAmount.value = CheckoutCart.calculateTotalAmount(for: self.elements)
+                        self.totalAmountDidChange?(self.totalAmount)
                         
                     }
                 )
@@ -91,11 +104,9 @@ public final class CheckoutCart: ExpressibleByArrayLiteral, SectionCollection {
                 observations.append(
                     item.price.property.observe { [weak self] _ in
                         
-                        guard
-                            let self = self
-                        else { return }
+                        guard let self = self else { return }
                         
-                        self.totalAmount.value = CheckoutCart.calculateTotalAmount(for: self.elements)
+                        self.totalAmountDidChange?(self.totalAmount)
                         
                     }
                 )
@@ -103,11 +114,9 @@ public final class CheckoutCart: ExpressibleByArrayLiteral, SectionCollection {
                 observations.append(
                     item.quantity.property.observe { [weak self] _ in
                         
-                        guard
-                            let self = self
-                        else { return }
+                        guard let self = self else { return }
                         
-                        self.totalAmount.value = CheckoutCart.calculateTotalAmount(for: self.elements)
+                        self.totalAmountDidChange?(self.totalAmount)
                         
                     }
                 )
@@ -120,27 +129,26 @@ public final class CheckoutCart: ExpressibleByArrayLiteral, SectionCollection {
     
     public final var count: Int { return elements.count }
     
-    public final func section(at index: Int) -> Section { return elements[index].template }
+    public final func section(at index: Int) -> Section { return elements[index] }
     
-    fileprivate static func calculateTotalAmount(
-        for elements: [Element]
-    )
-    -> Double {
+}
+
+fileprivate extension Array where Element == CheckoutCart.Element {
+    
+    fileprivate var totalAmount: Double {
         
-        let items: [CheckoutItem] = elements.compactMap { element in
-                
-            guard
-                case let .item(item, _, _) = element
-            else { return nil }
+        let items: [CheckoutCartItem] = compactMap { element in
             
-            return item
+            guard case let .item(controller) = element else { return nil }
+            
+            return controller.item
             
         }
         
         return items.reduce(0.0) { result, item in
             
             if item.isSelected.property.value == false { return result }
-
+            
             let quantity = item.quantity.property.value ?? 0
             
             let price = item.price.property.value ?? 0.0
@@ -148,9 +156,9 @@ public final class CheckoutCart: ExpressibleByArrayLiteral, SectionCollection {
             let amount = price * Double(quantity)
             
             return result + amount
-
+            
         }
-
+        
     }
     
 }

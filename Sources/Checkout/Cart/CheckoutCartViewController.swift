@@ -9,7 +9,7 @@
 
 public final class CheckoutCartViewController: ViewController {
     
-    private final lazy var base: CollectionViewController = {
+    private final lazy var collectionViewController: CollectionViewController = {
         
         let controller = CollectionViewController()
         
@@ -46,11 +46,11 @@ public final class CheckoutCartViewController: ViewController {
         
         super.viewDidLoad()
         
-        addChild(base)
+        addChild(collectionViewController)
         
-        view.wrapSubview(base.view)
+        view.wrapSubview(collectionViewController.view)
         
-        base.didMove(toParent: self)
+        collectionViewController.didMove(toParent: self)
         
     }
     
