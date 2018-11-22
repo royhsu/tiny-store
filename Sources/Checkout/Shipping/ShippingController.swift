@@ -71,12 +71,31 @@ public final class ShippingController: ViewController {
         
         view.addSubview(serviceListView)
         
+        let verticalConnectionConstraint: NSLayoutConstraint
+        
+        if #available(iOS 11.0, *) {
+            
+            verticalConnectionConstraint = destinationWrapperView.topAnchor.constraint(
+                equalToSystemSpacingBelow: serviceListView.bottomAnchor,
+                multiplier: 1.0
+            )
+            
+        }
+        else {
+            
+            verticalConnectionConstraint = destinationWrapperView.topAnchor.constraint(
+                equalTo: serviceListView.bottomAnchor,
+                constant: 8.0
+            )
+            
+        }
+        
         NSLayoutConstraint.activate(
             [
                 view.leadingAnchor.constraint(equalTo: serviceListView.leadingAnchor),
                 view.topAnchor.constraint(equalTo: serviceListView.topAnchor),
                 view.trailingAnchor.constraint(equalTo: serviceListView.trailingAnchor),
-                serviceListView.bottomAnchor.constraint(equalTo: destinationWrapperView.topAnchor)
+                verticalConnectionConstraint
             ]
         )
         

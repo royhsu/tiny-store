@@ -96,7 +96,7 @@ struct Service: ShippingService {
 
 public final class UICheckoutController: UIViewController {
     
-    private final let checkoutView: UICheckoutView = {
+    private final lazy var checkoutView: UICheckoutView = {
         
         let view = UIView.loadView(
             UICheckoutView.self,
@@ -112,7 +112,7 @@ public final class UICheckoutController: UIViewController {
     private final lazy var backgroundNavigationController: UINavigationController = {
         
         let controller = UINavigationController(
-            rootViewController: wrapViewController(cartViewController)
+            rootViewController: wrapChild(cartViewController)
         )
         
         return controller
@@ -194,9 +194,63 @@ public final class UICheckoutController: UIViewController {
             
             guard let self = self else { return }
             
-            let viewController = ShippingController()
+            let shippingController = ShippingController()
             
-            viewController.serviceList.elements = [
+            shippingController.serviceList.elements = [
+                .item(
+                    UIShippingServiceViewController(
+                        Service(
+                            isSelected: false,
+                            title: "UPS",
+                            price: 3.0
+                        )
+                    )
+                ),
+                .item(
+                    UIShippingServiceViewController(
+                        Service(
+                            isSelected: false,
+                            title: "DHL Express",
+                            price: 5.0
+                        )
+                    )
+                ),
+                .item(
+                    UIShippingServiceViewController(
+                        Service(
+                            isSelected: false,
+                            title: "UPS",
+                            price: 3.0
+                        )
+                    )
+                ),
+                .item(
+                    UIShippingServiceViewController(
+                        Service(
+                            isSelected: false,
+                            title: "DHL Express",
+                            price: 5.0
+                        )
+                    )
+                ),
+                .item(
+                    UIShippingServiceViewController(
+                        Service(
+                            isSelected: false,
+                            title: "UPS",
+                            price: 3.0
+                        )
+                    )
+                ),
+                .item(
+                    UIShippingServiceViewController(
+                        Service(
+                            isSelected: false,
+                            title: "DHL Express",
+                            price: 5.0
+                        )
+                    )
+                ),
                 .item(
                     UIShippingServiceViewController(
                         Service(
@@ -217,7 +271,7 @@ public final class UICheckoutController: UIViewController {
                 )
             ]
             
-            viewController.destination = Destination(
+            shippingController.destination = Destination(
                 recipient:
                 Recipient(name: "Emily"),
                 address: Address(
@@ -231,7 +285,7 @@ public final class UICheckoutController: UIViewController {
                 )
             )
             
-            let serviceList = viewController.serviceList
+            let serviceList = shippingController.serviceList
             
             let dashboard = self.dashboardViewController.dashboard
             
@@ -245,13 +299,13 @@ public final class UICheckoutController: UIViewController {
                 
             }
             
-            viewController.title = NSLocalizedString(
+            shippingController.title = NSLocalizedString(
                 "Shipping & Delivery",
                 comment: ""
             )
             
             self.backgroundNavigationController.pushViewController(
-                self.wrapViewController(viewController),
+                self.wrapChild(shippingController),
                 animated: true
             )
             
@@ -281,18 +335,17 @@ public final class UICheckoutController: UIViewController {
         
         backgroundNavigationController.didMove(toParent: self)
         
-        addChild(dashboardViewController)
+        let wrappedDashboardViewController = wrapChild(dashboardViewController)
         
-        checkoutView.dashboardContainerView.wrapSubview(
-            dashboardViewController.view,
-            within: \.layoutMarginsGuide
-        )
+        addChild(wrappedDashboardViewController)
         
-        dashboardViewController.didMove(toParent: self)
+        checkoutView.dashboardContainerView.wrapSubview(wrappedDashboardViewController.view)
         
+        wrappedDashboardViewController.didMove(toParent: self)
+    
     }
     
-    fileprivate final func wrapViewController(_ viewController: ViewController) -> ViewController {
+    fileprivate final func wrapChild(_ viewController: ViewController) -> ViewController {
         
         let containerViewController = ViewController()
         
@@ -301,6 +354,8 @@ public final class UICheckoutController: UIViewController {
         let containerView = containerViewController.view!
         
         containerViewController.addChild(viewController)
+        
+        containerView.wrapSubview(viewController.view)
         
         containerView.wrapSubview(
             viewController.view,

@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IfY-pz-lqJ">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="459"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DU-kY-I3g">
@@ -30,13 +30,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="9DU-kY-I3g" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="0bB-54-nzc"/>
-                <constraint firstItem="9DU-kY-I3g" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="35u-94-zyd"/>
-                <constraint firstItem="IfY-pz-lqJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="IVc-g4-MtT"/>
-                <constraint firstItem="9DU-kY-I3g" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="VyO-IB-DhR"/>
+                <constraint firstItem="9DU-kY-I3g" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="0bB-54-nzc"/>
+                <constraint firstItem="9DU-kY-I3g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="35u-94-zyd"/>
+                <constraint firstItem="IfY-pz-lqJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IVc-g4-MtT"/>
+                <constraint firstItem="9DU-kY-I3g" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="VyO-IB-DhR"/>
                 <constraint firstItem="IfY-pz-lqJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bIc-jb-0Yy"/>
-                <constraint firstItem="IfY-pz-lqJ" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="hBJ-1H-fd1"/>
-                <constraint firstItem="9DU-kY-I3g" firstAttribute="top" secondItem="IfY-pz-lqJ" secondAttribute="bottom" id="skJ-uA-Wo4"/>
+                <constraint firstItem="IfY-pz-lqJ" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" id="hBJ-1H-fd1"/>
+                <constraint firstItem="9DU-kY-I3g" firstAttribute="top" secondItem="IfY-pz-lqJ" secondAttribute="bottom" constant="8" symbolic="YES" id="skJ-uA-Wo4"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
