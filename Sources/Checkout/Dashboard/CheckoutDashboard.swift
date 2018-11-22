@@ -42,11 +42,15 @@ public final class Dashboard: DSL {
 
         case subRow(DashboardRowController & ViewController)
         
+        case action(DashboardActionController & ViewController)
+        
         private var views: [View] {
             
             switch self {
                 
             case let .subRow(controller): return [ controller.view ]
+                
+            case let .action(controller): return [ controller.view ]
  
             }
             
