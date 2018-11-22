@@ -166,7 +166,7 @@ public final class UICheckoutController: UIViewController {
         
         cart.totalAmountDidChange = { [weak self] change in
 
-            self?.dashboardViewController.dashboard.subTotal.value = cart.totalAmount
+            self?.subTotalViewController.row?.amount.property.value = cart.totalAmount
 
         }
         
@@ -179,139 +179,179 @@ public final class UICheckoutController: UIViewController {
         
     }()
     
-    public final lazy var dashboardViewController: UICheckoutDashboardViewController = {
+    private struct SubRow: DashboardRow {
         
-        let controller = UICheckoutDashboardViewController()
+        internal let title: Content<String>
         
-        controller.dashboard.subTotal.value = cartViewController.cart.totalAmount
+        internal let amount: Content<Double>
         
-        let buttonTitle = NSLocalizedString(
-            "Checkout",
-            comment: ""
-        )
-        
-        controller.template.setAction(title: buttonTitle + " →") { [weak self] in
+        internal init(
+            title: String,
+            amount: Double
+        ) {
             
-            guard let self = self else { return }
+            self.title = Content(value: title)
             
-            let shippingController = ShippingController()
-            
-            shippingController.serviceList.elements = [
-                .item(
-                    UIShippingServiceViewController(
-                        Service(
-                            isSelected: false,
-                            title: "UPS",
-                            price: 3.0
-                        )
-                    )
-                ),
-                .item(
-                    UIShippingServiceViewController(
-                        Service(
-                            isSelected: false,
-                            title: "DHL Express",
-                            price: 5.0
-                        )
-                    )
-                ),
-                .item(
-                    UIShippingServiceViewController(
-                        Service(
-                            isSelected: false,
-                            title: "UPS",
-                            price: 3.0
-                        )
-                    )
-                ),
-                .item(
-                    UIShippingServiceViewController(
-                        Service(
-                            isSelected: false,
-                            title: "DHL Express",
-                            price: 5.0
-                        )
-                    )
-                ),
-                .item(
-                    UIShippingServiceViewController(
-                        Service(
-                            isSelected: false,
-                            title: "UPS",
-                            price: 3.0
-                        )
-                    )
-                ),
-                .item(
-                    UIShippingServiceViewController(
-                        Service(
-                            isSelected: false,
-                            title: "DHL Express",
-                            price: 5.0
-                        )
-                    )
-                ),
-                .item(
-                    UIShippingServiceViewController(
-                        Service(
-                            isSelected: false,
-                            title: "UPS",
-                            price: 3.0
-                        )
-                    )
-                ),
-                .item(
-                    UIShippingServiceViewController(
-                        Service(
-                            isSelected: false,
-                            title: "DHL Express",
-                            price: 5.0
-                        )
-                    )
-                )
-            ]
-            
-            shippingController.destination = Destination(
-                recipient:
-                Recipient(name: "Emily"),
-                address: Address(
-                    title: "Company",
-                    postalCode: "10600",
-                    country: "US",
-                    state: "CA",
-                    city: "Cupertino",
-                    line1: "North Tantau Avenue",
-                    line2: "4F"
-                )
-            )
-            
-            let serviceList = shippingController.serviceList
-            
-            let dashboard = self.dashboardViewController.dashboard
-            
-            dashboard.shipping.value = serviceList.selectedService?.price.property.value ?? 0.0
-            
-            serviceList.selectedServiceDidChange = { selectedService in
-                    
-                let price = serviceList.selectedService?.price.property.value ?? 0.0
-                
-                dashboard.shipping.value = price
-                
-            }
-            
-            shippingController.title = NSLocalizedString(
-                "Shipping & Delivery",
-                comment: ""
-            )
-            
-            self.backgroundNavigationController.pushViewController(
-                self.wrapChild(shippingController),
-                animated: true
-            )
+            self.amount = Content(value: amount)
             
         }
         
-        return controller
+    }
+    
+    private final lazy var subTotalViewController: DashboardRowController & ViewController = {
+        
+        let viewController = UIDashboardSubRowViewController(
+            SubRow(
+                title: "SubTotal",
+                amount: cartViewController.cart.totalAmount
+            )
+        )
+        
+        return viewController
+        
+    }()
+    
+    public final lazy var dashboardViewController: UIDashboardViewController = {
+        
+        let viewController = UIDashboardViewController()
+        
+        viewController.dashboard.elements = [
+            .subRow(
+                subTotalViewController
+            )
+        ]
+        
+//        let controller = UICheckoutDashboardViewController()
+//
+//
+//
+//        let buttonTitle = NSLocalizedString(
+//            "Checkout",
+//            comment: ""
+//        )
+//
+//        controller.template.setAction(title: buttonTitle + " →") { [weak self] in
+//
+//            guard let self = self else { return }
+//
+//            let shippingController = ShippingController()
+//
+//            shippingController.serviceList.elements = [
+//                .item(
+//                    UIShippingServiceViewController(
+//                        Service(
+//                            isSelected: false,
+//                            title: "UPS",
+//                            price: 3.0
+//                        )
+//                    )
+//                ),
+//                .item(
+//                    UIShippingServiceViewController(
+//                        Service(
+//                            isSelected: false,
+//                            title: "DHL Express",
+//                            price: 5.0
+//                        )
+//                    )
+//                ),
+//                .item(
+//                    UIShippingServiceViewController(
+//                        Service(
+//                            isSelected: false,
+//                            title: "UPS",
+//                            price: 3.0
+//                        )
+//                    )
+//                ),
+//                .item(
+//                    UIShippingServiceViewController(
+//                        Service(
+//                            isSelected: false,
+//                            title: "DHL Express",
+//                            price: 5.0
+//                        )
+//                    )
+//                ),
+//                .item(
+//                    UIShippingServiceViewController(
+//                        Service(
+//                            isSelected: false,
+//                            title: "UPS",
+//                            price: 3.0
+//                        )
+//                    )
+//                ),
+//                .item(
+//                    UIShippingServiceViewController(
+//                        Service(
+//                            isSelected: false,
+//                            title: "DHL Express",
+//                            price: 5.0
+//                        )
+//                    )
+//                ),
+//                .item(
+//                    UIShippingServiceViewController(
+//                        Service(
+//                            isSelected: false,
+//                            title: "UPS",
+//                            price: 3.0
+//                        )
+//                    )
+//                ),
+//                .item(
+//                    UIShippingServiceViewController(
+//                        Service(
+//                            isSelected: false,
+//                            title: "DHL Express",
+//                            price: 5.0
+//                        )
+//                    )
+//                )
+//            ]
+//
+//            shippingController.destination = Destination(
+//                recipient:
+//                Recipient(name: "Emily"),
+//                address: Address(
+//                    title: "Company",
+//                    postalCode: "10600",
+//                    country: "US",
+//                    state: "CA",
+//                    city: "Cupertino",
+//                    line1: "North Tantau Avenue",
+//                    line2: "4F"
+//                )
+//            )
+//
+//            let serviceList = shippingController.serviceList
+//
+//            let dashboard = self.dashboardViewController.dashboard
+//
+//            dashboard.shipping.value = serviceList.selectedService?.price.property.value ?? 0.0
+//
+//            serviceList.selectedServiceDidChange = { selectedService in
+//
+//                let price = serviceList.selectedService?.price.property.value ?? 0.0
+//
+//                dashboard.shipping.value = price
+//
+//            }
+//
+//            shippingController.title = NSLocalizedString(
+//                "Shipping & Delivery",
+//                comment: ""
+//            )
+//
+//            self.backgroundNavigationController.pushViewController(
+//                self.wrapChild(shippingController),
+//                animated: true
+//            )
+//
+//        }
+        
+        return viewController
         
     }()
     
