@@ -7,22 +7,10 @@
 
 // MARK: - DashboardAction
 
-public struct DashboardAction {
+public protocol DashboardAction {
     
-    public let title: Content<String>
+    var title: Content<String> { get }
     
-    public var handler: ( () -> Void )?
-    
-    public init(
-        title: String? = nil,
-        handler: ( () -> Void )? = nil
-    ) {
-        
-        self.title = Content(value: title)
-        
-        self.handler = handler
-        
-    }
+    var handler: ( () -> Void )? { get set }
     
 }
-

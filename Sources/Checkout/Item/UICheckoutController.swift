@@ -253,6 +253,25 @@ public final class UICheckoutController: UIViewController {
         
     }()
     
+    private struct Action: DashboardAction {
+        
+        internal let title: Content<String>
+        
+        internal var handler: ( () -> Void )?
+        
+        internal init(
+            title: String? = nil,
+            handler: ( () -> Void )? = nil
+        ) {
+            
+            self.title = Content(value: title)
+            
+            self.handler = handler
+            
+        }
+        
+    }
+    
     public final lazy var dashboardViewController: UIDashboardViewController = {
         
         let viewController = UIDashboardViewController()
@@ -268,7 +287,7 @@ public final class UICheckoutController: UIViewController {
             .subRow(payTotalViewController),
             .action(
                 UIDashboardActionButtonController(
-                    DashboardAction(
+                    Action(
                         title: buttonTitle + " →",
                         handler: { [weak self] in self?.showShipping() }
                     )
