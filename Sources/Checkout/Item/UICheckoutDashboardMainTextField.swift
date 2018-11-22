@@ -1,13 +1,13 @@
 //
-//  UICheckoutDashboardMainField.swift
+//  UICheckoutDashboardMainTextField.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/2.
 //
 
-// MARK: - UICheckoutDashboardMainField
+// MARK: - UICheckoutDashboardMainTextField
 
-public final class UICheckoutDashboardMainField: UIView {
+public final class UICheckoutDashboardMainTextField: UIView {
     
     @IBOutlet
     public private(set) final weak var titleLabel: UILabel! {

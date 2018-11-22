@@ -41,7 +41,7 @@ public final class UIShippingServiceViewController: UIViewController, ShippingSe
     fileprivate final var isSelectedUpdating = false
     
     #warning("move into service view.")
-    public final var priceFormatter: PriceFormatter = DefaultPriceFormatter()
+    public final var priceFormatter: CurrencyFormatter = DefaultCurrencyFormatter()
     
     public init(_ service: ShippingService? = nil) {
         

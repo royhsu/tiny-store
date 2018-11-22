@@ -31,12 +31,15 @@
 		B03A1C8C21588220000DC2D8 /* TinyKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8621588192000DC2D8 /* TinyKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B03A1C8D21588220000DC2D8 /* TinyStorage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8821588192000DC2D8 /* TinyStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B04C929D21A41F340009B607 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929C21A41F340009B607 /* DSL.swift */; };
+		B04C929F21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */; };
+		B04C92A121A6772E0009B607 /* DashboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C92A021A6772E0009B607 /* DashboardRow.swift */; };
+		B04C92A321A677530009B607 /* DashboardRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C92A221A677530009B607 /* DashboardRowController.swift */; };
 		B0772EBC218BF2720082C055 /* CheckoutCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EBB218BF2720082C055 /* CheckoutCartViewController.swift */; };
-		B0772EC2218C33500082C055 /* CheckoutDashboardTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EC1218C33500082C055 /* CheckoutDashboardTemplate.swift */; };
-		B0772EC4218C39AF0082C055 /* UICheckoutDashboardSubField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EC3218C39AF0082C055 /* UICheckoutDashboardSubField.swift */; };
-		B0772EC6218C39D70082C055 /* UICheckoutDashboardSubField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0772EC5218C39D70082C055 /* UICheckoutDashboardSubField.xib */; };
-		B0772EC8218C419A0082C055 /* UICheckoutDashboardMainField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EC7218C419A0082C055 /* UICheckoutDashboardMainField.swift */; };
-		B0772ECA218C41CB0082C055 /* UICheckoutDashboardMainField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0772EC9218C41CB0082C055 /* UICheckoutDashboardMainField.xib */; };
+		B0772EC2218C33500082C055 /* UICheckoutDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EC1218C33500082C055 /* UICheckoutDashboardView.swift */; };
+		B0772EC4218C39AF0082C055 /* UIDashboardSubTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EC3218C39AF0082C055 /* UIDashboardSubTextField.swift */; };
+		B0772EC6218C39D70082C055 /* UIDashboardSubTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0772EC5218C39D70082C055 /* UIDashboardSubTextField.xib */; };
+		B0772EC8218C419A0082C055 /* UICheckoutDashboardMainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EC7218C419A0082C055 /* UICheckoutDashboardMainTextField.swift */; };
+		B0772ECA218C41CB0082C055 /* UICheckoutDashboardMainTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0772EC9218C41CB0082C055 /* UICheckoutDashboardMainTextField.xib */; };
 		B0772ECC218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ECB218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift */; };
 		B0772ECE218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0772ECD218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib */; };
 		B0772ED0218C49520082C055 /* UICheckoutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0772ECF218C49520082C055 /* UICheckoutView.xib */; };
@@ -51,8 +54,8 @@
 		B085D8D0219D59E8009F1585 /* ViewCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8CF219D59E8009F1585 /* ViewCollection.swift */; };
 		B085D8D2219D5A04009F1585 /* ShippingServiceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D1219D5A04009F1585 /* ShippingServiceList.swift */; };
 		B085D8D4219D5AC4009F1585 /* ShippingServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D3219D5AC4009F1585 /* ShippingServiceController.swift */; };
-		B085D8D6219D5AE9009F1585 /* PriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D5219D5AE9009F1585 /* PriceFormatter.swift */; };
-		B085D8D8219D5B00009F1585 /* DefaultPriceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D7219D5B00009F1585 /* DefaultPriceFormatter.swift */; };
+		B085D8D6219D5AE9009F1585 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D5219D5AE9009F1585 /* CurrencyFormatter.swift */; };
+		B085D8D8219D5B00009F1585 /* DefaultCurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D7219D5B00009F1585 /* DefaultCurrencyFormatter.swift */; };
 		B085D8DA219E8650009F1585 /* BindedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D9219E8650009F1585 /* BindedViewController.swift */; };
 		B085D8DC219EA13B009F1585 /* UIShippingDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8DB219EA13A009F1585 /* UIShippingDestinationView.swift */; };
 		B085D8DE219EA15B009F1585 /* UIShippingDestinationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B085D8DD219EA15B009F1585 /* UIShippingDestinationView.xib */; };
@@ -117,13 +120,16 @@
 		B03A1C8621588192000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8821588192000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B04C929C21A41F340009B607 /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
+		B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDashboardSubTextFieldController.swift; sourceTree = "<group>"; };
+		B04C92A021A6772E0009B607 /* DashboardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRow.swift; sourceTree = "<group>"; };
+		B04C92A221A677530009B607 /* DashboardRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRowController.swift; sourceTree = "<group>"; };
 		B0772EBB218BF2720082C055 /* CheckoutCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCartViewController.swift; sourceTree = "<group>"; };
 		B0772EBF218C2B220082C055 /* CheckoutApparelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutApparelItem.swift; sourceTree = "<group>"; };
-		B0772EC1218C33500082C055 /* CheckoutDashboardTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDashboardTemplate.swift; sourceTree = "<group>"; };
-		B0772EC3218C39AF0082C055 /* UICheckoutDashboardSubField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutDashboardSubField.swift; sourceTree = "<group>"; };
-		B0772EC5218C39D70082C055 /* UICheckoutDashboardSubField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICheckoutDashboardSubField.xib; sourceTree = "<group>"; };
-		B0772EC7218C419A0082C055 /* UICheckoutDashboardMainField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutDashboardMainField.swift; sourceTree = "<group>"; };
-		B0772EC9218C41CB0082C055 /* UICheckoutDashboardMainField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICheckoutDashboardMainField.xib; sourceTree = "<group>"; };
+		B0772EC1218C33500082C055 /* UICheckoutDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutDashboardView.swift; sourceTree = "<group>"; };
+		B0772EC3218C39AF0082C055 /* UIDashboardSubTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDashboardSubTextField.swift; sourceTree = "<group>"; };
+		B0772EC5218C39D70082C055 /* UIDashboardSubTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIDashboardSubTextField.xib; sourceTree = "<group>"; };
+		B0772EC7218C419A0082C055 /* UICheckoutDashboardMainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutDashboardMainTextField.swift; sourceTree = "<group>"; };
+		B0772EC9218C41CB0082C055 /* UICheckoutDashboardMainTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICheckoutDashboardMainTextField.xib; sourceTree = "<group>"; };
 		B0772ECB218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutDashboardButtonWrapperView.swift; sourceTree = "<group>"; };
 		B0772ECD218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICheckoutDashboardButtonWrapperView.xib; sourceTree = "<group>"; };
 		B0772ECF218C49520082C055 /* UICheckoutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICheckoutView.xib; sourceTree = "<group>"; };
@@ -140,8 +146,8 @@
 		B085D8CF219D59E8009F1585 /* ViewCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCollection.swift; sourceTree = "<group>"; };
 		B085D8D1219D5A04009F1585 /* ShippingServiceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceList.swift; sourceTree = "<group>"; };
 		B085D8D3219D5AC4009F1585 /* ShippingServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceController.swift; sourceTree = "<group>"; };
-		B085D8D5219D5AE9009F1585 /* PriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceFormatter.swift; sourceTree = "<group>"; };
-		B085D8D7219D5B00009F1585 /* DefaultPriceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultPriceFormatter.swift; sourceTree = "<group>"; };
+		B085D8D5219D5AE9009F1585 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
+		B085D8D7219D5B00009F1585 /* DefaultCurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCurrencyFormatter.swift; sourceTree = "<group>"; };
 		B085D8D9219E8650009F1585 /* BindedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindedViewController.swift; sourceTree = "<group>"; };
 		B085D8DB219EA13A009F1585 /* UIShippingDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIShippingDestinationView.swift; sourceTree = "<group>"; };
 		B085D8DD219EA15B009F1585 /* UIShippingDestinationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIShippingDestinationView.xib; sourceTree = "<group>"; };
@@ -239,8 +245,8 @@
 				B04C929A21A41A2D0009B607 /* Cart */,
 				B0B5D438215F418C0093EE01 /* Item */,
 				B020D4FE219AC45D00EC93E3 /* Shipping */,
-				B085D8D5219D5AE9009F1585 /* PriceFormatter.swift */,
-				B085D8D7219D5B00009F1585 /* DefaultPriceFormatter.swift */,
+				B085D8D5219D5AE9009F1585 /* CurrencyFormatter.swift */,
+				B085D8D7219D5B00009F1585 /* DefaultCurrencyFormatter.swift */,
 				B0772ED72193D78E0082C055 /* Content.swift */,
 				B020D4F621953B0200EC93E3 /* Content+Codable.swift */,
 				B085D8CF219D59E8009F1585 /* ViewCollection.swift */,
@@ -254,7 +260,6 @@
 		B0B5D438215F418C0093EE01 /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				B0772EC1218C33500082C055 /* CheckoutDashboardTemplate.swift */,
 				B0772EBF218C2B220082C055 /* CheckoutApparelItem.swift */,
 				B02B024F218BD5F100772118 /* UICheckoutSelectionView.swift */,
 				B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */,
@@ -265,10 +270,14 @@
 				B0A069FB2189803E00BA4CA5 /* UICheckoutCartItemView.xib */,
 				B020D4FC219AB78900EC93E3 /* CheckoutDashboard.swift */,
 				B0772ED3218C4B630082C055 /* UICheckoutDashboardViewController.swift */,
-				B0772EC3218C39AF0082C055 /* UICheckoutDashboardSubField.swift */,
-				B0772EC5218C39D70082C055 /* UICheckoutDashboardSubField.xib */,
-				B0772EC7218C419A0082C055 /* UICheckoutDashboardMainField.swift */,
-				B0772EC9218C41CB0082C055 /* UICheckoutDashboardMainField.xib */,
+				B0772EC1218C33500082C055 /* UICheckoutDashboardView.swift */,
+				B04C92A021A6772E0009B607 /* DashboardRow.swift */,
+				B04C92A221A677530009B607 /* DashboardRowController.swift */,
+				B0772EC3218C39AF0082C055 /* UIDashboardSubTextField.swift */,
+				B0772EC5218C39D70082C055 /* UIDashboardSubTextField.xib */,
+				B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */,
+				B0772EC7218C419A0082C055 /* UICheckoutDashboardMainTextField.swift */,
+				B0772EC9218C41CB0082C055 /* UICheckoutDashboardMainTextField.xib */,
 				B0772ECB218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift */,
 				B0772ECD218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib */,
 				B0772ED1218C4A310082C055 /* UICheckoutView.swift */,
@@ -437,10 +446,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0A069FC21898CBC00BA4CA5 /* UICheckoutCartItemView.xib in Resources */,
-				B0772ECA218C41CB0082C055 /* UICheckoutDashboardMainField.xib in Resources */,
+				B0772ECA218C41CB0082C055 /* UICheckoutDashboardMainTextField.xib in Resources */,
 				B0772ED0218C49520082C055 /* UICheckoutView.xib in Resources */,
 				B02B0249218B0A4700772118 /* Assets.xcassets in Resources */,
-				B0772EC6218C39D70082C055 /* UICheckoutDashboardSubField.xib in Resources */,
+				B0772EC6218C39D70082C055 /* UIDashboardSubTextField.xib in Resources */,
 				B085D8DE219EA15B009F1585 /* UIShippingDestinationView.xib in Resources */,
 				B0772ECE218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib in Resources */,
 				B0A06A002189948200BA4CA5 /* UICheckoutStepper.xib in Resources */,
@@ -463,26 +472,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0772ECC218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift in Sources */,
-				B0772EC2218C33500082C055 /* CheckoutDashboardTemplate.swift in Sources */,
+				B0772EC2218C33500082C055 /* UICheckoutDashboardView.swift in Sources */,
 				B0A06A042189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift in Sources */,
 				B085D8E0219EAB51009F1585 /* UIShippingDestinationViewController.swift in Sources */,
 				B02B0245218AF85900772118 /* UICheckoutCartItemViewController.swift in Sources */,
 				B0772EBC218BF2720082C055 /* CheckoutCartViewController.swift in Sources */,
 				B0772EDB2193E0F20082C055 /* CheckoutApparelItem.swift in Sources */,
 				B085D8E2219EB9AA009F1585 /* ShippingController.swift in Sources */,
-				B085D8D6219D5AE9009F1585 /* PriceFormatter.swift in Sources */,
+				B085D8D6219D5AE9009F1585 /* CurrencyFormatter.swift in Sources */,
 				B0772ED2218C4A310082C055 /* UICheckoutView.swift in Sources */,
 				B0A06A022189A01500BA4CA5 /* UINibWrapperView.swift in Sources */,
 				B085D8D0219D59E8009F1585 /* ViewCollection.swift in Sources */,
 				B020D500219AC49500EC93E3 /* ShippingService.swift in Sources */,
 				B0772ED6218C4CC60082C055 /* UICheckoutController.swift in Sources */,
-				B0772EC8218C419A0082C055 /* UICheckoutDashboardMainField.swift in Sources */,
+				B0772EC8218C419A0082C055 /* UICheckoutDashboardMainTextField.swift in Sources */,
 				B01123A8215E335300A905E3 /* CheckoutCartItem.swift in Sources */,
 				B020D4F921955D3400EC93E3 /* CheckoutCart.swift in Sources */,
+				B04C929F21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift in Sources */,
 				B0A069FE2189947400BA4CA5 /* UICheckoutStepper.swift in Sources */,
 				B085D8CE219D51B3009F1585 /* ShippingServiceListViewController.swift in Sources */,
 				B085D8DA219E8650009F1585 /* BindedViewController.swift in Sources */,
-				B085D8D8219D5B00009F1585 /* DefaultPriceFormatter.swift in Sources */,
+				B085D8D8219D5B00009F1585 /* DefaultCurrencyFormatter.swift in Sources */,
+				B04C92A121A6772E0009B607 /* DashboardRow.swift in Sources */,
 				B020D4F721953B0200EC93E3 /* Content+Codable.swift in Sources */,
 				B085D8D2219D5A04009F1585 /* ShippingServiceList.swift in Sources */,
 				B085D8CC219D1E52009F1585 /* UIShippingServiceViewController.swift in Sources */,
@@ -492,9 +503,10 @@
 				B085D8D4219D5AC4009F1585 /* ShippingServiceController.swift in Sources */,
 				B0772ED82193D78E0082C055 /* Content.swift in Sources */,
 				B04C929D21A41F340009B607 /* DSL.swift in Sources */,
-				B0772EC4218C39AF0082C055 /* UICheckoutDashboardSubField.swift in Sources */,
+				B0772EC4218C39AF0082C055 /* UIDashboardSubTextField.swift in Sources */,
 				B020D502219AC51800EC93E3 /* UIShippingServiceView.swift in Sources */,
 				B02B0250218BD5F100772118 /* UICheckoutSelectionView.swift in Sources */,
+				B04C92A321A677530009B607 /* DashboardRowController.swift in Sources */,
 				B020D4F52195350200EC93E3 /* CheckoutCartItemController.swift in Sources */,
 				B0772ED4218C4B630082C055 /* UICheckoutDashboardViewController.swift in Sources */,
 			);

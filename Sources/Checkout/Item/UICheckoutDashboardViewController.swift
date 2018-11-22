@@ -7,9 +7,58 @@
 
 // MARK: - UICheckoutDashboardViewController
 
+public final class UIDashboardViewController: UIViewController {
+    
+    private final lazy var collectionViewController: CollectionViewController = {
+        
+        let controller = CollectionViewController()
+        
+        controller.collectionView.applyLayout(ListViewLayout.self)
+        
+        controller.collectionView.sections = dashboard
+        
+        return controller
+        
+    }()
+    
+    public final let dashboard: Dashboard
+    
+    public init(_ dashboard: Dashboard? = nil) {
+        
+        self.dashboard = dashboard ?? Dashboard()
+        
+        super.init(
+            nibName: nil,
+            bundle: nil
+        )
+        
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        
+        self.dashboard = Dashboard()
+        
+        super.init(coder: aDecoder)
+        
+    }
+    
+    public final override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        addChild(collectionViewController)
+        
+        view.wrapSubview(collectionViewController.view)
+        
+        collectionViewController.didMove(toParent: self)
+        
+    }
+    
+}
+
 public final class UICheckoutDashboardViewController: UIViewController {
     
-    private final lazy var base: CollectionViewController = {
+    private final lazy var collectionViewController: CollectionViewController = {
         
         let controller = CollectionViewController()
         
@@ -25,7 +74,7 @@ public final class UICheckoutDashboardViewController: UIViewController {
     
     public final let dashboard: CheckoutDashboard
     
-    public private(set) final lazy var template: UICheckoutDashboardTemplate = { return UICheckoutDashboardTemplate(dashboard: dashboard) }()
+    public private(set) final lazy var template: UICheckoutDashboardView = { return UICheckoutDashboardView(dashboard: dashboard) }()
     
     public init(dashboard: CheckoutDashboard? = nil) {
         
@@ -56,11 +105,11 @@ public final class UICheckoutDashboardViewController: UIViewController {
         
         super.viewDidLoad()
         
-        addChild(base)
+        addChild(collectionViewController)
         
-        view.wrapSubview(base.view)
+        view.wrapSubview(collectionViewController.view)
         
-        base.didMove(toParent: self)
+        collectionViewController.didMove(toParent: self)
         
     }
     

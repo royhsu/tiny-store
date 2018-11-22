@@ -1,13 +1,13 @@
 //
-//  UICheckoutDashboardSubField.swift
+//  UIDashboardSubTextField.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/2.
 //
 
-// MARK: - UICheckoutDashboardSubField
+// MARK: - UIDashboardSubTextField
 
-public final class UICheckoutDashboardSubField: UIView {
+public final class UIDashboardSubTextField: UIView {
     
     @IBOutlet
     public private(set) final weak var titleLabel: UILabel! {

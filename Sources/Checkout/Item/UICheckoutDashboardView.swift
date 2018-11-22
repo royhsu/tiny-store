@@ -1,19 +1,19 @@
 //
-//  CheckoutDashboardTemplate.swift
+//  UICheckoutDashboardView.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/2.
 //
 
-// MARK: - CheckoutDashboardTemplate
+// MARK: - UICheckoutDashboardView
 
-public final class UICheckoutDashboardTemplate: Template {
+public final class UICheckoutDashboardView: Template {
     
-    private final let subTotalField: UICheckoutDashboardSubField = {
+    private final let subTotalTextField: UIDashboardSubTextField = {
         
         let field = UIView.loadView(
-            UICheckoutDashboardSubField.self,
-            from: Bundle(for: UICheckoutDashboardSubField.self)
+            UIDashboardSubTextField.self,
+            from: Bundle(for: UIDashboardSubTextField.self)
         )!
         
         field.titleLabel.text = NSLocalizedString(
@@ -25,7 +25,7 @@ public final class UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private final let subTotalFieldTopMarginView: UIView = {
+    private final let subTotalTextFieldTopMarginView: UIView = {
         
         let view = UIView()
         
@@ -39,7 +39,7 @@ public final class UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private final let subTotalFieldBottomMarginView: UIView = {
+    private final let subTotalTextFieldBottomMarginView: UIView = {
         
         let view = UIView()
         
@@ -53,11 +53,11 @@ public final class UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private final let shippingField: UICheckoutDashboardSubField = {
+    private final let shippingTextField: UIDashboardSubTextField = {
         
         let field = UIView.loadView(
-            UICheckoutDashboardSubField.self,
-            from: Bundle(for: UICheckoutDashboardSubField.self)
+            UIDashboardSubTextField.self,
+            from: Bundle(for: UIDashboardSubTextField.self)
         )!
         
         field.titleLabel.text = NSLocalizedString(
@@ -69,7 +69,7 @@ public final class UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private final let shippingFieldTopMarginView: UIView = {
+    private final let shippingTextFieldTopMarginView: UIView = {
         
         let view = UIView()
         
@@ -83,7 +83,7 @@ public final class UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private final let shippingFieldBottomMarginView: UIView = {
+    private final let shippingTextFieldBottomMarginView: UIView = {
         
         let view = UIView()
         
@@ -97,11 +97,11 @@ public final class UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private final let payTotalField: UICheckoutDashboardMainField = {
+    private final let payTotalTextField: UICheckoutDashboardMainTextField = {
         
         let field = UIView.loadView(
-            UICheckoutDashboardMainField.self,
-            from: Bundle(for: UICheckoutDashboardMainField.self)
+            UICheckoutDashboardMainTextField.self,
+            from: Bundle(for: UICheckoutDashboardMainTextField.self)
         )!
         
         field.titleLabel.text = NSLocalizedString(
@@ -113,7 +113,7 @@ public final class UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private final let payTotalFieldTopMarginView: UIView = {
+    private final let payTotalTextFieldTopMarginView: UIView = {
         
         let view = UIView()
         
@@ -127,7 +127,7 @@ public final class UICheckoutDashboardTemplate: Template {
         
     }()
     
-    private final let payTotalFieldBottomMarginView: UIView = {
+    private final let payTotalTextFieldBottomMarginView: UIView = {
         
         let view = UIView()
         
@@ -161,15 +161,15 @@ public final class UICheckoutDashboardTemplate: Template {
     private final var views: [UIView] {
         
         return [
-            subTotalFieldTopMarginView,
-            subTotalField,
-            subTotalFieldBottomMarginView,
-            shippingFieldTopMarginView,
-            shippingField,
-            shippingFieldBottomMarginView,
-            payTotalFieldTopMarginView,
-            payTotalField,
-            payTotalFieldBottomMarginView,
+            subTotalTextFieldTopMarginView,
+            subTotalTextField,
+            subTotalTextFieldBottomMarginView,
+            shippingTextFieldTopMarginView,
+            shippingTextField,
+            shippingTextFieldBottomMarginView,
+            payTotalTextFieldTopMarginView,
+            payTotalTextField,
+            payTotalTextFieldBottomMarginView,
             checkoutButtonWrapperView
         ]
         
@@ -191,9 +191,9 @@ public final class UICheckoutDashboardTemplate: Template {
         
         let subTotal = dashboard.subTotal.value ?? 0.0
         
-        subTotalField.amountLabel.text = "$ \(subTotal)"
+        subTotalTextField.amountLabel.text = "$ \(subTotal)"
         
-        payTotalField.amountLabel.text = "$ \(subTotal)"
+        payTotalTextField.amountLabel.text = "$ \(subTotal)"
         
         observations.append(
             dashboard.subTotal.observe { [weak self] change in
@@ -202,11 +202,11 @@ public final class UICheckoutDashboardTemplate: Template {
                 
                     let subTotal = change.currentValue ?? 0.0
                     
-                    self?.subTotalField.amountLabel.text = "$ \(subTotal)"
+                    self?.subTotalTextField.amountLabel.text = "$ \(subTotal)"
                     
                     let payTotal = self?.dashboard.payTotal ?? 0.0
                     
-                    self?.payTotalField.amountLabel.text = "$ \(payTotal)"
+                    self?.payTotalTextField.amountLabel.text = "$ \(payTotal)"
                     
                 }
                 
@@ -220,11 +220,11 @@ public final class UICheckoutDashboardTemplate: Template {
                     
                     let shipping = change.currentValue ?? 0.0
                     
-                    self?.shippingField.amountLabel.text = "$ \(shipping)"
+                    self?.shippingTextField.amountLabel.text = "$ \(shipping)"
                     
                     let payTotal = self?.dashboard.payTotal ?? 0.0
                     
-                    self?.payTotalField.amountLabel.text = "$ \(payTotal)"
+                    self?.payTotalTextField.amountLabel.text = "$ \(payTotal)"
                     
                 }
                 

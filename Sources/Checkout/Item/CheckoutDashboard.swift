@@ -35,3 +35,75 @@ public struct CheckoutDashboard {
     }
     
 }
+
+public final class Dashboard: DSL {
+    
+    public enum Element: ViewCollection {
+
+        case subRow(DashboardRowController & ViewController)
+        
+        private var views: [View] {
+            
+            switch self {
+                
+            case let .subRow(controller): return [ controller.view ]
+ 
+            }
+            
+        }
+        
+        public var numberOfViews: Int { return views.count }
+        
+        public func view(at index: Int) -> View { return views[index] }
+        
+    }
+    
+    fileprivate final var isPrepared = false
+    
+    public final var elements: [Element] {
+        
+        willSet { observations = [] }
+        
+        didSet {
+            
+            guard isPrepared else { return }
+            
+            handleElements()
+            
+        }
+        
+    }
+    
+    fileprivate final var observations: [Observation] = []
+    
+    public init() {
+        
+        self.elements = []
+        
+        self.prepare()
+        
+    }
+    
+    public init(arrayLiteral elements: Element...) {
+        
+        self.elements = elements
+        
+        self.prepare()
+        
+    }
+    
+    fileprivate final func prepare() {
+        
+        defer { isPrepared = true }
+        
+        handleElements()
+        
+    }
+    
+    fileprivate func handleElements() { }
+    
+    public final var count: Int { return elements.count }
+    
+    public final func section(at index: Int) -> Section { return elements[index] }
+    
+}

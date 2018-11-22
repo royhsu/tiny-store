@@ -47,7 +47,7 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
     fileprivate final var isQuantityUpdating = false
     
     #warning("move into item view.")
-    public final var priceFormatter: PriceFormatter = DefaultPriceFormatter()
+    public final var priceFormatter: CurrencyFormatter = DefaultCurrencyFormatter()
     
     public init(_ item: CheckoutCartItem? = nil) {
         
