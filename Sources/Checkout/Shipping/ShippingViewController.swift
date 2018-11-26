@@ -31,7 +31,21 @@ public final class ShippingViewController: ViewController {
         
     }
     
-    private final let _destinationViewController = UIShippingDestinationViewController()
+    public final var editDestination: ( () -> Void )? {
+        
+        get { return _destinationViewController.edit }
+        
+        set { _destinationViewController.edit = newValue }
+        
+    }
+    
+    private final lazy var _destinationViewController: UIShippingDestinationViewController = {
+        
+        let controller = UIShippingDestinationViewController()
+        
+        return controller
+        
+    }()
     
     private final lazy var destinationWrapperViewHeightConstraint: NSLayoutConstraint = {
         

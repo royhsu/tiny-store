@@ -356,6 +356,14 @@ public final class UICheckoutController: UIViewController {
             
         }
         
+        controller.editDestination = { [weak self] in
+            
+            guard let self = self else { return }
+            
+            self.showDestionationEditor()
+            
+        }
+        
         controller.title = NSLocalizedString(
             "Shipping & Delivery",
             comment: ""
@@ -422,6 +430,12 @@ public final class UICheckoutController: UIViewController {
             wrapChild(shippingViewController),
             animated: true
         )
+        
+    }
+    
+    fileprivate final func showDestionationEditor() {
+        
+        
         
     }
     
