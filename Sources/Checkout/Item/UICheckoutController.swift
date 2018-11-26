@@ -200,7 +200,7 @@ public final class UICheckoutController: UIViewController {
             )
         ]
         
-        let cart = viewController.cart
+        let cart = controller.cart
         
         cart.totalAmountDidChange = { [weak self] change in
 
