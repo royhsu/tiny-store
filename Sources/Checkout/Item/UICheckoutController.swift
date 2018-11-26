@@ -339,8 +339,6 @@ public final class UICheckoutController: UIViewController {
         
         containerViewController.addChild(viewController)
         
-        containerView.wrapSubview(viewController.view)
-        
         containerView.wrapSubview(
             viewController.view,
             within: \.layoutMarginsGuide
