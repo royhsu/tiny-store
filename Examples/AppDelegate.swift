@@ -27,8 +27,10 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
         
-        let viewController = UICheckoutController()
+//        let viewController = UICheckoutController()
 
+        let viewController = UIAddressCityPickerViewController()
+        
         window.rootViewController = viewController
         
         window.makeKeyAndVisible()
