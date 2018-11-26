@@ -94,6 +94,44 @@ struct Service: ShippingService {
     
 }
 
+private struct Action: DashboardAction {
+    
+    internal let title: Content<String>
+    
+    internal var handler: ( () -> Void )?
+    
+    internal init(
+        title: String? = nil,
+        handler: ( () -> Void )? = nil
+    ) {
+        
+        self.title = Content(value: title)
+        
+        self.handler = handler
+        
+    }
+    
+}
+
+private struct SubRow: DashboardRow {
+    
+    internal let title: Content<String>
+    
+    internal let amount: Content<Double>
+    
+    internal init(
+        title: String,
+        amount: Double
+        ) {
+        
+        self.title = Content(value: title)
+        
+        self.amount = Content(value: amount)
+        
+    }
+    
+}
+
 public final class UICheckoutController: UIViewController {
     
     private final lazy var checkoutView: UICheckoutView = {
@@ -121,9 +159,9 @@ public final class UICheckoutController: UIViewController {
     
     private final lazy var cartViewController: CheckoutCartViewController = {
         
-        let viewController = CheckoutCartViewController()
+        let controller = CheckoutCartViewController()
         
-        viewController.cart.elements = [
+        controller.cart.elements = [
             .item(
                 UICheckoutCartItemViewController(
                     CheckoutApparelItem(
@@ -168,123 +206,85 @@ public final class UICheckoutController: UIViewController {
 
             guard let self = self else { return }
             
-            self.subTotalViewController.row?.amount.property.value = cart.totalAmount
+            self.dashboardSubTotalViewController.row?.amount.property.value = cart.totalAmount
             
-            self.payTotalViewController.row?.amount.property.value = self.payTotal
+            self.dashboardPayTotalViewController.row?.amount.property.value = self.payTotal
 
         }
         
-        viewController.title = NSLocalizedString(
+        controller.title = NSLocalizedString(
             "Cart",
             comment: ""
         )
         
-        return viewController
+        return controller
         
     }()
     
-    private struct SubRow: DashboardRow {
+    private final lazy var dashboardSubTotalViewController: DashboardRowController & ViewController = {
         
-        internal let title: Content<String>
-        
-        internal let amount: Content<Double>
-        
-        internal init(
-            title: String,
-            amount: Double
-        ) {
-            
-            self.title = Content(value: title)
-            
-            self.amount = Content(value: amount)
-            
-        }
-        
-    }
-    
-    private final lazy var subTotalViewController: DashboardRowController & ViewController = {
-        
-        let viewController = UIDashboardSubRowViewController(
+        let controller = UIDashboardSubRowViewController(
             SubRow(
                 title: "SubTotal",
                 amount: cartViewController.cart.totalAmount
             )
         )
         
-        return viewController
+        return controller
         
     }()
     
-    private final lazy var shippingViewController: DashboardRowController & ViewController = {
+    private final lazy var dashboardShippingViewController: DashboardRowController & ViewController = {
         
-        let viewController = UIDashboardSubRowViewController(
+        let controller = UIDashboardSubRowViewController(
             SubRow(
                 title: "Shipping",
                 amount: 0.0
             )
         )
         
-        return viewController
+        return controller
         
     }()
     
     private final var payTotal: Double {
         
-        let subTotal = subTotalViewController.row?.amount.property.value ?? 0.0
+        let subTotal = dashboardSubTotalViewController.row?.amount.property.value ?? 0.0
         
-        let shipping = shippingViewController.row?.amount.property.value ?? 0.0
+        let shipping = dashboardShippingViewController.row?.amount.property.value ?? 0.0
         
         return subTotal + shipping
         
     }
     
-    private final lazy var payTotalViewController: DashboardRowController & ViewController = {
+    private final lazy var dashboardPayTotalViewController: DashboardRowController & ViewController = {
         
-        let viewController = UIDashboardSubRowViewController(
+        let controller = UIDashboardSubRowViewController(
             SubRow(
                 title: "Pay Total",
                 amount: 0.0
             )
         )
         
-        viewController.row?.amount.property.value = payTotal
+        controller.row?.amount.property.value = payTotal
         
-        return viewController
+        return controller
         
     }()
     
-    private struct Action: DashboardAction {
-        
-        internal let title: Content<String>
-        
-        internal var handler: ( () -> Void )?
-        
-        internal init(
-            title: String? = nil,
-            handler: ( () -> Void )? = nil
-        ) {
-            
-            self.title = Content(value: title)
-            
-            self.handler = handler
-            
-        }
-        
-    }
-    
     public final lazy var dashboardViewController: UIDashboardViewController = {
         
-        let viewController = UIDashboardViewController()
+        let controller = UIDashboardViewController()
         
         let buttonTitle = NSLocalizedString(
             "Checkout",
             comment: ""
         )
         
-        viewController.dashboard.elements = [
-            .subRow(subTotalViewController),
-            .subRow(shippingViewController),
-            .subRow(payTotalViewController),
+        controller.dashboard.elements = [
+            .subRow(dashboardSubTotalViewController),
+            .subRow(dashboardShippingViewController),
+            .subRow(dashboardPayTotalViewController),
             .action(
                 UIDashboardActionButtonController(
                     Action(
@@ -295,7 +295,73 @@ public final class UICheckoutController: UIViewController {
             )
         ]
         
-        return viewController
+        return controller
+        
+    }()
+    
+    private final lazy var shippingViewController: ShippingViewController = {
+        
+        let controller = ShippingViewController()
+        
+        controller.serviceList.elements = [
+            .item(
+                UIShippingServiceViewController(
+                    Service(
+                        isSelected: false,
+                        title: "UPS",
+                        price: 3.0
+                    )
+                )
+            ),
+            .item(
+                UIShippingServiceViewController(
+                    Service(
+                        isSelected: false,
+                        title: "DHL Express",
+                        price: 5.0
+                    )
+                )
+            )
+        ]
+        
+        controller.destination = Destination(
+            recipient:
+            Recipient(name: "Emily"),
+            address: Address(
+                title: "Company",
+                postalCode: "10600",
+                country: "US",
+                state: "CA",
+                city: "Cupertino",
+                line1: "North Tantau Avenue",
+                line2: "4F"
+            )
+        )
+        
+        let serviceList = controller.serviceList
+        
+        dashboardShippingViewController.row?.amount.property.value = serviceList.selectedService?.price.property.value ?? 0.0
+        
+        dashboardPayTotalViewController.row?.amount.property.value = payTotal
+        
+        serviceList.selectedServiceDidChange = { [weak self] selectedService in
+            
+            guard let self = self else { return }
+            
+            let price = serviceList.selectedService?.price.property.value ?? 0.0
+            
+            self.dashboardShippingViewController.row?.amount.property.value = price
+            
+            self.dashboardPayTotalViewController.row?.amount.property.value = self.payTotal
+            
+        }
+        
+        controller.title = NSLocalizedString(
+            "Shipping & Delivery",
+            comment: ""
+        )
+        
+        return controller
         
     }()
     
@@ -351,69 +417,9 @@ public final class UICheckoutController: UIViewController {
     }
     
     fileprivate final func showShipping() {
-    
-        let shippingController = ShippingController()
-
-        shippingController.serviceList.elements = [
-            .item(
-                UIShippingServiceViewController(
-                    Service(
-                        isSelected: false,
-                        title: "UPS",
-                        price: 3.0
-                    )
-                )
-            ),
-            .item(
-                UIShippingServiceViewController(
-                    Service(
-                        isSelected: false,
-                        title: "DHL Express",
-                        price: 5.0
-                    )
-                )
-            )
-        ]
-
-        shippingController.destination = Destination(
-            recipient:
-            Recipient(name: "Emily"),
-            address: Address(
-                title: "Company",
-                postalCode: "10600",
-                country: "US",
-                state: "CA",
-                city: "Cupertino",
-                line1: "North Tantau Avenue",
-                line2: "4F"
-            )
-        )
-
-        let serviceList = shippingController.serviceList
-
-        shippingViewController.row?.amount.property.value = serviceList.selectedService?.price.property.value ?? 0.0
-        
-        payTotalViewController.row?.amount.property.value = payTotal
-
-        serviceList.selectedServiceDidChange = { [weak self] selectedService in
-
-            guard let self = self else { return }
-            
-            let price = serviceList.selectedService?.price.property.value ?? 0.0
-
-            self.shippingViewController.row?.amount.property.value = price
-            
-            self.payTotalViewController.row?.amount.property.value = self.payTotal
-
-        }
-
-        shippingController.title = NSLocalizedString(
-            "Shipping & Delivery",
-            comment: ""
-        )
 
         backgroundNavigationController.pushViewController(
-            wrapChild(shippingController),
+            wrapChild(shippingViewController),
             animated: true
         )
         
