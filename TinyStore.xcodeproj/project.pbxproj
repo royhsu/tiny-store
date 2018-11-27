@@ -31,6 +31,7 @@
 		B03A1C8C21588220000DC2D8 /* TinyKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8621588192000DC2D8 /* TinyKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B03A1C8D21588220000DC2D8 /* TinyStorage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8821588192000DC2D8 /* TinyStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B043A05621ABE7E200CF296A /* UIAddressCityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A05521ABE7E200CF296A /* UIAddressCityPickerViewController.swift */; };
+		B043A29921AD4DDE00CF296A /* UIAddressActionButtonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29821AD4DDE00CF296A /* UIAddressActionButtonController.swift */; };
 		B04C929D21A41F340009B607 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929C21A41F340009B607 /* DSL.swift */; };
 		B04C929F21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */; };
 		B04C92A121A6772E0009B607 /* DashboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C92A021A6772E0009B607 /* DashboardRow.swift */; };
@@ -123,6 +124,7 @@
 		B03A1C8621588192000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8821588192000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B043A05521ABE7E200CF296A /* UIAddressCityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAddressCityPickerViewController.swift; sourceTree = "<group>"; };
+		B043A29821AD4DDE00CF296A /* UIAddressActionButtonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAddressActionButtonController.swift; sourceTree = "<group>"; };
 		B04C929C21A41F340009B607 /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 		B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDashboardSubTextFieldController.swift; sourceTree = "<group>"; };
 		B04C92A021A6772E0009B607 /* DashboardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRow.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				B085D8DF219EAB51009F1585 /* UIShippingDestinationViewController.swift */,
 				B085D8DB219EA13A009F1585 /* UIShippingDestinationView.swift */,
 				B085D8DD219EA15B009F1585 /* UIShippingDestinationView.xib */,
+				B043A29821AD4DDE00CF296A /* UIAddressActionButtonController.swift */,
 				B043A05521ABE7E200CF296A /* UIAddressCityPickerViewController.swift */,
 			);
 			path = Destination;
@@ -525,6 +528,7 @@
 				B085D8CC219D1E52009F1585 /* UIShippingServiceViewController.swift in Sources */,
 				B020D4FD219AB78900EC93E3 /* CheckoutDashboard.swift in Sources */,
 				B0A069FA21897FED00BA4CA5 /* UICheckoutCartItemView.swift in Sources */,
+				B043A29921AD4DDE00CF296A /* UIAddressActionButtonController.swift in Sources */,
 				B085D8DC219EA13B009F1585 /* UIShippingDestinationView.swift in Sources */,
 				B085D8D4219D5AC4009F1585 /* ShippingServiceController.swift in Sources */,
 				B0772ED82193D78E0082C055 /* Content.swift in Sources */,

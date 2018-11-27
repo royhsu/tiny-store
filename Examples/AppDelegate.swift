@@ -29,7 +29,13 @@ extension AppDelegate: UIApplicationDelegate {
         
 //        let viewController = UICheckoutController()
 
-        let viewController = UIAddressCityPickerViewController()
+        let viewController = UIAddressActionButtonController()
+        
+        viewController.view.backgroundColor = .white
+        
+        viewController.action = AddressAction(title: "Hello")
+        
+        viewController.actionHandler = { print("Clicked") }
         
         window.rootViewController = viewController
         
