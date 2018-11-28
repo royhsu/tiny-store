@@ -5,8 +5,10 @@
 //  Created by Roy Hsu on 2018/11/28.
 //
 
+// MARK: - Stream
+
 @objcMembers
-public final class Stream<Value> {
+public final class Stream<Value>: NSObject {
     
     public dynamic var value: Value?
     
@@ -14,9 +16,11 @@ public final class Stream<Value> {
     
 }
 
-public struct Input<Value> {
+// MARK: - Model
+
+public struct Model<Value> {
     
-    public let stream: Stream<Value>
+    public let storage: Stream<Value>
     
     public var rules: [AnyValidationRule<Value>]
     
@@ -28,7 +32,7 @@ public struct Input<Value> {
         isRequired: Bool = true
     ) {
         
-        self.stream = Stream(value)
+        self.storage = Stream(value)
         
         self.rules = rules
         
@@ -38,13 +42,13 @@ public struct Input<Value> {
     
 }
 
-public extension Input {
+public extension Model {
     
     public func validate() throws -> Value? {
         
         if isRequired {
             
-            let value = try stream.value.explicitlyValidated(
+            let value = try storage.value.explicitlyValidated(
                 by: NotNilRule()
             )
             
@@ -55,7 +59,7 @@ public extension Input {
         }
         else {
             
-            guard let value = stream.value else { return nil }
+            guard let value = storage.value else { return nil }
                 
             try rules.forEach { rule in _ = try rule.validate(value) }
             
