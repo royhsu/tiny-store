@@ -12,7 +12,16 @@ public final class Stream<Value>: NSObject {
     
     public dynamic var value: Value?
     
-    public init(_ value: Value?) { self.value = value }
+    public init(_ value: Value? = nil) { self.value = value }
+    
+}
+
+@objcMembers
+public final class StringStream: NSObject {
+    
+    public dynamic var value: String?
+    
+    public init(_ value: String? = nil) { self.value = value }
     
 }
 
@@ -20,7 +29,7 @@ public final class Stream<Value>: NSObject {
 
 public struct Model<Value> {
     
-    public let storage: Stream<Value>
+    public let storage: Observable<Value>
     
     public var rules: [AnyValidationRule<Value>]
     
@@ -32,7 +41,7 @@ public struct Model<Value> {
         isRequired: Bool = true
     ) {
         
-        self.storage = Stream(value)
+        self.storage = Observable(value)
         
         self.rules = rules
         

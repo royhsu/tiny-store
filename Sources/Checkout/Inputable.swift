@@ -11,6 +11,6 @@ public protocol Inputable {
     
     associatedtype Value
     
-    var input: Stream<Value> { get }
+    var input: Observable<Value> { get }
     
 }

@@ -28,14 +28,52 @@ extension AppDelegate: UIApplicationDelegate {
     -> Bool {
         
 //        let viewController = UICheckoutController()
+        
+        enum Taiwan: City {
+            
+            case taipei
+            
+            case tainan
+            
+            case yunlin
+            
+            var name: String {
+                
+                switch self {
+                    
+                case .taipei: return "Taipei"
+                    
+                case .tainan: return "Tainan"
+                    
+                case .yunlin: return "Yunlin"
 
-        let viewController = UIAddressActionButtonController()
+                }
+                
+            }
+            
+        }
+        
+        let viewController = ModelViewController<City, UIAddressCityView>(
+            model: Model(value: Taiwan.taipei),
+            bindedView: UIAddressCityView()
+        )
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            
+            viewController.bindedView?.input.value = Taiwan.tainan
+
+            
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+
+            viewController.model?.storage.value = Taiwan.yunlin
+
+        }
+        
+//        let viewController = UIAddressActionButtonController()
         
         viewController.view.backgroundColor = .white
-        
-        viewController.action = AddressAction(title: "Hello")
-        
-        viewController.actionHandler = { print("Clicked") }
         
         window.rootViewController = viewController
         
