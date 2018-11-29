@@ -53,25 +53,16 @@ extension AppDelegate: UIApplicationDelegate {
             
         }
         
-        let viewController = ModelViewController<City, UIAddressCityView>(
+        let viewController = ModelViewController<City, UIAddressCityButton>(
             model: Model(value: Taiwan.taipei),
-            bindedView: UIAddressCityView()
+            bindedView: UIAddressCityButton()
         )
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+        viewController.bindedView?.touchUpInsideHandler = {
             
             viewController.bindedView?.input.value = Taiwan.tainan
-
             
         }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-
-            viewController.model?.storage.value = Taiwan.yunlin
-
-        }
-        
-//        let viewController = UIAddressActionButtonController()
         
         viewController.view.backgroundColor = .white
         
