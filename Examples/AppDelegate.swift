@@ -77,15 +77,17 @@ extension AppDelegate: UIApplicationDelegate {
 //
 //        }
         
-        let viewController = UIViewController()
+        let textField = UITextField()
         
-        let textField = UIAddressPostalCodeTextField()
+        textField.placeholder = "Postal Code"
         
-        textField.dataSource = { return "Hello" }
+        let viewController = UITextFieldController(textField)
         
-        textField.reloadData()
-        
-        viewController.view.wrapSubview(textField)
+        viewController.didReceiveUserInput = { text in
+            
+            print("New text:", text)
+            
+        }
         
         viewController.view.backgroundColor = .white
         

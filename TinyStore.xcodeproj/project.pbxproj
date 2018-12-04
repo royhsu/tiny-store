@@ -35,7 +35,7 @@
 		B043A29B21AE826900CF296A /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29A21AE826800CF296A /* Stream.swift */; };
 		B043A29D21AE8EA000CF296A /* Inputable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29C21AE8EA000CF296A /* Inputable.swift */; };
 		B043A29F21AFC77A00CF296A /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29E21AFC77A00CF296A /* City.swift */; };
-		B043A2A121AFCAA000CF296A /* UIAddressPostalCodeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A2A021AFCAA000CF296A /* UIAddressPostalCodeTextField.swift */; };
+		B043A2A121AFCAA000CF296A /* UITextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A2A021AFCAA000CF296A /* UITextFieldController.swift */; };
 		B04C929D21A41F340009B607 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929C21A41F340009B607 /* DSL.swift */; };
 		B04C929F21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */; };
 		B04C92A121A6772E0009B607 /* DashboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C92A021A6772E0009B607 /* DashboardRow.swift */; };
@@ -133,7 +133,7 @@
 		B043A29A21AE826800CF296A /* Stream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		B043A29C21AE8EA000CF296A /* Inputable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inputable.swift; sourceTree = "<group>"; };
 		B043A29E21AFC77A00CF296A /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
-		B043A2A021AFCAA000CF296A /* UIAddressPostalCodeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAddressPostalCodeTextField.swift; sourceTree = "<group>"; };
+		B043A2A021AFCAA000CF296A /* UITextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldController.swift; sourceTree = "<group>"; };
 		B04C929C21A41F340009B607 /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 		B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDashboardSubTextFieldController.swift; sourceTree = "<group>"; };
 		B04C92A021A6772E0009B607 /* DashboardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRow.swift; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 				B085D8DB219EA13A009F1585 /* UIShippingDestinationView.swift */,
 				B085D8DD219EA15B009F1585 /* UIShippingDestinationView.xib */,
 				B043A29821AD4DDE00CF296A /* UIAddressCityButton.swift */,
-				B043A2A021AFCAA000CF296A /* UIAddressPostalCodeTextField.swift */,
+				B043A2A021AFCAA000CF296A /* UITextFieldController.swift */,
 				B043A05521ABE7E200CF296A /* UIAddressCityPickerViewController.swift */,
 			);
 			path = Destination;
@@ -557,7 +557,7 @@
 				B02B0250218BD5F100772118 /* UICheckoutSelectionView.swift in Sources */,
 				B04C92A321A677530009B607 /* DashboardRowController.swift in Sources */,
 				B043A05621ABE7E200CF296A /* UIAddressCityPickerViewController.swift in Sources */,
-				B043A2A121AFCAA000CF296A /* UIAddressPostalCodeTextField.swift in Sources */,
+				B043A2A121AFCAA000CF296A /* UITextFieldController.swift in Sources */,
 				B04C92A521A6834F0009B607 /* UIDashboardActionButtonController.swift in Sources */,
 				B020D4F52195350200EC93E3 /* CheckoutCartItemController.swift in Sources */,
 				B0772ED4218C4B630082C055 /* UIDashboardViewController.swift in Sources */,

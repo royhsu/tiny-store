@@ -14,3 +14,11 @@ public protocol Inputable {
     var input: Observable<Value> { get }
     
 }
+
+public protocol UserInputable {
+    
+    associatedtype Value
+    
+    var didReceiveUserInput: ( (Value?) -> Void )? { get set }
+    
+}
