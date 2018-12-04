@@ -7,7 +7,7 @@
 
 // MARK: - UIAddressCityButton
 
-public final class UIAddressCityButton: UIView, Inputable {
+public final class UIAddressCityButton: UIView {
     
     private final lazy var button: UIButton = {
         

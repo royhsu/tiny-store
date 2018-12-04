@@ -83,7 +83,15 @@ extension AppDelegate: UIApplicationDelegate {
         
         let textFieldViewController = UITextFieldController(textField)
         
-        let viewController = ModelViewController(bindableViewController: textFieldViewController)
+        let viewController = ModelViewController<UITextFieldController>()
+        
+        viewController.bindableViewController = textFieldViewController
+        
+        viewController.model = Model(
+            value: "Hi",
+            rules: [ .notEmpty ],
+            isRequired: true
+        )
         
         viewController.view.backgroundColor = .white
         

@@ -12,7 +12,27 @@ where BindableViewController: UserInputable & ValueRenderable {
     
     fileprivate final var modelObservation: Observation?
     
-    public final let model = Model<BindableViewController.Value>()
+    public final var model: Model<BindableViewController.Value> {
+        
+        willSet {
+            
+            guard isViewLoaded else { return }
+            
+            modelObservation = nil
+            
+        }
+        
+        didSet {
+            
+            guard isViewLoaded else { return }
+            
+            observeModel()
+            
+            bindableViewController?.render(with: model.storage.value)
+            
+        }
+        
+    }
     
     public final var bindableViewController: BindableViewController? {
         
@@ -43,13 +63,20 @@ where BindableViewController: UserInputable & ValueRenderable {
             
             bindableViewController.didMove(toParent: self)
             
+            bindableViewController.render(with: model.storage.value)
+            
             handleUserInput()
             
         }
         
     }
 
-    public init(bindableViewController: BindableViewController? = nil) {
+    public init(
+        model: Model<BindableViewController.Value>? = nil,
+        bindableViewController: BindableViewController? = nil
+    ) {
+        
+        self.model = model ?? Model()
         
         self.bindableViewController = bindableViewController
         
@@ -60,7 +87,13 @@ where BindableViewController: UserInputable & ValueRenderable {
         
     }
     
-    public required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
+    public required init?(coder aDecoder: NSCoder) {
+        
+        self.model = Model()
+        
+        super.init(coder: aDecoder)
+        
+    }
     
     public final override func viewDidLoad() {
         
@@ -75,6 +108,8 @@ where BindableViewController: UserInputable & ValueRenderable {
             bindableViewController.didMove(toParent: self)
             
         }
+        
+        bindableViewController?.render(with: model.storage.value)
         
         observeModel()
         

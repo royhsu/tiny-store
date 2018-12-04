@@ -1,29 +1,9 @@
 //
-//  Stream.swift
+//  Model.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/28.
 //
-
-// MARK: - Stream
-
-@objcMembers
-public final class Stream<Value>: NSObject {
-    
-    public dynamic var value: Value?
-    
-    public init(_ value: Value? = nil) { self.value = value }
-    
-}
-
-@objcMembers
-public final class StringStream: NSObject {
-    
-    public dynamic var value: String?
-    
-    public init(_ value: String? = nil) { self.value = value }
-    
-}
 
 // MARK: - Model
 
