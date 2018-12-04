@@ -15,10 +15,18 @@ public protocol Inputable {
     
 }
 
-public protocol UserInputable {
+public protocol UserInputable: AnyObject {
     
     associatedtype Value
     
     var didReceiveUserInput: ( (Value?) -> Void )? { get set }
+    
+}
+
+public protocol ValueRenderable: AnyObject {
+    
+    associatedtype Value
+    
+    func render(with value: Value?)
     
 }

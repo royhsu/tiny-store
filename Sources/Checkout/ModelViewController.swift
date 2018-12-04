@@ -7,71 +7,51 @@
 
 // MARK: - ModelViewController
 
-public protocol Bindable {
+public final class ModelViewController<BindableViewController: ViewController>: ViewController
+where BindableViewController: UserInputable & ValueRenderable {
     
-    associatedtype Value
+    fileprivate final var modelObservation: Observation?
     
-    var dataSource: ( () -> Value? )? { get set }
+    public final let model = Model<BindableViewController.Value>()
     
-    func reloadData()
-    
-}
-
-public final class ModelViewController<
-    Value,
-    BindableView: View
->: UIViewController
-where
-    BindableView: ObservableProtocol & Bindable,
-    BindableView.Value == Value {
-    
-    public final var model: Model<Value>? {
+    public final var bindableViewController: BindableViewController? {
         
-        didSet {
+        willSet {
             
             guard isViewLoaded else { return }
             
-            observeModel()
+            bindableViewController?.didReceiveUserInput = nil
             
-            bindedView?.reloadData()
+            bindableViewController?.willMove(toParent: nil)
+            
+            bindableViewController?.view.removeFromSuperview()
+            
+            bindableViewController?.removeFromParent()
             
         }
-        
-    }
-    
-    public final var bindedView: BindableView? {
-        
-        willSet { bindedView?.removeFromSuperview() }
         
         didSet {
             
             guard
                 isViewLoaded,
-                let bindedView = bindedView
+                let bindableViewController = bindableViewController
             else { return }
             
-            view.wrapSubview(bindedView)
+            addChild(bindableViewController)
             
-            observeView()
+            view.wrapSubview(bindableViewController.view)
             
-            bindedView.reloadData()
+            bindableViewController.didMove(toParent: self)
+            
+            handleUserInput()
             
         }
         
     }
-    
-    fileprivate final var viewObservation: Observation?
-    
-    fileprivate final var modelObservation: Observation?
-    
-    public init(
-        model: Model<Value>? = nil,
-        bindedView: BindableView? = nil
-    ) {
+
+    public init(bindableViewController: BindableViewController? = nil) {
         
-        self.model = model
-        
-        self.bindedView = bindedView
+        self.bindableViewController = bindableViewController
         
         super.init(
             nibName: nil,
@@ -86,36 +66,44 @@ where
         
         super.viewDidLoad()
         
-        if let bindedView = bindedView { view.wrapSubview(bindedView) }
+        if let bindableViewController = bindableViewController {
+            
+            addChild(bindableViewController)
+            
+            view.wrapSubview(bindableViewController.view)
+            
+            bindableViewController.didMove(toParent: self)
+            
+        }
         
         observeModel()
         
-        observeView()
-        
-        bindedView?.reloadData()
+        handleUserInput()
         
     }
     
     fileprivate final func observeModel() {
         
-        modelObservation = model?.storage.observe { [weak self] _ in
+        modelObservation = model.storage.observe { [weak self] change in
             
-            DispatchQueue.main.async { self?.bindedView?.reloadData() }
-
+            DispatchQueue.main.async {
+                
+                self?.bindableViewController?.render(with: change.currentValue)
+                
+            }
+        
         }
         
     }
     
-    fileprivate final func observeView() {
+    fileprivate final func handleUserInput() {
         
-        bindedView?.dataSource = { [weak self] in self?.model?.storage.value }
-        
-        viewObservation = bindedView?.observe { [weak self] change in
+        bindableViewController?.didReceiveUserInput = { [weak self] value in
             
-            self?.model?.storage.value = change.currentValue
+            self?.model.storage.value = value
             
         }
-
+        
     }
-
+    
 }

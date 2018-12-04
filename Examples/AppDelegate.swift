@@ -81,13 +81,9 @@ extension AppDelegate: UIApplicationDelegate {
         
         textField.placeholder = "Postal Code"
         
-        let viewController = UITextFieldController(textField)
+        let textFieldViewController = UITextFieldController(textField)
         
-        viewController.didReceiveUserInput = { text in
-            
-            print("New text:", text)
-            
-        }
+        let viewController = ModelViewController(bindableViewController: textFieldViewController)
         
         viewController.view.backgroundColor = .white
         

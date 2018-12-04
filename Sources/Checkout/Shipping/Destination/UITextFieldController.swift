@@ -8,7 +8,7 @@
 // MARK: - UITextFieldController
 
 #warning("move into TinyKit")
-public final class UITextFieldController: UIViewController, UserInputable {
+public final class UITextFieldController: UIViewController, UserInputable, ValueRenderable {
     
     public final var textField: UITextField? {
         
@@ -38,6 +38,8 @@ public final class UITextFieldController: UIViewController, UserInputable {
     }
     
     public final var didReceiveUserInput: ( (String?) -> Void )?
+    
+    public final func render(with text: String?) { textField?.text = text }
     
     public init(_ textField: UITextField? = nil) {
         
