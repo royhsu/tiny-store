@@ -7,13 +7,23 @@
 
 // MARK: - ModelViewController
 
+public protocol Bindable {
+    
+    associatedtype Value
+    
+    var dataSource: ( () -> Value? )? { get set }
+    
+    func reloadData()
+    
+}
+
 public final class ModelViewController<
     Value,
-    InputableView: View
+    BindableView: View
 >: UIViewController
 where
-    InputableView: Inputable,
-    InputableView.Value == Value {
+    BindableView: ObservableProtocol & Bindable,
+    BindableView.Value == Value {
     
     public final var model: Model<Value>? {
         
@@ -21,13 +31,15 @@ where
             
             guard isViewLoaded else { return }
             
-            observeModelChanges()
+            observeModel()
+            
+            bindedView?.reloadData()
             
         }
         
     }
     
-    public final var bindedView: InputableView? {
+    public final var bindedView: BindableView? {
         
         willSet { bindedView?.removeFromSuperview() }
         
@@ -40,23 +52,21 @@ where
             
             view.wrapSubview(bindedView)
             
-            renderView()
+            observeView()
             
-            handleViewActions()
+            bindedView.reloadData()
             
         }
         
     }
     
-    fileprivate final var inputObservation: Observation?
+    fileprivate final var viewObservation: Observation?
     
     fileprivate final var modelObservation: Observation?
     
-    fileprivate final var isModelUpdating = false
-    
     public init(
         model: Model<Value>? = nil,
-        bindedView: InputableView? = nil
+        bindedView: BindableView? = nil
     ) {
         
         self.model = model
@@ -78,49 +88,34 @@ where
         
         if let bindedView = bindedView { view.wrapSubview(bindedView) }
         
-        observeModelChanges()
+        observeModel()
         
-        renderView()
+        observeView()
         
-        handleViewActions()
+        bindedView?.reloadData()
         
     }
     
-    fileprivate final func observeModelChanges() {
+    fileprivate final func observeModel() {
         
         modelObservation = model?.storage.observe { [weak self] _ in
-
-            guard let self = self else { return }
-
-            self.isModelUpdating = true
-
-            DispatchQueue.main.async {
-                
-                defer { self.isModelUpdating = false }
-                
-                self.renderView()
-                
-            }
+            
+            DispatchQueue.main.async { self?.bindedView?.reloadData() }
 
         }
         
     }
     
-    fileprivate final func renderView() { bindedView?.input.value = model?.storage.value }
-    
-    #warning("FIXME: The input changes should always delegate to the model. The current implementation will ignore changes while model is updating.")
-    fileprivate final func handleViewActions() {
+    fileprivate final func observeView() {
         
-        inputObservation = bindedView?.input.observe { [weak self] change in
+        bindedView?.dataSource = { [weak self] in self?.model?.storage.value }
+        
+        viewObservation = bindedView?.observe { [weak self] change in
             
-            guard let self = self else { return }
-            
-            if self.isModelUpdating { return }
-            
-            self.model?.storage.value = change.currentValue
+            self?.model?.storage.value = change.currentValue
             
         }
 
     }
-    
+
 }

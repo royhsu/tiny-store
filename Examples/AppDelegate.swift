@@ -12,6 +12,8 @@ import TinyStore
 
 @UIApplicationMain
 public final class AppDelegate: UIResponder {
+    
+    fileprivate final var observation: Observation?
 
     public final let window = UIWindow(frame: UIScreen.main.bounds)
 
@@ -53,16 +55,37 @@ extension AppDelegate: UIApplicationDelegate {
             
         }
         
-        let viewController = ModelViewController<City, UIAddressCityButton>(
-            model: Model(value: Taiwan.taipei),
-            bindedView: UIAddressCityButton()
-        )
+//        let viewController = ModelViewController<City, UIAddressCityButton>(
+//            model: Model(value: Taiwan.taipei),
+//            bindedView: UIAddressCityButton()
+//        )
+//
+//        viewController.bindedView?.touchUpInsideHandler = {
+//
+//            viewController.bindedView?.input.value = Taiwan.tainan
+//
+//        }
         
-        viewController.bindedView?.touchUpInsideHandler = {
-            
-            viewController.bindedView?.input.value = Taiwan.tainan
-            
-        }
+//        let viewController = ModelViewController<String, UIAddressPostalCodeTextField>(
+//            model: Model(),
+//            bindedView: UIAddressPostalCodeTextField()
+//        )
+        
+//        observation = viewController.model?.storage.observe { change in
+//
+//            print(change.currentValue)
+//
+//        }
+        
+        let viewController = UIViewController()
+        
+        let textField = UIAddressPostalCodeTextField()
+        
+        textField.dataSource = { return "Hello" }
+        
+        textField.reloadData()
+        
+        viewController.view.wrapSubview(textField)
         
         viewController.view.backgroundColor = .white
         
