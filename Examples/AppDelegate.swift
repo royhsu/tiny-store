@@ -22,7 +22,7 @@ public final class AppDelegate: UIResponder {
         textField.placeholder = "Postal Code"
         
         return InputableViewBinding(
-            bindableView: UITextFieldContainerView(textField)
+            view: UITextFieldContainerView(textField)
         )
         
     }()

@@ -52,12 +52,12 @@ public final class RenderableViewBinding<BindableView: View> where BindableView:
     
     public init(
         model: Model<BindableView.Value>? = nil,
-        bindableView: BindableView? = nil
+        view: BindableView? = nil
     ) {
         
         self.model = model ?? Model()
         
-        self.view = bindableView
+        self.view = view
         
         self.load()
         
