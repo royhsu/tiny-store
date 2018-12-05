@@ -76,7 +76,7 @@
 		B0A06A022189A01500BA4CA5 /* UINibWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */; };
 		B0A06A042189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A06A032189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift */; };
 		B0CE4AC221B6C2900082039F /* ValueRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE4AC121B6C2900082039F /* ValueRenderable.swift */; };
-		B0CE4AC421B757DE0082039F /* InteractableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE4AC321B757DE0082039F /* InteractableView.swift */; };
+		B0CE4AC421B757DE0082039F /* InputableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE4AC321B757DE0082039F /* InputableView.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
 		B0F51CDE21587F2D00B592F5 /* FormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F51CDC21587F2B00B592F5 /* FormFieldTests.swift */; };
@@ -178,7 +178,7 @@
 		B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINibWrapperView.swift; sourceTree = "<group>"; };
 		B0A06A032189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutStepperWrapperView.swift; sourceTree = "<group>"; };
 		B0CE4AC121B6C2900082039F /* ValueRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueRenderable.swift; sourceTree = "<group>"; };
-		B0CE4AC321B757DE0082039F /* InteractableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InteractableView.swift; sourceTree = "<group>"; };
+		B0CE4AC321B757DE0082039F /* InputableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputableView.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F51CBF2158773A00B592F5 /* TinyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyStore.h; sourceTree = "<group>"; };
 		B0F51CC02158773A00B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -308,7 +308,7 @@
 				B04C929C21A41F340009B607 /* DSL.swift */,
 				B043A29A21AE826800CF296A /* Model.swift */,
 				B0697F0C21B769C200D05D6E /* RenderableView.swift */,
-				B0CE4AC321B757DE0082039F /* InteractableView.swift */,
+				B0CE4AC321B757DE0082039F /* InputableView.swift */,
 				B0CE4AC121B6C2900082039F /* ValueRenderable.swift */,
 				B043A29C21AE8EA000CF296A /* UserInputable.swift */,
 			);
@@ -524,7 +524,7 @@
 				B04C92A921A686F20009B607 /* DashboardActionController.swift in Sources */,
 				B0A06A042189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift in Sources */,
 				B0697F0D21B769C200D05D6E /* RenderableView.swift in Sources */,
-				B0CE4AC421B757DE0082039F /* InteractableView.swift in Sources */,
+				B0CE4AC421B757DE0082039F /* InputableView.swift in Sources */,
 				B085D8E0219EAB51009F1585 /* UIShippingDestinationViewController.swift in Sources */,
 				B02B0245218AF85900772118 /* UICheckoutCartItemViewController.swift in Sources */,
 				B0772EBC218BF2720082C055 /* CheckoutCartViewController.swift in Sources */,

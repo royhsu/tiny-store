@@ -1,13 +1,13 @@
 //
-//  InteractableView.swift
+//  InputableView.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/16.
 //
 
-// MARK: - InteractableView
+// MARK: - InputableView
 
-public final class InteractableView<BindableView: View>: View
+public final class InputableView<BindableView: View>: View
 where BindableView: UserInputable & ValueRenderable {
     
     private final var isLoaded = false
