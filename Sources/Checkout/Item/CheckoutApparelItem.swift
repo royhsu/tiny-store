@@ -7,23 +7,23 @@
 
 // MARK: - CheckoutApparelItem
 
-public struct CheckoutApparelItem: CheckoutCartItem {
+public final class CheckoutApparelItem: CheckoutCartItem {
     
-    public let isSelected: Content<Bool>
+    private final var observations: [Observation] = []
     
-    public let title: Model<String>
+    public final let isSelected: Content<Bool>
     
-    private let _description: String
+    public final let title: Model<String>
     
-    public var description: Content<String> { return Content(value: _description) }
+    public final let description: Model<String>
     
-    public let color: Content<String>
+    public final let color: Model<String>
     
-    public let size: Content<String>
+    public final let size: Model<String>
     
-    public let price: Content<Double>
+    public final let price: Content<Double>
     
-    public let quantity: Model<Int>
+    public final let quantity: Model<Int>
     
     public init(
         isSelected: Bool,
@@ -38,15 +38,46 @@ public struct CheckoutApparelItem: CheckoutCartItem {
         
         self.title = Model(value: title)
         
-        self._description = "\(color) - \(size)"
+        self.description = Model(value: "\(color) - \(size)")
         
-        self.color = Content(value: color)
+        self.color = Model(value: color)
         
-        self.size = Content(value: size)
+        self.size = Model(value: size)
         
         self.price = Content(value: price)
         
         self.quantity = Model(value: quantity)
+        
+        self.load()
+        
+    }
+    
+    private final func load() {
+        
+        observations = [
+            color.observe { [weak self] _ in
+                
+                guard
+                    let self = self,
+                    let color = self.color.value,
+                    let size = self.size.value
+                else { return }
+                
+                self.description.value = "\(color) - \(size)"
+                
+            },
+            size.observe { [weak self] _ in
+                
+                guard
+                    let self = self,
+                    let color = self.color.value,
+                    let size = self.size.value
+                else { return }
+                
+                self.description.value = "\(color) - \(size)"
+                
+            }
+        ]
         
     }
     

@@ -120,6 +120,8 @@ extension AppDelegate: UIApplicationDelegate {
             
             item.title.value = "Cool"
             
+            item.size.value = "S"
+            
         }
         
         viewController.view.backgroundColor = .white

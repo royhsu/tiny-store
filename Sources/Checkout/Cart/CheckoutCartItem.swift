@@ -13,7 +13,7 @@ public protocol CheckoutCartItem {
     
     var title: Model<String> { get }
     
-    var description: Content<String> { get }
+    var description: Model<String> { get }
     
     var price: Content<Double> { get }
     
