@@ -11,7 +11,7 @@ public struct CheckoutApparelItem: CheckoutCartItem {
     
     public let isSelected: Content<Bool>
     
-    public let title: AnyObservable<String>
+    public let title: Model<String>
     
     private let _description: String
     
@@ -36,9 +36,7 @@ public struct CheckoutApparelItem: CheckoutCartItem {
         
         self.isSelected = Content(value: isSelected)
         
-        self.title = AnyObservable(
-            Model(value: title)
-        )
+        self.title = Model(value: title)
         
         self._description = "\(color) - \(size)"
         

@@ -13,7 +13,7 @@ public final class RenderableViewBinding<BindableView: View> where BindableView:
     
     private final var modelObservation: Observation?
     
-    public final var model: AnyObservable<BindableView.Value> {
+    public final var model: Model<BindableView.Value> {
         
         willSet {
             
@@ -47,13 +47,12 @@ public final class RenderableViewBinding<BindableView: View> where BindableView:
         
     }
     
-    public init<Model: ObservableProtocol>(
-        model: Model,
+    public init(
+        model: Model<BindableView.Value>,
         view: BindableView
-    )
-    where Model.Value == BindableView.Value {
+    ) {
         
-        self.model = AnyObservable(model)
+        self.model = model
         
         self.view = view
         

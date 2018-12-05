@@ -55,22 +55,10 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
         
         self.item = item
         
-        if let item = item {
-            
-            self.titleBinding = RenderableViewBinding(
-                model: item.title,
-                view: itemView.titleLabel
-            )
-            
-        }
-        else {
-            
-            self.titleBinding = RenderableViewBinding(
-                model: Observable(),
-                view: itemView.titleLabel
-            )
-            
-        }
+        self.titleBinding = RenderableViewBinding(
+            model: item?.title ?? Model(),
+            view: itemView.titleLabel
+        )
         
         super.init(
             nibName: nil,
@@ -82,7 +70,7 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
     public required init?(coder aDecoder: NSCoder) {
         
         self.titleBinding = RenderableViewBinding(
-            model: Observable(),
+            model: Model(),
             view: itemView.titleLabel
         )
         
