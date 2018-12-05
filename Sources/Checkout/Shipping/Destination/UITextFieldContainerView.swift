@@ -65,7 +65,7 @@ public final class UITextFieldContainerView: UIView, UserInputable, ValueRendera
         
     }
     
-    fileprivate final func addTextFieldTarget() {
+    private final func addTextFieldTarget() {
         
         textField?.addTarget(
             self,
@@ -75,7 +75,7 @@ public final class UITextFieldContainerView: UIView, UserInputable, ValueRendera
         
     }
     
-    fileprivate final func removeTextFieldTarget() {
+    private final func removeTextFieldTarget() {
         
         textField?.removeTarget(
             self,

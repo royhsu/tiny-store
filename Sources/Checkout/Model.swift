@@ -7,13 +7,21 @@
 
 // MARK: - Model
 
-public struct Model<Value> {
+public final class Model<Value>: ObservableProtocol {
     
-    public let storage: Observable<Value>
+    private final let storage: Observable<Value>
     
-    public var rules: [AnyValidationRule<Value>]
+    public final var value: Value? {
+        
+        get { return storage.value }
+        
+        set { storage.value = newValue }
+        
+    }
     
-    public var isRequired: Bool
+    public final var rules: [AnyValidationRule<Value>]
+    
+    public final var isRequired: Bool
     
     public init(
         value: Value? = nil,
@@ -28,6 +36,11 @@ public struct Model<Value> {
         self.isRequired = isRequired
         
     }
+    
+    public final func observe(
+        _ observer: @escaping (ObservedChange<Value>) -> Void
+    )
+    -> Observation { return storage.observe(observer) }
     
 }
 

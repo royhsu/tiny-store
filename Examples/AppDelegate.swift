@@ -55,7 +55,7 @@ extension AppDelegate: UIApplicationDelegate {
             
         }
         
-//        let viewController = ModelViewController<City, UIAddressCityButton>(
+//        let viewController = ModelView<City, UIAddressCityButton>(
 //            model: Model(value: Taiwan.taipei),
 //            bindedView: UIAddressCityButton()
 //        )
@@ -66,7 +66,7 @@ extension AppDelegate: UIApplicationDelegate {
 //
 //        }
         
-//        let viewController = ModelViewController<String, UIAddressPostalCodeTextField>(
+//        let viewController = ModelView<String, UIAddressPostalCodeTextField>(
 //            model: Model(),
 //            bindedView: UIAddressPostalCodeTextField()
 //        )
@@ -81,17 +81,19 @@ extension AppDelegate: UIApplicationDelegate {
         
         textField.placeholder = "Postal Code"
         
-        let textFieldViewController = UITextFieldController(textField)
-        
-        let viewController = ModelViewController<UITextFieldController>()
-        
-        viewController.bindableViewController = textFieldViewController
-        
-        viewController.model = Model(
-            value: "Hi",
-            rules: [ .notEmpty ],
-            isRequired: true
+        let modelView = ModelView(
+            bindableView: UITextFieldContainerView(textField)
         )
+        
+        observation = modelView.model.observe { change in
+         
+            print(change)
+            
+        }
+        
+        let viewController = UIViewController()
+        
+        viewController.view.wrapSubview(modelView)
         
         viewController.view.backgroundColor = .white
         
