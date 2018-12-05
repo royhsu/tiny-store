@@ -7,17 +7,9 @@
 
 // MARK: - Model
 
-public final class Model<Value>: ObservableProtocol {
+public final class Model<Value> {
     
     private final let storage: Observable<Value>
-    
-    public final var value: Value? {
-        
-        get { return storage.value }
-        
-        set { storage.value = newValue }
-        
-    }
     
     public final var rules: [AnyValidationRule<Value>]
     
@@ -37,6 +29,20 @@ public final class Model<Value>: ObservableProtocol {
         
     }
     
+}
+
+// MARK: - ObservableProtocol
+
+extension Model: ObservableProtocol {
+    
+    public final var value: Value? {
+        
+        get { return storage.value }
+        
+        set { storage.value = newValue }
+        
+    }
+    
     public final func observe(
         _ observer: @escaping (ObservedChange<Value>) -> Void
     )
@@ -44,9 +50,11 @@ public final class Model<Value>: ObservableProtocol {
     
 }
 
+// MARK: - Validation
+
 public extension Model {
     
-    public func validate() throws -> Value? {
+    public final func validate() throws -> Value? {
         
         if isRequired {
             
