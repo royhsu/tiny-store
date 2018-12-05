@@ -16,7 +16,7 @@ public final class UIShippingServiceView: UIView {
             
             selectionView.tintColor = .black
             
-            selectionView.isSelectedDidChange = { [weak self] isSelected in
+            selectionView.didReceiveUserInput = { [weak self] isSelected in
                 
                 self?.isSelectedDidChange?(isSelected)
                 

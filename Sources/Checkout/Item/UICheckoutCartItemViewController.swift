@@ -30,19 +30,21 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
             
             guard isViewLoaded else { return }
             
-            renderView()
-
-            observeModelChanges()
-
-            handleViewActions()
+            self.isSelectdBinding.model = item?.isSelected ?? Model()
+            
+            self.titleBinding.model = item?.title ?? Model()
+            
+            self.descriptionBinding.model = item?.description ?? Model()
+            
+            self.priceBinding.model = item?.price ?? Model()
+            
+            self.quantityBinding.model = item?.quantity ?? Model()
             
         }
         
     }
     
-    fileprivate final var observations: [Observation] = []
-    
-    fileprivate final var isSelectedUpdating = false
+    private final let isSelectdBinding: InputableViewBinding<UICheckoutCartItemView>
     
     private final let titleBinding: RenderableViewBinding<UILabel>
     
@@ -55,6 +57,11 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
     public init(_ item: CheckoutCartItem? = nil) {
         
         self.item = item
+        
+        self.isSelectdBinding = InputableViewBinding(
+            model: item?.isSelected ?? Model(),
+            view: itemView
+        )
         
         self.titleBinding = RenderableViewBinding(
             model: item?.title ?? Model(),
@@ -85,6 +92,11 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
     
     public required init?(coder aDecoder: NSCoder) {
         
+        self.isSelectdBinding = InputableViewBinding(
+            model: Model(),
+            view: itemView
+        )
+        
         self.titleBinding = RenderableViewBinding(
             model: Model(),
             view: itemView.titleLabel
@@ -110,67 +122,6 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
     }
     
     public final override func loadView() { view = itemView }
-    
-    public final override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        renderView()
-        
-        observeModelChanges()
-        
-        handleViewActions()
-        
-    }
-    
-    fileprivate final func renderView() {
-        
-        guard let item = item else { return }
-        
-        itemView.isSelected = item.isSelected.property.value ?? true
-        
-    }
-    
-    fileprivate final func observeModelChanges() {
-        
-        guard let item = item else { return }
-        
-        observations = [
-            item.isSelected.property.observe { [weak self] change in
-                
-                guard let self = self else { return }
-                
-                self.isSelectedUpdating = true
-                
-                DispatchQueue.main.async {
-                    
-                    self.itemView.isSelected = change.currentValue ?? false
-                    
-                    self.isSelectedUpdating = false
-                    
-                }
-                
-            }
-        ]
-        
-    }
-    
-    fileprivate final func handleViewActions() {
-        
-        itemView.isSelectedDidChange = { [weak self] isSelected in
-            
-            guard
-                let self = self,
-                let item = self.item
-            else { return }
-            
-            if self.isSelectedUpdating { return }
-            
-            item.isSelected.property.value = isSelected
-            
-        }
-        
-    }
     
 }
 

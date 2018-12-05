@@ -11,7 +11,7 @@ public final class CheckoutApparelItem: CheckoutCartItem {
     
     private final var observations: [Observation] = []
     
-    public final let isSelected: Content<Bool>
+    public final let isSelected: Model<Bool>
     
     public final let title: Model<String>
     
@@ -34,7 +34,7 @@ public final class CheckoutApparelItem: CheckoutCartItem {
         quantity: Int
     ) {
         
-        self.isSelected = Content(value: isSelected)
+        self.isSelected = Model(value: isSelected)
         
         self.title = Model(value: title)
         

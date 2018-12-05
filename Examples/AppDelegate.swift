@@ -100,7 +100,7 @@ extension AppDelegate: UIApplicationDelegate {
 //
 //        viewController.view.wrapSubview(binding.view!)
 
-        let item = CheckoutApparelItem(isSelected: false, title: "Hi", color: "white", size: "XL", price: 10.0, quantity: 1)
+        let item = CheckoutApparelItem(isSelected: true, title: "Hi", color: "white", size: "XL", price: 10.0, quantity: 1)
         
         let viewController = CheckoutCartViewController(
             cart: [

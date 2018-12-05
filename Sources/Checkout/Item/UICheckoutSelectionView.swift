@@ -8,7 +8,7 @@
 // MARK: - UICheckoutSelectionView
 
 @IBDesignable
-public class UICheckoutSelectionView: UIView {
+public class UICheckoutSelectionView: UIView, UserInputable {
     
     private final let imageView: UIImageView = {
         
@@ -22,20 +22,32 @@ public class UICheckoutSelectionView: UIView {
         
     }()
     
-    public final var isSelected = false {
+    private final var _isSelected = false {
         
         didSet {
             
             #warning("switch images when the isSelected changes.")
-            imageView.backgroundColor = isSelected ? tintColor : nil
-            
-            isSelectedDidChange?(isSelected)
+            imageView.backgroundColor = _isSelected ? tintColor : nil
             
         }
         
     }
     
-    public final var isSelectedDidChange: ( (Bool) -> Void )?
+    public final var isSelected: Bool {
+        
+        get { return _isSelected }
+        
+        set {
+            
+            _isSelected = newValue
+            
+            didReceiveUserInput?(newValue)
+            
+        }
+        
+    }
+    
+    public final var didReceiveUserInput: ( (Bool) -> Void )?
     
     public final override var tintColor: UIColor! {
         
@@ -51,7 +63,7 @@ public class UICheckoutSelectionView: UIView {
         
         super.init(frame: frame)
         
-        self.prepare()
+        self.load()
         
     }
     
@@ -59,11 +71,11 @@ public class UICheckoutSelectionView: UIView {
         
         super.init(coder: aDecoder)
         
-        self.prepare()
+        self.load()
         
     }
     
-    fileprivate final func prepare() {
+    private final func load() {
     
         wrapSubview(imageView) { constraints in
         
@@ -98,5 +110,17 @@ public class UICheckoutSelectionView: UIView {
     
     @objc
     public final func toggle(_ sender: Any) { isSelected.toggle() }
+    
+}
+
+// MARK: - ValueRenderable
+
+extension UICheckoutSelectionView: ValueRenderable {
+    
+    public final func render(with isSelected: Bool?) {
+        
+        if let isSelected = isSelected { _isSelected = isSelected }
+        
+    }
     
 }

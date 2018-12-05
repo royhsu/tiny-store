@@ -9,7 +9,7 @@
 
 public protocol CheckoutCartItem {
     
-    var isSelected: Content<Bool> { get }
+    var isSelected: Model<Bool> { get }
     
     var title: Model<String> { get }
     

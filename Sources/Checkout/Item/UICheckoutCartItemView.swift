@@ -7,27 +7,15 @@
 
 // MARK: - UICheckoutCartItemView
 
-public final class UICheckoutCartItemView: UIView {
+public final class UICheckoutCartItemView: UIView, UserInputable {
     
     @IBOutlet
     private final weak var selectionView: UICheckoutSelectionView! {
         
-        didSet {
-            
-            selectionView.tintColor = .black
-            
-            selectionView.isSelectedDidChange = { [weak self] isSelected in
-                
-                self?.contentStackView.alpha = isSelected ? 1.0 : 0.5
-                
-                self?.isSelectedDidChange?(isSelected)
-                
-            }
-            
-        }
+        didSet { selectionView.tintColor = .black }
         
     }
-    
+    CarouselViewLayout
     public final var isSelected: Bool {
         
         get { return selectionView.isSelected }
@@ -36,7 +24,24 @@ public final class UICheckoutCartItemView: UIView {
         
     }
     
-    public final var isSelectedDidChange: ( (Bool) -> Void )?
+    #warning("should find a better way to propagate input values from subviews.")
+    public final var didReceiveUserInput: ( (Bool) -> Void )? {
+        
+        get { return selectionView.didReceiveUserInput }
+        
+        set {
+            
+            selectionView.didReceiveUserInput = { [weak self] isSelected in
+                
+                self?.contentStackView.alpha = isSelected ? 1.0 : 0.5
+                
+                newValue?(isSelected)
+                
+            }
+            
+        }
+        
+    }
     
     @IBOutlet
     private final weak var contentStackView: UIStackView!
@@ -124,6 +129,23 @@ public final class UICheckoutCartItemView: UIView {
         backgroundColor = .clear
         
         quantityStepperContainerView.wrapSubview(quantityStepper)
+        
+        contentStackView.alpha = isSelected ? 1.0 : 0.5
+        
+    }
+    
+}
+
+// MARK: - ValueRenderable
+
+#warning("a temporary fix before solving the propagate issue above.")
+extension UICheckoutCartItemView: ValueRenderable {
+    
+    public final func render(with isSelected: Bool?) {
+        
+        if let isSelected = isSelected { contentStackView.alpha = isSelected ? 1.0 : 0.5 }
+         
+        selectionView.render(with: isSelected)
         
     }
     

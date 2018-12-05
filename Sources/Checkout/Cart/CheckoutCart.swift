@@ -92,7 +92,7 @@ public final class CheckoutCart: DSL {
                 guard let item = controller.item else { return }
                 
                 observations.append(
-                    item.isSelected.property.observe { [weak self] _ in
+                    item.isSelected.observe { [weak self] _ in
                         
                         guard let self = self else { return }
                         
@@ -147,7 +147,7 @@ fileprivate extension Array where Element == CheckoutCart.Element {
         
         return items.reduce(0.0) { result, item in
             
-            if item.isSelected.property.value == false { return result }
+            if item.isSelected.value == false { return result }
             
             let quantity = item.quantity.value ?? 0
             
