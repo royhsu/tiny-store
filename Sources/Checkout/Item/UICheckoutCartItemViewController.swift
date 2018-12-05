@@ -9,7 +9,7 @@
 
 public final class UICheckoutCartItemViewController: UIViewController, CheckoutCartItemController {
     
-    private final lazy var itemView: UICheckoutCartItemView = {
+    private final let itemView: UICheckoutCartItemView = {
         
         let itemView = UIView.loadView(
             UICheckoutCartItemView.self,
@@ -46,12 +46,31 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
     
     fileprivate final var isQuantityUpdating = false
     
+    private final let titleBinding: RenderableViewBinding<UILabel>
+    
     #warning("move into item view.")
     public final var priceFormatter: CurrencyFormatter = DefaultCurrencyFormatter()
     
     public init(_ item: CheckoutCartItem? = nil) {
         
         self.item = item
+        
+        if let item = item {
+            
+            self.titleBinding = RenderableViewBinding(
+                model: item.title,
+                view: itemView.titleLabel
+            )
+            
+        }
+        else {
+            
+            self.titleBinding = RenderableViewBinding(
+                model: Observable(),
+                view: itemView.titleLabel
+            )
+            
+        }
         
         super.init(
             nibName: nil,
@@ -60,7 +79,16 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
         
     }
     
-    public required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
+    public required init?(coder aDecoder: NSCoder) {
+        
+        self.titleBinding = RenderableViewBinding(
+            model: Observable(),
+            view: itemView.titleLabel
+        )
+        
+        super.init(coder: aDecoder)
+        
+    }
     
     public final override func loadView() { view = itemView }
     
@@ -81,8 +109,6 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
         guard let item = item else { return }
         
         itemView.isSelected = item.isSelected.property.value ?? true
-        
-        itemView.titleLabel.text = item.title.property.value
         
         itemView.descriptionLabel.text = item.description.property.value
         

@@ -13,7 +13,7 @@ public final class RenderableViewBinding<BindableView: View> where BindableView:
     
     private final var modelObservation: Observation?
     
-    public final var model: Model<BindableView.Value> {
+    public final var model: AnyObservable<BindableView.Value> {
         
         willSet {
             
@@ -29,33 +29,31 @@ public final class RenderableViewBinding<BindableView: View> where BindableView:
             
             observeModel()
             
-            view?.render(with: model.value)
+            view.render(with: model.value)
             
         }
         
     }
     
-    public final var view: BindableView? {
+    public final var view: BindableView {
         
         didSet {
             
-            guard
-                isLoaded,
-                let bindableView = view
-            else { return }
+            guard isLoaded else { return }
             
-            bindableView.render(with: model.value)
+            view.render(with: model.value)
             
         }
         
     }
     
-    public init(
-        model: Model<BindableView.Value>? = nil,
-        view: BindableView? = nil
-    ) {
+    public init<Model: ObservableProtocol>(
+        model: Model,
+        view: BindableView
+    )
+    where Model.Value == BindableView.Value {
         
-        self.model = model ?? Model()
+        self.model = AnyObservable(model)
         
         self.view = view
         
@@ -67,7 +65,7 @@ public final class RenderableViewBinding<BindableView: View> where BindableView:
         
         isLoaded.toggle()
         
-        view?.render(with: model.value)
+        view.render(with: model.value)
         
         observeModel()
         
@@ -79,7 +77,7 @@ public final class RenderableViewBinding<BindableView: View> where BindableView:
             
             DispatchQueue.main.async {
                 
-                self?.view?.render(with: change.currentValue)
+                self?.view.render(with: change.currentValue)
                 
             }
             

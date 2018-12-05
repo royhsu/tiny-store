@@ -89,15 +89,31 @@ extension AppDelegate: UIApplicationDelegate {
 //
 //        }
         
-        observation = binding.model.observe { change in
-         
-            print(change)
+//        observation = binding.model.observe { change in
+//
+//            print(change)
+//
+//        }
+//
+//        let viewController = UIViewController()
+//
+//        viewController.view.wrapSubview(binding.view!)
+
+        let item = CheckoutApparelItem(isSelected: false, title: "Hi", color: "white", size: "XL", price: 10.0, quantity: 1)
+        
+        let viewController = CheckoutCartViewController(
+            cart: [
+                .item(
+                    UICheckoutCartItemViewController(item)
+                )
+            ]
+        )
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            
+            item.title.value = "Cool"
             
         }
-        
-        let viewController = UIViewController()
-        
-        viewController.view.wrapSubview(binding.view!)
         
         viewController.view.backgroundColor = .white
         

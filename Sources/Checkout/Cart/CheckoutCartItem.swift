@@ -11,7 +11,7 @@ public protocol CheckoutCartItem {
     
     var isSelected: Content<Bool> { get }
     
-    var title: Content<String> { get }
+    var title: AnyObservable<String> { get }
     
     var description: Content<String> { get }
     
