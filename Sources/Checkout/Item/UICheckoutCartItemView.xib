@@ -96,15 +96,18 @@
                                         <constraint firstItem="tgj-dS-gyV" firstAttribute="leading" secondItem="mmd-Q4-KMj" secondAttribute="leading" id="qaL-47-rkt"/>
                                     </constraints>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 99,999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S3-9b-ErI">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQb-HB-pRX" customClass="UICheckoutPriceView" customModule="TinyStore" customModuleProvider="target">
                                     <rect key="frame" x="260" y="0.0" width="71" height="20.5"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="71" id="pf8-Ri-r67"/>
+                                        <constraint firstAttribute="width" constant="71" id="rsR-dM-RTr"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="price">
+                                            <real key="value" value="99999"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
                             </subviews>
                         </stackView>
                     </subviews>
@@ -123,7 +126,7 @@
                 <outlet property="contentStackView" destination="ogj-R5-g6u" id="g0G-XY-lfJ"/>
                 <outlet property="descriptionLabel" destination="aEy-8k-TwD" id="HTI-fD-I22"/>
                 <outlet property="previewImageView" destination="Civ-mJ-foD" id="S1B-xd-JNF"/>
-                <outlet property="priceLabel" destination="4S3-9b-ErI" id="Ooc-fa-ly4"/>
+                <outlet property="priceView" destination="XQb-HB-pRX" id="3HC-hT-RE0"/>
                 <outlet property="quantityStepperContainerView" destination="bNw-Q8-hiQ" id="qZl-LQ-zy3"/>
                 <outlet property="selectionView" destination="B7B-gE-pFO" id="kMT-i0-YmX"/>
                 <outlet property="titleLabel" destination="Uqb-5D-bWB" id="1oS-ug-amq"/>

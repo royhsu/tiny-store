@@ -21,7 +21,7 @@ public final class CheckoutApparelItem: CheckoutCartItem {
     
     public final let size: Model<String>
     
-    public final let price: Content<Double>
+    public final let price: Model<Double>
     
     public final let quantity: Model<Int>
     
@@ -44,7 +44,7 @@ public final class CheckoutApparelItem: CheckoutCartItem {
         
         self.size = Model(value: size)
         
-        self.price = Content(value: price)
+        self.price = Model(value: price)
         
         self.quantity = Model(value: quantity)
         

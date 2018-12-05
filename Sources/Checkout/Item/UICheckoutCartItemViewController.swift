@@ -48,10 +48,9 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
     
     private final let descriptionBinding: RenderableViewBinding<UILabel>
     
-    private final let quantityBinding: InputableViewBinding<UICheckoutStepper>
+    private final let priceBinding: RenderableViewBinding<UICheckoutPriceView>
     
-    #warning("move into item view.")
-    public final var priceFormatter: CurrencyFormatter = DefaultCurrencyFormatter()
+    private final let quantityBinding: InputableViewBinding<UICheckoutStepper>
     
     public init(_ item: CheckoutCartItem? = nil) {
         
@@ -65,6 +64,11 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
         self.descriptionBinding = RenderableViewBinding(
             model: item?.description ?? Model(),
             view: itemView.descriptionLabel
+        )
+        
+        self.priceBinding = RenderableViewBinding(
+            model: item?.price ?? Model(),
+            view: itemView.priceView
         )
         
         self.quantityBinding = InputableViewBinding(
@@ -89,6 +93,11 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
         self.descriptionBinding = RenderableViewBinding(
             model: Model(),
             view: itemView.descriptionLabel
+        )
+        
+        self.priceBinding = RenderableViewBinding(
+            model: Model(),
+            view: itemView.priceView
         )
         
         self.quantityBinding = InputableViewBinding(
@@ -119,10 +128,6 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
         guard let item = item else { return }
         
         itemView.isSelected = item.isSelected.property.value ?? true
-        
-        let price = item.price.property.value ?? 0.0
-        
-        itemView.priceLabel.text = priceFormatter.string(from: price)
         
     }
     

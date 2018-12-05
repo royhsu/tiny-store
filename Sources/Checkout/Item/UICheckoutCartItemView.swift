@@ -95,23 +95,7 @@ public final class UICheckoutCartItemView: UIView {
     }
     
     @IBOutlet
-    public private(set) final weak var priceLabel: UILabel! {
-        
-        didSet {
-            
-            priceLabel.adjustsFontForContentSizeCategory = true
-            
-            priceLabel.font = .preferredFont(forTextStyle: .body)
-            
-            priceLabel.adjustsFontSizeToFitWidth = true
-            
-            priceLabel.text = nil
-            
-            priceLabel.textAlignment = .right
-            
-        }
-        
-    }
+    public private(set) final weak var priceView: UICheckoutPriceView!
     
     @IBOutlet
     private final weak var quantityStepperContainerView: UIView! {

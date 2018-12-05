@@ -102,7 +102,7 @@ public final class CheckoutCart: DSL {
                 )
                 
                 observations.append(
-                    item.price.property.observe { [weak self] _ in
+                    item.price.observe { [weak self] _ in
                         
                         guard let self = self else { return }
                         
@@ -151,7 +151,7 @@ fileprivate extension Array where Element == CheckoutCart.Element {
             
             let quantity = item.quantity.value ?? 0
             
-            let price = item.price.property.value ?? 0.0
+            let price = item.price.value ?? 0.0
             
             let amount = price * Double(quantity)
             
