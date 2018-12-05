@@ -23,7 +23,7 @@ public struct CheckoutApparelItem: CheckoutCartItem {
     
     public let price: Content<Double>
     
-    public let quantity: Content<Int>
+    public let quantity: Model<Int>
     
     public init(
         isSelected: Bool,
@@ -46,7 +46,7 @@ public struct CheckoutApparelItem: CheckoutCartItem {
         
         self.price = Content(value: price)
         
-        self.quantity = Content(value: quantity)
+        self.quantity = Model(value: quantity)
         
     }
     

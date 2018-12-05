@@ -75,7 +75,6 @@
 		B0A069FE2189947400BA4CA5 /* UICheckoutStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */; };
 		B0A06A002189948200BA4CA5 /* UICheckoutStepper.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A069FF2189948200BA4CA5 /* UICheckoutStepper.xib */; };
 		B0A06A022189A01500BA4CA5 /* UINibWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */; };
-		B0A06A042189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A06A032189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift */; };
 		B0CE4AC221B6C2900082039F /* ValueRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE4AC121B6C2900082039F /* ValueRenderable.swift */; };
 		B0CE4AC421B757DE0082039F /* InputableViewBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE4AC321B757DE0082039F /* InputableViewBinding.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -178,7 +177,6 @@
 		B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutStepper.swift; sourceTree = "<group>"; };
 		B0A069FF2189948200BA4CA5 /* UICheckoutStepper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICheckoutStepper.xib; sourceTree = "<group>"; };
 		B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINibWrapperView.swift; sourceTree = "<group>"; };
-		B0A06A032189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutStepperWrapperView.swift; sourceTree = "<group>"; };
 		B0CE4AC121B6C2900082039F /* ValueRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueRenderable.swift; sourceTree = "<group>"; };
 		B0CE4AC321B757DE0082039F /* InputableViewBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputableViewBinding.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,8 +239,6 @@
 				B085D8DB219EA13A009F1585 /* UIShippingDestinationView.swift */,
 				B085D8DD219EA15B009F1585 /* UIShippingDestinationView.xib */,
 				B043A29821AD4DDE00CF296A /* UIAddressCityButton.swift */,
-				B043A2A021AFCAA000CF296A /* UITextFieldContainerView.swift */,
-				B0697F0E21B77EB800D05D6E /* UILabel+ValueRenderable.swift */,
 				B043A05521ABE7E200CF296A /* UIAddressCityPickerViewController.swift */,
 			);
 			path = Destination;
@@ -314,6 +310,8 @@
 				B0CE4AC321B757DE0082039F /* InputableViewBinding.swift */,
 				B0CE4AC121B6C2900082039F /* ValueRenderable.swift */,
 				B043A29C21AE8EA000CF296A /* UserInputable.swift */,
+				B043A2A021AFCAA000CF296A /* UITextFieldContainerView.swift */,
+				B0697F0E21B77EB800D05D6E /* UILabel+ValueRenderable.swift */,
 			);
 			path = Checkout;
 			sourceTree = "<group>";
@@ -325,7 +323,6 @@
 				B02B024F218BD5F100772118 /* UICheckoutSelectionView.swift */,
 				B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */,
 				B0A069FF2189948200BA4CA5 /* UICheckoutStepper.xib */,
-				B0A06A032189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift */,
 				B02B0244218AF85900772118 /* UICheckoutCartItemViewController.swift */,
 				B0A069F921897FED00BA4CA5 /* UICheckoutCartItemView.swift */,
 				B0A069FB2189803E00BA4CA5 /* UICheckoutCartItemView.xib */,
@@ -525,7 +522,6 @@
 				B0CE4AC221B6C2900082039F /* ValueRenderable.swift in Sources */,
 				B043A29D21AE8EA000CF296A /* UserInputable.swift in Sources */,
 				B04C92A921A686F20009B607 /* DashboardActionController.swift in Sources */,
-				B0A06A042189A18200BA4CA5 /* UICheckoutStepperWrapperView.swift in Sources */,
 				B0697F0D21B769C200D05D6E /* RenderableViewBinding.swift in Sources */,
 				B0CE4AC421B757DE0082039F /* InputableViewBinding.swift in Sources */,
 				B085D8E0219EAB51009F1585 /* UIShippingDestinationViewController.swift in Sources */,

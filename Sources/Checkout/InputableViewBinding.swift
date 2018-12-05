@@ -30,30 +30,27 @@ where BindableView: UserInputable & ValueRenderable {
             
             observeModel()
             
-            view?.render(with: model.value)
+            view.render(with: model.value)
             
         }
         
     }
     
-    public final var view: BindableView? {
+    public final var view: BindableView {
         
         willSet {
             
             guard isLoaded else { return }
             
-            view?.didReceiveUserInput = nil
+            view.didReceiveUserInput = nil
             
         }
         
         didSet {
             
-            guard
-                isLoaded,
-                let bindableView = view
-            else { return }
+            guard isLoaded else { return }
             
-            bindableView.render(with: model.value)
+            view.render(with: model.value)
             
             handleUserInput()
             
@@ -62,11 +59,11 @@ where BindableView: UserInputable & ValueRenderable {
     }
 
     public init(
-        model: Model<BindableView.Value>? = nil,
-        view: BindableView? = nil
+        model: Model<BindableView.Value>,
+        view: BindableView
     ) {
         
-        self.model = model ?? Model()
+        self.model = model
         
         self.view = view
         
@@ -78,7 +75,7 @@ where BindableView: UserInputable & ValueRenderable {
         
         isLoaded.toggle()
         
-        view?.render(with: model.value)
+        view.render(with: model.value)
         
         observeModel()
         
@@ -92,7 +89,7 @@ where BindableView: UserInputable & ValueRenderable {
             
             DispatchQueue.main.async {
                 
-                self?.view?.render(with: change.currentValue)
+                self?.view.render(with: change.currentValue)
                 
             }
         
@@ -102,7 +99,7 @@ where BindableView: UserInputable & ValueRenderable {
     
     private final func handleUserInput() {
         
-        view?.didReceiveUserInput = { [weak self] value in
+        view.didReceiveUserInput = { [weak self] value in
             
             self?.model.value = value
             

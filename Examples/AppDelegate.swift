@@ -22,6 +22,7 @@ public final class AppDelegate: UIResponder {
         textField.placeholder = "Postal Code"
         
         return InputableViewBinding(
+            model: Model(),
             view: UITextFieldContainerView(textField)
         )
         
@@ -108,6 +109,12 @@ extension AppDelegate: UIApplicationDelegate {
                 )
             ]
         )
+        
+        observation = item.quantity.observe { change in
+         
+            print(change)
+            
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             

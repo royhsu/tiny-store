@@ -44,9 +44,9 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
     
     fileprivate final var isSelectedUpdating = false
     
-    fileprivate final var isQuantityUpdating = false
-    
     private final let titleBinding: RenderableViewBinding<UILabel>
+    
+    private final let quantityBinding: InputableViewBinding<UICheckoutStepper>
     
     #warning("move into item view.")
     public final var priceFormatter: CurrencyFormatter = DefaultCurrencyFormatter()
@@ -58,6 +58,11 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
         self.titleBinding = RenderableViewBinding(
             model: item?.title ?? Model(),
             view: itemView.titleLabel
+        )
+        
+        self.quantityBinding = InputableViewBinding(
+            model: item?.quantity ?? Model(),
+            view: itemView.quantityStepper
         )
         
         super.init(
@@ -72,6 +77,11 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
         self.titleBinding = RenderableViewBinding(
             model: Model(),
             view: itemView.titleLabel
+        )
+        
+        self.quantityBinding = InputableViewBinding(
+            model: Model(),
+            view: itemView.quantityStepper
         )
         
         super.init(coder: aDecoder)
@@ -104,8 +114,6 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
         
         itemView.priceLabel.text = priceFormatter.string(from: price)
         
-        itemView.quantityStepper.value = item.quantity.property.value ?? 1
-        
     }
     
     fileprivate final func observeModelChanges() {
@@ -127,21 +135,6 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
                     
                 }
                 
-            },
-            item.quantity.property.observe { [weak self] change in
-                
-                guard let self = self else { return }
-                
-                self.isQuantityUpdating = true
-                
-                DispatchQueue.main.async {
-                    
-                    self.itemView.quantityStepper.value = change.currentValue ?? self.itemView.quantityStepper.minimumValue
-                    
-                    self.isQuantityUpdating = false
-                    
-                }
-                
             }
         ]
         
@@ -159,19 +152,6 @@ public final class UICheckoutCartItemViewController: UIViewController, CheckoutC
             if self.isSelectedUpdating { return }
             
             item.isSelected.property.value = isSelected
-            
-        }
-        
-        itemView.quantityStepper.valueDidChange = { [weak self] quantity in
-            
-            guard
-                let self = self,
-                let item = self.item
-            else { return }
-        
-            if self.isQuantityUpdating { return }
-            
-            item.quantity.property.value = quantity
             
         }
         

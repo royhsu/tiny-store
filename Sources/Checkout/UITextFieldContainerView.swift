@@ -39,7 +39,7 @@ public final class UITextFieldContainerView: UIView, UserInputable, ValueRendera
         
     }
     
-    public final var didReceiveUserInput: ( (String?) -> Void )?
+    public final var didReceiveUserInput: ( (String) -> Void )?
     
     public final func render(with text: String?) { textField?.text = text }
     
@@ -86,6 +86,12 @@ public final class UITextFieldContainerView: UIView, UserInputable, ValueRendera
     }
     
     @objc
-    public final func textDidChange(_ textField: UITextField) { didReceiveUserInput?(textField.text) }
+    public final func textDidChange(_ textField: UITextField) {
+        
+        guard let text = textField.text else { return }
+        
+        didReceiveUserInput?(text)
+        
+    }
     
 }

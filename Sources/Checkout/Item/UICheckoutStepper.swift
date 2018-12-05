@@ -7,7 +7,7 @@
 
 // MARK: - UICheckoutStepper
 
-public final class UICheckoutStepper: UIView {
+public final class UICheckoutStepper: UIView, ValueRenderable, UserInputable {
     
     #warning("image size is not set properly.")
     @IBOutlet
@@ -100,11 +100,11 @@ public final class UICheckoutStepper: UIView {
         
         didSet {
             
-            if _value == oldValue { return }
-            
             valueTextField.text = "\(_value)"
             
-            valueDidChange?(_value)
+            decreaseButton.isEnabled = (_value != minimumValue)
+            
+            increaseButton.isEnabled = (_value != maximumValue)
             
         }
         
@@ -116,21 +116,19 @@ public final class UICheckoutStepper: UIView {
         
         set {
             
-            if (minimumValue...maximumValue).contains(newValue) {
+            guard
+                (minimumValue...maximumValue).contains(newValue)
+            else { fatalError("Please make sure the value is between \(minimumValue) and \(maximumValue)") }
             
-                _value = newValue
-                
-            }
+            _value = newValue
             
-            decreaseButton.isEnabled = (newValue != minimumValue)
-            
-            increaseButton.isEnabled = (newValue != maximumValue)
+            didReceiveUserInput?(_value)
             
         }
         
     }
     
-    public final var valueDidChange: ( (Int) -> Void )?
+    public final var didReceiveUserInput: ( (Int) -> Void )?
     
     public final override var tintColor: UIColor! {
         
@@ -163,5 +161,11 @@ public final class UICheckoutStepper: UIView {
     
     @objc
     public final func increase(sender: Any) { value += 1 }
+    
+    public final func render(with value: Int?) {
+        
+        if let value = value { _value = value }
+        
+    }
     
 }

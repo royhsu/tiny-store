@@ -11,6 +11,6 @@ public protocol UserInputable: AnyObject {
     
     associatedtype Value
     
-    var didReceiveUserInput: ( (Value?) -> Void )? { get set }
+    var didReceiveUserInput: ( (Value) -> Void )? { get set }
     
 }

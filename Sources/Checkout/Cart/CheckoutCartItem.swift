@@ -17,6 +17,6 @@ public protocol CheckoutCartItem {
     
     var price: Content<Double> { get }
     
-    var quantity: Content<Int> { get }
+    var quantity: Model<Int> { get }
     
 }
