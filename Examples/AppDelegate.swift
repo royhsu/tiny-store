@@ -13,7 +13,19 @@ import TinyStore
 @UIApplicationMain
 public final class AppDelegate: UIResponder {
     
-    fileprivate final var observation: Observation?
+    private final var observation: Observation?
+    
+    private final let binding: InputableViewBinding<UITextFieldContainerView> = {
+        
+        let textField = UITextField()
+        
+        textField.placeholder = "Postal Code"
+        
+        return InputableViewBinding(
+            bindableView: UITextFieldContainerView(textField)
+        )
+        
+    }()
 
     public final let window = UIWindow(frame: UIScreen.main.bounds)
 
@@ -77,15 +89,7 @@ extension AppDelegate: UIApplicationDelegate {
 //
 //        }
         
-        let textField = UITextField()
-        
-        textField.placeholder = "Postal Code"
-        
-        let modelView = InputableView(
-            bindableView: UITextFieldContainerView(textField)
-        )
-        
-        observation = modelView.model.observe { change in
+        observation = binding.model.observe { change in
          
             print(change)
             
@@ -93,7 +97,7 @@ extension AppDelegate: UIApplicationDelegate {
         
         let viewController = UIViewController()
         
-        viewController.view.wrapSubview(modelView)
+        viewController.view.wrapSubview(binding.view!)
         
         viewController.view.backgroundColor = .white
         

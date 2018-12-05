@@ -1,14 +1,13 @@
 //
-//  InputableView.swift
+//  RenderableViewBinding.swift
 //  TinyStore
 //
-//  Created by Roy Hsu on 2018/11/16.
+//  Created by Roy Hsu on 2018/12/5.
 //
 
-// MARK: - InputableView
+// MARK: - RenderableViewBinding
 
-public final class InputableView<BindableView: View>: View
-where BindableView: UserInputable & ValueRenderable {
+public final class RenderableViewBinding<BindableView: View> where BindableView: ValueRenderable {
     
     private final var isLoaded = false
     
@@ -30,37 +29,27 @@ where BindableView: UserInputable & ValueRenderable {
             
             observeModel()
             
-            bindableView?.render(with: model.value)
+            view?.render(with: model.value)
             
         }
         
     }
     
-    public final var bindableView: BindableView? {
-        
-        willSet {
-            
-            guard isLoaded else { return }
-            
-            bindableView?.didReceiveUserInput = nil
-            
-        }
+    public final var view: BindableView? {
         
         didSet {
             
             guard
                 isLoaded,
-                let bindableView = bindableView
+                let bindableView = view
             else { return }
             
             bindableView.render(with: model.value)
             
-            handleUserInput()
-            
         }
         
     }
-
+    
     public init(
         model: Model<BindableView.Value>? = nil,
         bindableView: BindableView? = nil
@@ -68,19 +57,7 @@ where BindableView: UserInputable & ValueRenderable {
         
         self.model = model ?? Model()
         
-        self.bindableView = bindableView
-        
-        super.init(frame: .zero)
-        
-        self.load()
-        
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        
-        self.model = Model()
-        
-        super.init(coder: aDecoder)
+        self.view = bindableView
         
         self.load()
         
@@ -90,13 +67,9 @@ where BindableView: UserInputable & ValueRenderable {
         
         isLoaded.toggle()
         
-        if let bindableView = bindableView { wrapSubview(bindableView) }
-        
-        bindableView?.render(with: model.value)
+        view?.render(with: model.value)
         
         observeModel()
-        
-        handleUserInput()
         
     }
     
@@ -106,19 +79,9 @@ where BindableView: UserInputable & ValueRenderable {
             
             DispatchQueue.main.async {
                 
-                self?.bindableView?.render(with: change.currentValue)
+                self?.view?.render(with: change.currentValue)
                 
             }
-        
-        }
-        
-    }
-    
-    private final func handleUserInput() {
-        
-        bindableView?.didReceiveUserInput = { [weak self] value in
-            
-            self?.model.value = value
             
         }
         
