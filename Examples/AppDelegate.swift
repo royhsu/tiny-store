@@ -81,7 +81,7 @@ extension AppDelegate: UIApplicationDelegate {
         
         textField.placeholder = "Postal Code"
         
-        let modelView = ModelView(
+        let modelView = InteractableView(
             bindableView: UITextFieldContainerView(textField)
         )
         

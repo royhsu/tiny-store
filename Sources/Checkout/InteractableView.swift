@@ -1,18 +1,18 @@
 //
-//  ModelView.swift
+//  InteractableView.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/16.
 //
 
-// MARK: - ModelView
+// MARK: - InteractableView
 
-public final class ModelView<BindableView: View>: View
+public final class InteractableView<BindableView: View>: View
 where BindableView: UserInputable & ValueRenderable {
     
-    fileprivate final var isLoaded = false
+    private final var isLoaded = false
     
-    fileprivate final var modelObservation: Observation?
+    private final var modelObservation: Observation?
     
     public final var model: Model<BindableView.Value> {
         
@@ -100,7 +100,7 @@ where BindableView: UserInputable & ValueRenderable {
         
     }
     
-    fileprivate final func observeModel() {
+    private final func observeModel() {
         
         modelObservation = model.observe { [weak self] change in
             
@@ -114,7 +114,7 @@ where BindableView: UserInputable & ValueRenderable {
         
     }
     
-    fileprivate final func handleUserInput() {
+    private final func handleUserInput() {
         
         bindableView?.didReceiveUserInput = { [weak self] value in
             
