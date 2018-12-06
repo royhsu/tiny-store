@@ -41,8 +41,6 @@ public final class UITextFieldContainerView: UIView, UserInputable, ValueRendera
     
     public final var didReceiveUserInput: ( (String) -> Void )?
     
-    public final func render(with text: String?) { textField?.text = text }
-    
     public init(_ textField: UITextField? = nil) {
         
         self.textField = textField
@@ -93,5 +91,7 @@ public final class UITextFieldContainerView: UIView, UserInputable, ValueRendera
         didReceiveUserInput?(text)
         
     }
+    
+    public final func render(with text: String?) { textField?.text = text }
     
 }

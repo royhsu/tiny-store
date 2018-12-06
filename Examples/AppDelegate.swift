@@ -42,8 +42,6 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
         
-//        let viewController = UICheckoutController()
-        
         enum Taiwan: City {
             
             case taipei
@@ -68,69 +66,13 @@ extension AppDelegate: UIApplicationDelegate {
             
         }
         
-//        let viewController = ModelView<City, UIAddressCityButton>(
-//            model: Model(value: Taiwan.taipei),
-//            bindedView: UIAddressCityButton()
-//        )
-//
-//        viewController.bindedView?.touchUpInsideHandler = {
-//
-//            viewController.bindedView?.input.value = Taiwan.tainan
-//
-//        }
-        
-//        let viewController = ModelView<String, UIAddressPostalCodeTextField>(
-//            model: Model(),
-//            bindedView: UIAddressPostalCodeTextField()
-//        )
-        
-//        observation = viewController.model?.storage.observe { change in
-//
-//            print(change.currentValue)
-//
-//        }
-        
-//        observation = binding.model.observe { change in
-//
-//            print(change)
-//
-//        }
-//
-//        let viewController = UIViewController()
-//
-//        viewController.view.wrapSubview(binding.view!)
-
-//        let item = CheckoutApparelItem(isSelected: true, title: "Hi", color: "white", size: "XL", price: 10.0, quantity: 1)
-//
-//        let viewController = CheckoutCartViewController(
-//            cart: [
-//                .item(
-//                    UICheckoutCartItemViewController(item)
-//                )
-//            ]
-//        )
-//
-//        observation = item.quantity.observe { change in
-//
-//            print(change)
-//
-//        }
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-//
-//            item.title.value = "Cool"
-//
-//            item.size.value = "S"
-//
-//        }
-        
         enum TaiwanPostalCode: String, PostalCode {
             
             case daAnDistrict = "104"
             
         }
 
-        let viewController = ShippingDestinationViewController(
+        let viewController = ShippingDestinationEditorController(
             destination: [
                 .postalCode(
                     InputableViewBinding(
