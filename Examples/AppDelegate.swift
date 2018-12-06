@@ -12,24 +12,39 @@ import TinyStore
 
 @UIApplicationMain
 public final class AppDelegate: UIResponder {
-    
-    private final var observation: Observation?
-    
-    private final let binding: InputableViewBinding<UITextFieldContainerView> = {
-        
-        let textField = UITextField()
-        
-        textField.placeholder = "Postal Code"
-        
-        return InputableViewBinding(
-            model: Model(),
-            view: UITextFieldContainerView(textField)
-        )
-        
-    }()
 
     public final let window = UIWindow(frame: UIScreen.main.bounds)
 
+}
+
+public enum TaiwanCity: City {
+    
+    case taipei
+    
+    case tainan
+    
+    case yunlin
+    
+    public var name: String {
+        
+        switch self {
+            
+        case .taipei: return "Taipei"
+            
+        case .tainan: return "Tainan"
+            
+        case .yunlin: return "Yunlin"
+            
+        }
+        
+    }
+    
+}
+
+public enum TaiwanPostalCode: String, PostalCode {
+    
+    case daAnDistrict = "104"
+    
 }
 
 // MARK: - UIApplicationDelegate
@@ -42,36 +57,6 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
         
-        enum Taiwan: City {
-            
-            case taipei
-            
-            case tainan
-            
-            case yunlin
-            
-            var name: String {
-                
-                switch self {
-                    
-                case .taipei: return "Taipei"
-                    
-                case .tainan: return "Tainan"
-                    
-                case .yunlin: return "Yunlin"
-
-                }
-                
-            }
-            
-        }
-        
-        enum TaiwanPostalCode: String, PostalCode {
-            
-            case daAnDistrict = "104"
-            
-        }
-
         let viewController = ShippingDestinationEditorController(
             destination: [
                 .postalCode(
