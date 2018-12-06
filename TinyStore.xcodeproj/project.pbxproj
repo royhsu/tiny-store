@@ -34,7 +34,7 @@
 		B043A29921AD4DDE00CF296A /* UIAddressCityButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29821AD4DDE00CF296A /* UIAddressCityButton.swift */; };
 		B043A29B21AE826900CF296A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29A21AE826800CF296A /* Model.swift */; };
 		B043A29D21AE8EA000CF296A /* UserInputable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29C21AE8EA000CF296A /* UserInputable.swift */; };
-		B043A29F21AFC77A00CF296A /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29E21AFC77A00CF296A /* City.swift */; };
+		B043A29F21AFC77A00CF296A /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29E21AFC77A00CF296A /* State.swift */; };
 		B043A2A121AFCAA000CF296A /* UITextFieldContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A2A021AFCAA000CF296A /* UITextFieldContainerView.swift */; };
 		B04C929D21A41F340009B607 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929C21A41F340009B607 /* DSL.swift */; };
 		B04C929F21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */; };
@@ -141,7 +141,7 @@
 		B043A29821AD4DDE00CF296A /* UIAddressCityButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAddressCityButton.swift; sourceTree = "<group>"; };
 		B043A29A21AE826800CF296A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		B043A29C21AE8EA000CF296A /* UserInputable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputable.swift; sourceTree = "<group>"; };
-		B043A29E21AFC77A00CF296A /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		B043A29E21AFC77A00CF296A /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		B043A2A021AFCAA000CF296A /* UITextFieldContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldContainerView.swift; sourceTree = "<group>"; };
 		B04C929C21A41F340009B607 /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 		B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDashboardSubTextFieldController.swift; sourceTree = "<group>"; };
@@ -324,7 +324,7 @@
 				B020D4F621953B0200EC93E3 /* Content+Codable.swift */,
 				B085D8CF219D59E8009F1585 /* ViewCollection.swift */,
 				B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */,
-				B043A29E21AFC77A00CF296A /* City.swift */,
+				B043A29E21AFC77A00CF296A /* State.swift */,
 				B04C929C21A41F340009B607 /* DSL.swift */,
 				B043A29A21AE826800CF296A /* Model.swift */,
 				B0697F0C21B769C200D05D6E /* RenderableViewBinding.swift */,
@@ -555,7 +555,7 @@
 				B0772EDB2193E0F20082C055 /* CheckoutApparelItem.swift in Sources */,
 				B085D8E2219EB9AA009F1585 /* ShippingViewController.swift in Sources */,
 				B085D8D6219D5AE9009F1585 /* CurrencyFormatter.swift in Sources */,
-				B043A29F21AFC77A00CF296A /* City.swift in Sources */,
+				B043A29F21AFC77A00CF296A /* State.swift in Sources */,
 				B0772ED2218C4A310082C055 /* UICheckoutView.swift in Sources */,
 				B0A06A022189A01500BA4CA5 /* UINibWrapperView.swift in Sources */,
 				B085D8D0219D59E8009F1585 /* ViewCollection.swift in Sources */,

@@ -17,36 +17,6 @@ public final class AppDelegate: UIResponder {
 
 }
 
-public enum TaiwanCity: City {
-    
-    case taipei
-    
-    case tainan
-    
-    case yunlin
-    
-    public var name: String {
-        
-        switch self {
-            
-        case .taipei: return "Taipei"
-            
-        case .tainan: return "Tainan"
-            
-        case .yunlin: return "Yunlin"
-            
-        }
-        
-    }
-    
-}
-
-public enum TaiwanPostalCode: String, PostalCode {
-    
-    case daAnDistrict = "104"
-    
-}
-
 // MARK: - UIApplicationDelegate
 
 extension AppDelegate: UIApplicationDelegate {
@@ -66,7 +36,7 @@ extension AppDelegate: UIApplicationDelegate {
             
             print("Showing picker...")
             
-        }   
+        }
         
         let postalCodeBinding = InputableViewBinding(
             model: Model(value: TaiwanPostalCode.daAnDistrict),

@@ -1,13 +1,13 @@
 //
-//  PostalCode.swift
+//  State.swift
 //  TinyStore
 //
-//  Created by Roy Hsu on 2018/12/5.
+//  Created by Roy Hsu on 2018/11/29.
 //
 
-// MARK: - PostalCode
+// MARK: - State
 
-public protocol PostalCode {
+public protocol State {
     
     var rawValue: String { get }
     

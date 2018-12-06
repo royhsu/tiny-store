@@ -7,7 +7,7 @@
 
 // MARK: - TaiwanCity
 
-public enum TaiwanCity: City {
+public enum TaiwanCity: String, State {
     
     case taipei
     
@@ -19,11 +19,26 @@ public enum TaiwanCity: City {
         
         switch self {
             
-        case .taipei: return "Taipei"
+        case .taipei:
             
-        case .tainan: return "Tainan"
+            return NSLocalizedString(
+                "Taipei",
+                comment: ""
+            )
             
-        case .yunlin: return "Yunlin"
+        case .tainan:
+            
+            return NSLocalizedString(
+                "Tainan",
+                comment: ""
+            )
+            
+        case .yunlin:
+            
+            return NSLocalizedString(
+                "Yunlin",
+                comment: ""
+            )
             
         }
         

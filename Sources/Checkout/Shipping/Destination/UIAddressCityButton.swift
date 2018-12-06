@@ -9,7 +9,7 @@
 
 public final class UIAddressCityButton: UIView, ValueRenderable {
     
-    public final var city: City? {
+    public final var city: State? {
         
         didSet {
             
@@ -73,6 +73,6 @@ public final class UIAddressCityButton: UIView, ValueRenderable {
     @objc
     public final func touchUpInside(_ sender: Any) { cityPickerPresenter?(self) }
     
-    public final func render(with city: City?) { self.city = city }
+    public final func render(with city: State?) { self.city = city }
     
 }
