@@ -7,7 +7,20 @@
 
 // MARK: - UIAddressCityButton
 
-public final class UIAddressCityButton: UIView {
+public final class UIAddressCityButton: UIView, ValueRenderable {
+    
+    public final var city: City? {
+        
+        didSet {
+            
+            button.setTitle(
+                city?.name,
+                for: .normal
+            )
+            
+        }
+        
+    }
     
     private final lazy var button: UIButton = {
         
@@ -22,17 +35,13 @@ public final class UIAddressCityButton: UIView {
         
     }()
     
-    public final let input = Observable<City>()
-    
-    fileprivate final var inputObservation: Observation?
-    
-    public final var touchUpInsideHandler: ( () -> Void )?
+    public final var cityPickerPresenter: ( (UIAddressCityButton) -> Void )?
     
     public override init(frame: CGRect) {
         
         super.init(frame: frame)
         
-        self.prepare()
+        self.load()
         
     }
     
@@ -40,42 +49,18 @@ public final class UIAddressCityButton: UIView {
         
         super.init(coder: aDecoder)
         
-        self.prepare()
+        self.load()
         
     }
     
-    fileprivate final func prepare() {
+    private final func load() {
         
         wrapSubview(button)
         
-        observeInputChanges()
-        
-        renderView()
-        
-        handleViewActions()
-        
-    }
-    
-    fileprivate final func observeInputChanges() {
-        
-        inputObservation = input.observe { [weak self] _ in
-            
-            DispatchQueue.main.async { self?.renderView() }
-            
-        }
-        
-    }
-    
-    fileprivate final func renderView() {
-        
         button.setTitle(
-            input.value?.name,
+            city?.name,
             for: .normal
         )
-        
-    }
-
-    fileprivate final func handleViewActions() {
         
         button.addTarget(
             self,
@@ -86,6 +71,8 @@ public final class UIAddressCityButton: UIView {
     }
     
     @objc
-    public final func touchUpInside(_ sender: Any) { touchUpInsideHandler?() }
+    public final func touchUpInside(_ sender: Any) { cityPickerPresenter?(self) }
+    
+    public final func render(with city: City?) { self.city = city }
     
 }

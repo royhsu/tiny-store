@@ -44,6 +44,8 @@ public final class UIPostalCodeView<P: PostalCode>: UIView, UserInputable, Value
             comment: ""
         )
         
+        textField.textAlignment = .center
+        
         textField.keyboardType = .numberPad
         
         return UITextFieldContainerView(textField)

@@ -13,11 +13,15 @@ public final class ShippingDestinationEditorController: ViewController {
         
         public enum Element: ViewCollection {
             
+            case city(ViewCollection)
+            
             case postalCode(ViewCollection)
             
             public var numberOfViews: Int {
                 
                 switch self {
+                
+                case let .city(collection): return collection.numberOfViews
                     
                 case let .postalCode(collection): return collection.numberOfViews
                     
@@ -28,6 +32,8 @@ public final class ShippingDestinationEditorController: ViewController {
             public func view(at index: Int) -> View {
                 
                 switch self {
+                    
+                case let .city(collection): return collection.view(at: index)
                     
                 case let .postalCode(collection): return collection.view(at: index)
                     
