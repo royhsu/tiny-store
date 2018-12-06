@@ -100,29 +100,46 @@ extension AppDelegate: UIApplicationDelegate {
 //
 //        viewController.view.wrapSubview(binding.view!)
 
-        let item = CheckoutApparelItem(isSelected: true, title: "Hi", color: "white", size: "XL", price: 10.0, quantity: 1)
+//        let item = CheckoutApparelItem(isSelected: true, title: "Hi", color: "white", size: "XL", price: 10.0, quantity: 1)
+//
+//        let viewController = CheckoutCartViewController(
+//            cart: [
+//                .item(
+//                    UICheckoutCartItemViewController(item)
+//                )
+//            ]
+//        )
+//
+//        observation = item.quantity.observe { change in
+//
+//            print(change)
+//
+//        }
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+//
+//            item.title.value = "Cool"
+//
+//            item.size.value = "S"
+//
+//        }
         
-        let viewController = CheckoutCartViewController(
-            cart: [
-                .item(
-                    UICheckoutCartItemViewController(item)
+        enum TaiwanPostalCode: String, PostalCode {
+            
+            case daAnDistrict = "104"
+            
+        }
+
+        let viewController = ShippingDestinationViewController(
+            destination: [
+                .postalCode(
+                    InputableViewBinding(
+                        model: Model(value: TaiwanPostalCode.daAnDistrict),
+                        view: UIPostalCodeView<TaiwanPostalCode>()
+                    )
                 )
             ]
         )
-        
-        observation = item.quantity.observe { change in
-         
-            print(change)
-            
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            
-            item.title.value = "Cool"
-            
-            item.size.value = "S"
-            
-        }
         
         viewController.view.backgroundColor = .white
         

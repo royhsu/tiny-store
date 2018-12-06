@@ -15,7 +15,7 @@ public final class UICheckoutCartItemView: UIView, UserInputable {
         didSet { selectionView.tintColor = .black }
         
     }
-    CarouselViewLayout
+    
     public final var isSelected: Bool {
         
         get { return selectionView.isSelected }
