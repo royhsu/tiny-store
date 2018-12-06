@@ -27,12 +27,12 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
         
-        let cityBinding = RenderableViewBinding(
+        let stateBinding = RenderableViewBinding(
             model: Model(value: TaiwanCity.taipei),
-            view: UIAddressCityButton()
+            view: UIAdressStateButton()
         )
         
-        cityBinding.view.cityPickerPresenter = { button in
+        stateBinding.view.cityPickerPresenter = { button in
             
             print("Showing picker...")
             
@@ -40,13 +40,29 @@ extension AppDelegate: UIApplicationDelegate {
         
         let postalCodeBinding = InputableViewBinding(
             model: Model(value: TaiwanPostalCode.daAnDistrict),
-            view: UIPostalCodeView<TaiwanPostalCode>()
+            view: UIAddressPostalCodeTextField<TaiwanPostalCode>()
         )
+        
+        let line1Binding = InputableViewBinding(
+            model: Model(),
+            view: UIAddressLineTextField()
+        )
+        
+        line1Binding.view.placeholder = "Line 1"
+        
+        let line2Binding = InputableViewBinding(
+            model: Model(),
+            view: UIAddressLineTextField()
+        )
+        
+        line2Binding.view.placeholder = "Line 2"
         
         let viewController = ShippingDestinationEditorController(
             destination: [
-                .city(cityBinding),
-                .postalCode(postalCodeBinding)
+                .state(stateBinding),
+                .postalCode(postalCodeBinding),
+                .line(line1Binding),
+                .line(line2Binding)
             ]
         )
         

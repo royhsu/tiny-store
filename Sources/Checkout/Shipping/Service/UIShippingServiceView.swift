@@ -34,7 +34,7 @@ public final class UIShippingServiceView: UIView {
         
     }
     
-    public final var isSelectedDidChange: ( (Bool) -> Void )?
+    public final var isSelectedDidChange: ( (Bool?) -> Void )?
     
     @IBOutlet
     public private(set) final weak var titleLabel: UILabel! {

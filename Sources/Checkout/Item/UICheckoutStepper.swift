@@ -128,7 +128,7 @@ public final class UICheckoutStepper: UIView, ValueRenderable, UserInputable {
         
     }
     
-    public final var didReceiveUserInput: ( (Int) -> Void )?
+    public final var didReceiveUserInput: ( (_ value: Int) -> Void )?
     
     public final override var tintColor: UIColor! {
         

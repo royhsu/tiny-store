@@ -1,13 +1,13 @@
 //
-//  UIAddressCityButton.swift
+//  UIAdressStateButton.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/27.
 //
 
-// MARK: - UIAddressCityButton
+// MARK: - UIAdressStateButton
 
-public final class UIAddressCityButton: UIView, ValueRenderable {
+public final class UIAdressStateButton: UIView, ValueRenderable {
     
     public final var city: State? {
         
@@ -35,7 +35,7 @@ public final class UIAddressCityButton: UIView, ValueRenderable {
         
     }()
     
-    public final var cityPickerPresenter: ( (UIAddressCityButton) -> Void )?
+    public final var cityPickerPresenter: ( (UIAdressStateButton) -> Void )?
     
     public override init(frame: CGRect) {
         

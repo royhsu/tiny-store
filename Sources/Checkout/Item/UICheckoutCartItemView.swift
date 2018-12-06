@@ -25,7 +25,7 @@ public final class UICheckoutCartItemView: UIView, UserInputable {
     }
     
     #warning("should find a better way to propagate input values from subviews.")
-    public final var didReceiveUserInput: ( (Bool) -> Void )? {
+    public final var didReceiveUserInput: ( (_ isSelected: Bool) -> Void )? {
         
         get { return selectionView.didReceiveUserInput }
         
@@ -142,11 +142,11 @@ public final class UICheckoutCartItemView: UIView, UserInputable {
 extension UICheckoutCartItemView: ValueRenderable {
     
     public final func render(with isSelected: Bool?) {
-        
+
         if let isSelected = isSelected { contentStackView.alpha = isSelected ? 1.0 : 0.5 }
-         
+
         selectionView.render(with: isSelected)
-        
+
     }
     
 }

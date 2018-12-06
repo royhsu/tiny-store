@@ -1,13 +1,13 @@
 //
-//  UIPostalCodeView.swift
-//  TinyStore iOS
+//  UIAddressPostalCodeTextField.swift
+//  TinyStore
 //
 //  Created by Roy Hsu on 2018/12/6.
 //
 
-// MARK: - UIPostalCodeView
+// MARK: - UIAddressPostalCodeTextField
 
-public final class UIPostalCodeView<P: PostalCode>: UIView, UserInputable, ValueRenderable {
+public final class UIAddressPostalCodeTextField<P: PostalCode>: UIView, UserInputable, ValueRenderable {
     
     private final var _postalCode: P? {
         
@@ -23,17 +23,13 @@ public final class UIPostalCodeView<P: PostalCode>: UIView, UserInputable, Value
             
             _postalCode = newValue
             
-            if let postalCode = postalCode {
-                
-                didReceiveUserInput?(postalCode)
-                
-            }
+            if let postalCode = postalCode { didReceiveUserInput?(postalCode) }
             
         }
         
     }
     
-    public final var didReceiveUserInput: ( (P) -> Void )?
+    public final var didReceiveUserInput: ( (_ postalCode: P) -> Void )?
     
     private final lazy var textFieldContainerView: UITextFieldContainerView = {
         
@@ -76,7 +72,9 @@ public final class UIPostalCodeView<P: PostalCode>: UIView, UserInputable, Value
         
         textFieldContainerView.render(with: postalCode?.rawValue)
         
-        textFieldContainerView.didReceiveUserInput = { text in
+        textFieldContainerView.didReceiveUserInput = { [weak self] text in
+            
+            guard let self = self else { return }
             
             if let postalCode = P(rawValue: text) {
                 
