@@ -8,7 +8,7 @@
 // MARK: - TSButton
 
 @IBDesignable
-open class TSButton: UIView {
+open class TSButton: UIControl {
     
     private final let button: UIButton = {
         
@@ -53,6 +53,20 @@ open class TSButton: UIView {
         )
         
         wrapSubview(button)
+        
+    }
+    
+    open override func addTarget(
+        _ target: Any?,
+        action: Selector,
+        for controlEvents: UIControl.Event
+    ) {
+    
+        button.addTarget(
+            target,
+            action: action,
+            for: controlEvents
+        )
         
     }
     

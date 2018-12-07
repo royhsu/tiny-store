@@ -68,6 +68,10 @@ extension AppDelegate: UIApplicationDelegate {
         
         let viewController = TSShippingDestinationEditorController()
         
+        viewController.addressStateHandler = { _ in print("State picker...") }
+        
+        viewController.addressCityHandler = { _ in print("City picker...") }
+        
         viewController.view.backgroundColor = .white
         
         window.rootViewController = viewController

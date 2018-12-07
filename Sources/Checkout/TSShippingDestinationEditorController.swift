@@ -70,10 +70,24 @@ open class TSShippingDestinationEditorController: UIViewController {
     
     private final lazy var addressView: TSShippingDestinationEditorAddressNibView = {
     
-        return UIView.loadView(
+        let view = UIView.loadView(
             TSShippingDestinationEditorAddressNibView.self,
             from: Bundle(for: TSShippingDestinationEditorAddressNibView.self)
         )!
+        
+        view.stateButton.addTarget(
+            self,
+            action: #selector(handleAddressState),
+            for: .touchUpInside
+        )
+        
+        view.cityButton.addTarget(
+            self,
+            action: #selector(handleAddressCity),
+            for: .touchUpInside
+        )
+        
+        return view
     
     }()
     
@@ -90,6 +104,10 @@ open class TSShippingDestinationEditorController: UIViewController {
         return view
         
     }()
+    
+    public final var addressStateHandler: ( (TSShippingDestinationEditorController) -> Void )?
+    
+    public final var addressCityHandler: ( (TSShippingDestinationEditorController) -> Void )?
     
     public init() {
         
@@ -127,5 +145,11 @@ open class TSShippingDestinationEditorController: UIViewController {
         ]
         
     }
+    
+    @objc
+    public final func handleAddressState(_ sender: Any) { addressStateHandler?(self) }
+    
+    @objc
+    public final func handleAddressCity(_ sender: Any) { addressCityHandler?(self) }
     
 }
