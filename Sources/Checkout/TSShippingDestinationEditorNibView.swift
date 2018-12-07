@@ -10,10 +10,13 @@
 internal final class TSShippingDestinationEditorNibView: UIView {
     
     @IBOutlet
-    internal private(set) final weak var topView: UIView!
+    internal private(set) final weak var contentView: UIView!
     
     @IBOutlet
-    internal private(set) final weak var bottomView: UIView!
+    internal private(set) final weak var floatingView: UIView!
+    
+    @IBOutlet
+    internal private(set) final weak var floatingViewBottomConstraint: NSLayoutConstraint!
     
     @IBOutlet
     private final weak var nameLabel: UILabel!{

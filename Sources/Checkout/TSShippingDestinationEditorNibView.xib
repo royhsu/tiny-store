@@ -16,17 +16,20 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0io-B1-njv">
+                    <rect key="frame" x="0.0" y="20" width="375" height="523.5"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98r-ga-dTP">
-                    <rect key="frame" x="0.0" y="523.5" width="375" height="143.5"/>
+                    <rect key="frame" x="0.0" y="543.5" width="375" height="123.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can label this destionation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjJ-Gt-Gip">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="18"/>
+                            <rect key="frame" x="0.0" y="20" width="375" height="18"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ia-vN-0gy" customClass="TSTextField" customModule="TinyStore" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="26" width="375" height="37.5"/>
+                            <rect key="frame" x="0.0" y="46" width="375" height="37.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Name"/>
@@ -34,17 +37,14 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="0ia-vN-0gy" secondAttribute="bottom" constant="80" id="26Q-ff-fuS"/>
+                        <constraint firstAttribute="bottom" secondItem="0ia-vN-0gy" secondAttribute="bottom" constant="40" id="26Q-ff-fuS"/>
                         <constraint firstAttribute="trailing" secondItem="XjJ-Gt-Gip" secondAttribute="trailing" id="403-a4-QQf"/>
-                        <constraint firstItem="XjJ-Gt-Gip" firstAttribute="top" secondItem="98r-ga-dTP" secondAttribute="top" id="KBk-q9-9lw"/>
+                        <constraint firstItem="XjJ-Gt-Gip" firstAttribute="top" secondItem="98r-ga-dTP" secondAttribute="top" constant="20" symbolic="YES" id="KBk-q9-9lw"/>
                         <constraint firstItem="0ia-vN-0gy" firstAttribute="top" secondItem="XjJ-Gt-Gip" secondAttribute="bottom" constant="8" symbolic="YES" id="V6I-9x-z4q"/>
                         <constraint firstItem="0ia-vN-0gy" firstAttribute="leading" secondItem="98r-ga-dTP" secondAttribute="leading" id="VkA-Jy-xHW"/>
                         <constraint firstAttribute="trailing" secondItem="0ia-vN-0gy" secondAttribute="trailing" id="b1d-cK-0gY"/>
                         <constraint firstItem="XjJ-Gt-Gip" firstAttribute="leading" secondItem="98r-ga-dTP" secondAttribute="leading" id="sc4-bW-NNt"/>
                     </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0io-B1-njv">
-                    <rect key="frame" x="0.0" y="20" width="375" height="503.5"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -59,10 +59,11 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="bottomView" destination="98r-ga-dTP" id="rMb-5E-nNA"/>
+                <outlet property="contentView" destination="0io-B1-njv" id="ndl-wv-vCC"/>
+                <outlet property="floatingView" destination="98r-ga-dTP" id="rMb-5E-nNA"/>
+                <outlet property="floatingViewBottomConstraint" destination="VLB-ng-Xo4" id="DOa-XJ-O3s"/>
                 <outlet property="nameLabel" destination="XjJ-Gt-Gip" id="fe8-9m-dxc"/>
                 <outlet property="nameTextField" destination="0ia-vN-0gy" id="AWO-gV-fW8"/>
-                <outlet property="topView" destination="0io-B1-njv" id="ndl-wv-vCC"/>
             </connections>
             <point key="canvasLocation" x="77.599999999999994" y="48.125937031484263"/>
         </view>

@@ -64,4 +64,20 @@ public extension TSTextField {
         
     }
     
+    public final var keyboardType: UIKeyboardType {
+        
+        get { return _nibView.textField.keyboardType }
+    
+        set {  _nibView.textField.keyboardType = newValue }
+        
+    }
+    
+    public final var returnKeyType: UIReturnKeyType {
+        
+        get { return _nibView.textField.returnKeyType }
+        
+        set {  _nibView.textField.returnKeyType = newValue }
+        
+    }
+    
 }

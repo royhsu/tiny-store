@@ -11,10 +11,14 @@ open class TSShippingDestinationEditorController: UIViewController {
     
     private final lazy var _nibView: TSShippingDestinationEditorNibView = {
         
-        return UIView.loadView(
+        let view = UIView.loadView(
             TSShippingDestinationEditorNibView.self,
             from: Bundle(for: TSShippingDestinationEditorNibView.self)
         )!
+        
+        view.nameTextField.returnKeyType = .done
+        
+        return view
         
     }()
     
@@ -43,10 +47,16 @@ open class TSShippingDestinationEditorController: UIViewController {
     
     private final lazy var recipientView: TSShippingDestinationEditorRecipientNibView = {
         
-        return UIView.loadView(
+        let view = UIView.loadView(
             TSShippingDestinationEditorRecipientNibView.self,
             from: Bundle(for: TSShippingDestinationEditorRecipientNibView.self)
         )!
+        
+        view.firstNameTextField.returnKeyType = .next
+        
+        view.lastNameTextField.returnKeyType = .next
+        
+        return view
         
     }()
     
@@ -83,6 +93,10 @@ open class TSShippingDestinationEditorController: UIViewController {
             TSShippingDestinationEditorAddressNibView.self,
             from: Bundle(for: TSShippingDestinationEditorAddressNibView.self)
         )!
+        
+        view.line1TextField.returnKeyType = .next
+        
+        view.line2TextField.returnKeyType = .next
         
         view.stateButton.addTarget(
             self,
@@ -140,7 +154,7 @@ open class TSShippingDestinationEditorController: UIViewController {
         
         addChild(collectionViewController)
         
-        _nibView.topView.wrapSubview(collectionViewController.view)
+        _nibView.contentView.wrapSubview(collectionViewController.view)
         
         collectionViewController.didMove(toParent: self)
         

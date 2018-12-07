@@ -74,7 +74,11 @@ extension AppDelegate: UIApplicationDelegate {
         
         viewController.view.backgroundColor = .white
         
-        window.rootViewController = viewController
+        let keyboardViewController = UIKeyboardController()
+        
+        keyboardViewController.setContentViewController(viewController, animated: true)
+        
+        window.rootViewController = keyboardViewController
         
         window.makeKeyAndVisible()
 
