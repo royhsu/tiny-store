@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TSShippingDestinationEditorNibView" customModule="TinyStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="98r-ga-dTP">
+                    <rect key="frame" x="0.0" y="523.5" width="375" height="143.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can label this destionation" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjJ-Gt-Gip">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="18"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ia-vN-0gy" customClass="TSTextField" customModule="TinyStore" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="26" width="375" height="37.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Name"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="0ia-vN-0gy" secondAttribute="bottom" constant="80" id="26Q-ff-fuS"/>
+                        <constraint firstAttribute="trailing" secondItem="XjJ-Gt-Gip" secondAttribute="trailing" id="403-a4-QQf"/>
+                        <constraint firstItem="XjJ-Gt-Gip" firstAttribute="top" secondItem="98r-ga-dTP" secondAttribute="top" id="KBk-q9-9lw"/>
+                        <constraint firstItem="0ia-vN-0gy" firstAttribute="top" secondItem="XjJ-Gt-Gip" secondAttribute="bottom" constant="8" symbolic="YES" id="V6I-9x-z4q"/>
+                        <constraint firstItem="0ia-vN-0gy" firstAttribute="leading" secondItem="98r-ga-dTP" secondAttribute="leading" id="VkA-Jy-xHW"/>
+                        <constraint firstAttribute="trailing" secondItem="0ia-vN-0gy" secondAttribute="trailing" id="b1d-cK-0gY"/>
+                        <constraint firstItem="XjJ-Gt-Gip" firstAttribute="leading" secondItem="98r-ga-dTP" secondAttribute="leading" id="sc4-bW-NNt"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0io-B1-njv">
+                    <rect key="frame" x="0.0" y="20" width="375" height="503.5"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0io-B1-njv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2vt-sv-9s0"/>
+                <constraint firstItem="98r-ga-dTP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7S1-SR-RN6"/>
+                <constraint firstItem="98r-ga-dTP" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="VLB-ng-Xo4"/>
+                <constraint firstItem="98r-ga-dTP" firstAttribute="top" secondItem="0io-B1-njv" secondAttribute="bottom" id="Zv4-Ig-VPQ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0io-B1-njv" secondAttribute="trailing" id="bXC-2j-I4d"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="98r-ga-dTP" secondAttribute="trailing" id="fbZ-Cu-J2x"/>
+                <constraint firstItem="0io-B1-njv" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="xyN-fp-wwf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="bottomView" destination="98r-ga-dTP" id="rMb-5E-nNA"/>
+                <outlet property="nameLabel" destination="XjJ-Gt-Gip" id="fe8-9m-dxc"/>
+                <outlet property="nameTextField" destination="0ia-vN-0gy" id="AWO-gV-fW8"/>
+                <outlet property="topView" destination="0io-B1-njv" id="ndl-wv-vCC"/>
+            </connections>
+            <point key="canvasLocation" x="77.599999999999994" y="48.125937031484263"/>
+        </view>
+    </objects>
+</document>

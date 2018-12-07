@@ -47,6 +47,15 @@ public extension TSTextField {
     }
     
     @IBInspectable
+    public final var textAlignment: NSTextAlignment {
+        
+        get { return _nibView.textField.textAlignment }
+        
+        set { _nibView.textField.textAlignment = newValue }
+        
+    }
+    
+    @IBInspectable
     public final var placeholder: String? {
         
         get { return _nibView.textField.placeholder }

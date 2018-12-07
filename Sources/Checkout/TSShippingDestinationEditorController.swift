@@ -9,6 +9,15 @@
 
 open class TSShippingDestinationEditorController: UIViewController {
     
+    private final lazy var _nibView: TSShippingDestinationEditorNibView = {
+        
+        return UIView.loadView(
+            TSShippingDestinationEditorNibView.self,
+            from: Bundle(for: TSShippingDestinationEditorNibView.self)
+        )!
+        
+    }()
+    
     private final lazy var collectionViewController: CollectionViewController = {
        
         let controller = CollectionViewController()
@@ -124,12 +133,14 @@ open class TSShippingDestinationEditorController: UIViewController {
         
         super.viewDidLoad()
         
-        addChild(collectionViewController)
-        
         view.wrapSubview(
-            collectionViewController.view,
+            _nibView,
             within: \.layoutMarginsGuide
         )
+        
+        addChild(collectionViewController)
+        
+        _nibView.topView.wrapSubview(collectionViewController.view)
         
         collectionViewController.didMove(toParent: self)
         
