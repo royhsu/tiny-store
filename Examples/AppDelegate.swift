@@ -66,20 +66,9 @@ extension AppDelegate: UIApplicationDelegate {
 //            ]
 //        )
         
-        let viewController = CollectionViewController()
+
         
-        viewController.collectionView.applyLayout(ListViewLayout.self)
-        
-        let textField = TSTextField()
-        
-        textField.placeholder = NSLocalizedString(
-            "First Name",
-            comment: ""
-        )
-        
-        viewController.collectionView.sections = [
-            [ textField ]
-        ]
+        let viewController = TSShippingDestinationEditorController()
         
         viewController.view.backgroundColor = .white
         
