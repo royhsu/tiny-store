@@ -7,7 +7,7 @@
 
 // MARK: - TSShippingDestinationEditorController
 
-open class TSShippingDestinationEditorController: UIViewController {
+open class TSShippingDestinationEditorController: UIViewController, UITextFieldDelegate {
     
     private final lazy var _nibView: TSShippingDestinationEditorNibView = {
         
@@ -17,6 +17,16 @@ open class TSShippingDestinationEditorController: UIViewController {
         )!
         
         view.nameTextField.returnKeyType = .done
+        
+        view.nameTextField.shouldReturn = { [weak self] textField in
+            
+            let nextTextField = self?.nextTextField(of: textField)
+                
+            nextTextField?.becomeFirstResponder()
+            
+            return false
+            
+        }
         
         return view
         
@@ -54,7 +64,27 @@ open class TSShippingDestinationEditorController: UIViewController {
         
         view.firstNameTextField.returnKeyType = .next
         
+        view.firstNameTextField.shouldReturn = { [weak self] textField in
+            
+            let nextTextField = self?.nextTextField(of: textField)
+            
+            nextTextField?.becomeFirstResponder()
+            
+            return false
+            
+        }
+        
         view.lastNameTextField.returnKeyType = .next
+        
+        view.lastNameTextField.shouldReturn = { [weak self] textField in
+            
+            let nextTextField = self?.nextTextField(of: textField)
+            
+            nextTextField?.becomeFirstResponder()
+            
+            return false
+            
+        }
         
         return view
         
@@ -96,7 +126,27 @@ open class TSShippingDestinationEditorController: UIViewController {
         
         view.line1TextField.returnKeyType = .next
         
+        view.line1TextField.shouldReturn = { [weak self] textField in
+            
+            let nextTextField = self?.nextTextField(of: textField)
+            
+            nextTextField?.becomeFirstResponder()
+            
+            return false
+            
+        }
+        
         view.line2TextField.returnKeyType = .next
+        
+        view.line2TextField.shouldReturn = { [weak self] textField in
+            
+            let nextTextField = self?.nextTextField(of: textField)
+            
+            nextTextField?.becomeFirstResponder()
+            
+            return false
+            
+        }
         
         view.stateButton.addTarget(
             self,
@@ -127,6 +177,33 @@ open class TSShippingDestinationEditorController: UIViewController {
         return view
         
     }()
+    
+    private final lazy var textFields: [TSTextField] = {
+        
+        return [
+            recipientView.firstNameTextField,
+            recipientView.lastNameTextField,
+            addressView.line1TextField,
+            addressView.line2TextField,
+            _nibView.nameTextField
+        ]
+        
+    }()
+    
+    private final func nextTextField(of currentTextField: TSTextField) -> TSTextField? {
+        
+        guard
+            let currentIndex = textFields.firstIndex(of: currentTextField)
+        else { return textFields.first }
+
+        let nextIndex = min(
+            currentIndex + 1,
+            textFields.count - 1
+        )
+     
+        return textFields[nextIndex]
+        
+    }
     
     public final var addressStateHandler: ( (TSShippingDestinationEditorController) -> Void )?
     

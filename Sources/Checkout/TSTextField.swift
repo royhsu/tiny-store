@@ -8,12 +8,14 @@
 // MARK: - TSTextField
 
 @IBDesignable
-open class TSTextField: UIView {
+open class TSTextField: UIView, UITextFieldDelegate {
 
     private final let _nibView = UIView.loadView(
         TSTextFieldNibView.self,
         from: Bundle(for: TSTextFieldNibView.self)
     )!
+    
+    public final var shouldReturn: ( (TSTextField) -> Bool )?
     
     public override init(frame: CGRect) {
         
@@ -31,7 +33,22 @@ open class TSTextField: UIView {
         
     }
     
-    private final func load() { wrapSubview(_nibView) }
+    private final func load() {
+        
+        wrapSubview(_nibView)
+        
+        _nibView.textField.delegate = self
+        
+    }
+    
+    public final func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        return shouldReturn?(self) ?? false
+        
+    }
+    
+    @discardableResult
+    public final override func becomeFirstResponder() -> Bool { return _nibView.textField.becomeFirstResponder() }
     
 }
 
@@ -64,6 +81,7 @@ public extension TSTextField {
         
     }
     
+    @IBInspectable
     public final var keyboardType: UIKeyboardType {
         
         get { return _nibView.textField.keyboardType }
@@ -72,6 +90,7 @@ public extension TSTextField {
         
     }
     
+    @IBInspectable
     public final var returnKeyType: UIReturnKeyType {
         
         get { return _nibView.textField.returnKeyType }
