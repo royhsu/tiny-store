@@ -7,7 +7,7 @@
 
 // MARK: - TSShippingDestinationEditorController
 
-open class TSShippingDestinationEditorController: UIViewController, UITextFieldDelegate {
+open class TSShippingDestinationEditorController: UIViewController {
     
     private final lazy var _nibView: TSShippingDestinationEditorNibView = {
         
