@@ -20,9 +20,9 @@ open class TSShippingDestinationEditorController: UIViewController, UITextFieldD
         
         view.nameTextField.shouldReturn = { [weak self] textField in
             
-            let nextTextField = self?.nextTextField(of: textField)
+            let nextResponder = self?.nextResponder(of: textField)
                 
-            nextTextField?.becomeFirstResponder()
+            nextResponder?.becomeFirstResponder()
             
             return false
             
@@ -66,9 +66,9 @@ open class TSShippingDestinationEditorController: UIViewController, UITextFieldD
         
         view.firstNameTextField.shouldReturn = { [weak self] textField in
             
-            let nextTextField = self?.nextTextField(of: textField)
+            let nextResponder = self?.nextResponder(of: textField)
             
-            nextTextField?.becomeFirstResponder()
+            nextResponder?.becomeFirstResponder()
             
             return false
             
@@ -78,9 +78,9 @@ open class TSShippingDestinationEditorController: UIViewController, UITextFieldD
         
         view.lastNameTextField.shouldReturn = { [weak self] textField in
             
-            let nextTextField = self?.nextTextField(of: textField)
+            let nextResponder = self?.nextResponder(of: textField)
             
-            nextTextField?.becomeFirstResponder()
+            nextResponder?.becomeFirstResponder()
             
             return false
             
@@ -128,9 +128,9 @@ open class TSShippingDestinationEditorController: UIViewController, UITextFieldD
         
         view.line1TextField.shouldReturn = { [weak self] textField in
             
-            let nextTextField = self?.nextTextField(of: textField)
+            let nextResponder = self?.nextResponder(of: textField)
             
-            nextTextField?.becomeFirstResponder()
+            nextResponder?.becomeFirstResponder()
             
             return false
             
@@ -140,9 +140,9 @@ open class TSShippingDestinationEditorController: UIViewController, UITextFieldD
         
         view.line2TextField.shouldReturn = { [weak self] textField in
             
-            let nextTextField = self?.nextTextField(of: textField)
+            let nextResponder = self?.nextResponder(of: textField)
             
-            nextTextField?.becomeFirstResponder()
+            nextResponder?.becomeFirstResponder()
             
             return false
             
@@ -178,7 +178,7 @@ open class TSShippingDestinationEditorController: UIViewController, UITextFieldD
         
     }()
     
-    private final lazy var textFields: [TSTextField] = {
+    private final lazy var responders: [UIResponder] = {
         
         return [
             recipientView.firstNameTextField,
@@ -190,18 +190,18 @@ open class TSShippingDestinationEditorController: UIViewController, UITextFieldD
         
     }()
     
-    private final func nextTextField(of currentTextField: TSTextField) -> TSTextField? {
+    private final func nextResponder(of currentResponder: UIResponder) -> UIResponder? {
         
         guard
-            let currentIndex = textFields.firstIndex(of: currentTextField)
-        else { return textFields.first }
+            let currentIndex = responders.firstIndex(of: currentResponder)
+        else { return responders.first }
 
         let nextIndex = min(
             currentIndex + 1,
-            textFields.count - 1
+            responders.count - 1
         )
      
-        return textFields[nextIndex]
+        return responders[nextIndex]
         
     }
     
