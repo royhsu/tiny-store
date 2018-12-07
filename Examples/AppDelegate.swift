@@ -66,8 +66,6 @@ extension AppDelegate: UIApplicationDelegate {
 //            ]
 //        )
         
-
-        
         let viewController = TSShippingDestinationEditorController()
         
         viewController.view.backgroundColor = .white

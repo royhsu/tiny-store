@@ -16,6 +16,8 @@ public final class TSSectionHeaderView: UIView {
         
         label.font = .preferredFont(forTextStyle: .subheadline)
         
+        label.adjustsFontForContentSizeCategory = true
+        
         return label
         
     }()

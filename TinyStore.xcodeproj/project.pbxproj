@@ -18,6 +18,9 @@
 		B020D500219AC49500EC93E3 /* ShippingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4FF219AC49500EC93E3 /* ShippingService.swift */; };
 		B020D502219AC51800EC93E3 /* UIShippingServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D501219AC51800EC93E3 /* UIShippingServiceView.swift */; };
 		B020D504219AC53300EC93E3 /* UIShippingServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B020D503219AC53300EC93E3 /* UIShippingServiceView.xib */; };
+		B02A19F421BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A19F321BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift */; };
+		B02A19F621BA593000072154 /* TSShippingDestinationEditorAddressNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02A19F521BA593000072154 /* TSShippingDestinationEditorAddressNibView.xib */; };
+		B02A19F821BA5AFF00072154 /* TSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A19F721BA5AFF00072154 /* TSButton.swift */; };
 		B02B0245218AF85900772118 /* UICheckoutCartItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B0244218AF85900772118 /* UICheckoutCartItemViewController.swift */; };
 		B02B0249218B0A4700772118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02B0248218B0A4700772118 /* Assets.xcassets */; };
 		B02B0250218BD5F100772118 /* UICheckoutSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B024F218BD5F100772118 /* UICheckoutSelectionView.swift */; };
@@ -136,6 +139,9 @@
 		B020D4FF219AC49500EC93E3 /* ShippingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingService.swift; sourceTree = "<group>"; };
 		B020D501219AC51800EC93E3 /* UIShippingServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIShippingServiceView.swift; sourceTree = "<group>"; };
 		B020D503219AC53300EC93E3 /* UIShippingServiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIShippingServiceView.xib; sourceTree = "<group>"; };
+		B02A19F321BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSShippingDestinationEditorAddressNibView.swift; sourceTree = "<group>"; };
+		B02A19F521BA593000072154 /* TSShippingDestinationEditorAddressNibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TSShippingDestinationEditorAddressNibView.xib; sourceTree = "<group>"; };
+		B02A19F721BA5AFF00072154 /* TSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSButton.swift; sourceTree = "<group>"; };
 		B02B0244218AF85900772118 /* UICheckoutCartItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutCartItemViewController.swift; sourceTree = "<group>"; };
 		B02B0248218B0A4700772118 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B02B024F218BD5F100772118 /* UICheckoutSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutSelectionView.swift; sourceTree = "<group>"; };
@@ -352,9 +358,12 @@
 				B043A29C21AE8EA000CF296A /* UserInputable.swift */,
 				B043A2A021AFCAA000CF296A /* UITextFieldContainerView.swift */,
 				B0697F0E21B77EB800D05D6E /* UILabel+ValueRenderable.swift */,
+				B0697F3C21BA23B800D05D6E /* TSShippingDestinationEditorController.swift */,
 				B0697F3E21BA23F700D05D6E /* TSShippingDestinationEditorRecipientNibView.swift */,
 				B0697F4021BA243F00D05D6E /* TSShippingDestinationEditorRecipientNibView.xib */,
-				B0697F3C21BA23B800D05D6E /* TSShippingDestinationEditorController.swift */,
+				B02A19F321BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift */,
+				B02A19F521BA593000072154 /* TSShippingDestinationEditorAddressNibView.xib */,
+				B02A19F721BA5AFF00072154 /* TSButton.swift */,
 				B0B0EC3521BA522000924829 /* TSSectionHeaderView.swift */,
 				B0697F3A21BA0C1900D05D6E /* TSTextField.swift */,
 				B0697F3521BA06A400D05D6E /* TSTextFieldNibView.swift */,
@@ -541,6 +550,7 @@
 			files = (
 				B0A069FC21898CBC00BA4CA5 /* UICheckoutCartItemView.xib in Resources */,
 				B0772ECA218C41CB0082C055 /* UICheckoutDashboardMainTextField.xib in Resources */,
+				B02A19F621BA593000072154 /* TSShippingDestinationEditorAddressNibView.xib in Resources */,
 				B0697F3821BA075000D05D6E /* TSTextFieldNibView.xib in Resources */,
 				B0772ED0218C49520082C055 /* UICheckoutView.xib in Resources */,
 				B0697F4121BA243F00D05D6E /* TSShippingDestinationEditorRecipientNibView.xib in Resources */,
@@ -579,6 +589,7 @@
 				B0CE4AC421B757DE0082039F /* InputableViewBinding.swift in Sources */,
 				B085D8E0219EAB51009F1585 /* UIShippingDestinationViewController.swift in Sources */,
 				B02B0245218AF85900772118 /* UICheckoutCartItemViewController.swift in Sources */,
+				B02A19F821BA5AFF00072154 /* TSButton.swift in Sources */,
 				B0772EBC218BF2720082C055 /* CheckoutCartViewController.swift in Sources */,
 				B0772EDB2193E0F20082C055 /* CheckoutApparelItem.swift in Sources */,
 				B085D8E2219EB9AA009F1585 /* ShippingViewController.swift in Sources */,
@@ -586,6 +597,7 @@
 				B043A29F21AFC77A00CF296A /* State.swift in Sources */,
 				B0772ED2218C4A310082C055 /* UICheckoutView.swift in Sources */,
 				B0A06A022189A01500BA4CA5 /* UINibWrapperView.swift in Sources */,
+				B02A19F421BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift in Sources */,
 				B085D8D0219D59E8009F1585 /* ViewCollection.swift in Sources */,
 				B020D500219AC49500EC93E3 /* ShippingService.swift in Sources */,
 				B04C92A721A686210009B607 /* DashboardAction.swift in Sources */,

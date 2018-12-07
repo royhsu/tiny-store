@@ -41,6 +41,56 @@ open class TSShippingDestinationEditorController: UIViewController {
         
     }()
     
+    private final let recipientFooterView: UIView = {
+        
+        let view = UIView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(
+            [ view.heightAnchor.constraint(equalToConstant: 8.0) ]
+        )
+        
+        return view
+        
+    }()
+    
+    private final let addressHeaderView: TSSectionHeaderView = {
+        
+        let view = TSSectionHeaderView()
+        
+        view.title = NSLocalizedString(
+            "Address",
+            comment: ""
+        )
+        
+        return view
+        
+    }()
+    
+    private final lazy var addressView: TSShippingDestinationEditorAddressNibView = {
+    
+        return UIView.loadView(
+            TSShippingDestinationEditorAddressNibView.self,
+            from: Bundle(for: TSShippingDestinationEditorAddressNibView.self)
+        )!
+    
+    }()
+    
+    private final let addressFooterView: UIView = {
+        
+        let view = UIView()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate(
+            [ view.heightAnchor.constraint(equalToConstant: 8.0) ]
+        )
+        
+        return view
+        
+    }()
+    
     public init() {
         
         super.init(
@@ -65,10 +115,25 @@ open class TSShippingDestinationEditorController: UIViewController {
         
         collectionViewController.didMove(toParent: self)
         
+        let button = TSButton()
+        
+        button.setTitle(
+            NSLocalizedString(
+                "City",
+                comment: ""
+            ),
+            for: .normal
+        )
+        
         collectionViewController.collectionView.sections = [
             [
+                button,
                 recipientHeaderView,
-                recipientView
+                recipientView,
+                recipientFooterView,
+                addressHeaderView,
+                addressView,
+                addressFooterView
             ]
         ]
         

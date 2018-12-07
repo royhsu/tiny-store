@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NmS-6n-W5A">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NmS-6n-W5A">
                     <rect key="frame" x="4" y="8" width="375" height="20.5"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
