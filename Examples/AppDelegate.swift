@@ -27,44 +27,59 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
         
-        let stateBinding = RenderableViewBinding(
-            model: Model(value: TaiwanCity.taipei),
-            view: UIAdressStateButton()
+//        let stateBinding = RenderableViewBinding(
+//            model: Model(value: TaiwanCity.taipei),
+//            view: UIAdressStateButton()
+//        )
+//
+//        stateBinding.view.cityPickerPresenter = { button in
+//
+//            print("Showing picker...")
+//
+//        }
+//
+//        let postalCodeBinding = InputableViewBinding(
+//            model: Model(value: TaiwanPostalCode.daAnDistrict),
+//            view: UIAddressPostalCodeTextField<TaiwanPostalCode>()
+//        )
+//
+//        let line1Binding = InputableViewBinding(
+//            model: Model(),
+//            view: UIAddressLineTextField()
+//        )
+//
+//        line1Binding.view.placeholder = "Line 1"
+//
+//        let line2Binding = InputableViewBinding(
+//            model: Model(),
+//            view: UIAddressLineTextField()
+//        )
+//
+//        line2Binding.view.placeholder = "Line 2"
+//
+//        let viewController = ShippingDestinationEditorController(
+//            destination: [
+//                .state(stateBinding),
+//                .postalCode(postalCodeBinding),
+//                .line(line1Binding),
+//                .line(line2Binding)
+//            ]
+//        )
+        
+        let viewController = CollectionViewController()
+        
+        viewController.collectionView.applyLayout(ListViewLayout.self)
+        
+        let textField = TSTextField()
+        
+        textField.placeholder = NSLocalizedString(
+            "First Name",
+            comment: ""
         )
         
-        stateBinding.view.cityPickerPresenter = { button in
-            
-            print("Showing picker...")
-            
-        }
-        
-        let postalCodeBinding = InputableViewBinding(
-            model: Model(value: TaiwanPostalCode.daAnDistrict),
-            view: UIAddressPostalCodeTextField<TaiwanPostalCode>()
-        )
-        
-        let line1Binding = InputableViewBinding(
-            model: Model(),
-            view: UIAddressLineTextField()
-        )
-        
-        line1Binding.view.placeholder = "Line 1"
-        
-        let line2Binding = InputableViewBinding(
-            model: Model(),
-            view: UIAddressLineTextField()
-        )
-        
-        line2Binding.view.placeholder = "Line 2"
-        
-        let viewController = ShippingDestinationEditorController(
-            destination: [
-                .state(stateBinding),
-                .postalCode(postalCodeBinding),
-                .line(line1Binding),
-                .line(line2Binding)
-            ]
-        )
+        viewController.collectionView.sections = [
+            [ textField ]
+        ]
         
         viewController.view.backgroundColor = .white
         
