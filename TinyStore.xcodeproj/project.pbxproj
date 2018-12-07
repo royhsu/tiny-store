@@ -90,6 +90,7 @@
 		B0A069FE2189947400BA4CA5 /* UICheckoutStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */; };
 		B0A06A002189948200BA4CA5 /* UICheckoutStepper.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A069FF2189948200BA4CA5 /* UICheckoutStepper.xib */; };
 		B0A06A022189A01500BA4CA5 /* UINibWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */; };
+		B0B0EC3621BA522000924829 /* TSSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0EC3521BA522000924829 /* TSSectionHeaderView.swift */; };
 		B0CE4AC221B6C2900082039F /* ValueRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE4AC121B6C2900082039F /* ValueRenderable.swift */; };
 		B0CE4AC421B757DE0082039F /* InputableViewBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE4AC321B757DE0082039F /* InputableViewBinding.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -207,6 +208,7 @@
 		B0A069FD2189947400BA4CA5 /* UICheckoutStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICheckoutStepper.swift; sourceTree = "<group>"; };
 		B0A069FF2189948200BA4CA5 /* UICheckoutStepper.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICheckoutStepper.xib; sourceTree = "<group>"; };
 		B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINibWrapperView.swift; sourceTree = "<group>"; };
+		B0B0EC3521BA522000924829 /* TSSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSectionHeaderView.swift; sourceTree = "<group>"; };
 		B0CE4AC121B6C2900082039F /* ValueRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueRenderable.swift; sourceTree = "<group>"; };
 		B0CE4AC321B757DE0082039F /* InputableViewBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputableViewBinding.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -353,6 +355,7 @@
 				B0697F3E21BA23F700D05D6E /* TSShippingDestinationEditorRecipientNibView.swift */,
 				B0697F4021BA243F00D05D6E /* TSShippingDestinationEditorRecipientNibView.xib */,
 				B0697F3C21BA23B800D05D6E /* TSShippingDestinationEditorController.swift */,
+				B0B0EC3521BA522000924829 /* TSSectionHeaderView.swift */,
 				B0697F3A21BA0C1900D05D6E /* TSTextField.swift */,
 				B0697F3521BA06A400D05D6E /* TSTextFieldNibView.swift */,
 				B0697F3721BA075000D05D6E /* TSTextFieldNibView.xib */,
@@ -623,6 +626,7 @@
 				B04C92A521A6834F0009B607 /* UIDashboardActionButtonController.swift in Sources */,
 				B0697F1921B8D5BB00D05D6E /* UIAddressPostalCodeTextField.swift in Sources */,
 				B020D4F52195350200EC93E3 /* CheckoutCartItemController.swift in Sources */,
+				B0B0EC3621BA522000924829 /* TSSectionHeaderView.swift in Sources */,
 				B0772ED4218C4B630082C055 /* UIDashboardViewController.swift in Sources */,
 				B0697F3F21BA23F700D05D6E /* TSShippingDestinationEditorRecipientNibView.swift in Sources */,
 			);

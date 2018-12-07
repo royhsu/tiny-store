@@ -19,6 +19,19 @@ open class TSShippingDestinationEditorController: UIViewController {
         
     }()
     
+    private final let recipientHeaderView: TSSectionHeaderView = {
+        
+        let view = TSSectionHeaderView()
+        
+        view.title = NSLocalizedString(
+            "Recipient",
+            comment: ""
+        )
+        
+        return view
+        
+    }()
+    
     private final lazy var recipientView: TSShippingDestinationEditorRecipientNibView = {
         
         return UIView.loadView(
@@ -53,7 +66,10 @@ open class TSShippingDestinationEditorController: UIViewController {
         collectionViewController.didMove(toParent: self)
         
         collectionViewController.collectionView.sections = [
-            [ recipientView ]
+            [
+                recipientHeaderView,
+                recipientView
+            ]
         ]
         
     }
