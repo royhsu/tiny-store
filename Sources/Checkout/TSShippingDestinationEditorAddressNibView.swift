@@ -10,6 +10,40 @@
 internal final class TSShippingDestinationEditorAddressNibView: UIView {
     
     @IBOutlet
+    internal private(set) final weak var stateButton: TSButton! {
+        
+        didSet {
+            
+            stateButton.setTitle(
+                NSLocalizedString(
+                    "State",
+                    comment: ""
+                ) ,
+                for: .normal
+            )
+            
+        }
+        
+    }
+    
+    @IBOutlet
+    internal private(set) final weak var cityButton: TSButton! {
+        
+        didSet {
+            
+            cityButton.setTitle(
+                NSLocalizedString(
+                    "City",
+                    comment: ""
+                ) ,
+                for: .normal
+            )
+            
+        }
+        
+    }
+    
+    @IBOutlet
     internal private(set) final weak var line1TextField: TSTextField! {
         
         didSet {

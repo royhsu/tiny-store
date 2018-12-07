@@ -115,19 +115,8 @@ open class TSShippingDestinationEditorController: UIViewController {
         
         collectionViewController.didMove(toParent: self)
         
-        let button = TSButton()
-        
-        button.setTitle(
-            NSLocalizedString(
-                "City",
-                comment: ""
-            ),
-            for: .normal
-        )
-        
         collectionViewController.collectionView.sections = [
             [
-                button,
                 recipientHeaderView,
                 recipientView,
                 recipientFooterView,

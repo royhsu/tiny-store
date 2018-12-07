@@ -7,7 +7,8 @@
 
 // MARK: - TSButton
 
-public final class TSButton: UIView {
+@IBDesignable
+open class TSButton: UIView {
     
     private final let button: UIButton = {
         
