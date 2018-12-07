@@ -12,6 +12,7 @@
 		B011239C215E056C00A905E3 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011239A215E056600A905E3 /* MessageField.swift */; };
 		B01123A8215E335300A905E3 /* CheckoutCartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123A7215E335300A905E3 /* CheckoutCartItem.swift */; };
 		B017706121BA85FC003C49DB /* UIKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017706021BA85FC003C49DB /* UIKeyboardController.swift */; };
+		B017706321BABFC6003C49DB /* TSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017706221BABFC6003C49DB /* TSModel.swift */; };
 		B020D4F52195350200EC93E3 /* CheckoutCartItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F42195350200EC93E3 /* CheckoutCartItemController.swift */; };
 		B020D4F721953B0200EC93E3 /* Content+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F621953B0200EC93E3 /* Content+Codable.swift */; };
 		B020D4F921955D3400EC93E3 /* CheckoutCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F821955D3400EC93E3 /* CheckoutCart.swift */; };
@@ -136,6 +137,7 @@
 		B011239A215E056600A905E3 /* MessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
 		B01123A7215E335300A905E3 /* CheckoutCartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCartItem.swift; sourceTree = "<group>"; };
 		B017706021BA85FC003C49DB /* UIKeyboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKeyboardController.swift; sourceTree = "<group>"; };
+		B017706221BABFC6003C49DB /* TSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSModel.swift; sourceTree = "<group>"; };
 		B020D4F42195350200EC93E3 /* CheckoutCartItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCartItemController.swift; sourceTree = "<group>"; };
 		B020D4F621953B0200EC93E3 /* Content+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content+Codable.swift"; sourceTree = "<group>"; };
 		B020D4F821955D3400EC93E3 /* CheckoutCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCart.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				B043A29E21AFC77A00CF296A /* State.swift */,
 				B04C929C21A41F340009B607 /* DSL.swift */,
 				B043A29A21AE826800CF296A /* Model.swift */,
+				B017706221BABFC6003C49DB /* TSModel.swift */,
 				B0697F0C21B769C200D05D6E /* RenderableViewBinding.swift */,
 				B0697F1C21B8DB7100D05D6E /* RenderableViewBinding+ViewCollection.swift */,
 				B0CE4AC321B757DE0082039F /* InputableViewBinding.swift */,
@@ -647,6 +650,7 @@
 				B043A05621ABE7E200CF296A /* UIAddressCityPickerViewController.swift in Sources */,
 				B043A2A121AFCAA000CF296A /* UITextFieldContainerView.swift in Sources */,
 				B0697F1521B7E0A700D05D6E /* PostalCode.swift in Sources */,
+				B017706321BABFC6003C49DB /* TSModel.swift in Sources */,
 				B04C92A521A6834F0009B607 /* UIDashboardActionButtonController.swift in Sources */,
 				B0697F1921B8D5BB00D05D6E /* UIAddressPostalCodeTextField.swift in Sources */,
 				B020D4F52195350200EC93E3 /* CheckoutCartItemController.swift in Sources */,
