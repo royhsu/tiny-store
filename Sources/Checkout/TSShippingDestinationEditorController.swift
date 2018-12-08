@@ -7,7 +7,38 @@
 
 // MARK: - TSShippingDestinationEditorController
 
-open class TSShippingDestinationEditorController: UIViewController {
+public struct NewShippingRecipient {
+    
+    public var firstName: TSModel<String>
+    
+    public var lastName: TSModel<String>
+    
+    public init(
+        firstName: String? = nil,
+        lastName: String? = nil
+    ) {
+        
+        self.firstName = TSModel(
+            value: firstName,
+            rules: [ .notEmpty ]
+        )
+        
+        self.lastName = TSModel(
+            value: lastName,
+            rules: [ .notEmpty ]
+        )
+        
+    }
+
+}
+
+public protocol ShippingDestinationEditor {
+    
+    var recipient: NewShippingRecipient { get }
+    
+}
+
+open class TSShippingDestinationEditorController: UIViewController, ShippingDestinationEditor {
     
     private final lazy var _nibView: TSShippingDestinationEditorNibView = {
         
@@ -202,6 +233,24 @@ open class TSShippingDestinationEditorController: UIViewController {
         )
      
         return responders[nextIndex]
+        
+    }
+    
+    public final var recipient = NewShippingRecipient() {
+        
+        didSet {
+            
+            recipient.firstName.bind(
+                to: recipientView.firstNameTextField,
+                for: \.text
+            )
+            
+            recipient.lastName.bind(
+                to: recipientView.lastNameTextField,
+                for: \.text
+            )
+            
+        }
         
     }
     

@@ -68,43 +68,30 @@ extension AppDelegate: UIApplicationDelegate {
 //            ]
 //        )
         
-//        let viewController = TSShippingDestinationEditorController()
-//
-//        viewController.addressStateHandler = { _ in print("State picker...") }
-//
-//        viewController.addressCityHandler = { _ in print("City picker...") }
-//
-//        viewController.view.backgroundColor = .white
-//
-//        let keyboardViewController = UIKeyboardController()
-//
-//        keyboardViewController.setContentViewController(viewController, animated: true)
-//
-//        window.rootViewController = keyboardViewController
-        
-        let viewController = LabelViewController()
-        
-        viewController.label1.text = "Hello"
-        
-        viewController.label2.text = "World"
-        
-        model.bind(
-            to: viewController.label1,
-            for: \.text
+        let viewController = TSShippingDestinationEditorController()
+
+        viewController.addressStateHandler = { _ in print("State picker...") }
+
+        viewController.addressCityHandler = { _ in print("City picker...") }
+
+        viewController.view.backgroundColor = .white
+
+        let keyboardViewController = UIKeyboardController()
+
+        keyboardViewController.setContentViewController(
+            viewController,
+            animated: true
         )
-        
-        model.bind(
-            to: viewController.label2,
-            for: \.text
-        )
-        
-        window.rootViewController = viewController
+
+        window.rootViewController = keyboardViewController
         
         window.makeKeyAndVisible()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             
-            self.model.value = "Hi"
+            viewController.recipient.firstName.value = "Roy"
+
+            viewController.recipient.lastName.value = "Hsu"
             
         }
 

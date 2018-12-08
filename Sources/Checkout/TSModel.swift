@@ -83,6 +83,8 @@ public extension TSModel {
             target: target,
             keyPath: keyPath
         )
+        
+        binding.update(with: value)
 
         bindings.append(
             AnyBinding(binding)
