@@ -13,6 +13,7 @@
 		B01123A8215E335300A905E3 /* CheckoutCartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123A7215E335300A905E3 /* CheckoutCartItem.swift */; };
 		B017706121BA85FC003C49DB /* UIKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017706021BA85FC003C49DB /* UIKeyboardController.swift */; };
 		B017706321BABFC6003C49DB /* TSModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017706221BABFC6003C49DB /* TSModel.swift */; };
+		B017706621BB3CF3003C49DB /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017706521BB3CF3003C49DB /* Binding.swift */; };
 		B020D4F52195350200EC93E3 /* CheckoutCartItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F42195350200EC93E3 /* CheckoutCartItemController.swift */; };
 		B020D4F721953B0200EC93E3 /* Content+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F621953B0200EC93E3 /* Content+Codable.swift */; };
 		B020D4F921955D3400EC93E3 /* CheckoutCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F821955D3400EC93E3 /* CheckoutCart.swift */; };
@@ -138,6 +139,7 @@
 		B01123A7215E335300A905E3 /* CheckoutCartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCartItem.swift; sourceTree = "<group>"; };
 		B017706021BA85FC003C49DB /* UIKeyboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKeyboardController.swift; sourceTree = "<group>"; };
 		B017706221BABFC6003C49DB /* TSModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSModel.swift; sourceTree = "<group>"; };
+		B017706521BB3CF3003C49DB /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
 		B020D4F42195350200EC93E3 /* CheckoutCartItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCartItemController.swift; sourceTree = "<group>"; };
 		B020D4F621953B0200EC93E3 /* Content+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Content+Codable.swift"; sourceTree = "<group>"; };
 		B020D4F821955D3400EC93E3 /* CheckoutCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCart.swift; sourceTree = "<group>"; };
@@ -266,6 +268,14 @@
 				B011238A215DDF2A00A905E3 /* XCTSuccess.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B017706421BB3CAD003C49DB /* Binding */ = {
+			isa = PBXGroup;
+			children = (
+				B017706521BB3CF3003C49DB /* Binding.swift */,
+			);
+			path = Binding;
 			sourceTree = "<group>";
 		};
 		B020D4FE219AC45D00EC93E3 /* Shipping */ = {
@@ -424,6 +434,7 @@
 		B0F51CBE2158773A00B592F5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B017706421BB3CAD003C49DB /* Binding */,
 				B0F51CC52158778C00B592F5 /* iOS */,
 				B0A1C4112158B0AA00DC9F26 /* Checkout */,
 				B02B0248218B0A4700772118 /* Assets.xcassets */,
@@ -601,6 +612,7 @@
 				B0697F3D21BA23B800D05D6E /* TSShippingDestinationEditorController.swift in Sources */,
 				B0CE4AC421B757DE0082039F /* InputableViewBinding.swift in Sources */,
 				B085D8E0219EAB51009F1585 /* UIShippingDestinationViewController.swift in Sources */,
+				B017706621BB3CF3003C49DB /* Binding.swift in Sources */,
 				B02B0245218AF85900772118 /* UICheckoutCartItemViewController.swift in Sources */,
 				B02A19F821BA5AFF00072154 /* TSButton.swift in Sources */,
 				B0772EBC218BF2720082C055 /* CheckoutCartViewController.swift in Sources */,
