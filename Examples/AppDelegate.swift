@@ -29,71 +29,43 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
         
-//        let stateBinding = RenderableViewBinding(
-//            model: Model(value: TaiwanCity.taipei),
-//            view: UIAdressStateButton()
-//        )
-//
-//        stateBinding.view.cityPickerPresenter = { button in
-//
-//            print("Showing picker...")
-//
-//        }
-//
-//        let postalCodeBinding = InputableViewBinding(
-//            model: Model(value: TaiwanPostalCode.daAnDistrict),
-//            view: UIAddressPostalCodeTextField<TaiwanPostalCode>()
-//        )
-//
-//        let line1Binding = InputableViewBinding(
-//            model: Model(),
-//            view: UIAddressLineTextField()
-//        )
-//
-//        line1Binding.view.placeholder = "Line 1"
-//
-//        let line2Binding = InputableViewBinding(
-//            model: Model(),
-//            view: UIAddressLineTextField()
-//        )
-//
-//        line2Binding.view.placeholder = "Line 2"
-//
-//        let viewController = ShippingDestinationEditorController(
-//            destination: [
-//                .state(stateBinding),
-//                .postalCode(postalCodeBinding),
-//                .line(line1Binding),
-//                .line(line2Binding)
-//            ]
-//        )
+        do {
         
-        let viewController = TSShippingDestinationEditorController()
-
-        viewController.addressStateHandler = { _ in print("State picker...") }
-
-        viewController.addressCityHandler = { _ in print("City picker...") }
-
-        viewController.view.backgroundColor = .white
-
-        let keyboardViewController = UIKeyboardController()
-
-        keyboardViewController.setContentViewController(
-            viewController,
-            animated: true
-        )
-
-        window.rootViewController = keyboardViewController
-        
-        window.makeKeyAndVisible()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            let data = try JSONSerialization.data(
+                withJSONObject: [
+                    "recipient": [
+                        "firstName": "Roy",
+                        "lastName": "Hsu"
+                    ]
+                ]
+            )
             
-            viewController.recipient.firstName.value = "Roy"
-
-            viewController.recipient.lastName.value = "Hsu"
+            let decoder = JSONDecoder()
+            
+            let viewController = try decoder.decode(
+                TSShippingDestinationEditorController.self,
+                from: data
+            )
+        
+            viewController.addressStateHandler = { _ in print("State picker...") }
+            
+            viewController.addressCityHandler = { _ in print("City picker...") }
+            
+            viewController.view.backgroundColor = .white
+            
+            let keyboardViewController = UIKeyboardController()
+            
+            keyboardViewController.setContentViewController(
+                viewController,
+                animated: true
+            )
+            
+            window.rootViewController = keyboardViewController
+            
+            window.makeKeyAndVisible()
             
         }
+        catch { print("\(error)") }
 
         return true
 

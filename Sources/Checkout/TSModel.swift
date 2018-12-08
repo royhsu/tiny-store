@@ -98,6 +98,7 @@ public extension TSModel {
 
 public extension TSModel {
     
+    @discardableResult
     public func validate() throws -> Value? {
         
         if isRequired {
