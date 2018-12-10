@@ -105,6 +105,8 @@ open class TSShippingDestinationEditorController: UIViewController, NewShippingD
             from: Bundle(for: TSShippingDestinationEditorNibView.self)
         )!
         
+        view.backgroundColor = nil
+        
         view.nameTextField.returnKeyType = .done
         
         view.nameTextField.shouldReturn = { [weak self] textField in

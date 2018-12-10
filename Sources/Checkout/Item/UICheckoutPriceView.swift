@@ -59,7 +59,13 @@ public final class UICheckoutPriceView: UIView {
         
     }
     
-    private final func load() { wrapSubview(priceLabel) }
+    private final func load() {
+        
+        backgroundColor = nil
+        
+        wrapSubview(priceLabel)
+        
+    }
     
     public final override var intrinsicContentSize: CGSize { return priceLabel.intrinsicContentSize }
     

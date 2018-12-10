@@ -37,7 +37,6 @@
                                     </constraints>
                                 </stackView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="tuC-x9-YUM" firstAttribute="leading" secondItem="GoC-Ga-fHh" secondAttribute="leading" id="1Ph-p2-mSn"/>
                                 <constraint firstAttribute="bottom" secondItem="tuC-x9-YUM" secondAttribute="bottom" constant="4" id="dpV-hg-DME"/>

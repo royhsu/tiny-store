@@ -403,7 +403,7 @@ public final class UICheckoutController: UIViewController {
     
     }
     
-    fileprivate final func wrapChild(_ viewController: ViewController) -> ViewController {
+    private final func wrapChild(_ viewController: ViewController) -> ViewController {
         
         let containerViewController = ViewController()
         
@@ -424,7 +424,7 @@ public final class UICheckoutController: UIViewController {
         
     }
     
-    fileprivate final func showShipping() {
+    private final func showShipping() {
 
         backgroundNavigationController.pushViewController(
             wrapChild(shippingViewController),
@@ -433,9 +433,50 @@ public final class UICheckoutController: UIViewController {
         
     }
     
-    fileprivate final func showDestionationEditor() {
+    private final func showDestionationEditor() {
         
+        checkoutView.isHidden = true
         
+        let editorViewController = TSShippingDestinationEditorController()
+        
+        editorViewController.addressStateHandler = { _ in print("State picker...") }
+
+        editorViewController.addressCityHandler = { _ in print("City picker...") }
+        
+        let keyboardViewController = UIKeyboardController()
+        
+        keyboardViewController.navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(endEditingDestination)
+        )
+
+        keyboardViewController.setContentViewController(
+            editorViewController,
+            animated: true
+        )
+        
+        let navigationController = UINavigationController(rootViewController: keyboardViewController)
+        
+        navigationController.modalPresentationStyle = .overCurrentContext
+
+        present(
+            navigationController,
+            animated: true,
+            completion: nil
+        )
+        
+    }
+    
+    @objc
+    public final func endEditingDestination(_ sender: Any) {
+        
+        checkoutView.isHidden = false
+        
+        presentedViewController?.dismiss(
+            animated: true,
+            completion: nil
+        )
         
     }
     

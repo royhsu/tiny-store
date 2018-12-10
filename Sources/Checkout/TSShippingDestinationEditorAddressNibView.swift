@@ -71,4 +71,12 @@ internal final class TSShippingDestinationEditorAddressNibView: UIView {
         
     }
     
+    public final override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        
+        backgroundColor = nil
+        
+    }
+    
 }
