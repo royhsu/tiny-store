@@ -1,13 +1,13 @@
 //
-//  UIShippingDestinationView.swift
+//  TSShippingDestinationCardNibView.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/16.
 //
 
-// MARK: - UIShippingDestinationView
+// MARK: - TSShippingDestinationCardNibView
 
-public final class UIShippingDestinationView: UIView {
+public final class TSShippingDestinationCardNibView: UIView {
     
     @IBOutlet
     public private(set) final weak var recipientLabel: UILabel! {

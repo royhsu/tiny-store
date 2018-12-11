@@ -17,6 +17,8 @@ open class TSTextField: UIControl, UITextFieldDelegate {
     
     public final var shouldReturn: ( (TSTextField) -> Bool )?
     
+    public final var textDidChange: ( (TSTextField) -> Void )?
+    
     public override init(frame: CGRect) {
         
         super.init(frame: frame)
@@ -39,6 +41,12 @@ open class TSTextField: UIControl, UITextFieldDelegate {
         
         _nibView.textField.delegate = self
         
+        _nibView.textField.addTarget(
+            self,
+            action: #selector(editText),
+            for: .editingChanged
+        )
+        
     }
     
     public final func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -50,19 +58,8 @@ open class TSTextField: UIControl, UITextFieldDelegate {
     @discardableResult
     public final override func becomeFirstResponder() -> Bool { return _nibView.textField.becomeFirstResponder() }
     
-    public final override func addTarget(
-        _ target: Any?,
-        action: Selector,
-        for controlEvents: UIControl.Event
-    ) {
-    
-        _nibView.textField.addTarget(
-            target,
-            action: action,
-            for: controlEvents
-        )
-        
-    }
+    @objc
+    public final func editText(_ textField: UITextField) { textDidChange?(self) }
     
 }
 

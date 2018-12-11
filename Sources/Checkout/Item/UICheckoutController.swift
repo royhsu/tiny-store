@@ -239,9 +239,9 @@ public final class UICheckoutController: UIViewController {
         
     }()
     
-    private final lazy var shippingViewController: ShippingViewController = {
+    private final lazy var shippingViewController: TSShippingViewController = {
         
-        let controller = ShippingViewController()
+        let controller = TSShippingViewController()
         
         controller.serviceListViewController.list.elements = [
             .item(
@@ -296,7 +296,7 @@ public final class UICheckoutController: UIViewController {
             
         }
         
-        controller.destinationViewController.editDestinationHandler = { [weak self] _ in self?.showDestionationEditor() }
+        controller.destinationCardViewController.editDestinationHandler = { [weak self] _ in self?.showDestionationEditor() }
         
         controller.title = NSLocalizedString(
             "Shipping & Delivery",
@@ -383,7 +383,7 @@ public final class UICheckoutController: UIViewController {
         
         checkoutView.isHidden = true
         
-        destinationEditorViewController.recipient = shippingViewController.destinationViewController.destination.recipient
+        destinationEditorViewController.recipient = shippingViewController.destinationCardViewController.destination.recipient
         
         let keyboardViewController = UIKeyboardController()
         
@@ -415,7 +415,7 @@ public final class UICheckoutController: UIViewController {
         
         checkoutView.isHidden = false
         
-        shippingViewController.destinationViewController.destination.recipient = destinationEditorViewController.recipient
+        shippingViewController.destinationCardViewController.destination.recipient = destinationEditorViewController.recipient
         
         presentedViewController?.dismiss(
             animated: true,

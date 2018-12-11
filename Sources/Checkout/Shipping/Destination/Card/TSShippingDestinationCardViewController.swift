@@ -1,37 +1,21 @@
 //
-//  UIShippingDestinationViewController.swift
+//  TSShippingDestinationCardViewController.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/16.
 //
 
-// MARK: - UIShippingDestinationViewController
+// MARK: - TSShippingDestinationCardViewController
 
-internal extension ShippingRecipient {
-    
-    internal var fullName: String? {
-        
-        guard
-            let firstName = firstName.value,
-            let lastName = lastName.value
-        else { return nil }
-        
-        #warning("localization.")
-        return "\(firstName) \(lastName)"
-        
-    }
-    
-}
-
-public final class UIShippingDestinationViewController: UIViewController {
+public final class TSShippingDestinationCardViewController: UIViewController {
     
     private final var observations: [Observation] = []
     
-    private final lazy var destinationView: UIShippingDestinationView = {
+    private final lazy var cardView: TSShippingDestinationCardNibView = {
         
         return UIView.loadView(
-            UIShippingDestinationView.self,
-            from: Bundle(for: UIShippingDestinationView.self)
+            TSShippingDestinationCardNibView.self,
+            from: Bundle(for: TSShippingDestinationCardNibView.self)
         )!
         
     }()
@@ -46,13 +30,24 @@ public final class UIShippingDestinationViewController: UIViewController {
             
             renderRecipientLabel()
             
-            addObservers()
+            observations = [
+                destination.recipient.firstName.addObserver(self) { [weak self] _, _ in
+                    
+                    self?.renderRecipientLabel()
+                    
+                },
+                destination.recipient.lastName.addObserver(self) { [weak self] _, _ in
+                    
+                    self?.renderRecipientLabel()
+                    
+                }
+            ]
             
         }
         
     }
     
-    public final var editDestinationHandler: ( (UIShippingDestinationViewController) -> Void )?
+    public final var editDestinationHandler: ( (TSShippingDestinationCardViewController) -> Void )?
     
     public init(_ destination: ShippingDestination? = nil) {
         
@@ -73,28 +68,15 @@ public final class UIShippingDestinationViewController: UIViewController {
         
     }
     
-    public final override func loadView() { view = destinationView }
+    public final override func loadView() { view = cardView }
     
     public final override func viewDidLoad() {
         
         super.viewDidLoad()
      
+        isDestinationBound = true
+        
         renderRecipientLabel()
-        
-        addObservers()
-        
-        destinationView.editButton.addTarget(
-            self,
-            action: #selector(editDestination),
-            for: .touchUpInside
-        )
-        
-    }
-    
-    @objc
-    public final func editDestination(_ sender: Any) { editDestinationHandler?(self) }
-    
-    private final func addObservers() {
         
         observations = [
             destination.recipient.firstName.addObserver(self) { [weak self] _, _ in
@@ -109,7 +91,16 @@ public final class UIShippingDestinationViewController: UIViewController {
             }
         ]
         
+        cardView.editButton.addTarget(
+            self,
+            action: #selector(editDestination),
+            for: .touchUpInside
+        )
+        
     }
+    
+    @objc
+    public final func editDestination(_ sender: Any) { editDestinationHandler?(self) }
     
     private final func renderRecipientLabel() {
         
@@ -122,7 +113,25 @@ public final class UIShippingDestinationViewController: UIViewController {
             
         }
         
-        destinationView.recipientLabel.text = recipient
+        cardView.recipientLabel.text = recipient
+        
+    }
+    
+}
+
+// MARK: - Full Name
+
+fileprivate extension ShippingRecipient {
+    
+    fileprivate var fullName: String? {
+        
+        guard
+            let firstName = firstName.value,
+            let lastName = lastName.value
+        else { return nil }
+        
+        #warning("localization.")
+        return "\(firstName) \(lastName)"
         
     }
     
