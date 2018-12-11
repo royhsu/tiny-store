@@ -13,29 +13,7 @@ public final class TSShippingViewController: ViewController {
     
     private final let destinationCardWrapperView = View()
     
-//    public final var destination: ShippingDestination? {
-//        
-//        get { return destinationViewController.destination }
-//        
-//        set(newDestination) {
-//            
-//            destinationViewController.destination = newDestination
-//            
-//            guard isViewLoaded else { return }
-//            
-//            destinationWrapperViewHeightConstraint.isActive = (newDestination == nil)
-//            
-//        }
-//        
-//    }
-    
     public private(set) final lazy var destinationCardViewController: TSShippingDestinationCardViewController = { return TSShippingDestinationCardViewController() }()
-    
-    private final lazy var destinationWrapperViewHeightConstraint: NSLayoutConstraint = {
-        
-        return destinationCardWrapperView.heightAnchor.constraint(equalToConstant: 0.0)
-        
-    }()
     
     public final override func viewDidLoad() {
         
@@ -52,8 +30,6 @@ public final class TSShippingViewController: ViewController {
                 view.bottomAnchor.constraint(equalTo: destinationCardWrapperView.bottomAnchor)
             ]
         )
-        
-//        destinationWrapperViewHeightConstraint.isActive = (destination == nil)
         
         addChild(destinationCardViewController)
         

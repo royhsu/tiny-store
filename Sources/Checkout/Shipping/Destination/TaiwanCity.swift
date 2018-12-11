@@ -7,7 +7,7 @@
 
 // MARK: - TaiwanCity
 
-public enum TaiwanCity: String, State {
+public enum TaiwanCity: String, AddressState {
     
     case taipei
     

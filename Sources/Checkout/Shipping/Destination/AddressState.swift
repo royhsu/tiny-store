@@ -1,13 +1,13 @@
 //
-//  State.swift
+//  AddressState.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/29.
 //
 
-// MARK: - State
+// MARK: - AddressState
 
-public protocol State {
+public protocol AddressState {
     
     var rawValue: String { get }
     

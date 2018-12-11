@@ -61,34 +61,34 @@ public final class TSShippingDestinationCardNibView: UIView {
     }
     
     @IBOutlet
-    public private(set) final weak var cardTitleLabel: UILabel! {
+    public private(set) final weak var titleLabel: UILabel! {
         
         didSet {
             
-            cardTitleLabel.adjustsFontForContentSizeCategory = true
+            titleLabel.adjustsFontForContentSizeCategory = true
             
-            cardTitleLabel.font = .preferredFont(forTextStyle: .title3)
+            titleLabel.font = .preferredFont(forTextStyle: .title3)
             
-            cardTitleLabel.numberOfLines = 1
+            titleLabel.numberOfLines = 1
             
-            cardTitleLabel.text = nil
+            titleLabel.text = nil
             
         }
         
     }
     
     @IBOutlet
-    public private(set) final weak var cardAddressLabel: UILabel! {
+    public private(set) final weak var addressLabel: UILabel! {
         
         didSet {
             
-            cardAddressLabel.adjustsFontForContentSizeCategory = true
+            addressLabel.adjustsFontForContentSizeCategory = true
             
-            cardAddressLabel.font = .preferredFont(forTextStyle: .body)
+            addressLabel.font = .preferredFont(forTextStyle: .body)
             
-            cardAddressLabel.numberOfLines = 0
+            addressLabel.numberOfLines = 0
             
-            cardAddressLabel.text = nil
+            addressLabel.text = nil
             
         }
         

@@ -90,11 +90,11 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="cardAddressLabel" destination="DyP-cl-lif" id="yip-BR-dTC"/>
-                <outlet property="cardTitleLabel" destination="U6W-jV-Sqj" id="L62-H4-cdY"/>
+                <outlet property="addressLabel" destination="DyP-cl-lif" id="yip-BR-dTC"/>
                 <outlet property="cardView" destination="iY6-AZ-WdY" id="d20-lh-1Kt"/>
                 <outlet property="editButton" destination="167-Ij-E3p" id="Kzt-aJ-OqG"/>
                 <outlet property="recipientLabel" destination="hFr-OV-XCu" id="qJn-F3-bUy"/>
+                <outlet property="titleLabel" destination="U6W-jV-Sqj" id="L62-H4-cdY"/>
             </connections>
             <point key="canvasLocation" x="55.200000000000003" y="-201.94902548725639"/>
         </view>

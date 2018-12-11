@@ -7,7 +7,7 @@
 
 // MARK: - TSShippingDestinationEditorController
 
-open class TSShippingDestinationEditorController: UIViewController, ShippingDestination {
+open class TSShippingDestinationEditorController: UIViewController {
     
     private final lazy var _nibView: TSShippingDestinationEditorNibView = {
         
@@ -132,6 +132,8 @@ open class TSShippingDestinationEditorController: UIViewController, ShippingDest
         
         view.line1TextField.returnKeyType = .next
         
+        view.line1TextField.textDidChange = { [weak self] textField in self?.address.line1.value = textField.text }
+        
         view.line1TextField.shouldReturn = { [weak self] textField in
             
             let nextResponder = self?.nextResponder(of: textField)
@@ -143,6 +145,8 @@ open class TSShippingDestinationEditorController: UIViewController, ShippingDest
         }
         
         view.line2TextField.returnKeyType = .next
+        
+        view.line2TextField.textDidChange = { [weak self] textField in self?.address.line2.value = textField.text }
         
         view.line2TextField.shouldReturn = { [weak self] textField in
             
@@ -233,13 +237,40 @@ open class TSShippingDestinationEditorController: UIViewController, ShippingDest
         
     }
     
+    private final var isAddressBound = false
+    
+    public final var address: NewShippingAddress {
+        
+        didSet {
+            
+            guard isViewLoaded && isAddressBound else { return }
+            
+            address.line1.bind(
+                to: addressView.line1TextField,
+                for: \.text
+            )
+            
+            address.line2.bind(
+                to: addressView.line2TextField,
+                for: \.text
+            )
+            
+        }
+        
+    }
+    
     public final var addressStateHandler: ( (TSShippingDestinationEditorController) -> Void )?
     
     public final var addressCityHandler: ( (TSShippingDestinationEditorController) -> Void )?
     
-    public required init(recipient: ShippingRecipient? = nil) {
+    public required init(
+        recipient: ShippingRecipient? = nil,
+        address: NewShippingAddress? = nil
+    ) {
         
         self.recipient = recipient ?? DefaultShippingRecipient()
+        
+        self.address = address ?? DefaultShippingAddress()
         
         super.init(
             nibName: nil,
@@ -252,6 +283,8 @@ open class TSShippingDestinationEditorController: UIViewController, ShippingDest
         
         self.recipient = DefaultShippingRecipient()
         
+        self.address = DefaultShippingAddress()
+        
         super.init(coder: aDecoder)
         
     }
@@ -259,6 +292,14 @@ open class TSShippingDestinationEditorController: UIViewController, ShippingDest
     open override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        defer {
+            
+            isRecipientBound = true
+            
+            isAddressBound = true
+            
+        }
         
         recipient.firstName.bind(
             to: recipientView.firstNameTextField,
@@ -270,7 +311,15 @@ open class TSShippingDestinationEditorController: UIViewController, ShippingDest
             for: \.text
         )
         
-        isRecipientBound = true
+        address.line1.bind(
+            to: addressView.line1TextField,
+            for: \.text
+        )
+        
+        address.line2.bind(
+            to: addressView.line2TextField,
+            for: \.text
+        )
         
         view.wrapSubview(
             _nibView,

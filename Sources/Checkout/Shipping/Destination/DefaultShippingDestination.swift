@@ -7,14 +7,21 @@
 
 // MARK: - DefaultShippingDestination
 
-public struct DefaultShippingDestination: ShippingDestination {
-    
-    public var recipient: ShippingRecipient
-    
-    public init(recipient: ShippingRecipient? = nil) {
-        
-        self.recipient = recipient ?? DefaultShippingRecipient()
-        
-    }
-    
-}
+//public struct DefaultShippingDestination: ShippingDestination {
+//    
+//    public var recipient: ShippingRecipient
+//    
+//    public var address: NewShippingAddress
+//    
+//    public init(
+//        recipient: ShippingRecipient? = nil,
+//        address: NewShippingAddress? = nil
+//    ) {
+//        
+//        self.recipient = recipient ?? DefaultShippingRecipient()
+//        
+//        self.address = address ?? DefaultShippingAddress()
+//        
+//    }
+//    
+//}

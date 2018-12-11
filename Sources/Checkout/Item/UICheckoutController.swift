@@ -383,7 +383,9 @@ public final class UICheckoutController: UIViewController {
         
         checkoutView.isHidden = true
         
-        destinationEditorViewController.recipient = shippingViewController.destinationCardViewController.destination.recipient
+        destinationEditorViewController.recipient = shippingViewController.destinationCardViewController.recipient
+        
+        destinationEditorViewController.address = shippingViewController.destinationCardViewController.address
         
         let keyboardViewController = UIKeyboardController()
         
@@ -415,7 +417,9 @@ public final class UICheckoutController: UIViewController {
         
         checkoutView.isHidden = false
         
-        shippingViewController.destinationCardViewController.destination.recipient = destinationEditorViewController.recipient
+        shippingViewController.destinationCardViewController.recipient = destinationEditorViewController.recipient
+        
+        shippingViewController.destinationCardViewController.address = destinationEditorViewController.address
         
         presentedViewController?.dismiss(
             animated: true,
