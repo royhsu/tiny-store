@@ -7,45 +7,25 @@
 
 // MARK: - UIShippingDestinationViewController
 
-public protocol ShippingRecipient {
+internal extension NewShippingRecipient {
     
-    var name: Content<String> { get }
-    
-}
-
-public protocol ShippingAddress {
-    
-    var title: Content<String> { get }
-    
-    var postalCode: Content<String> { get }
-    
-    var country: Content<String> { get }
-    
-    var state: Content<String> { get }
-    
-    var city: Content<String> { get }
-    
-    var line1: Content<String> { get }
-    
-    var line2: Content<String> { get }
+    internal var fullName: String? {
+        
+        guard
+            let firstName = firstName.value,
+            let lastName = lastName.value
+        else { return nil }
+        
+        #warning("localization.")
+        return "\(firstName) \(lastName)"
+        
+    }
     
 }
 
-public protocol ShippingDestination {
+public final class UIShippingDestinationViewController: UIViewController {
     
-    var recipient: ShippingRecipient { get }
-    
-    var address: ShippingAddress { get }
-    
-}
-
-public protocol ShippingDestinationController {
-    
-    var destination: ShippingDestination? { get set }
-    
-}
-
-public final class UIShippingDestinationViewController: UIViewController, ShippingDestinationController {
+    private final var observations: [Observation] = []
     
     private final lazy var destinationView: UIShippingDestinationView = {
         
@@ -56,27 +36,25 @@ public final class UIShippingDestinationViewController: UIViewController, Shippi
         
     }()
     
-    public final var destination: ShippingDestination? {
+    private final var isDestinationBound = false
+    
+    var destination: NewShippingDestination? {
         
         didSet {
             
-            guard isViewLoaded else { return }
+            guard isViewLoaded && isDestinationBound else { return }
             
-            renderView()
+            renderRecipientLabel()
             
-            observeModelChanges()
-            
-            handleViewActions()
+            addObservers()
             
         }
         
     }
     
-    public final var edit: ( () -> Void )?
+    public final var editDestinationHandler: ( (UIShippingDestinationViewController) -> Void )?
     
-    fileprivate final var observations: [Observation] = []
-    
-    public init(_ destination: ShippingDestination? = nil) {
+    public init(_ destination: NewShippingDestination? = nil) {
         
         self.destination = destination
         
@@ -95,11 +73,9 @@ public final class UIShippingDestinationViewController: UIViewController, Shippi
         
         super.viewDidLoad()
      
-        renderView()
+        renderRecipientLabel()
         
-        observeModelChanges()
-        
-        handleViewActions()
+        addObservers()
         
         destinationView.editButton.addTarget(
             self,
@@ -110,33 +86,42 @@ public final class UIShippingDestinationViewController: UIViewController, Shippi
     }
     
     @objc
-    public final func editDestination(_ sender: Any) { edit?() }
+    public final func editDestination(_ sender: Any) { editDestinationHandler?(self) }
     
-    fileprivate final func renderView() {
+    private final func addObservers() {
         
-        guard let destination = destination else { return }
+        let observations = [
+            destination?.recipient.firstName.addObserver(self) { [weak self] _, _ in
+                
+                self?.renderRecipientLabel()
+                
+            },
+            destination?.recipient.lastName.addObserver(self) { [weak self] _, _ in
+                
+                self?.renderRecipientLabel()
+                
+            }
+        ]
         
-        let name = destination.recipient.name.property.value ?? "Unknown"
-        
-        destinationView.recipientLabel.text = "Recipient: \(name)"
-
-        destinationView.cardTitleLabel.text = destination.address.title.property.value
-
-        var address = destination.address.line1.property.value
-        
-        if let line2 = destination.address.line2.property.value {
-            
-            if address == nil { address = line2  }
-            else { address?.append("\n\(line2)") }
-            
-        }
-        
-        destinationView.cardAddressLabel.text = address
+        self.observations = observations.compactMap { $0 }
         
     }
     
-    fileprivate final func observeModelChanges() { }
-    
-    fileprivate final func handleViewActions() { }
+    private final func renderRecipientLabel() {
+        
+        guard let destination = destination else { return }
+        
+        var recipient: String?
+
+        if let fullName = destination.recipient.fullName {
+            
+            #warning("localization")
+            recipient = "Recipient: \(fullName)"
+            
+        }
+        
+        destinationView.recipientLabel.text = recipient
+        
+    }
     
 }

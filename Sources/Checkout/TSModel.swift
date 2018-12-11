@@ -15,11 +15,39 @@ public struct TSModel<Value> {
             
             let newValue = value
             
+            let liveObservations = observations.filter { $0.observer != nil }
+            
+            observations = liveObservations
+            
             let liveBindings = bindings.filter { $0.target != nil }
             
             bindings = liveBindings
             
-            liveBindings.forEach { $0.update(with: newValue) }
+            #warning("prevent accessing race conditions.")
+            DispatchQueue.main.async {
+                
+//            let change: ObservedChange<Value> =
+//                isInitialValue
+//                    ? .initial(value: newValue)
+//                    : .changed(
+//                        oldValue: oldValue,
+//                        newValue: newValue
+//            )
+                
+                liveObservations.forEach {
+                    
+                    $0.notify(
+                        with: .changed(
+                            oldValue: oldValue,
+                            newValue: newValue
+                        )
+                    )
+                    
+                }
+                
+                liveBindings.forEach { $0.update(with: newValue) }
+                
+            }
             
         }
         
@@ -28,6 +56,8 @@ public struct TSModel<Value> {
     public var rules: [AnyValidationRule<Value>]
     
     public var isRequired: Bool
+    
+    private var observations: [AnyModelObservation<Value>] = []
     
     private var bindings: [AnyBinding<Value>] = []
     
@@ -49,15 +79,106 @@ public struct TSModel<Value> {
 
 // MARK: - Binding
 
+internal protocol ModelObservation {
+    
+    associatedtype Value
+    
+    var observer: AnyObject? { get }
+    
+    func notify(with change: ObservedChange<Value>)
+    
+}
+
+internal struct AnyModelObservation<Value>: ModelObservation {
+    
+    internal weak var observer: AnyObject?
+    
+    private let _notify: (_ change: ObservedChange<Value>) -> Void
+    
+    internal init<O: ModelObservation>(_ o: O) where O.Value == Value {
+        
+        self.observer = o.observer
+        
+        self._notify = o.notify
+        
+    }
+    
+    internal func notify(with change: ObservedChange<Value>) { _notify(change) }
+    
+}
+
 public extension TSModel {
+    
+    private struct _Observation<Observer: AnyObject, Value>: ModelObservation, Observation {
+        
+        private weak var _observer: Observer?
+        
+        internal var observer: AnyObject? { return _observer }
+        
+        private let handler: (
+            _ observer: Observer,
+            _ change: ObservedChange<Value>
+        )
+        -> Void
+        
+        internal init(
+            _ observer: Observer,
+            _ handler: @escaping (
+                _ observer: Observer,
+                _ change: ObservedChange<Value>
+            )
+            -> Void
+        ) {
+            
+            self._observer = observer
+            
+            self.handler = handler
+            
+        }
+        
+        internal func notify(with change: ObservedChange<Value>) {
+            
+            guard let observer = _observer else { return }
+            
+            handler(
+                observer,
+                change
+            )
+            
+        }
+        
+    }
+    
+    public mutating func addObserver<Observer: AnyObject>(
+        _ observer: Observer,
+        handler: @escaping (
+            _ observer: Observer,
+            _ change: ObservedChange<Value>
+        )
+        -> Void
+    )
+    -> Observation {
+        
+        let observation = _Observation(
+            observer,
+            handler
+        )
+        
+        observations.append(
+            AnyModelObservation(observation)
+        )
+        
+        return observation
+        
+    }
     
     private struct _Binding<Target: AnyObject, Value>: Binding {
         
         private weak var _target: Target?
         
-        private let keyPath: ReferenceWritableKeyPath<Target, Value?>
-        
         internal var target: AnyObject? { return _target }
+        
+        private let keyPath: ReferenceWritableKeyPath<Target, Value?>
         
         internal init(
             target: Target,

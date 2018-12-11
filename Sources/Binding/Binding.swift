@@ -21,9 +21,9 @@ internal protocol Binding {
 
 internal struct AnyBinding<Value>: Binding {
     
-    private let update: (Value?) -> Void
-    
     internal weak var target: AnyObject?
+    
+    private let update: (Value?) -> Void
     
     internal init<B: Binding>(_ binding: B) where B.Value == Value {
         

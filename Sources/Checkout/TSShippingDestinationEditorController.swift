@@ -76,39 +76,6 @@ extension NewShippingRecipient {
     
 }
 
-public protocol NewShippingDestination: Decodable {
-    
-    var recipient: NewShippingRecipient { get }
-    
-    init(
-        recipient: NewShippingRecipient?
-    )
-    
-}
-
-private enum ShippingDestinationCodingKeys: CodingKey {
-    
-    case recipient
-    
-}
-
-extension NewShippingDestination {
-    
-    public init(from decoder: Decoder) throws {
-        
-        let container = try decoder.container(keyedBy: ShippingDestinationCodingKeys.self)
-        
-        let recipient = try container.decodeIfPresent(
-            DefaultShippingRecipient.self,
-            forKey: .recipient
-        )
-        
-        self.init(recipient: recipient)
-        
-    }
-    
-}
-
 open class TSShippingDestinationEditorController: UIViewController, NewShippingDestination {
     
     private final lazy var _nibView: TSShippingDestinationEditorNibView = {

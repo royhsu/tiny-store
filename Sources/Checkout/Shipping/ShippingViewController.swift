@@ -15,13 +15,13 @@ public final class ShippingViewController: ViewController {
     
     private final let destinationWrapperView = View()
     
-    public final var destination: ShippingDestination? {
+    public final var destination: NewShippingDestination? {
         
-        get { return _destinationViewController.destination }
+        get { return destinationViewController.destination }
         
         set(newDestination) {
             
-            _destinationViewController.destination = newDestination
+            destinationViewController.destination = newDestination
             
             guard isViewLoaded else { return }
             
@@ -31,19 +31,9 @@ public final class ShippingViewController: ViewController {
         
     }
     
-    public final var editDestination: ( () -> Void )? {
+    public private(set) final lazy var destinationViewController: UIShippingDestinationViewController = {
         
-        get { return _destinationViewController.edit }
-        
-        set { _destinationViewController.edit = newValue }
-        
-    }
-    
-    private final lazy var _destinationViewController: UIShippingDestinationViewController = {
-        
-        let controller = UIShippingDestinationViewController()
-        
-        return controller
+        return UIShippingDestinationViewController()
         
     }()
     
@@ -71,11 +61,11 @@ public final class ShippingViewController: ViewController {
         
         destinationWrapperViewHeightConstraint.isActive = (destination == nil)
         
-        addChild(_destinationViewController)
+        addChild(destinationViewController)
         
-        destinationWrapperView.wrapSubview(_destinationViewController.view)
+        destinationWrapperView.wrapSubview(destinationViewController.view)
         
-        _destinationViewController.didMove(toParent: self)
+        destinationViewController.didMove(toParent: self)
         
         addChild(serviceListViewController)
         
