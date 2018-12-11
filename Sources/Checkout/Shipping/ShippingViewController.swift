@@ -13,7 +13,7 @@ public final class ShippingViewController: ViewController {
     
     private final let destinationWrapperView = View()
     
-//    public final var destination: NewShippingDestination? {
+//    public final var destination: ShippingDestination? {
 //        
 //        get { return destinationViewController.destination }
 //        

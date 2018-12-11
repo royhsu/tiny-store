@@ -7,76 +7,7 @@
 
 // MARK: - TSShippingDestinationEditorController
 
-public protocol NewShippingRecipient: Decodable {
-    
-    var firstName: TSModel<String> { get set }
-    
-    var lastName: TSModel<String> { get set }
-    
-    init(
-        firstName: String?,
-        lastName: String?
-    )
-    
-}
-
-public struct DefaultShippingRecipient: NewShippingRecipient {
-    
-    public var firstName: TSModel<String>
-    
-    public var lastName: TSModel<String>
-    
-    public init(
-        firstName: String? = nil,
-        lastName: String? = nil
-    ) {
-        
-        self.firstName = TSModel(
-            value: firstName,
-            rules: [ .notEmpty ]
-        )
-        
-        self.lastName = TSModel(
-            value: lastName,
-            rules: [ .notEmpty ]
-        )
-        
-    }
-
-}
-
-private enum ShippingRecipientCodingKeys: CodingKey {
-    
-    case firstName, lastName
-    
-}
-
-extension NewShippingRecipient {
-    
-    public init(from decoder: Decoder) throws {
-        
-        let container = try decoder.container(keyedBy: ShippingRecipientCodingKeys.self)
-        
-        let firstName = try container.decodeIfPresent(
-            String.self,
-            forKey: .firstName
-        )
-        
-        let lastName = try container.decodeIfPresent(
-            String.self,
-            forKey: .lastName
-        )
-        
-        self.init(
-            firstName: firstName,
-            lastName: lastName
-        )
-        
-    }
-    
-}
-
-open class TSShippingDestinationEditorController: UIViewController, NewShippingDestination {
+open class TSShippingDestinationEditorController: UIViewController, ShippingDestination {
     
     private final lazy var _nibView: TSShippingDestinationEditorNibView = {
         
@@ -288,13 +219,13 @@ open class TSShippingDestinationEditorController: UIViewController, NewShippingD
         
     }
     
-    private final var isRecipientBinded = false
+    private final var isRecipientBound = false
     
-    public final var recipient: NewShippingRecipient {
+    public final var recipient: ShippingRecipient {
         
         didSet {
             
-            guard isViewLoaded && isRecipientBinded else { return }
+            guard isViewLoaded && isRecipientBound else { return }
             
             recipient.firstName.bind(
                 to: recipientView.firstNameTextField,
@@ -314,9 +245,7 @@ open class TSShippingDestinationEditorController: UIViewController, NewShippingD
     
     public final var addressCityHandler: ( (TSShippingDestinationEditorController) -> Void )?
     
-    public required init(
-        recipient: NewShippingRecipient? = nil
-    ) {
+    public required init(recipient: ShippingRecipient? = nil) {
         
         self.recipient = recipient ?? DefaultShippingRecipient()
         
@@ -349,7 +278,7 @@ open class TSShippingDestinationEditorController: UIViewController, NewShippingD
             for: \.text
         )
         
-        isRecipientBinded = true
+        isRecipientBound = true
         
         view.wrapSubview(
             _nibView,

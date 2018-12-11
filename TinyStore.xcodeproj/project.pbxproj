@@ -101,9 +101,11 @@
 		B0B0EC3621BA522000924829 /* TSSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0EC3521BA522000924829 /* TSSectionHeaderView.swift */; };
 		B0CE4AC221B6C2900082039F /* ValueRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE4AC121B6C2900082039F /* ValueRenderable.swift */; };
 		B0CE4AC421B757DE0082039F /* InputableViewBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CE4AC321B757DE0082039F /* InputableViewBinding.swift */; };
-		B0D46D0121BF666A00B95373 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0021BF666A00B95373 /* Destination.swift */; };
+		B0D46D0121BF666A00B95373 /* ShippingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0021BF666A00B95373 /* ShippingDestination.swift */; };
 		B0D46D0321BF669600B95373 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0221BF669600B95373 /* Address.swift */; };
-		B0D46D0521BF66BB00B95373 /* Recipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0421BF66BB00B95373 /* Recipient.swift */; };
+		B0D46D0521BF66BB00B95373 /* ShippingRecipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0421BF66BB00B95373 /* ShippingRecipient.swift */; };
+		B0D46D0721BF955C00B95373 /* DefaultShippingDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0621BF955C00B95373 /* DefaultShippingDestination.swift */; };
+		B0D46D0921BF961100B95373 /* DefaultShippingRecipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0821BF961100B95373 /* DefaultShippingRecipient.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
 		B0F51CDE21587F2D00B592F5 /* FormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F51CDC21587F2B00B592F5 /* FormFieldTests.swift */; };
@@ -230,9 +232,11 @@
 		B0B0EC3521BA522000924829 /* TSSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSectionHeaderView.swift; sourceTree = "<group>"; };
 		B0CE4AC121B6C2900082039F /* ValueRenderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueRenderable.swift; sourceTree = "<group>"; };
 		B0CE4AC321B757DE0082039F /* InputableViewBinding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputableViewBinding.swift; sourceTree = "<group>"; };
-		B0D46D0021BF666A00B95373 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
+		B0D46D0021BF666A00B95373 /* ShippingDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingDestination.swift; sourceTree = "<group>"; };
 		B0D46D0221BF669600B95373 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		B0D46D0421BF66BB00B95373 /* Recipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipient.swift; sourceTree = "<group>"; };
+		B0D46D0421BF66BB00B95373 /* ShippingRecipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingRecipient.swift; sourceTree = "<group>"; };
+		B0D46D0621BF955C00B95373 /* DefaultShippingDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultShippingDestination.swift; sourceTree = "<group>"; };
+		B0D46D0821BF961100B95373 /* DefaultShippingRecipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultShippingRecipient.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F51CBF2158773A00B592F5 /* TinyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyStore.h; sourceTree = "<group>"; };
 		B0F51CC02158773A00B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -300,9 +304,11 @@
 		B043A05421ABE76000CF296A /* Destination */ = {
 			isa = PBXGroup;
 			children = (
-				B0D46D0021BF666A00B95373 /* Destination.swift */,
+				B0D46D0021BF666A00B95373 /* ShippingDestination.swift */,
+				B0D46D0621BF955C00B95373 /* DefaultShippingDestination.swift */,
+				B0D46D0421BF66BB00B95373 /* ShippingRecipient.swift */,
+				B0D46D0821BF961100B95373 /* DefaultShippingRecipient.swift */,
 				B0D46D0221BF669600B95373 /* Address.swift */,
-				B0D46D0421BF66BB00B95373 /* Recipient.swift */,
 				B085D8DF219EAB51009F1585 /* UIShippingDestinationViewController.swift */,
 				B085D8DB219EA13A009F1585 /* UIShippingDestinationView.swift */,
 				B085D8DD219EA15B009F1585 /* UIShippingDestinationView.xib */,
@@ -613,6 +619,7 @@
 				B0772ECC218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift in Sources */,
 				B043A29B21AE826900CF296A /* Model.swift in Sources */,
 				B0CE4AC221B6C2900082039F /* ValueRenderable.swift in Sources */,
+				B0D46D0921BF961100B95373 /* DefaultShippingRecipient.swift in Sources */,
 				B043A29D21AE8EA000CF296A /* UserInputable.swift in Sources */,
 				B0697F3B21BA0C1900D05D6E /* TSTextField.swift in Sources */,
 				B04C92A921A686F20009B607 /* DashboardActionController.swift in Sources */,
@@ -621,7 +628,7 @@
 				B0697F3D21BA23B800D05D6E /* TSShippingDestinationEditorController.swift in Sources */,
 				B0CE4AC421B757DE0082039F /* InputableViewBinding.swift in Sources */,
 				B085D8E0219EAB51009F1585 /* UIShippingDestinationViewController.swift in Sources */,
-				B0D46D0121BF666A00B95373 /* Destination.swift in Sources */,
+				B0D46D0121BF666A00B95373 /* ShippingDestination.swift in Sources */,
 				B017706621BB3CF3003C49DB /* Binding.swift in Sources */,
 				B02B0245218AF85900772118 /* UICheckoutCartItemViewController.swift in Sources */,
 				B02A19F821BA5AFF00072154 /* TSButton.swift in Sources */,
@@ -634,6 +641,7 @@
 				B0A06A022189A01500BA4CA5 /* UINibWrapperView.swift in Sources */,
 				B02A19F421BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift in Sources */,
 				B085D8D0219D59E8009F1585 /* ViewCollection.swift in Sources */,
+				B0D46D0721BF955C00B95373 /* DefaultShippingDestination.swift in Sources */,
 				B020D500219AC49500EC93E3 /* ShippingService.swift in Sources */,
 				B04C92A721A686210009B607 /* DashboardAction.swift in Sources */,
 				B0772ED6218C4CC60082C055 /* UICheckoutController.swift in Sources */,
@@ -659,7 +667,7 @@
 				B0A069FA21897FED00BA4CA5 /* UICheckoutCartItemView.swift in Sources */,
 				B043A29921AD4DDE00CF296A /* UIAdressStateButton.swift in Sources */,
 				B085D8DC219EA13B009F1585 /* UIShippingDestinationView.swift in Sources */,
-				B0D46D0521BF66BB00B95373 /* Recipient.swift in Sources */,
+				B0D46D0521BF66BB00B95373 /* ShippingRecipient.swift in Sources */,
 				B085D8D4219D5AC4009F1585 /* ShippingServiceController.swift in Sources */,
 				B0772ED82193D78E0082C055 /* Content.swift in Sources */,
 				B0697F2521B90FFA00D05D6E /* UIAddressLineTextField.swift in Sources */,

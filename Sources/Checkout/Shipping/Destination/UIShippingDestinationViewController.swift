@@ -7,7 +7,7 @@
 
 // MARK: - UIShippingDestinationViewController
 
-internal extension NewShippingRecipient {
+internal extension ShippingRecipient {
     
     internal var fullName: String? {
         
@@ -38,7 +38,7 @@ public final class UIShippingDestinationViewController: UIViewController {
     
     private final var isDestinationBound = false
     
-    public final var destination: NewShippingDestination {
+    public final var destination: ShippingDestination {
         
         didSet {
             
@@ -54,7 +54,7 @@ public final class UIShippingDestinationViewController: UIViewController {
     
     public final var editDestinationHandler: ( (UIShippingDestinationViewController) -> Void )?
     
-    public init(_ destination: NewShippingDestination? = nil) {
+    public init(_ destination: ShippingDestination? = nil) {
         
         self.destination = destination ?? DefaultShippingDestination()
         
@@ -121,8 +121,6 @@ public final class UIShippingDestinationViewController: UIViewController {
             recipient = "Recipient: \(fullName)"
             
         }
-        
-        print("TEST", recipient)
         
         destinationView.recipientLabel.text = recipient
         
