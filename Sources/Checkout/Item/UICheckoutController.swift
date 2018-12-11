@@ -356,13 +356,7 @@ public final class UICheckoutController: UIViewController {
             
         }
         
-        controller.editDestination = { [weak self] in
-            
-            guard let self = self else { return }
-            
-            self.showDestionationEditor()
-            
-        }
+        controller.editDestination = { [weak self] in self?.showDestionationEditor() }
         
         controller.title = NSLocalizedString(
             "Shipping & Delivery",
@@ -438,6 +432,12 @@ public final class UICheckoutController: UIViewController {
         checkoutView.isHidden = true
         
         let editorViewController = TSShippingDestinationEditorController()
+        
+        #warning("inject the real object.")
+        editorViewController.recipient = DefaultShippingRecipient(
+            firstName: "Roy",
+            lastName: "Hsu"
+        )
         
         editorViewController.addressStateHandler = { _ in print("State picker...") }
 

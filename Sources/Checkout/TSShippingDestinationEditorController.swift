@@ -7,7 +7,20 @@
 
 // MARK: - TSShippingDestinationEditorController
 
-public struct NewShippingRecipient {
+public protocol NewShippingRecipient: Decodable {
+    
+    var firstName: TSModel<String> { get set }
+    
+    var lastName: TSModel<String> { get set }
+    
+    init(
+        firstName: String?,
+        lastName: String?
+    )
+    
+}
+
+public struct DefaultShippingRecipient: NewShippingRecipient {
     
     public var firstName: TSModel<String>
     
@@ -32,17 +45,17 @@ public struct NewShippingRecipient {
 
 }
 
-extension NewShippingRecipient: Decodable {
+private enum ShippingRecipientCodingKeys: CodingKey {
     
-    private enum CodingKeys: CodingKey {
-        
-        case firstName, lastName
-        
-    }
+    case firstName, lastName
+    
+}
+
+extension NewShippingRecipient {
     
     public init(from decoder: Decoder) throws {
         
-        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let container = try decoder.container(keyedBy: ShippingRecipientCodingKeys.self)
         
         let firstName = try container.decodeIfPresent(
             String.self,
@@ -86,7 +99,7 @@ extension NewShippingDestination {
         let container = try decoder.container(keyedBy: ShippingDestinationCodingKeys.self)
         
         let recipient = try container.decodeIfPresent(
-            NewShippingRecipient.self,
+            DefaultShippingRecipient.self,
             forKey: .recipient
         )
         
@@ -326,7 +339,7 @@ open class TSShippingDestinationEditorController: UIViewController, NewShippingD
         recipient: NewShippingRecipient? = nil
     ) {
         
-        self.recipient = recipient ?? NewShippingRecipient()
+        self.recipient = recipient ?? DefaultShippingRecipient()
         
         super.init(
             nibName: nil,
@@ -337,7 +350,7 @@ open class TSShippingDestinationEditorController: UIViewController, NewShippingD
     
     public required init?(coder aDecoder: NSCoder) {
         
-        self.recipient = NewShippingRecipient()
+        self.recipient = DefaultShippingRecipient()
         
         super.init(coder: aDecoder)
         
