@@ -13,10 +13,6 @@ import TinyStore
 @UIApplicationMain
 public final class AppDelegate: UIResponder {
 
-    private final var model = TSModel<String>()
-    
-    private final var observation: Observation?
-    
     public final let window = UIWindow(frame: UIScreen.main.bounds)
 
 }
@@ -30,20 +26,8 @@ extension AppDelegate: UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     )
     -> Bool {
-
-//        observation = model.addObserver(self) { [weak self] delegate, change in
-//
-//            print("model", self?.model)
-//
-//            print("observer", delegate)
-//
-//            print("change", change)
-//
-//        }
-//
-//        model.value = "Hi"
         
-        let viewController = UICheckoutController()
+        let viewController = TSCheckoutViewController()
         
         window.rootViewController = viewController
 

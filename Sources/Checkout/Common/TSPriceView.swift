@@ -1,14 +1,14 @@
 //
-//  UICheckoutPriceView.swift
+//  TSPriceView.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/12/5.
 //
 
-// MAKR: - UICheckoutPriceView
+// MAKR: - TSPriceView
 
 @IBDesignable
-public final class UICheckoutPriceView: UIView {
+public final class TSPriceView: UIView {
     
     private final lazy var priceLabel: UILabel = {
         
@@ -33,11 +33,7 @@ public final class UICheckoutPriceView: UIView {
     @IBInspectable
     public final var price: Double = 0.0 {
         
-        didSet {
-            
-            priceLabel.text = priceFormatter.string(from: price)
-            
-        }
+        didSet { priceLabel.text = priceFormatter.string(from: price) }
         
     }
     
@@ -68,13 +64,5 @@ public final class UICheckoutPriceView: UIView {
     }
     
     public final override var intrinsicContentSize: CGSize { return priceLabel.intrinsicContentSize }
-    
-}
-
-// MARK: - ValueRenderable
-
-extension UICheckoutPriceView: ValueRenderable {
-    
-    public func render(with price: Double?) { self.price = price ?? 0.0 }
     
 }

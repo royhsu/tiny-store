@@ -1,14 +1,14 @@
 //
-//  UICheckoutSelectionView.swift
+//  TSSelectionView.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/2.
 //
 
-// MARK: - UICheckoutSelectionView
+// MARK: - TSSelectionView
 
 @IBDesignable
-public class UICheckoutSelectionView: UIView, UserInputable {
+public class TSSelectionView: UIView {
     
     private final let imageView: UIImageView = {
         
@@ -22,40 +22,22 @@ public class UICheckoutSelectionView: UIView, UserInputable {
         
     }()
     
-    private final var _isSelected = false {
+    public final var isSelected = false {
         
         didSet {
             
             #warning("switch images when the isSelected changes.")
-            imageView.backgroundColor = _isSelected ? tintColor : nil
+            imageView.backgroundColor = isSelected ? tintColor : nil
             
         }
         
     }
     
-    public final var isSelected: Bool {
-        
-        get { return _isSelected }
-        
-        set {
-            
-            _isSelected = newValue
-            
-            didReceiveUserInput?(newValue)
-            
-        }
-        
-    }
-    
-    public final var didReceiveUserInput: ( (Bool) -> Void )?
+    public final var selectionDidChange: ( (TSSelectionView) -> Void )?
     
     public final override var tintColor: UIColor! {
         
-        didSet {
-            
-            imageView.layer.borderColor = tintColor.cgColor
-            
-        }
+        didSet { imageView.layer.borderColor = tintColor.cgColor }
         
     }
     
@@ -94,7 +76,7 @@ public class UICheckoutSelectionView: UIView, UserInputable {
         addGestureRecognizer(
             UITapGestureRecognizer(
                 target: self,
-                action: #selector(toggle)
+                action: #selector(toggleSelection)
             )
         )
         
@@ -109,17 +91,11 @@ public class UICheckoutSelectionView: UIView, UserInputable {
     }
     
     @objc
-    public final func toggle(_ sender: Any) { isSelected.toggle() }
-    
-}
-
-// MARK: - ValueRenderable
-
-extension UICheckoutSelectionView: ValueRenderable {
-    
-    public final func render(with isSelected: Bool?) {
+    public final func toggleSelection(_ gesture: UITapGestureRecognizer) {
         
-        if let isSelected = isSelected { _isSelected = isSelected }
+        isSelected.toggle()
+        
+        selectionDidChange?(self)
         
     }
     

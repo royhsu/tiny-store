@@ -1,11 +1,11 @@
 //
-//  UICheckoutController.swift
+//  TSCheckoutViewController.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/2.
 //
 
-// MARK: - UICheckoutController
+// MARK: - TSCheckoutViewController
 
 #warning("development only.")
 import MapKit
@@ -72,7 +72,7 @@ private struct SubRow: DashboardRow {
     
 }
 
-public final class UICheckoutController: UIViewController {
+public final class TSCheckoutViewController: UIViewController {
     
     private final lazy var checkoutView: UICheckoutView = {
         
@@ -103,8 +103,8 @@ public final class UICheckoutController: UIViewController {
         
         controller.cart.elements = [
             .item(
-                UICheckoutCartItemViewController(
-                    CheckoutApparelItem(
+                TSCartItemViewController(
+                    Apparel(
                         isSelected: true,
                         title: "Knee-length Wool Skirt",
                         color: "Dark Blue",
@@ -115,8 +115,8 @@ public final class UICheckoutController: UIViewController {
                 )
             ),
             .item(
-                UICheckoutCartItemViewController(
-                    CheckoutApparelItem(
+                TSCartItemViewController(
+                    Apparel(
                         isSelected: true,
                         title: "Long-sleeved Blouse",
                         color: "Light Blue",
@@ -127,8 +127,8 @@ public final class UICheckoutController: UIViewController {
                 )
             ),
             .item(
-                UICheckoutCartItemViewController(
-                    CheckoutApparelItem(
+                TSCartItemViewController(
+                    Apparel(
                         isSelected: true,
                         title: "High Heels",
                         color: "Purple Diamond",

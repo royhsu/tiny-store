@@ -120,7 +120,7 @@ public final class UIShippingServiceViewController: UIViewController, ShippingSe
     
     fileprivate final func handleViewActions() {
         
-        serviceView.isSelectedDidChange = { [weak self] isSelected in
+        serviceView.selectionDidChange = { [weak self] view in
             
             guard
                 let self = self,
@@ -129,7 +129,7 @@ public final class UIShippingServiceViewController: UIViewController, ShippingSe
             
             if self.isSelectedUpdating { return }
             
-            service.isSelected.property.value = isSelected
+            service.isSelected.property.value = view.isSelected
             
         }
         

@@ -1,13 +1,13 @@
 //
-//  UICheckoutStepper.swift
+//  TSStepper.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/10/31.
 //
 
-// MARK: - UICheckoutStepper
+// MARK: - TSStepper
 
-public final class UICheckoutStepper: UIView, ValueRenderable, UserInputable {
+public final class TSStepper: UIView {
     
     #warning("image size is not set properly.")
     @IBOutlet
@@ -54,7 +54,7 @@ public final class UICheckoutStepper: UIView, ValueRenderable, UserInputable {
             
             valueTextField.font = .preferredFont(forTextStyle: .body)
             
-            valueTextField.text = "\(_value)"
+            valueTextField.text = "\(value)"
             
             valueTextField.keyboardType = .numberPad
             
@@ -96,39 +96,29 @@ public final class UICheckoutStepper: UIView, ValueRenderable, UserInputable {
         
     }
     
-    private final var _value: Int = 1 {
+    public final var value: Int = 1 {
         
-        didSet {
-            
-            valueTextField.text = "\(_value)"
-            
-            decreaseButton.isEnabled = (_value != minimumValue)
-            
-            increaseButton.isEnabled = (_value != maximumValue)
-            
-        }
-        
-    }
-    
-    public final var value: Int {
-        
-        get { return _value }
-        
-        set {
+        willSet {
             
             guard
                 (minimumValue...maximumValue).contains(newValue)
             else { fatalError("Please make sure the value is between \(minimumValue) and \(maximumValue)") }
             
-            _value = newValue
+        }
+        
+        didSet {
             
-            didReceiveUserInput?(_value)
+            valueTextField.text = "\(value)"
+            
+            decreaseButton.isEnabled = (value != minimumValue)
+            
+            increaseButton.isEnabled = (value != maximumValue)
             
         }
         
     }
     
-    public final var didReceiveUserInput: ( (_ value: Int) -> Void )?
+    public final var valueDidChange: ( (TSStepper) -> Void )?
     
     public final override var tintColor: UIColor! {
         
@@ -157,14 +147,20 @@ public final class UICheckoutStepper: UIView, ValueRenderable, UserInputable {
     }
     
     @objc
-    public final func descrease(sender: Any) { value -= 1 }
+    public final func descrease(sender: Any) {
+        
+        value -= 1
+        
+        valueDidChange?(self)
+        
+    }
     
     @objc
-    public final func increase(sender: Any) { value += 1 }
-    
-    public final func render(with value: Int?) {
+    public final func increase(sender: Any) {
         
-        if let value = value { _value = value }
+        value += 1
+        
+        valueDidChange?(self)
         
     }
     

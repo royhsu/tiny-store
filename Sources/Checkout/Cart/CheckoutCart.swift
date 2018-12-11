@@ -11,7 +11,7 @@ public final class CheckoutCart: DSL {
     
     public enum Element: ViewCollection {
         
-        case item(CheckoutCartItemController & ViewController)
+        case item(CartItemController & ViewController)
         
         public var numberOfViews: Int {
             
@@ -91,35 +91,35 @@ public final class CheckoutCart: DSL {
                 
                 guard let item = controller.item else { return }
                 
-                observations.append(
-                    item.isSelected.observe { [weak self] _ in
-                        
-                        guard let self = self else { return }
-                        
-                        self.totalAmountDidChange?(self.totalAmount)
-                        
-                    }
-                )
-                
-                observations.append(
-                    item.price.observe { [weak self] _ in
-                        
-                        guard let self = self else { return }
-                        
-                        self.totalAmountDidChange?(self.totalAmount)
-                        
-                    }
-                )
-                
-                observations.append(
-                    item.quantity.observe { [weak self] _ in
-                        
-                        guard let self = self else { return }
-                        
-                        self.totalAmountDidChange?(self.totalAmount)
-                        
-                    }
-                )
+//                observations.append(
+//                    item.isSelected.observe { [weak self] _ in
+//                        
+//                        guard let self = self else { return }
+//                        
+//                        self.totalAmountDidChange?(self.totalAmount)
+//                        
+//                    }
+//                )
+//                
+//                observations.append(
+//                    item.price.observe { [weak self] _ in
+//                        
+//                        guard let self = self else { return }
+//                        
+//                        self.totalAmountDidChange?(self.totalAmount)
+//                        
+//                    }
+//                )
+//                
+//                observations.append(
+//                    item.quantity.observe { [weak self] _ in
+//                        
+//                        guard let self = self else { return }
+//                        
+//                        self.totalAmountDidChange?(self.totalAmount)
+//                        
+//                    }
+//                )
                 
             }
             
@@ -137,7 +137,7 @@ fileprivate extension Array where Element == CheckoutCart.Element {
     
     fileprivate var totalAmount: Double {
         
-        let items: [CheckoutCartItem] = compactMap { element in
+        let items: [CartItem] = compactMap { element in
             
             guard case let .item(controller) = element else { return nil }
             

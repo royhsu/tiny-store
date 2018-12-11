@@ -10,19 +10,9 @@
 public final class UIShippingServiceView: UIView {
     
     @IBOutlet
-    private final weak var selectionView: UICheckoutSelectionView! {
+    private final weak var selectionView: TSSelectionView! {
         
-        didSet {
-            
-            selectionView.tintColor = .black
-            
-            selectionView.didReceiveUserInput = { [weak self] isSelected in
-                
-                self?.isSelectedDidChange?(isSelected)
-                
-            }
-            
-        }
+        didSet { selectionView.tintColor = .black }
         
     }
     
@@ -34,7 +24,21 @@ public final class UIShippingServiceView: UIView {
         
     }
     
-    public final var isSelectedDidChange: ( (Bool?) -> Void )?
+    public final var selectionDidChange: ( (UIShippingServiceView) -> Void )? {
+        
+        didSet {
+            
+            selectionView.selectionDidChange = { [weak self] _ in
+                
+                guard let self = self else { return }
+                
+                self.selectionDidChange?(self)
+                
+            }
+            
+        }
+        
+    }
     
     @IBOutlet
     public private(set) final weak var titleLabel: UILabel! {

@@ -172,7 +172,34 @@ public extension TSModel {
         
     }
     
-    private struct _Binding<Target: AnyObject, Value>: Binding {
+    private struct NonnullValueBinding<Target: AnyObject, Value>: Binding {
+        
+        private weak var _target: Target?
+        
+        internal var target: AnyObject? { return _target }
+        
+        private let keyPath: ReferenceWritableKeyPath<Target, Value>
+        
+        internal init(
+            target: Target,
+            keyPath: ReferenceWritableKeyPath<Target, Value>
+        ) {
+            
+            self._target = target
+            
+            self.keyPath = keyPath
+            
+        }
+        
+        internal func update(with value: Value?) {
+            
+            if let value = value { _target?[keyPath: keyPath] = value }
+            
+        }
+        
+    }
+    
+    private struct NullableValueBinding<Target: AnyObject, Value>: Binding {
         
         private weak var _target: Target?
         
@@ -197,10 +224,28 @@ public extension TSModel {
     
     public mutating func bind<Target: AnyObject>(
         to target: Target,
+        for keyPath: ReferenceWritableKeyPath<Target, Value>
+    ) {
+        
+        let binding = NonnullValueBinding(
+            target: target,
+            keyPath: keyPath
+        )
+        
+        binding.update(with: value)
+        
+        bindings.append(
+            AnyBinding(binding)
+        )
+        
+    }
+    
+    public mutating func bind<Target: AnyObject>(
+        to target: Target,
         for keyPath: ReferenceWritableKeyPath<Target, Value?>
     ) {
         
-        let binding = _Binding(
+        let binding = NullableValueBinding(
             target: target,
             keyPath: keyPath
         )

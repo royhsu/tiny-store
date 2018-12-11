@@ -13,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UICheckoutCartItemView" customModule="TinyStore" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TSCartItemNibView" customModule="TinyStore" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="87"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -23,7 +23,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSD-cQ-nTz">
                             <rect key="frame" x="0.0" y="0.0" width="44" height="87"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7B-gE-pFO" customClass="UICheckoutSelectionView" customModule="TinyStore" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7B-gE-pFO" customClass="TSSelectionView" customModule="TinyStore" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="44" id="8Ef-Iq-Oa1"/>
@@ -96,8 +96,8 @@
                                         <constraint firstItem="tgj-dS-gyV" firstAttribute="leading" secondItem="mmd-Q4-KMj" secondAttribute="leading" id="qaL-47-rkt"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQb-HB-pRX" customClass="UICheckoutPriceView" customModule="TinyStore" customModuleProvider="target">
-                                    <rect key="frame" x="260" y="0.0" width="71" height="20.5"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQb-HB-pRX" customClass="TSPriceView" customModule="TinyStore" customModuleProvider="target">
+                                    <rect key="frame" x="260" y="0.0" width="71" height="50"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="71" id="rsR-dM-RTr"/>

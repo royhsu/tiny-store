@@ -1,18 +1,34 @@
 //
-//  UICheckoutCartItemView.swift
+//  TSCartItemNibView.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/10/31.
 //
 
-// MARK: - UICheckoutCartItemView
+// MARK: - TSCartItemNibView
 
-public final class UICheckoutCartItemView: UIView, UserInputable {
+public final class TSCartItemNibView: UIView {
     
     @IBOutlet
-    private final weak var selectionView: UICheckoutSelectionView! {
+    private final weak var selectionView: TSSelectionView! {
         
-        didSet { selectionView.tintColor = .black }
+        didSet {
+            
+            selectionView.tintColor = .black
+            
+            selectionView.selectionDidChange = { [weak self] _ in
+                
+                guard let self = self else { return }
+                
+                self.contentStackView.alpha = self.isSelected ? 1.0 : 0.5
+                
+                self.quantityStepper.isUserInteractionEnabled = self.isSelected
+                
+                self.selectionDidChange?(self)
+                
+            }
+            
+        }
         
     }
     
@@ -20,23 +36,32 @@ public final class UICheckoutCartItemView: UIView, UserInputable {
         
         get { return selectionView.isSelected }
         
-        set { selectionView.isSelected = newValue }
+        set {
+            
+            selectionView.isSelected = newValue
+            
+            contentStackView.alpha = isSelected ? 1.0 : 0.5
+            
+            quantityStepper.isUserInteractionEnabled = isSelected
+            
+        }
         
     }
     
-    #warning("should find a better way to propagate input values from subviews.")
-    public final var didReceiveUserInput: ( (_ isSelected: Bool) -> Void )? {
+    public final var selectionDidChange: ( (TSCartItemNibView) -> Void )? {
         
-        get { return selectionView.didReceiveUserInput }
+        didSet {
         
-        set {
-            
-            selectionView.didReceiveUserInput = { [weak self] isSelected in
+            selectionView.selectionDidChange = { [weak self] _ in
                 
-                self?.contentStackView.alpha = isSelected ? 1.0 : 0.5
+                guard let self = self else { return }
                 
-                newValue?(isSelected)
+                self.contentStackView.alpha = self.isSelected ? 1.0 : 0.5
                 
+                self.quantityStepper.isUserInteractionEnabled = self.isSelected
+                
+                self.selectionDidChange?(self)
+
             }
             
         }
@@ -100,7 +125,7 @@ public final class UICheckoutCartItemView: UIView, UserInputable {
     }
     
     @IBOutlet
-    public private(set) final weak var priceView: UICheckoutPriceView!
+    public private(set) final weak var priceView: TSPriceView!
     
     @IBOutlet
     private final weak var quantityStepperContainerView: UIView! {
@@ -109,11 +134,11 @@ public final class UICheckoutCartItemView: UIView, UserInputable {
         
     }
     
-    public final let quantityStepper: UICheckoutStepper = {
+    public final let quantityStepper: TSStepper = {
         
         let stepper = UIView.loadView(
-            UICheckoutStepper.self,
-            from: Bundle(for: UICheckoutStepper.self)
+            TSStepper.self,
+            from: Bundle(for: TSStepper.self)
         )!
         
         stepper.tintColor = .black
@@ -132,21 +157,8 @@ public final class UICheckoutCartItemView: UIView, UserInputable {
         
         contentStackView.alpha = isSelected ? 1.0 : 0.5
         
-    }
-    
-}
-
-// MARK: - ValueRenderable
-
-#warning("a temporary fix before solving the propagate issue above.")
-extension UICheckoutCartItemView: ValueRenderable {
-    
-    public final func render(with isSelected: Bool?) {
-
-        if let isSelected = isSelected { contentStackView.alpha = isSelected ? 1.0 : 0.5 }
-
-        selectionView.render(with: isSelected)
-
+        quantityStepper.isUserInteractionEnabled = isSelected
+        
     }
     
 }
