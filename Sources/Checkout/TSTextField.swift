@@ -8,7 +8,7 @@
 // MARK: - TSTextField
 
 @IBDesignable
-open class TSTextField: UIView, UITextFieldDelegate {
+open class TSTextField: UIControl, UITextFieldDelegate {
 
     private final let _nibView = UIView.loadView(
         TSTextFieldNibView.self,
@@ -49,6 +49,20 @@ open class TSTextField: UIView, UITextFieldDelegate {
     
     @discardableResult
     public final override func becomeFirstResponder() -> Bool { return _nibView.textField.becomeFirstResponder() }
+    
+    public final override func addTarget(
+        _ target: Any?,
+        action: Selector,
+        for controlEvents: UIControl.Event
+    ) {
+    
+        _nibView.textField.addTarget(
+            target,
+            action: action,
+            for: controlEvents
+        )
+        
+    }
     
 }
 

@@ -9,33 +9,27 @@
 
 public final class ShippingViewController: ViewController {
     
-    private final let serviceListViewController = ShippingServiceListViewController()
-    
-    public final var serviceList: ShippingServiceList { return serviceListViewController.list }
+    public private(set) final lazy var serviceListViewController: ShippingServiceListViewController = { return ShippingServiceListViewController() }()
     
     private final let destinationWrapperView = View()
     
-    public final var destination: NewShippingDestination? {
-        
-        get { return destinationViewController.destination }
-        
-        set(newDestination) {
-            
-            destinationViewController.destination = newDestination
-            
-            guard isViewLoaded else { return }
-            
-            destinationWrapperViewHeightConstraint.isActive = (newDestination == nil)
-            
-        }
-        
-    }
+//    public final var destination: NewShippingDestination? {
+//        
+//        get { return destinationViewController.destination }
+//        
+//        set(newDestination) {
+//            
+//            destinationViewController.destination = newDestination
+//            
+//            guard isViewLoaded else { return }
+//            
+//            destinationWrapperViewHeightConstraint.isActive = (newDestination == nil)
+//            
+//        }
+//        
+//    }
     
-    public private(set) final lazy var destinationViewController: UIShippingDestinationViewController = {
-        
-        return UIShippingDestinationViewController()
-        
-    }()
+    public private(set) final lazy var destinationViewController: UIShippingDestinationViewController = { return UIShippingDestinationViewController() }()
     
     private final lazy var destinationWrapperViewHeightConstraint: NSLayoutConstraint = {
         
@@ -59,7 +53,7 @@ public final class ShippingViewController: ViewController {
             ]
         )
         
-        destinationWrapperViewHeightConstraint.isActive = (destination == nil)
+//        destinationWrapperViewHeightConstraint.isActive = (destination == nil)
         
         addChild(destinationViewController)
         

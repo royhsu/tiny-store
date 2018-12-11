@@ -243,7 +243,7 @@ public final class UICheckoutController: UIViewController {
         
         let controller = ShippingViewController()
         
-        controller.serviceList.elements = [
+        controller.serviceListViewController.list.elements = [
             .item(
                 UIShippingServiceViewController(
                     Service(
@@ -264,16 +264,6 @@ public final class UICheckoutController: UIViewController {
             )
         ]
         
-        controller.destination = DefaultShippingDestination()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            
-            controller.destination?.recipient.firstName.value = "Roy"
-            
-            controller.destination?.recipient.lastName.value = "Hsu"
-            
-        }
-        
 //        controller.destination = Destination(
 //            recipient:
 //            Recipient(name: "Emily"),
@@ -288,7 +278,7 @@ public final class UICheckoutController: UIViewController {
 //            )
 //        )
         
-        let serviceList = controller.serviceList
+        let serviceList = controller.serviceListViewController.list
         
         dashboardShippingViewController.row?.amount.property.value = serviceList.selectedService?.price.property.value ?? 0.0
         
@@ -312,6 +302,18 @@ public final class UICheckoutController: UIViewController {
             "Shipping & Delivery",
             comment: ""
         )
+        
+        return controller
+        
+    }()
+    
+    private final lazy var destinationEditorViewController: TSShippingDestinationEditorController = {
+    
+        let controller = TSShippingDestinationEditorController()
+        
+        controller.addressStateHandler = { _ in print("State picker...") }
+        
+        controller.addressCityHandler = { _ in print("City picker...") }
         
         return controller
         
@@ -381,17 +383,7 @@ public final class UICheckoutController: UIViewController {
         
         checkoutView.isHidden = true
         
-        let editorViewController = TSShippingDestinationEditorController()
-        
-        #warning("inject the real object.")
-        editorViewController.recipient = DefaultShippingRecipient(
-            firstName: "Roy",
-            lastName: "Hsu"
-        )
-        
-        editorViewController.addressStateHandler = { _ in print("State picker...") }
-
-        editorViewController.addressCityHandler = { _ in print("City picker...") }
+        destinationEditorViewController.recipient = shippingViewController.destinationViewController.destination.recipient
         
         let keyboardViewController = UIKeyboardController()
         
@@ -402,7 +394,7 @@ public final class UICheckoutController: UIViewController {
         )
 
         keyboardViewController.setContentViewController(
-            editorViewController,
+            destinationEditorViewController,
             animated: true
         )
         
@@ -422,6 +414,8 @@ public final class UICheckoutController: UIViewController {
     public final func endEditingDestination(_ sender: Any) {
         
         checkoutView.isHidden = false
+        
+        shippingViewController.destinationViewController.destination.recipient = destinationEditorViewController.recipient
         
         presentedViewController?.dismiss(
             animated: true,

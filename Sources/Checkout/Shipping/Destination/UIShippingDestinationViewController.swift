@@ -38,7 +38,7 @@ public final class UIShippingDestinationViewController: UIViewController {
     
     private final var isDestinationBound = false
     
-    var destination: NewShippingDestination? {
+    public final var destination: NewShippingDestination {
         
         didSet {
             
@@ -56,7 +56,7 @@ public final class UIShippingDestinationViewController: UIViewController {
     
     public init(_ destination: NewShippingDestination? = nil) {
         
-        self.destination = destination
+        self.destination = destination ?? DefaultShippingDestination()
         
         super.init(
             nibName: nil,
@@ -65,7 +65,13 @@ public final class UIShippingDestinationViewController: UIViewController {
         
     }
     
-    public required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
+    public required init?(coder aDecoder: NSCoder) {
+        
+        self.destination = DefaultShippingDestination()
+        
+        super.init(coder: aDecoder)
+        
+    }
     
     public final override func loadView() { view = destinationView }
     
@@ -90,26 +96,22 @@ public final class UIShippingDestinationViewController: UIViewController {
     
     private final func addObservers() {
         
-        let observations = [
-            destination?.recipient.firstName.addObserver(self) { [weak self] _, _ in
+        observations = [
+            destination.recipient.firstName.addObserver(self) { [weak self] _, _ in
                 
                 self?.renderRecipientLabel()
                 
             },
-            destination?.recipient.lastName.addObserver(self) { [weak self] _, _ in
+            destination.recipient.lastName.addObserver(self) { [weak self] _, _ in
                 
                 self?.renderRecipientLabel()
                 
             }
         ]
         
-        self.observations = observations.compactMap { $0 }
-        
     }
     
     private final func renderRecipientLabel() {
-        
-        guard let destination = destination else { return }
         
         var recipient: String?
 
@@ -119,6 +121,8 @@ public final class UIShippingDestinationViewController: UIViewController {
             recipient = "Recipient: \(fullName)"
             
         }
+        
+        print("TEST", recipient)
         
         destinationView.recipientLabel.text = recipient
         

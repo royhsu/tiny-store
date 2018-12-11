@@ -135,6 +135,12 @@ open class TSShippingDestinationEditorController: UIViewController, NewShippingD
         
         view.firstNameTextField.returnKeyType = .next
         
+        view.firstNameTextField.addTarget(
+            self,
+            action: #selector(editFirstName),
+            for: .editingChanged
+        )
+        
         view.firstNameTextField.shouldReturn = { [weak self] textField in
             
             let nextResponder = self?.nextResponder(of: textField)
@@ -146,6 +152,12 @@ open class TSShippingDestinationEditorController: UIViewController, NewShippingD
         }
         
         view.lastNameTextField.returnKeyType = .next
+        
+        view.lastNameTextField.addTarget(
+            self,
+            action: #selector(editLastName),
+            for: .editingChanged
+        )
         
         view.lastNameTextField.shouldReturn = { [weak self] textField in
             
@@ -368,5 +380,11 @@ open class TSShippingDestinationEditorController: UIViewController, NewShippingD
     
     @objc
     public final func handleAddressCity(_ sender: Any) { addressCityHandler?(self) }
+    
+    @objc
+    public final func editFirstName(_ textField: UITextField) { recipient.firstName.value = textField.text }
+    
+    @objc
+    public final func editLastName(_ textField: UITextField) { recipient.lastName.value = textField.text }
     
 }
