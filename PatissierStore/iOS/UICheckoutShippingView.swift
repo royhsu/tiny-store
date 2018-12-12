@@ -73,12 +73,12 @@ public final class UICheckoutShippingView: UIView, Actionable {
         guard
             isLoaded
         else { return }
-        
+
         cityButton.setTitle(
             shippingField?.cityField.value?.name,
             for: .normal
         )
-        
+
         postalCodeButton.setTitle(
             shippingField?.postalCodeField.value,
             for: .normal
@@ -296,22 +296,22 @@ public final class UICheckoutShippingView: UIView, Actionable {
 
     @objc
     public final func showPostalCodePicker(_ button: UIButton) {
-        
+
         guard
             let field = shippingField
         else { return }
-        
+
         let action: CheckoutShippingAction = .showPostalCodePicker(field)
-        
+
         actions.value = action
-        
+
     }
 
     @objc
     public final func updateAddress(_ textField: UITextField) {
 
         shippingField?.addressField.value = textField.text
-        
+
         guard
             let field = shippingField
         else { return }

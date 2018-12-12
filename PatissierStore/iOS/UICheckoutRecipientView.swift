@@ -81,14 +81,14 @@ public final class UICheckoutRecipientView: UIView, Actionable {
         else { return }
 
         firstNameTextField.text = recipientField?.firstNameField.value
-        
+
         lastNameTextField.text = recipientField?.lastNameField.value
-        
+
         personTitleButton.setTitle(
             recipientField?.personTitleField.value,
             for: .normal
         )
-        
+
         phoneNumberTextField.text = recipientField?.phoneNumberField.value
 
     }
@@ -254,7 +254,7 @@ public final class UICheckoutRecipientView: UIView, Actionable {
             blue: 64.0 / 255.0,
             alpha: 1.0
         )
-        
+
         button.addTarget(
             self,
             action: action,
@@ -305,60 +305,60 @@ public final class UICheckoutRecipientView: UIView, Actionable {
 
     @objc
     public final func updateFirstName(_ textField: UITextField) {
-        
+
         recipientField?.firstNameField.value = textField.text
-        
+
         guard
             let field = recipientField
         else { return }
-        
+
         let action: CheckoutRecipientAction = .updateField(field)
-        
+
         actions.value = action
-        
+
     }
 
     @objc
     public final func updateLastName(_ textField: UITextField) {
-        
+
         recipientField?.lastNameField.value = textField.text
-        
+
         guard
             let field = recipientField
         else { return }
-        
+
         let action: CheckoutRecipientAction = .updateField(field)
-        
+
         actions.value = action
-        
+
     }
-    
+
     @objc
     public final func showPersonTitlePicker(_ button: UIButton) {
-        
+
         guard
             let field = recipientField
         else { return }
-        
+
         let action: CheckoutRecipientAction = .showPersonTitlePicker(field)
-        
+
         actions.value = action
-        
+
     }
 
     @objc
     public final func updatePhoneNumber(_ textField: UITextField) {
-        
+
         recipientField?.phoneNumberField.value = textField.text
-        
+
         guard
             let field = recipientField
         else { return }
-        
+
         let action: CheckoutRecipientAction = .updateField(field)
-        
+
         actions.value = action
-        
+
     }
 
 }

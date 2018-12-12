@@ -9,7 +9,7 @@
 // MARK: - UICheckoutItemStyle
 
 public struct UICheckoutItemStyle: CheckoutItemStyle {
-    
+
     public static func apply(to field: CheckoutItemField) -> Template { return UICheckoutItemTemplate(field) }
-    
+
 }

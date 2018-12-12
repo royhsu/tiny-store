@@ -8,9 +8,9 @@
 // MARK: - DashboardRow
 
 public protocol DashboardRow {
-    
+
     var title: Content<String> { get }
-    
+
     var amount: Content<Double> { get }
-    
+
 }

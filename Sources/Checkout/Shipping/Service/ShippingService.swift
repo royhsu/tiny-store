@@ -8,11 +8,11 @@
 // MARK: - ShippingService
 
 public protocol ShippingService {
-    
-    var isSelected: Content<Bool> { get }
-    
-    var title: Content<String> { get }
-    
-    var price: Content<Double> { get }
-    
+
+    var isSelected: Model<Bool> { get set }
+
+    var title: Model<String> { get set }
+
+    var price: Model<Double> { get set }
+
 }

@@ -19,8 +19,8 @@
 		B020D4F921955D3400EC93E3 /* CheckoutCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F821955D3400EC93E3 /* CheckoutCart.swift */; };
 		B020D4FD219AB78900EC93E3 /* CheckoutDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4FC219AB78900EC93E3 /* CheckoutDashboard.swift */; };
 		B020D500219AC49500EC93E3 /* ShippingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4FF219AC49500EC93E3 /* ShippingService.swift */; };
-		B020D502219AC51800EC93E3 /* UIShippingServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D501219AC51800EC93E3 /* UIShippingServiceView.swift */; };
-		B020D504219AC53300EC93E3 /* UIShippingServiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B020D503219AC53300EC93E3 /* UIShippingServiceView.xib */; };
+		B020D502219AC51800EC93E3 /* TSShippingServiceNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D501219AC51800EC93E3 /* TSShippingServiceNibView.swift */; };
+		B020D504219AC53300EC93E3 /* TSShippingServiceNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B020D503219AC53300EC93E3 /* TSShippingServiceNibView.xib */; };
 		B02A19F421BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A19F321BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift */; };
 		B02A19F621BA593000072154 /* TSShippingDestinationEditorAddressNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02A19F521BA593000072154 /* TSShippingDestinationEditorAddressNibView.xib */; };
 		B02A19F821BA5AFF00072154 /* TSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A19F721BA5AFF00072154 /* TSButton.swift */; };
@@ -39,7 +39,6 @@
 		B03A1C8C21588220000DC2D8 /* TinyKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8621588192000DC2D8 /* TinyKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B03A1C8D21588220000DC2D8 /* TinyStorage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8821588192000DC2D8 /* TinyStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B043A05621ABE7E200CF296A /* UIAddressCityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A05521ABE7E200CF296A /* UIAddressCityPickerViewController.swift */; };
-		B043A29B21AE826900CF296A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29A21AE826800CF296A /* Model.swift */; };
 		B043A29F21AFC77A00CF296A /* AddressState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29E21AFC77A00CF296A /* AddressState.swift */; };
 		B04C929D21A41F340009B607 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929C21A41F340009B607 /* DSL.swift */; };
 		B04C929F21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */; };
@@ -73,9 +72,8 @@
 		B0772ED82193D78E0082C055 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ED72193D78E0082C055 /* Content.swift */; };
 		B0772EDB2193E0F20082C055 /* Apparel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EBF218C2B220082C055 /* Apparel.swift */; };
 		B07A2C37215A0A2D002EFE87 /* TinyValidation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */; };
-		B085D8CC219D1E52009F1585 /* UIShippingServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8CB219D1E52009F1585 /* UIShippingServiceViewController.swift */; };
+		B085D8CC219D1E52009F1585 /* TSShippingServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8CB219D1E52009F1585 /* TSShippingServiceViewController.swift */; };
 		B085D8CE219D51B3009F1585 /* ShippingServiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8CD219D51B3009F1585 /* ShippingServiceListViewController.swift */; };
-		B085D8D0219D59E8009F1585 /* ViewCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8CF219D59E8009F1585 /* ViewCollection.swift */; };
 		B085D8D2219D5A04009F1585 /* ShippingServiceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D1219D5A04009F1585 /* ShippingServiceList.swift */; };
 		B085D8D4219D5AC4009F1585 /* ShippingServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D3219D5AC4009F1585 /* ShippingServiceController.swift */; };
 		B085D8D6219D5AE9009F1585 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D5219D5AE9009F1585 /* CurrencyFormatter.swift */; };
@@ -138,8 +136,8 @@
 		B020D4F821955D3400EC93E3 /* CheckoutCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutCart.swift; sourceTree = "<group>"; };
 		B020D4FC219AB78900EC93E3 /* CheckoutDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDashboard.swift; sourceTree = "<group>"; };
 		B020D4FF219AC49500EC93E3 /* ShippingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingService.swift; sourceTree = "<group>"; };
-		B020D501219AC51800EC93E3 /* UIShippingServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIShippingServiceView.swift; sourceTree = "<group>"; };
-		B020D503219AC53300EC93E3 /* UIShippingServiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIShippingServiceView.xib; sourceTree = "<group>"; };
+		B020D501219AC51800EC93E3 /* TSShippingServiceNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSShippingServiceNibView.swift; sourceTree = "<group>"; };
+		B020D503219AC53300EC93E3 /* TSShippingServiceNibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TSShippingServiceNibView.xib; sourceTree = "<group>"; };
 		B02A19F321BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSShippingDestinationEditorAddressNibView.swift; sourceTree = "<group>"; };
 		B02A19F521BA593000072154 /* TSShippingDestinationEditorAddressNibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TSShippingDestinationEditorAddressNibView.xib; sourceTree = "<group>"; };
 		B02A19F721BA5AFF00072154 /* TSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSButton.swift; sourceTree = "<group>"; };
@@ -155,7 +153,6 @@
 		B03A1C8621588192000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8821588192000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B043A05521ABE7E200CF296A /* UIAddressCityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAddressCityPickerViewController.swift; sourceTree = "<group>"; };
-		B043A29A21AE826800CF296A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		B043A29E21AFC77A00CF296A /* AddressState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressState.swift; sourceTree = "<group>"; };
 		B04C929C21A41F340009B607 /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 		B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDashboardSubTextFieldController.swift; sourceTree = "<group>"; };
@@ -192,9 +189,8 @@
 		B07A2BD12159DE73002EFE87 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A2BD32159DE73002EFE87 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyValidation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B085D8CB219D1E52009F1585 /* UIShippingServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIShippingServiceViewController.swift; sourceTree = "<group>"; };
+		B085D8CB219D1E52009F1585 /* TSShippingServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSShippingServiceViewController.swift; sourceTree = "<group>"; };
 		B085D8CD219D51B3009F1585 /* ShippingServiceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceListViewController.swift; sourceTree = "<group>"; };
-		B085D8CF219D59E8009F1585 /* ViewCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCollection.swift; sourceTree = "<group>"; };
 		B085D8D1219D5A04009F1585 /* ShippingServiceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceList.swift; sourceTree = "<group>"; };
 		B085D8D3219D5AC4009F1585 /* ShippingServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceController.swift; sourceTree = "<group>"; };
 		B085D8D5219D5AE9009F1585 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
@@ -313,9 +309,9 @@
 				B085D8D1219D5A04009F1585 /* ShippingServiceList.swift */,
 				B085D8D3219D5AC4009F1585 /* ShippingServiceController.swift */,
 				B020D4FF219AC49500EC93E3 /* ShippingService.swift */,
-				B085D8CB219D1E52009F1585 /* UIShippingServiceViewController.swift */,
-				B020D501219AC51800EC93E3 /* UIShippingServiceView.swift */,
-				B020D503219AC53300EC93E3 /* UIShippingServiceView.xib */,
+				B085D8CB219D1E52009F1585 /* TSShippingServiceViewController.swift */,
+				B020D501219AC51800EC93E3 /* TSShippingServiceNibView.swift */,
+				B020D503219AC53300EC93E3 /* TSShippingServiceNibView.xib */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -352,10 +348,8 @@
 				B085D8D7219D5B00009F1585 /* DefaultCurrencyFormatter.swift */,
 				B0772ED72193D78E0082C055 /* Content.swift */,
 				B020D4F621953B0200EC93E3 /* Content+Codable.swift */,
-				B085D8CF219D59E8009F1585 /* ViewCollection.swift */,
 				B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */,
 				B04C929C21A41F340009B607 /* DSL.swift */,
-				B043A29A21AE826800CF296A /* Model.swift */,
 				B017706221BABFC6003C49DB /* TSModel.swift */,
 				B017706021BA85FC003C49DB /* UIKeyboardController.swift */,
 			);
@@ -585,7 +579,7 @@
 				B0C8C33D21BFEACA00DED5BF /* TSCartItemNibView.xib in Resources */,
 				B0772ECE218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib in Resources */,
 				B0A06A002189948200BA4CA5 /* TSStepper.xib in Resources */,
-				B020D504219AC53300EC93E3 /* UIShippingServiceView.xib in Resources */,
+				B020D504219AC53300EC93E3 /* TSShippingServiceNibView.xib in Resources */,
 				B02A19FC21BA679800072154 /* TSShippingDestinationEditorNibView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,7 +599,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0772ECC218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift in Sources */,
-				B043A29B21AE826900CF296A /* Model.swift in Sources */,
 				B0D46D0921BF961100B95373 /* DefaultShippingRecipient.swift in Sources */,
 				B0697F3B21BA0C1900D05D6E /* TSTextField.swift in Sources */,
 				B04C92A921A686F20009B607 /* DashboardActionController.swift in Sources */,
@@ -623,7 +616,6 @@
 				B0772ED2218C4A310082C055 /* UICheckoutView.swift in Sources */,
 				B0A06A022189A01500BA4CA5 /* UINibWrapperView.swift in Sources */,
 				B02A19F421BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift in Sources */,
-				B085D8D0219D59E8009F1585 /* ViewCollection.swift in Sources */,
 				B020D500219AC49500EC93E3 /* ShippingService.swift in Sources */,
 				B04C92A721A686210009B607 /* DashboardAction.swift in Sources */,
 				B0772ED6218C4CC60082C055 /* TSCheckoutViewController.swift in Sources */,
@@ -641,7 +633,7 @@
 				B085D8D2219D5A04009F1585 /* ShippingServiceList.swift in Sources */,
 				B02A19FA21BA677100072154 /* TSShippingDestinationEditorNibView.swift in Sources */,
 				B0697F3621BA06A400D05D6E /* TSTextFieldNibView.swift in Sources */,
-				B085D8CC219D1E52009F1585 /* UIShippingServiceViewController.swift in Sources */,
+				B085D8CC219D1E52009F1585 /* TSShippingServiceViewController.swift in Sources */,
 				B0697F2321B8E3B500D05D6E /* TaiwanPostalCode.swift in Sources */,
 				B020D4FD219AB78900EC93E3 /* CheckoutDashboard.swift in Sources */,
 				B0A069FA21897FED00BA4CA5 /* TSCartItemNibView.swift in Sources */,
@@ -651,7 +643,7 @@
 				B0772ED82193D78E0082C055 /* Content.swift in Sources */,
 				B04C929D21A41F340009B607 /* DSL.swift in Sources */,
 				B0772EC4218C39AF0082C055 /* UIDashboardSubTextField.swift in Sources */,
-				B020D502219AC51800EC93E3 /* UIShippingServiceView.swift in Sources */,
+				B020D502219AC51800EC93E3 /* TSShippingServiceNibView.swift in Sources */,
 				B0697F1721B8D46A00D05D6E /* ShippingDestinationEditorController.swift in Sources */,
 				B017706121BA85FC003C49DB /* UIKeyboardController.swift in Sources */,
 				B02B0250218BD5F100772118 /* TSSelectionView.swift in Sources */,

@@ -9,7 +9,7 @@
 // MARK: - UICheckoutItemTemplateElement
 
 public enum UICheckoutItemTemplateElement {
-    
+
     case stepper
-    
+
 }

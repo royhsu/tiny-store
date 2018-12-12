@@ -17,7 +17,7 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
     }
 
     private let template: ConfigurableTemplate<CheckoutShippingField, Configuration>
-    
+
     public init(
         field: CheckoutShippingField,
         elements: [Configuration.Element] = [
@@ -25,7 +25,7 @@ public struct UICheckoutShippingTemplate: CheckoutShippingTemplate {
             .form
         ]
     ) {
-       
+
         self.template = ConfigurableTemplate(
             storage: field,
             elements: elements

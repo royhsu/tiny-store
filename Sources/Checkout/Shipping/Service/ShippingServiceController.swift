@@ -8,7 +8,7 @@
 // MARK: - ShippingServiceController
 
 public protocol ShippingServiceController {
-    
+
     var service: ShippingService? { get set }
-    
+
 }

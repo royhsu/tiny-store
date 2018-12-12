@@ -8,11 +8,11 @@
 // MARK: - AddressState
 
 public protocol AddressState {
-    
+
     var rawValue: String { get }
-    
+
     var name: String { get }
-    
+
     init?(rawValue: String)
-    
+
 }

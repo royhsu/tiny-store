@@ -8,9 +8,9 @@
 // MARK: - DashboardAction
 
 public protocol DashboardAction {
-    
+
     var title: Content<String> { get }
-    
+
     var handler: ( () -> Void )? { get set }
-    
+
 }

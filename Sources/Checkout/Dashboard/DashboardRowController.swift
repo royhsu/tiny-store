@@ -8,7 +8,7 @@
 // MARK: - DashboardRowController
 
 public protocol DashboardRowController {
-    
+
     var row: DashboardRow? { get set }
-    
+
 }

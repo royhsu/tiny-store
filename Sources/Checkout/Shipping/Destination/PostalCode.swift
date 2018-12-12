@@ -8,11 +8,11 @@
 // MARK: - PostalCode
 
 public protocol PostalCode {
-    
+
     var rawValue: String { get }
-    
+
     var name: String { get }
-    
+
     init?(rawValue: String)
-    
+
 }

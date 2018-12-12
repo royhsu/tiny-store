@@ -8,7 +8,7 @@
 // MARK: - DashboardActionController
 
 public protocol DashboardActionController {
-    
+
     var action: DashboardAction? { get set }
-    
+
 }

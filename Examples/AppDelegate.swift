@@ -26,9 +26,9 @@ extension AppDelegate: UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     )
     -> Bool {
-        
+
         let viewController = TSCheckoutViewController()
-        
+
         window.rootViewController = viewController
 
         window.makeKeyAndVisible()

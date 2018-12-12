@@ -8,7 +8,7 @@
 // MARK: - CurrencyFormatter
 
 public protocol CurrencyFormatter {
-    
+
     func string(from price: Double) -> String
-    
+
 }

@@ -9,9 +9,9 @@
 
 #warning("move into TinyKit.")
 public protocol DSL: ExpressibleByArrayLiteral, SectionCollection {
-    
+
     associatedtype Element: ViewCollection
-    
+
     var elements: [Element] { get set }
-    
+
 }

@@ -10,7 +10,7 @@
 public protocol NewShippingAddress {
 
     // title
-    
+
     var postalCode: TSModel<PostalCode> { get set }
 
     // country
@@ -20,7 +20,7 @@ public protocol NewShippingAddress {
     // city
 
     var line1: TSModel<String> { get set }
-    
+
     var line2: TSModel<String> { get set }
-    
+
 }

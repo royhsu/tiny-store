@@ -8,7 +8,7 @@
 // MARK: - DefaultCurrencyFormatter
 
 internal struct DefaultCurrencyFormatter: CurrencyFormatter {
-    
+
     internal func string(from price: Double) -> String { return "$ \(price)" }
-    
+
 }
