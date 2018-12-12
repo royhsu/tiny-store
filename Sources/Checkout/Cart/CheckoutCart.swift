@@ -35,15 +35,13 @@ public final class CheckoutCart: DSL {
 
     }
 
-    fileprivate final var isPrepared = false
+    private final var isLoaded = false
 
     public final var elements: [Element] {
 
-        willSet { observations = [] }
-
         didSet {
 
-            guard isPrepared else { return }
+            guard isLoaded else { return }
 
             handleElements()
 
@@ -51,37 +49,31 @@ public final class CheckoutCart: DSL {
 
     }
 
-    fileprivate final var observations: [Observation] = []
+    private final var observations: [Observation] = []
 
     public final var totalAmount: Double { return elements.totalAmount }
 
     public final var totalAmountDidChange: ( (Double) -> Void )?
 
-    public init() {
+    public init(elements: [Element] = []) {
 
         self.elements = []
 
-        self.prepare()
+        self.load()
 
     }
 
-    public init(arrayLiteral elements: Element...) {
+    public convenience init(arrayLiteral elements: Element...) { self.init(elements: elements) }
 
-        self.elements = elements
+    private final func load() {
 
-        self.prepare()
-
-    }
-
-    fileprivate final func prepare() {
-
-        defer { isPrepared = true }
+        defer { isLoaded = true }
 
         handleElements()
 
     }
 
-    fileprivate final func handleElements() {
+    private final func handleElements() {
 
         for element in elements {
 
@@ -89,41 +81,31 @@ public final class CheckoutCart: DSL {
 
             case let .item(controller):
 
-                if
-                    let observation = controller.item?.isSelected.addObserver(
-                        self,
-                        handler: { [weak self] _, _ in
+                let observations = [
+                    controller.item?.isSelected.observe { [weak self] _ in
+                    
+                        guard let self = self else { return }
+                    
+                        self.totalAmountDidChange?(self.totalAmount)
+                    
+                    },
+                    controller.item?.price.observe { [weak self] _ in
 
-                            guard let self = self else { return }
+                        guard let self = self else { return }
 
-                            self.totalAmountDidChange?(self.totalAmount)
+                        self.totalAmountDidChange?(self.totalAmount)
 
-                        }
-                    ) { observations.append(observation) }
+                    },
+                    controller.item?.quantity.observe { [weak self] _ in
 
-                if
-                    let observation = controller.item?.price.addObserver(
-                        self,
-                        handler: { [weak self] _, _ in
+                        guard let self = self else { return }
 
-                            guard let self = self else { return }
+                        self.totalAmountDidChange?(self.totalAmount)
 
-                            self.totalAmountDidChange?(self.totalAmount)
-
-                        }
-                    ) { observations.append(observation) }
-
-                if
-                    let observation = controller.item?.quantity.addObserver(
-                        self,
-                        handler: { [weak self] _, _ in
-
-                            guard let self = self else { return }
-
-                            self.totalAmountDidChange?(self.totalAmount)
-
-                        }
-                    ) { observations.append(observation) }
+                    }
+                ]
+                
+                self.observations = observations.compactMap { $0 }
 
             }
 

@@ -9,7 +9,7 @@
 
 public protocol DashboardAction {
 
-    var title: Content<String> { get }
+    var title: Model<String> { get }
 
     var handler: ( () -> Void )? { get set }
 

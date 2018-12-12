@@ -7,20 +7,20 @@
 
 // MARK: - ShippingAddress
 
-public protocol NewShippingAddress {
+public protocol ShippingAddress {
 
     // title
 
-    var postalCode: TSModel<PostalCode> { get set }
+    var postalCode: Model<PostalCode> { get set }
 
     // country
 
-    var state: TSModel<AddressState> { get set }
+    var state: Model<AddressState> { get set }
 
     // city
 
-    var line1: TSModel<String> { get set }
+    var line1: Model<String> { get set }
 
-    var line2: TSModel<String> { get set }
+    var line2: Model<String> { get set }
 
 }

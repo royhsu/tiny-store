@@ -9,19 +9,19 @@
 
 public final class Apparel: CartItem {
 
-    public final var isSelected: TSModel<Bool>
+    public final var isSelected: Model<Bool>
 
-    public final var title: TSModel<String>
+    public final var title: Model<String>
 
-    public final var description = TSModel<String>()
+    public final var description = Model<String>()
 
     private final var colorObservation: Observation?
 
-    public final var color: TSModel<String> {
+    public final var color: Model<String> {
 
         didSet {
 
-            colorObservation = color.addObserver(self) { [weak self] _, _ in self?.description.value = self?.itemDescription }
+            colorObservation = color.observe { [weak self] _ in self?.description.value = self?.itemDescription }
 
         }
 
@@ -29,19 +29,19 @@ public final class Apparel: CartItem {
 
     private final var sizeObservation: Observation?
 
-    public final var size: TSModel<String> {
+    public final var size: Model<String> {
 
         didSet {
 
-            sizeObservation = size.addObserver(self) { [weak self] _, _ in self?.description.value = self?.itemDescription }
+            sizeObservation = size.observe { [weak self] _ in self?.description.value = self?.itemDescription }
 
         }
 
     }
 
-    public final var price: TSModel<Double>
+    public final var price: Model<Double>
 
-    public final var quantity: TSModel<Int>
+    public final var quantity: Model<Int>
 
     public init(
         isSelected: Bool,
@@ -52,17 +52,17 @@ public final class Apparel: CartItem {
         quantity: Int
     ) {
 
-        self.isSelected = TSModel(value: isSelected)
+        self.isSelected = Model(value: isSelected)
 
-        self.title = TSModel(value: title)
+        self.title = Model(value: title)
 
-        self.color = TSModel(value: color)
+        self.color = Model(value: color)
 
-        self.size = TSModel(value: size)
+        self.size = Model(value: size)
 
-        self.price = TSModel(value: price)
+        self.price = Model(value: price)
 
-        self.quantity = TSModel(value: quantity)
+        self.quantity = Model(value: quantity)
 
         self.load()
 
@@ -72,9 +72,9 @@ public final class Apparel: CartItem {
 
         description.value = itemDescription
 
-        colorObservation = color.addObserver(self) { [weak self] _, _ in self?.description.value = self?.itemDescription }
+        colorObservation = color.observe { [weak self] _ in self?.description.value = self?.itemDescription }
 
-        sizeObservation = size.addObserver(self) { [weak self] _, _ in self?.description.value = self?.itemDescription }
+        sizeObservation = size.observe { [weak self] _ in self?.description.value = self?.itemDescription }
 
     }
 

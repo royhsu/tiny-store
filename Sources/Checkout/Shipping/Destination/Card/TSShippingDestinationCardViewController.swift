@@ -30,10 +30,12 @@ public final class TSShippingDestinationCardViewController: UIViewController {
 
             renderRecipientLabel()
 
-            recipientObservations = [
-                recipient.firstName.addObserver(self) { [weak self] _, _ in self?.renderRecipientLabel() },
-                recipient.lastName.addObserver(self) { [weak self] _, _ in self?.renderRecipientLabel() }
+            let observations = [
+                recipient.firstName.observe { [weak self] _ in self?.renderRecipientLabel() },
+                recipient.lastName.observe { [weak self] _ in self?.renderRecipientLabel() }
             ]
+            
+            recipientObservations = observations.compactMap { $0 }
 
         }
 
@@ -43,7 +45,7 @@ public final class TSShippingDestinationCardViewController: UIViewController {
 
     private final var addressObservations: [Observation] = []
 
-    public final var address: NewShippingAddress {
+    public final var address: ShippingAddress {
 
         didSet {
 
@@ -51,10 +53,12 @@ public final class TSShippingDestinationCardViewController: UIViewController {
 
             renderAddressLabel()
 
-            addressObservations = [
-                address.line1.addObserver(self) { [weak self] _, _ in self?.renderAddressLabel() },
-                address.line2.addObserver(self) { [weak self] _, _ in self?.renderAddressLabel() }
+            let observations = [
+                address.line1.observe { [weak self] _ in self?.renderAddressLabel() },
+                address.line2.observe { [weak self] _ in self?.renderAddressLabel() }
             ]
+            
+            addressObservations = observations.compactMap { $0 }
 
         }
 
@@ -64,7 +68,7 @@ public final class TSShippingDestinationCardViewController: UIViewController {
 
     public init(
         recipient: ShippingRecipient? = nil,
-        address: NewShippingAddress? = nil
+        address: ShippingAddress? = nil
     ) {
 
         self.recipient = recipient ?? DefaultShippingRecipient()
@@ -105,15 +109,20 @@ public final class TSShippingDestinationCardViewController: UIViewController {
         renderRecipientLabel()
 
         renderAddressLabel()
-
-        recipientObservations = [
-            recipient.firstName.addObserver(self) { [weak self] _, _ in self?.renderRecipientLabel() },
-            recipient.lastName.addObserver(self) { [weak self] _, _ in self?.renderRecipientLabel() }
+        
+        let recipientObservations = [
+            recipient.firstName.observe { [weak self] _ in self?.renderRecipientLabel() },
+            recipient.lastName.observe { [weak self] _ in self?.renderRecipientLabel() }
         ]
-
-        addressObservations = [ address.line1.addObserver(self) { [weak self] _, _ in self?.renderAddressLabel() },
-            address.line2.addObserver(self) { [weak self] _, _ in self?.renderAddressLabel() }
+        
+        self.recipientObservations = recipientObservations.compactMap { $0 }
+        
+        let addressObservations = [
+            address.line1.observe { [weak self] _ in self?.renderAddressLabel() },
+            address.line2.observe { [weak self] _ in self?.renderAddressLabel() }
         ]
+        
+        self.addressObservations = addressObservations.compactMap { $0 }
 
         cardView.editButton.addTarget(
             self,
@@ -163,7 +172,7 @@ fileprivate extension ShippingRecipient {
 
 // MARK: - ShippingAddress
 
-fileprivate extension NewShippingAddress {
+fileprivate extension ShippingAddress {
 
     fileprivate var fullLine: String? {
 

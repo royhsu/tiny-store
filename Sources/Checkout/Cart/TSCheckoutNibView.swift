@@ -1,13 +1,13 @@
 //
-//  UICheckoutView.swift
+//  TSCheckoutNibView.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/11/2.
 //
 
-// MARK: - UICheckoutView
+// MARK: - TSCheckoutNibView
 
-internal final class UICheckoutView: UIView {
+internal final class TSCheckoutNibView: UIView {
 
     @IBOutlet
     internal final weak var backgroundContainerView: UIView! {

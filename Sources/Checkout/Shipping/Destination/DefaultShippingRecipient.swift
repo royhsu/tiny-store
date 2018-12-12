@@ -9,21 +9,21 @@
 
 public struct DefaultShippingRecipient: ShippingRecipient {
 
-    public var firstName: TSModel<String>
+    public var firstName: Model<String>
 
-    public var lastName: TSModel<String>
+    public var lastName: Model<String>
 
     public init(
         firstName: String? = nil,
         lastName: String? = nil
     ) {
 
-        self.firstName = TSModel(
+        self.firstName = Model(
             value: firstName,
             rules: [ .nonEmpty ]
         )
 
-        self.lastName = TSModel(
+        self.lastName = Model(
             value: lastName,
             rules: [ .nonEmpty ]
         )

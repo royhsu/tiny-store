@@ -76,11 +76,11 @@ public final class UIDashboardSubRowViewController: UIViewController, DashboardR
 
         guard let row = row else { return }
 
-        textField.titleLabel.text = row.title.property.value
-
-        let amount = row.amount.property.value ?? 0.0
-
-        textField.amountLabel.text = currencyFormatter.string(from: amount)
+//        textField.titleLabel.text = row.title.property.value
+//
+//        let amount = row.amount.property.value ?? 0.0
+//
+//        textField.amountLabel.text = currencyFormatter.string(from: amount)
 
     }
 
@@ -89,7 +89,7 @@ public final class UIDashboardSubRowViewController: UIViewController, DashboardR
         guard let row = row else { return }
 
         observations = [
-            row.title.property.observe { [weak self] change in
+            row.title.observe { [weak self] change in
 
                 guard let self = self else { return }
 
@@ -99,12 +99,12 @@ public final class UIDashboardSubRowViewController: UIViewController, DashboardR
 
                     defer { self.isTitleUpdating = false }
 
-                    self.textField.titleLabel.text = change.currentValue
+//                    self.textField.titleLabel.text = change.currentValue
 
                 }
 
             },
-            row.amount.property.observe { [weak self] _ in
+            row.amount.observe { [weak self] _ in
 
                 guard let self = self else { return }
 
@@ -114,9 +114,9 @@ public final class UIDashboardSubRowViewController: UIViewController, DashboardR
 
                     defer { self.isAmountUpdating = false }
 
-                    let amount = row.amount.property.value ?? 0.0
-
-                    self.textField.amountLabel.text = self.currencyFormatter.string(from: amount)
+//                    let amount = row.amount.property.value ?? 0.0
+//
+//                    self.textField.amountLabel.text = self.currencyFormatter.string(from: amount)
 
                 }
 

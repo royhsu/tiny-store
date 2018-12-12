@@ -7,15 +7,15 @@
 
 // MARK: - DefaultShippingAddress
 
-public struct DefaultShippingAddress: NewShippingAddress {
+public struct DefaultShippingAddress: ShippingAddress {
 
-    public var postalCode: TSModel<PostalCode>
+    public var postalCode: Model<PostalCode>
 
-    public var state: TSModel<AddressState>
+    public var state: Model<AddressState>
 
-    public var line1: TSModel<String>
+    public var line1: Model<String>
 
-    public var line2: TSModel<String>
+    public var line2: Model<String>
 
     public init(
         postalCode: PostalCode? = nil,
@@ -24,16 +24,16 @@ public struct DefaultShippingAddress: NewShippingAddress {
         line2: String? = nil
     ) {
 
-        self.postalCode = TSModel(value: postalCode)
+        self.postalCode = Model(value: postalCode)
 
-        self.state = TSModel(value: state)
+        self.state = Model(value: state)
 
-        self.line1 = TSModel(
+        self.line1 = Model(
             value: line1,
             rules: [ .nonEmpty ]
         )
 
-        self.line2 = TSModel(
+        self.line2 = Model(
             value: line2,
             rules: [ .nonEmpty ],
             isRequired: false

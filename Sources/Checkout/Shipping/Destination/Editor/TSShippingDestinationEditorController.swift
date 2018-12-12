@@ -225,12 +225,12 @@ open class TSShippingDestinationEditorController: UIViewController {
 
             recipient.firstName.bind(
                 to: recipientView.firstNameTextField,
-                for: \.text
+                keyPath: \.text
             )
 
             recipient.lastName.bind(
                 to: recipientView.lastNameTextField,
-                for: \.text
+                keyPath: \.text
             )
 
         }
@@ -239,7 +239,7 @@ open class TSShippingDestinationEditorController: UIViewController {
 
     private final var isAddressBound = false
 
-    public final var address: NewShippingAddress {
+    public final var address: ShippingAddress {
 
         didSet {
 
@@ -247,12 +247,12 @@ open class TSShippingDestinationEditorController: UIViewController {
 
             address.line1.bind(
                 to: addressView.line1TextField,
-                for: \.text
+                keyPath: \.text
             )
 
             address.line2.bind(
                 to: addressView.line2TextField,
-                for: \.text
+                keyPath: \.text
             )
 
         }
@@ -265,7 +265,7 @@ open class TSShippingDestinationEditorController: UIViewController {
 
     public required init(
         recipient: ShippingRecipient? = nil,
-        address: NewShippingAddress? = nil
+        address: ShippingAddress? = nil
     ) {
 
         self.recipient = recipient ?? DefaultShippingRecipient()
@@ -303,22 +303,22 @@ open class TSShippingDestinationEditorController: UIViewController {
 
         recipient.firstName.bind(
             to: recipientView.firstNameTextField,
-            for: \.text
+            keyPath: \.text
         )
 
         recipient.lastName.bind(
             to: recipientView.lastNameTextField,
-            for: \.text
+            keyPath: \.text
         )
 
         address.line1.bind(
             to: addressView.line1TextField,
-            for: \.text
+            keyPath: \.text
         )
 
         address.line2.bind(
             to: addressView.line2TextField,
-            for: \.text
+            keyPath: \.text
         )
 
         view.wrapSubview(

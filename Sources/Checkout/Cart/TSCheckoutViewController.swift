@@ -36,7 +36,7 @@ internal struct Service: ShippingService {
 
 private struct Action: DashboardAction {
 
-    internal let title: Content<String>
+    internal let title: Model<String>
 
     internal var handler: ( () -> Void )?
 
@@ -45,7 +45,7 @@ private struct Action: DashboardAction {
         handler: ( () -> Void )? = nil
     ) {
 
-        self.title = Content(value: title)
+        self.title = Model(value: title)
 
         self.handler = handler
 
@@ -55,18 +55,18 @@ private struct Action: DashboardAction {
 
 private struct SubRow: DashboardRow {
 
-    internal let title: Content<String>
+    internal let title: Model<String>
 
-    internal let amount: Content<Double>
+    internal let amount: Model<Double>
 
     internal init(
         title: String,
         amount: Double
-        ) {
+    ) {
 
-        self.title = Content(value: title)
+        self.title = Model(value: title)
 
-        self.amount = Content(value: amount)
+        self.amount = Model(value: amount)
 
     }
 
@@ -74,11 +74,11 @@ private struct SubRow: DashboardRow {
 
 public final class TSCheckoutViewController: UIViewController {
 
-    private final lazy var checkoutView: UICheckoutView = {
+    private final lazy var checkoutView: TSCheckoutNibView = {
 
         let view = UIView.loadView(
-            UICheckoutView.self,
-            from: Bundle(for: UICheckoutView.self)
+            TSCheckoutNibView.self,
+            from: Bundle(for: TSCheckoutNibView.self)
         )!
 
         return view
@@ -189,9 +189,9 @@ public final class TSCheckoutViewController: UIViewController {
 
     private final var payTotal: Double {
 
-        let subTotal = dashboardSubTotalViewController.row?.amount.property.value ?? 0.0
+        let subTotal = dashboardSubTotalViewController.row?.amount.value ?? 0.0
 
-        let shipping = dashboardShippingViewController.row?.amount.property.value ?? 0.0
+        let shipping = dashboardShippingViewController.row?.amount.value ?? 0.0
 
         return subTotal + shipping
 

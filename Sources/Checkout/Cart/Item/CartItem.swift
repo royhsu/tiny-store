@@ -9,14 +9,14 @@
 
 public protocol CartItem {
 
-    var isSelected: TSModel<Bool> { get set }
+    var isSelected: Model<Bool> { get set }
 
-    var title: TSModel<String> { get set }
+    var title: Model<String> { get set }
 
-    var description: TSModel<String> { get set }
+    var description: Model<String> { get set }
 
-    var price: TSModel<Double> { get set }
+    var price: Model<Double> { get set }
 
-    var quantity: TSModel<Int> { get set }
+    var quantity: Model<Int> { get set }
 
 }

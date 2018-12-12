@@ -9,8 +9,8 @@
 
 public protocol DashboardRow {
 
-    var title: Content<String> { get }
+    var title: Model<String> { get }
 
-    var amount: Content<Double> { get }
+    var amount: Model<Double> { get }
 
 }

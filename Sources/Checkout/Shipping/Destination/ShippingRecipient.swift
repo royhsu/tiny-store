@@ -9,9 +9,9 @@
 
 public protocol ShippingRecipient: Decodable {
 
-    var firstName: TSModel<String> { get set }
+    var firstName: Model<String> { get set }
 
-    var lastName: TSModel<String> { get set }
+    var lastName: Model<String> { get set }
 
     init(
         firstName: String?,

@@ -72,7 +72,7 @@ public final class UIDashboardActionButtonController: UIViewController, Dashboar
         guard let action = action else { return }
 
         wrapperView.button.setTitle(
-            action.title.property.value,
+            action.title.value,
             for: .normal
         )
 
@@ -83,7 +83,7 @@ public final class UIDashboardActionButtonController: UIViewController, Dashboar
         guard let action = action else { return }
 
         observations = [
-            action.title.property.observe { [weak self] change in
+            action.title.observe { [weak self] change in
 
                 guard let self = self else { return }
 
@@ -93,10 +93,10 @@ public final class UIDashboardActionButtonController: UIViewController, Dashboar
 
                     defer { self.isTitleUpdating = false }
 
-                    self.wrapperView.button.setTitle(
-                        change.currentValue,
-                        for: .normal
-                    )
+//                    self.wrapperView.button.setTitle(
+//                        change.currentValue,
+//                        for: .normal
+//                    )
 
                 }
 

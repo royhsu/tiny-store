@@ -37,28 +37,31 @@ public final class TSCartItemViewController: UIViewController, CartItemControlle
             guard isViewLoaded && isItemBound else { return }
 
             item?.isSelected.bind(
+                transform: { $0 ?? false },
                 to: itemView,
-                for: \.isSelected
+                keyPath: \.isSelected
             )
 
             item?.title.bind(
                 to: itemView.titleLabel,
-                for: \.text
+                keyPath: \.text
             )
 
             item?.description.bind(
                 to: itemView.descriptionLabel,
-                for: \.text
+                keyPath: \.text
             )
 
             item?.price.bind(
+                transform: { $0 ?? 0.0 },
                 to: itemView.priceView,
-                for: \.price
+                keyPath: \.price
             )
 
             item?.quantity.bind(
+                transform: { $0 ?? 1 },
                 to: itemView.quantityStepper,
-                for: \.value
+                keyPath: \.value
             )
 
         }
@@ -87,28 +90,31 @@ public final class TSCartItemViewController: UIViewController, CartItemControlle
         defer { isItemBound = true }
 
         item?.isSelected.bind(
+            transform: { $0 ?? false },
             to: itemView,
-            for: \.isSelected
+            keyPath: \.isSelected
         )
-
+        
         item?.title.bind(
             to: itemView.titleLabel,
-            for: \.text
+            keyPath: \.text
         )
-
+        
         item?.description.bind(
             to: itemView.descriptionLabel,
-            for: \.text
+            keyPath: \.text
         )
-
+        
         item?.price.bind(
+            transform: { $0 ?? 0.0 },
             to: itemView.priceView,
-            for: \.price
+            keyPath: \.price
         )
-
+        
         item?.quantity.bind(
+            transform: { $0 ?? 1 },
             to: itemView.quantityStepper,
-            for: \.value
+            keyPath: \.value
         )
 
     }
