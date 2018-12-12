@@ -7,7 +7,7 @@
 
 // MARK: - CartItemController
 
-public protocol CartItemController {
+public protocol CartItemController: AnyObject {
     
     var item: CartItem? { get set }
     

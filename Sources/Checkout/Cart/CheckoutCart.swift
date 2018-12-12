@@ -89,37 +89,41 @@ public final class CheckoutCart: DSL {
                 
             case let .item(controller):
                 
-                guard let item = controller.item else { return }
+                if
+                    let observation = controller.item?.isSelected.addObserver(
+                        self,
+                        handler: { [weak self] _, _ in
+                        
+                            guard let self = self else { return }
+                            
+                            self.totalAmountDidChange?(self.totalAmount)
+                        
+                        }
+                    ) { observations.append(observation) }
                 
-//                observations.append(
-//                    item.isSelected.observe { [weak self] _ in
-//                        
-//                        guard let self = self else { return }
-//                        
-//                        self.totalAmountDidChange?(self.totalAmount)
-//                        
-//                    }
-//                )
-//                
-//                observations.append(
-//                    item.price.observe { [weak self] _ in
-//                        
-//                        guard let self = self else { return }
-//                        
-//                        self.totalAmountDidChange?(self.totalAmount)
-//                        
-//                    }
-//                )
-//                
-//                observations.append(
-//                    item.quantity.observe { [weak self] _ in
-//                        
-//                        guard let self = self else { return }
-//                        
-//                        self.totalAmountDidChange?(self.totalAmount)
-//                        
-//                    }
-//                )
+                if
+                    let observation = controller.item?.price.addObserver(
+                        self,
+                        handler: { [weak self] _, _ in
+                            
+                            guard let self = self else { return }
+                            
+                            self.totalAmountDidChange?(self.totalAmount)
+                            
+                        }
+                    ) { observations.append(observation) }
+                
+                if
+                    let observation = controller.item?.quantity.addObserver(
+                        self,
+                        handler: { [weak self] _, _ in
+                            
+                            guard let self = self else { return }
+                            
+                            self.totalAmountDidChange?(self.totalAmount)
+                            
+                        }
+                    ) { observations.append(observation) }
                 
             }
             
