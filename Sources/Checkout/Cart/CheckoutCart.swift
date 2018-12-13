@@ -39,6 +39,8 @@ public final class CheckoutCart: DSL {
 
     public final var elements: [Element] {
 
+        willSet { observations = [] }
+        
         didSet {
 
             guard isLoaded else { return }
