@@ -7,7 +7,7 @@
 
 // MARK: - ShippingServiceListViewController
 
-public final class NewShippingServiceListViewController: ViewController {
+public final class ShippingServiceListViewController: ViewController {
     
     private final lazy var collectionViewController: NewCollectionViewController = {
         
@@ -146,53 +146,4 @@ public final class NewShippingServiceListViewController: ViewController {
         
     }
     
-}
-
-public final class ShippingServiceListViewController: ViewController {
-
-    private final lazy var collectionViewController: NewCollectionViewController = {
-
-        let controller = NewCollectionViewController()
-        
-        controller.collectionViewLayout = NewListViewLayout()
-        
-        controller.sections = list
-        
-        return controller
-
-    }()
-
-    public final let list: ShippingServiceElementCollection
-
-    public init(list: ShippingServiceElementCollection? = nil) {
-
-        self.list = list ?? ShippingServiceElementCollection()
-
-        super.init(
-            nibName: nil,
-            bundle: nil
-        )
-
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-
-        self.list = ShippingServiceElementCollection()
-
-        super.init(coder: aDecoder)
-
-    }
-
-    public final override func viewDidLoad() {
-
-        super.viewDidLoad()
-
-        addChild(collectionViewController)
-
-        view.wrapSubview(collectionViewController.view)
-
-        collectionViewController.didMove(toParent: self)
-
-    }
-
 }

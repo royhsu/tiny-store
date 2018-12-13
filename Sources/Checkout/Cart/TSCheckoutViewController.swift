@@ -243,7 +243,7 @@ public final class TSCheckoutViewController: UIViewController {
 
         let controller = TSShippingViewController()
 
-        controller.serviceListViewController.list.elements = [
+        controller.serviceListViewController.elements = [
             .item(
                 TSShippingServiceViewController(
                     Service(
@@ -278,15 +278,15 @@ public final class TSCheckoutViewController: UIViewController {
 //            )
 //        )
 
-        let serviceList = controller.serviceListViewController.list
+//        let serviceList = controller.serviceListViewController.list
 
 //        dashboardShippingViewController.row?.amount.property.value = serviceList.selectedService?.price.property.value ?? 0.0
 //
 //        dashboardPayTotalViewController.row?.amount.property.value = payTotal
 
-        serviceList.selectedServiceDidChange = { [weak self] selectedService in
-
-            guard let self = self else { return }
+//        serviceList.selectedServiceDidChange = { [weak self] selectedService in
+//
+//            guard let self = self else { return }
 
 //            let price = serviceList.selectedService?.price.property.value ?? 0.0
 //
@@ -294,7 +294,7 @@ public final class TSCheckoutViewController: UIViewController {
 //
 //            self.dashboardPayTotalViewController.row?.amount.property.value = self.payTotal
 
-        }
+//        }
 
         controller.destinationCardViewController.editDestinationHandler = { [weak self] _ in self?.showDestionationEditor() }
 

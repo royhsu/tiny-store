@@ -70,7 +70,7 @@
 		B07A2C37215A0A2D002EFE87 /* TinyValidation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */; };
 		B085D8CC219D1E52009F1585 /* TSShippingServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8CB219D1E52009F1585 /* TSShippingServiceViewController.swift */; };
 		B085D8CE219D51B3009F1585 /* ShippingServiceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8CD219D51B3009F1585 /* ShippingServiceListViewController.swift */; };
-		B085D8D2219D5A04009F1585 /* ShippingServiceElementCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D1219D5A04009F1585 /* ShippingServiceElementCollection.swift */; };
+		B085D8D2219D5A04009F1585 /* ShippingServiceElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D1219D5A04009F1585 /* ShippingServiceElement.swift */; };
 		B085D8D4219D5AC4009F1585 /* ShippingServiceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D3219D5AC4009F1585 /* ShippingServiceController.swift */; };
 		B085D8D6219D5AE9009F1585 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D5219D5AE9009F1585 /* CurrencyFormatter.swift */; };
 		B085D8D8219D5B00009F1585 /* DefaultCurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8D7219D5B00009F1585 /* DefaultCurrencyFormatter.swift */; };
@@ -184,7 +184,7 @@
 		B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyValidation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B085D8CB219D1E52009F1585 /* TSShippingServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSShippingServiceViewController.swift; sourceTree = "<group>"; };
 		B085D8CD219D51B3009F1585 /* ShippingServiceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceListViewController.swift; sourceTree = "<group>"; };
-		B085D8D1219D5A04009F1585 /* ShippingServiceElementCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceElementCollection.swift; sourceTree = "<group>"; };
+		B085D8D1219D5A04009F1585 /* ShippingServiceElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceElement.swift; sourceTree = "<group>"; };
 		B085D8D3219D5AC4009F1585 /* ShippingServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceController.swift; sourceTree = "<group>"; };
 		B085D8D5219D5AE9009F1585 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		B085D8D7219D5B00009F1585 /* DefaultCurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCurrencyFormatter.swift; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				B085D8CD219D51B3009F1585 /* ShippingServiceListViewController.swift */,
-				B085D8D1219D5A04009F1585 /* ShippingServiceElementCollection.swift */,
+				B085D8D1219D5A04009F1585 /* ShippingServiceElement.swift */,
 				B085D8D3219D5AC4009F1585 /* ShippingServiceController.swift */,
 				B020D4FF219AC49500EC93E3 /* ShippingService.swift */,
 				B085D8CB219D1E52009F1585 /* TSShippingServiceViewController.swift */,
@@ -611,7 +611,7 @@
 				B0697F1121B7B30300D05D6E /* TSPriceView.swift in Sources */,
 				B085D8D8219D5B00009F1585 /* DefaultCurrencyFormatter.swift in Sources */,
 				B04C92A121A6772E0009B607 /* DashboardRow.swift in Sources */,
-				B085D8D2219D5A04009F1585 /* ShippingServiceElementCollection.swift in Sources */,
+				B085D8D2219D5A04009F1585 /* ShippingServiceElement.swift in Sources */,
 				B02A19FA21BA677100072154 /* TSShippingDestinationEditorNibView.swift in Sources */,
 				B0697F3621BA06A400D05D6E /* TSTextFieldNibView.swift in Sources */,
 				B085D8CC219D1E52009F1585 /* TSShippingServiceViewController.swift in Sources */,

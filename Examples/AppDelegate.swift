@@ -29,7 +29,7 @@ extension AppDelegate: UIApplicationDelegate {
         
 //        let viewController = TSCheckoutViewController()
         
-        let viewController = NewShippingServiceListViewController()
+        let viewController = ShippingServiceListViewController()
         
         viewController.elements = [
             .item(
