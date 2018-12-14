@@ -15,9 +15,9 @@ public final class ShippingDestinationEditorController: ViewController {
 
             case state(LegacyViewCollection)
 
-            case postalCode(LegacyViewCollection)
+            case district(LegacyViewCollection)
 
-            case line(LegacyViewCollection)
+            case street(LegacyViewCollection)
 
             public var count: Int {
 
@@ -25,9 +25,9 @@ public final class ShippingDestinationEditorController: ViewController {
 
                 case let .state(collection): return collection.count
 
-                case let .postalCode(collection): return collection.count
+                case let .district(collection): return collection.count
 
-                case let .line(collection): return collection.count
+                case let .street(collection): return collection.count
 
                 }
 
@@ -39,9 +39,9 @@ public final class ShippingDestinationEditorController: ViewController {
 
                 case let .state(collection): return collection.view(at: index)
 
-                case let .postalCode(collection): return collection.view(at: index)
+                case let .district(collection): return collection.view(at: index)
 
-                case let .line(collection): return collection.view(at: index)
+                case let .street(collection): return collection.view(at: index)
 
                 }
 

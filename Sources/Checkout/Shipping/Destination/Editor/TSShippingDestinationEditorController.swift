@@ -9,7 +9,7 @@
 
 open class TSShippingDestinationEditorController: UIViewController {
 
-    private final lazy var _nibView: TSShippingDestinationEditorNibView = {
+    private final lazy var editorView: TSShippingDestinationEditorNibView = {
 
         let view = UIView.loadView(
             TSShippingDestinationEditorNibView.self,
@@ -34,11 +34,11 @@ open class TSShippingDestinationEditorController: UIViewController {
 
     }()
 
-    private final lazy var collectionViewController: LegacyCollectionViewController = {
+    private final lazy var collectionViewController: CollectionViewController = {
 
-        let controller = LegacyCollectionViewController()
+        let controller = CollectionViewController()
 
-        controller.collectionView.applyLayout(LegacyListViewLayout.self)
+        controller.collectionViewLayout = ListViewLayout()
 
         return controller
 
@@ -130,11 +130,11 @@ open class TSShippingDestinationEditorController: UIViewController {
             from: Bundle(for: TSShippingDestinationEditorAddressNibView.self)
         )!
 
-        view.line1TextField.returnKeyType = .next
+        view.street1TextField.returnKeyType = .next
 
-        view.line1TextField.textDidChange = { [weak self] textField in self?.address.line1.value = textField.text }
+        view.street1TextField.textDidChange = { [weak self] textField in self?.address.street1.value = textField.text }
 
-        view.line1TextField.shouldReturn = { [weak self] textField in
+        view.street1TextField.shouldReturn = { [weak self] textField in
 
             let nextResponder = self?.nextResponder(of: textField)
 
@@ -144,11 +144,11 @@ open class TSShippingDestinationEditorController: UIViewController {
 
         }
 
-        view.line2TextField.returnKeyType = .next
+        view.street2TextField.returnKeyType = .next
 
-        view.line2TextField.textDidChange = { [weak self] textField in self?.address.line2.value = textField.text }
+        view.street2TextField.textDidChange = { [weak self] textField in self?.address.street2.value = textField.text }
 
-        view.line2TextField.shouldReturn = { [weak self] textField in
+        view.street2TextField.shouldReturn = { [weak self] textField in
 
             let nextResponder = self?.nextResponder(of: textField)
 
@@ -193,9 +193,9 @@ open class TSShippingDestinationEditorController: UIViewController {
         return [
             recipientView.firstNameTextField,
             recipientView.lastNameTextField,
-            addressView.line1TextField,
-            addressView.line2TextField,
-            _nibView.nameTextField
+            addressView.street1TextField,
+            addressView.street2TextField,
+            editorView.nameTextField
         ]
 
     }()
@@ -245,13 +245,13 @@ open class TSShippingDestinationEditorController: UIViewController {
 
             guard isViewLoaded && isAddressBound else { return }
 
-            address.line1.bind(
-                to: addressView.line1TextField,
+            address.street1.bind(
+                to: addressView.street1TextField,
                 keyPath: \.text
             )
 
-            address.line2.bind(
-                to: addressView.line2TextField,
+            address.street2.bind(
+                to: addressView.street2TextField,
                 keyPath: \.text
             )
 
@@ -311,28 +311,28 @@ open class TSShippingDestinationEditorController: UIViewController {
             keyPath: \.text
         )
 
-        address.line1.bind(
-            to: addressView.line1TextField,
+        address.street1.bind(
+            to: addressView.street1TextField,
             keyPath: \.text
         )
 
-        address.line2.bind(
-            to: addressView.line2TextField,
+        address.street2.bind(
+            to: addressView.street2TextField,
             keyPath: \.text
         )
 
         view.wrapSubview(
-            _nibView,
+            editorView,
             within: \.layoutMarginsGuide
         )
 
         addChild(collectionViewController)
 
-        _nibView.contentView.wrapSubview(collectionViewController.view)
+        editorView.contentView.wrapSubview(collectionViewController.view)
 
         collectionViewController.didMove(toParent: self)
 
-        collectionViewController.collectionView.sections = [
+        collectionViewController.sections = [
             [
                 recipientHeaderView,
                 recipientView,

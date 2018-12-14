@@ -13,7 +13,5 @@ public protocol Country {
     
     var name: String { get }
     
-    init?(rawValue: String)
-    
 }
 

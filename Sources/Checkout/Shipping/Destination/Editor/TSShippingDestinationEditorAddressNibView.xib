@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -71,9 +67,9 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="cityButton" destination="78H-H5-fMX" id="aQy-ZT-g7J"/>
-                <outlet property="line1TextField" destination="qvS-t6-puf" id="eXQ-iy-Wvc"/>
-                <outlet property="line2TextField" destination="ZEx-Uj-0BY" id="Uae-pW-XEj"/>
                 <outlet property="stateButton" destination="CHO-JD-7gl" id="lbk-li-jph"/>
+                <outlet property="street1TextField" destination="qvS-t6-puf" id="eXQ-iy-Wvc"/>
+                <outlet property="street2TextField" destination="ZEx-Uj-0BY" id="Uae-pW-XEj"/>
             </connections>
             <point key="canvasLocation" x="138.40000000000001" y="-86.35682158920541"/>
         </view>

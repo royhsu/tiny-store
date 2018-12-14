@@ -240,20 +240,6 @@ public final class TSCheckoutViewController: UIViewController {
             )
         ]
 
-//        controller.destination = Destination(
-//            recipient:
-//            Recipient(name: "Emily"),
-//            address: Address(
-//                title: "Company",
-//                postalCode: "10600",
-//                country: "US",
-//                state: "CA",
-//                city: "Cupertino",
-//                line1: "North Tantau Avenue",
-//                line2: "4F"
-//            )
-//        )
-
 //        let serviceList = controller.serviceListViewController.list
 
 //        dashboardShippingViewController.row?.amount.property.value = serviceList.selectedService?.price.property.value ?? 0.0

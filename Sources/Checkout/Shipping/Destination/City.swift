@@ -13,6 +13,4 @@ public protocol City {
     
     var name: String { get }
     
-    init?(rawValue: String)
-    
 }

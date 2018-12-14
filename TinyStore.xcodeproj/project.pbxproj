@@ -45,10 +45,10 @@
 		B04C92A721A686210009B607 /* DashboardAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C92A621A686210009B607 /* DashboardAction.swift */; };
 		B04C92A921A686F20009B607 /* DashboardActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C92A821A686F20009B607 /* DashboardActionController.swift */; };
 		B0697F1121B7B30300D05D6E /* TSPriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0697F1021B7B30300D05D6E /* TSPriceView.swift */; };
-		B0697F1521B7E0A700D05D6E /* PostalCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0697F1421B7E0A700D05D6E /* PostalCode.swift */; };
+		B0697F1521B7E0A700D05D6E /* District.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0697F1421B7E0A700D05D6E /* District.swift */; };
 		B0697F1721B8D46A00D05D6E /* ShippingDestinationEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0697F1621B8D46A00D05D6E /* ShippingDestinationEditorController.swift */; };
-		B0697F2121B8E3A600D05D6E /* TaiwanCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0697F2021B8E3A600D05D6E /* TaiwanCity.swift */; };
-		B0697F2321B8E3B500D05D6E /* TaiwanPostalCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0697F2221B8E3B500D05D6E /* TaiwanPostalCode.swift */; };
+		B0697F2121B8E3A600D05D6E /* TaiwanState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0697F2021B8E3A600D05D6E /* TaiwanState.swift */; };
+		B0697F2321B8E3B500D05D6E /* TaipeiCityDistrict.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0697F2221B8E3B500D05D6E /* TaipeiCityDistrict.swift */; };
 		B0697F3621BA06A400D05D6E /* TSTextFieldNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0697F3521BA06A400D05D6E /* TSTextFieldNibView.swift */; };
 		B0697F3821BA075000D05D6E /* TSTextFieldNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0697F3721BA075000D05D6E /* TSTextFieldNibView.xib */; };
 		B0697F3B21BA0C1900D05D6E /* TSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0697F3A21BA0C1900D05D6E /* TSTextField.swift */; };
@@ -91,6 +91,7 @@
 		B0D46D0D21BFDAEC00B95373 /* DefaultShippingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0C21BFDAEC00B95373 /* DefaultShippingAddress.swift */; };
 		B0D5C12121C39C2E00BC7160 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D5C12021C39C2E00BC7160 /* Country.swift */; };
 		B0D5C12321C39C6400BC7160 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D5C12221C39C6300BC7160 /* City.swift */; };
+		B0D5C12621C3A1F300BC7160 /* Taiwan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D5C12521C3A1F300BC7160 /* Taiwan.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
 /* End PBXBuildFile section */
@@ -157,10 +158,10 @@
 		B04C92A621A686210009B607 /* DashboardAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardAction.swift; sourceTree = "<group>"; };
 		B04C92A821A686F20009B607 /* DashboardActionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardActionController.swift; sourceTree = "<group>"; };
 		B0697F1021B7B30300D05D6E /* TSPriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPriceView.swift; sourceTree = "<group>"; };
-		B0697F1421B7E0A700D05D6E /* PostalCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalCode.swift; sourceTree = "<group>"; };
+		B0697F1421B7E0A700D05D6E /* District.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = District.swift; sourceTree = "<group>"; };
 		B0697F1621B8D46A00D05D6E /* ShippingDestinationEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingDestinationEditorController.swift; sourceTree = "<group>"; };
-		B0697F2021B8E3A600D05D6E /* TaiwanCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiwanCity.swift; sourceTree = "<group>"; };
-		B0697F2221B8E3B500D05D6E /* TaiwanPostalCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiwanPostalCode.swift; sourceTree = "<group>"; };
+		B0697F2021B8E3A600D05D6E /* TaiwanState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaiwanState.swift; sourceTree = "<group>"; };
+		B0697F2221B8E3B500D05D6E /* TaipeiCityDistrict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaipeiCityDistrict.swift; sourceTree = "<group>"; };
 		B0697F3521BA06A400D05D6E /* TSTextFieldNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSTextFieldNibView.swift; sourceTree = "<group>"; };
 		B0697F3721BA075000D05D6E /* TSTextFieldNibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TSTextFieldNibView.xib; sourceTree = "<group>"; };
 		B0697F3A21BA0C1900D05D6E /* TSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSTextField.swift; sourceTree = "<group>"; };
@@ -206,6 +207,8 @@
 		B0D46D0C21BFDAEC00B95373 /* DefaultShippingAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultShippingAddress.swift; sourceTree = "<group>"; };
 		B0D5C12021C39C2E00BC7160 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		B0D5C12221C39C6300BC7160 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		B0D5C12421C39EFA00BC7160 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B0D5C12521C3A1F300BC7160 /* Taiwan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taiwan.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F51CBF2158773A00B592F5 /* TinyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyStore.h; sourceTree = "<group>"; };
 		B0F51CC02158773A00B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -270,11 +273,12 @@
 				B043A05521ABE7E200CF296A /* UIAddressCityPickerViewController.swift */,
 				B0697F1621B8D46A00D05D6E /* ShippingDestinationEditorController.swift */,
 				B0D5C12021C39C2E00BC7160 /* Country.swift */,
-				B0697F1421B7E0A700D05D6E /* PostalCode.swift */,
+				B0697F1421B7E0A700D05D6E /* District.swift */,
 				B043A29E21AFC77A00CF296A /* AddressState.swift */,
 				B0D5C12221C39C6300BC7160 /* City.swift */,
-				B0697F2021B8E3A600D05D6E /* TaiwanCity.swift */,
-				B0697F2221B8E3B500D05D6E /* TaiwanPostalCode.swift */,
+				B0D5C12521C3A1F300BC7160 /* Taiwan.swift */,
+				B0697F2021B8E3A600D05D6E /* TaiwanState.swift */,
+				B0697F2221B8E3B500D05D6E /* TaipeiCityDistrict.swift */,
 			);
 			path = Destination;
 			sourceTree = "<group>";
@@ -421,6 +425,7 @@
 			children = (
 				B0F51CC52158778C00B592F5 /* iOS */,
 				B0A1C4112158B0AA00DC9F26 /* Checkout */,
+				B0D5C12421C39EFA00BC7160 /* MyPlayground.playground */,
 				B02B0248218B0A4700772118 /* Assets.xcassets */,
 			);
 			path = Sources;
@@ -588,7 +593,7 @@
 				B0D46D0921BF961100B95373 /* DefaultShippingRecipient.swift in Sources */,
 				B0697F3B21BA0C1900D05D6E /* TSTextField.swift in Sources */,
 				B04C92A921A686F20009B607 /* DashboardActionController.swift in Sources */,
-				B0697F2121B8E3A600D05D6E /* TaiwanCity.swift in Sources */,
+				B0697F2121B8E3A600D05D6E /* TaiwanState.swift in Sources */,
 				B0697F3D21BA23B800D05D6E /* TSShippingDestinationEditorController.swift in Sources */,
 				B085D8E0219EAB51009F1585 /* TSShippingDestinationCardViewController.swift in Sources */,
 				B0D5C12121C39C2E00BC7160 /* Country.swift in Sources */,
@@ -619,9 +624,10 @@
 				B04C92A121A6772E0009B607 /* DashboardRow.swift in Sources */,
 				B085D8D2219D5A04009F1585 /* ShippingServiceElement.swift in Sources */,
 				B02A19FA21BA677100072154 /* TSShippingDestinationEditorNibView.swift in Sources */,
+				B0D5C12621C3A1F300BC7160 /* Taiwan.swift in Sources */,
 				B0697F3621BA06A400D05D6E /* TSTextFieldNibView.swift in Sources */,
 				B085D8CC219D1E52009F1585 /* TSShippingServiceViewController.swift in Sources */,
-				B0697F2321B8E3B500D05D6E /* TaiwanPostalCode.swift in Sources */,
+				B0697F2321B8E3B500D05D6E /* TaipeiCityDistrict.swift in Sources */,
 				B020D4FD219AB78900EC93E3 /* CheckoutDashboard.swift in Sources */,
 				B0A069FA21897FED00BA4CA5 /* TSCartItemNibView.swift in Sources */,
 				B085D8DC219EA13B009F1585 /* TSShippingDestinationCardNibView.swift in Sources */,
@@ -635,7 +641,7 @@
 				B02B0250218BD5F100772118 /* TSSelectionView.swift in Sources */,
 				B04C92A321A677530009B607 /* DashboardRowController.swift in Sources */,
 				B043A05621ABE7E200CF296A /* UIAddressCityPickerViewController.swift in Sources */,
-				B0697F1521B7E0A700D05D6E /* PostalCode.swift in Sources */,
+				B0697F1521B7E0A700D05D6E /* District.swift in Sources */,
 				B04C92A521A6834F0009B607 /* UIDashboardActionButtonController.swift in Sources */,
 				B020D4F52195350200EC93E3 /* CartItemController.swift in Sources */,
 				B0B0EC3621BA522000924829 /* TSSectionHeaderView.swift in Sources */,

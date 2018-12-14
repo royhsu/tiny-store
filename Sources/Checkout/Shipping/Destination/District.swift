@@ -1,18 +1,16 @@
 //
-//  PostalCode.swift
+//  District.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/12/5.
 //
 
-// MARK: - PostalCode
+// MARK: - District
 
-public protocol PostalCode {
+public protocol District {
 
     var rawValue: String { get }
 
     var name: String { get }
-
-    init?(rawValue: String)
 
 }

@@ -1,42 +1,42 @@
 //
-//  TaiwanCity.swift
+//  TaiwanState.swift
 //  TinyStore
 //
 //  Created by Roy Hsu on 2018/12/6.
 //
 
-// MARK: - TaiwanCity
+// MARK: - TaiwanState
 
-public enum TaiwanCity: String, AddressState {
+public enum TaiwanState: String, AddressState {
 
-    case taipei
+    case taipeiCity
 
-    case tainan
+    case tainanCity
 
-    case yunlin
+    case yunlinCounty
 
     public var name: String {
 
         switch self {
 
-        case .taipei:
+        case .taipeiCity:
 
             return NSLocalizedString(
-                "Taipei",
+                "Taipei City",
                 comment: ""
             )
 
-        case .tainan:
+        case .tainanCity:
 
             return NSLocalizedString(
-                "Tainan",
+                "Tainan City",
                 comment: ""
             )
 
-        case .yunlin:
+        case .yunlinCounty:
 
             return NSLocalizedString(
-                "Yunlin",
+                "Yunlin County",
                 comment: ""
             )
 

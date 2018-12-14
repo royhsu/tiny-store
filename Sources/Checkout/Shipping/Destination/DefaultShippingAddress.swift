@@ -13,43 +13,43 @@ public struct DefaultShippingAddress: ShippingAddress {
     
     public var country: Model<Country>
     
-    public var postalCode: Model<PostalCode>
-    
     public var state: Model<AddressState>
     
     public var city: Model<City>
+    
+    public var district: Model<District>
+    
+    public var street1: Model<String>
 
-    public var line1: Model<String>
-
-    public var line2: Model<String>
+    public var street2: Model<String>
 
     public init(
         title: String? = nil,
         country: Country? = nil,
-        postalCode: PostalCode? = nil,
         state: AddressState? = nil,
         city: City? = nil,
-        line1: String? = nil,
-        line2: String? = nil
+        district: District? = nil,
+        street1: String? = nil,
+        street2: String? = nil
     ) {
         
         self.title = Model(value: title)
 
         self.country = Model(value: country)
         
-        self.postalCode = Model(value: postalCode)
-
         self.state = Model(value: state)
 
         self.city = Model(value: city)
         
-        self.line1 = Model(
-            value: line1,
+        self.district = Model(value: district)
+
+        self.street1 = Model(
+            value: street1,
             rules: [ .nonEmpty ]
         )
 
-        self.line2 = Model(
-            value: line2,
+        self.street2 = Model(
+            value: street2,
             rules: [ .nonEmpty ],
             isRequired: false
         )

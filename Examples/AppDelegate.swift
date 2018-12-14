@@ -52,18 +52,7 @@ extension AppDelegate: UIApplicationDelegate {
 //            )
 //        ]
         
-        let viewController = TSShippingDestinationCardViewController(
-            recipient: DefaultShippingRecipient(
-                firstName: "Roy",
-                lastName: "Hsu"
-            ),
-            address: DefaultShippingAddress(
-                postalCode: TaiwanPostalCode.daAnDistrict,
-                state: TaiwanCity.taipei,
-                line1: "Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\n",
-                line2: "Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo."
-            )
-        )
+        let viewController = TSShippingDestinationEditorController()
         
         viewController.view.backgroundColor = .white
         

@@ -50,8 +50,8 @@ public final class TSShippingDestinationCardViewController: UIViewController {
             updateAddressView()
 
             let observations = [
-                address.line1.observe { [weak self] _ in self?.updateAddressView() },
-                address.line2.observe { [weak self] _ in self?.updateAddressView() }
+                address.street1.observe { [weak self] _ in self?.updateAddressView() },
+                address.street2.observe { [weak self] _ in self?.updateAddressView() }
             ]
             
             addressObservations = observations.compactMap { $0 }
@@ -106,8 +106,8 @@ public final class TSShippingDestinationCardViewController: UIViewController {
         self.recipientObservations = recipientObservations.compactMap { $0 }
         
         let addressObservations = [
-            address.line1.observe { [weak self] _ in self?.updateAddressView() },
-            address.line2.observe { [weak self] _ in self?.updateAddressView() }
+            address.street1.observe { [weak self] _ in self?.updateAddressView() },
+            address.street2.observe { [weak self] _ in self?.updateAddressView() }
         ]
         
         self.addressObservations = addressObservations.compactMap { $0 }
@@ -139,7 +139,39 @@ public final class TSShippingDestinationCardViewController: UIViewController {
 
     }
 
-    private final func updateAddressView() { cardView.addressLabel.text = address.fullLine }
+    private final func updateAddressView() {
+        
+        var fullAddress: String?
+        
+        let line1 = [
+            address.street2.value,
+            address.street1.value,
+            address.district.value?.name
+        ]
+        .compactMap { $0 }
+        .filter { !$0.isEmpty }
+        .joined(separator: ", ")
+        
+        if !line1.isEmpty { fullAddress = line1 }
+    
+        let line2 = [
+            address.city.value?.name,
+            address.state.value?.name
+        ]
+        .compactMap { $0 }
+        .filter { !$0.isEmpty }
+        .joined(separator: ", ")
+        
+        if !line2.isEmpty {
+            
+            if fullAddress == nil { fullAddress = line2 }
+            else { fullAddress?.append("\n\(line2)") }
+            
+        }
+        
+        cardView.addressLabel.text = fullAddress
+        
+    }
 
 }
 
@@ -156,23 +188,6 @@ fileprivate extension ShippingRecipient {
 
         #warning("localization.")
         return "\(firstName) \(lastName)"
-
-    }
-
-}
-
-// MARK: - ShippingAddress
-
-fileprivate extension ShippingAddress {
-
-    fileprivate var fullLine: String? {
-
-        guard
-            let line1 = line1.value,
-            let line2 = line2.value
-        else { return nil }
-
-        return "\(line1)\n\(line2)"
 
     }
 

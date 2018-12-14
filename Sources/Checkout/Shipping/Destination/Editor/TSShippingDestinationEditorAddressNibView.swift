@@ -44,12 +44,12 @@ internal final class TSShippingDestinationEditorAddressNibView: UIView {
     }
 
     @IBOutlet
-    internal private(set) final weak var line1TextField: TSTextField! {
+    internal private(set) final weak var street1TextField: TSTextField! {
 
         didSet {
 
-            line1TextField.placeholder = NSLocalizedString(
-                "Line 1 (Street, Road)",
+            street1TextField.placeholder = NSLocalizedString(
+                "Street 1 (Street, Road)",
                 comment: ""
             )
 
@@ -58,12 +58,12 @@ internal final class TSShippingDestinationEditorAddressNibView: UIView {
     }
 
     @IBOutlet
-    internal private(set) final weak var line2TextField: TSTextField! {
+    internal private(set) final weak var street2TextField: TSTextField! {
 
         didSet {
 
-            line2TextField.placeholder = NSLocalizedString(
-                "Line 2 (Floor)",
+            street2TextField.placeholder = NSLocalizedString(
+                "Street 2 (Floor)",
                 comment: ""
             )
 
