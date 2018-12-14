@@ -1,5 +1,5 @@
-import TinyStore
 import PlaygroundSupport
+import TinyStore
 
 let viewController = TSShippingDestinationCardViewController(
     recipient: DefaultShippingRecipient(

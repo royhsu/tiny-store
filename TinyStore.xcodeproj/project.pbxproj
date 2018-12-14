@@ -207,7 +207,7 @@
 		B0D46D0C21BFDAEC00B95373 /* DefaultShippingAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultShippingAddress.swift; sourceTree = "<group>"; };
 		B0D5C12021C39C2E00BC7160 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		B0D5C12221C39C6300BC7160 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
-		B0D5C12421C39EFA00BC7160 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		B0D5C12421C39EFA00BC7160 /* TinyStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TinyStore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B0D5C12521C3A1F300BC7160 /* Taiwan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taiwan.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F51CBF2158773A00B592F5 /* TinyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyStore.h; sourceTree = "<group>"; };
@@ -425,7 +425,7 @@
 			children = (
 				B0F51CC52158778C00B592F5 /* iOS */,
 				B0A1C4112158B0AA00DC9F26 /* Checkout */,
-				B0D5C12421C39EFA00BC7160 /* MyPlayground.playground */,
+				B0D5C12421C39EFA00BC7160 /* TinyStore.playground */,
 				B02B0248218B0A4700772118 /* Assets.xcassets */,
 			);
 			path = Sources;

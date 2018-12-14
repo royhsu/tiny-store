@@ -29,29 +29,6 @@ extension AppDelegate: UIApplicationDelegate {
         
 //        let viewController = TSCheckoutViewController()
         
-//        let viewController = ShippingServiceListViewController()
-//
-//        viewController.elements = [
-//            .item(
-//                TSShippingServiceViewController(
-//                    service: DefaultShippingService(
-//                        isSelected: false,
-//                        title: "UPS",
-//                        price: 3.0
-//                    )
-//                )
-//            ),
-//            .item(
-//                TSShippingServiceViewController(
-//                    service: DefaultShippingService(
-//                        isSelected: false,
-//                        title: "DHL Express",
-//                        price: 5.0
-//                    )
-//                )
-//            )
-//        ]
-        
         let viewController = TSShippingDestinationEditorController()
         
         viewController.view.backgroundColor = .white
