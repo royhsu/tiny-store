@@ -73,14 +73,14 @@ public final class TSCheckoutViewController: UIViewController {
 
     }()
 
-    private final lazy var cartViewController: CheckoutCartViewController = {
+    private final lazy var cartViewController: CartViewController = {
 
-        let controller = CheckoutCartViewController()
+        let controller = CartViewController()
 
-        controller.cart.elements = [
+        controller.elements = [
             .item(
                 TSCartItemViewController(
-                    Apparel(
+                    item: Apparel(
                         isSelected: true,
                         title: "Knee-length Wool Skirt",
                         color: "Dark Blue",
@@ -92,7 +92,7 @@ public final class TSCheckoutViewController: UIViewController {
             ),
             .item(
                 TSCartItemViewController(
-                    Apparel(
+                    item: Apparel(
                         isSelected: true,
                         title: "Long-sleeved Blouse",
                         color: "Light Blue",
@@ -104,7 +104,7 @@ public final class TSCheckoutViewController: UIViewController {
             ),
             .item(
                 TSCartItemViewController(
-                    Apparel(
+                    item: Apparel(
                         isSelected: true,
                         title: "High Heels",
                         color: "Purple Diamond",
@@ -116,17 +116,17 @@ public final class TSCheckoutViewController: UIViewController {
             )
         ]
 
-        let cart = controller.cart
-
-        cart.totalAmountDidChange = { [weak self] change in
-
-            guard let self = self else { return }
+//        let cart = controller.cart
+//
+//        cart.totalAmountDidChange = { [weak self] change in
+//
+//            guard let self = self else { return }
 
 //            self.dashboardSubTotalViewController.row?.amount.property.value = cart.totalAmount
 //
 //            self.dashboardPayTotalViewController.row?.amount.property.value = self.payTotal
 
-        }
+//        }
 
         controller.title = NSLocalizedString(
             "Cart",
@@ -142,7 +142,7 @@ public final class TSCheckoutViewController: UIViewController {
         let controller = UIDashboardSubRowViewController(
             SubRow(
                 title: "SubTotal",
-                amount: cartViewController.cart.totalAmount
+                amount: cartViewController.totalAmount
             )
         )
 

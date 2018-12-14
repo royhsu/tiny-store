@@ -68,7 +68,7 @@ public final class TSCartItemViewController: UIViewController, CartItemControlle
 
     }
 
-    public init(_ item: CartItem? = nil) {
+    public init(item: CartItem? = nil) {
 
         self.item = item
 
