@@ -27,13 +27,15 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
         
-//        let viewController = TSCheckoutViewController()
+        let editorViewController = TSShippingDestinationEditorController()
         
-        let viewController = TSShippingDestinationEditorController()
+        editorViewController.view.backgroundColor = .white
         
-        viewController.view.backgroundColor = .white
+        let keyboardController = UIKeyboardController()
         
-        window.rootViewController = viewController
+        keyboardController.contentViewController = editorViewController
+        
+        window.rootViewController = keyboardController
 
         window.makeKeyAndVisible()
 

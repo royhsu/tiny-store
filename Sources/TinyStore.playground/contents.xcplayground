@@ -3,5 +3,6 @@
     <pages>
         <page name='Shipping Service List'/>
         <page name='Shipping Destination Card'/>
+        <page name='Shipping Destination Editor'/>
     </pages>
 </playground>

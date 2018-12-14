@@ -18,9 +18,11 @@ open class TSShippingDestinationEditorController: UIViewController {
 
         view.backgroundColor = nil
 
-        view.nameTextField.returnKeyType = .done
+        view.titleTextField.returnKeyType = .done
+        
+        view.titleTextField.textDidChange = {  [weak self] textField in self?.address.title.value = textField.text }
 
-        view.nameTextField.shouldReturn = { [weak self] textField in
+        view.titleTextField.shouldReturn = { [weak self] textField in
 
             let nextResponder = self?.nextResponder(of: textField)
 
@@ -195,7 +197,7 @@ open class TSShippingDestinationEditorController: UIViewController {
             recipientView.lastNameTextField,
             addressView.street1TextField,
             addressView.street2TextField,
-            editorView.nameTextField
+            editorView.titleTextField
         ]
 
     }()
@@ -214,14 +216,12 @@ open class TSShippingDestinationEditorController: UIViewController {
         return responders[nextIndex]
 
     }
-
-    private final var isRecipientBound = false
-
+    
     public final var recipient: ShippingRecipient {
 
         didSet {
 
-            guard isViewLoaded && isRecipientBound else { return }
+            guard isViewLoaded else { return }
 
             recipient.firstName.bind(
                 to: recipientView.firstNameTextField,
@@ -237,13 +237,16 @@ open class TSShippingDestinationEditorController: UIViewController {
 
     }
 
-    private final var isAddressBound = false
-
     public final var address: ShippingAddress {
 
         didSet {
 
-            guard isViewLoaded && isAddressBound else { return }
+            guard isViewLoaded else { return }
+            
+            address.title.bind(
+                to: editorView.titleTextField,
+                keyPath: \.text
+            )
 
             address.street1.bind(
                 to: addressView.street1TextField,
@@ -292,14 +295,6 @@ open class TSShippingDestinationEditorController: UIViewController {
     open override func viewDidLoad() {
 
         super.viewDidLoad()
-
-        defer {
-
-            isRecipientBound = true
-
-            isAddressBound = true
-
-        }
 
         recipient.firstName.bind(
             to: recipientView.firstNameTextField,

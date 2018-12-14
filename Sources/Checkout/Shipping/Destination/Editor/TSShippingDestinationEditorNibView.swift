@@ -19,11 +19,11 @@ internal final class TSShippingDestinationEditorNibView: UIView {
     internal private(set) final weak var floatingViewBottomConstraint: NSLayoutConstraint!
 
     @IBOutlet
-    private final weak var nameLabel: UILabel! {
+    private final weak var titleLabel: UILabel! {
 
         didSet {
 
-            nameLabel.text = NSLocalizedString(
+            titleLabel.text = NSLocalizedString(
                 "You can label this destination\n(For example: Home or Company)",
                 comment: ""
             )
@@ -33,16 +33,16 @@ internal final class TSShippingDestinationEditorNibView: UIView {
     }
 
     @IBOutlet
-    internal private(set) final weak var nameTextField: TSTextField! {
+    internal private(set) final weak var titleTextField: TSTextField! {
 
         didSet {
 
-            nameTextField.placeholder = NSLocalizedString(
+            titleTextField.placeholder = NSLocalizedString(
                 "Name",
                 comment: ""
             )
 
-            nameTextField.textAlignment = .center
+            titleTextField.textAlignment = .center
 
         }
 
