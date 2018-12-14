@@ -51,7 +51,7 @@ public final class TSShippingServiceViewController: UIViewController, ShippingSe
 
     }
 
-    public init(_ service: ShippingService? = nil) {
+    public init(service: ShippingService? = nil) {
 
         self.service = service
 

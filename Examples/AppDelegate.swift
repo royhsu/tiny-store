@@ -34,7 +34,7 @@ extension AppDelegate: UIApplicationDelegate {
         viewController.elements = [
             .item(
                 TSShippingServiceViewController(
-                    Service(
+                    service: DefaultShippingService(
                         isSelected: false,
                         title: "UPS",
                         price: 3.0
@@ -43,7 +43,7 @@ extension AppDelegate: UIApplicationDelegate {
             ),
             .item(
                 TSShippingServiceViewController(
-                    Service(
+                    service: DefaultShippingService(
                         isSelected: false,
                         title: "DHL Express",
                         price: 5.0
@@ -62,28 +62,4 @@ extension AppDelegate: UIApplicationDelegate {
 
     }
 
-}
-
-internal struct Service: ShippingService {
-    
-    internal var isSelected: Model<Bool>
-    
-    internal var title: Model<String>
-    
-    internal var price: Model<Double>
-    
-    internal init(
-        isSelected: Bool = false,
-        title: String,
-        price: Double
-        ) {
-        
-        self.isSelected = Model(value: isSelected)
-        
-        self.title = Model(value: title)
-        
-        self.price = Model(value: price)
-        
-    }
-    
 }

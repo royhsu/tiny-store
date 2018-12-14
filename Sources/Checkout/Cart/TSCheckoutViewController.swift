@@ -10,30 +10,6 @@
 #warning("development only.")
 import MapKit
 
-internal struct Service: ShippingService {
-
-    internal var isSelected: Model<Bool>
-
-    internal var title: Model<String>
-
-    internal var price: Model<Double>
-
-    internal init(
-        isSelected: Bool = false,
-        title: String,
-        price: Double
-    ) {
-
-        self.isSelected = Model(value: isSelected)
-
-        self.title = Model(value: title)
-
-        self.price = Model(value: price)
-
-    }
-
-}
-
 private struct Action: DashboardAction {
 
     internal let title: Model<String>
@@ -246,7 +222,7 @@ public final class TSCheckoutViewController: UIViewController {
         controller.serviceListViewController.elements = [
             .item(
                 TSShippingServiceViewController(
-                    Service(
+                    service: DefaultShippingService(
                         isSelected: false,
                         title: "UPS",
                         price: 3.0
@@ -255,7 +231,7 @@ public final class TSCheckoutViewController: UIViewController {
             ),
             .item(
                 TSShippingServiceViewController(
-                    Service(
+                    service: DefaultShippingService(
                         isSelected: false,
                         title: "DHL Express",
                         price: 5.0

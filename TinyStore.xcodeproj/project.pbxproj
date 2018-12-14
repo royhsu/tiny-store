@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B011238F215DDF5200A905E3 /* XCTUnwrapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0112389215DDF2A00A905E3 /* XCTUnwrapped.swift */; };
 		B0112390215DDF5200A905E3 /* XCTSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011238A215DDF2A00A905E3 /* XCTSuccess.swift */; };
-		B011239C215E056C00A905E3 /* MessageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B011239A215E056600A905E3 /* MessageField.swift */; };
 		B01123A8215E335300A905E3 /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01123A7215E335300A905E3 /* CartItem.swift */; };
 		B017706121BA85FC003C49DB /* UIKeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B017706021BA85FC003C49DB /* UIKeyboardController.swift */; };
 		B020D4F52195350200EC93E3 /* CartItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B020D4F42195350200EC93E3 /* CartItemController.swift */; };
@@ -26,6 +25,7 @@
 		B02B0245218AF85900772118 /* TSCartItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B0244218AF85900772118 /* TSCartItemViewController.swift */; };
 		B02B0249218B0A4700772118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02B0248218B0A4700772118 /* Assets.xcassets */; };
 		B02B0250218BD5F100772118 /* TSSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B024F218BD5F100772118 /* TSSelectionView.swift */; };
+		B03394E321C34ED400CB1FA9 /* DefaultShippingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03394E221C34ED400CB1FA9 /* DefaultShippingService.swift */; };
 		B03A1C7F21587FF7000DC2D8 /* TinyCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */; };
 		B03A1C8121587FF7000DC2D8 /* TinyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8021587FF7000DC2D8 /* TinyKit.framework */; };
 		B03A1C8321587FF7000DC2D8 /* TinyStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */; };
@@ -91,7 +91,6 @@
 		B0D46D0D21BFDAEC00B95373 /* DefaultShippingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0C21BFDAEC00B95373 /* DefaultShippingAddress.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
-		B0F51CDE21587F2D00B592F5 /* FormFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F51CDC21587F2B00B592F5 /* FormFieldTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,7 +122,6 @@
 /* Begin PBXFileReference section */
 		B0112389215DDF2A00A905E3 /* XCTUnwrapped.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTUnwrapped.swift; sourceTree = "<group>"; };
 		B011238A215DDF2A00A905E3 /* XCTSuccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTSuccess.swift; sourceTree = "<group>"; };
-		B011239A215E056600A905E3 /* MessageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageField.swift; sourceTree = "<group>"; };
 		B01123A7215E335300A905E3 /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		B017706021BA85FC003C49DB /* UIKeyboardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKeyboardController.swift; sourceTree = "<group>"; };
 		B020D4F42195350200EC93E3 /* CartItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemController.swift; sourceTree = "<group>"; };
@@ -140,6 +138,7 @@
 		B02B0244218AF85900772118 /* TSCartItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSCartItemViewController.swift; sourceTree = "<group>"; };
 		B02B0248218B0A4700772118 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B02B024F218BD5F100772118 /* TSSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSelectionView.swift; sourceTree = "<group>"; };
+		B03394E221C34ED400CB1FA9 /* DefaultShippingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultShippingService.swift; sourceTree = "<group>"; };
 		B03A1C7E21587FF7000DC2D8 /* TinyCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8021587FF7000DC2D8 /* TinyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B03A1C8221587FF7000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,7 +207,6 @@
 		B0F51CC02158773A00B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0F51CCA215878F800B592F5 /* TinyStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TinyStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F51CCE215878F800B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0F51CDC21587F2B00B592F5 /* FormFieldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +293,7 @@
 				B085D8D1219D5A04009F1585 /* ShippingServiceElement.swift */,
 				B085D8D3219D5AC4009F1585 /* ShippingServiceController.swift */,
 				B020D4FF219AC49500EC93E3 /* ShippingService.swift */,
+				B03394E221C34ED400CB1FA9 /* DefaultShippingService.swift */,
 				B085D8CB219D1E52009F1585 /* TSShippingServiceViewController.swift */,
 				B020D501219AC51800EC93E3 /* TSShippingServiceNibView.swift */,
 				B020D503219AC53300EC93E3 /* TSShippingServiceNibView.xib */,
@@ -435,8 +434,6 @@
 			children = (
 				B0112388215DDF2A00A905E3 /* Helpers */,
 				B0C8C35821C1EEFB00DED5BF /* ShippingServiceListTests.swift */,
-				B0F51CDC21587F2B00B592F5 /* FormFieldTests.swift */,
-				B011239A215E056600A905E3 /* MessageField.swift */,
 				B0F51CCE215878F800B592F5 /* Info.plist */,
 			);
 			path = Tests;
@@ -588,6 +585,7 @@
 				B0697F2121B8E3A600D05D6E /* TaiwanCity.swift in Sources */,
 				B0697F3D21BA23B800D05D6E /* TSShippingDestinationEditorController.swift in Sources */,
 				B085D8E0219EAB51009F1585 /* TSShippingDestinationCardViewController.swift in Sources */,
+				B03394E321C34ED400CB1FA9 /* DefaultShippingService.swift in Sources */,
 				B02B0245218AF85900772118 /* TSCartItemViewController.swift in Sources */,
 				B02A19F821BA5AFF00072154 /* TSButton.swift in Sources */,
 				B0772EBC218BF2720082C055 /* CheckoutCartViewController.swift in Sources */,
@@ -646,8 +644,6 @@
 				B0112390215DDF5200A905E3 /* XCTSuccess.swift in Sources */,
 				B011238F215DDF5200A905E3 /* XCTUnwrapped.swift in Sources */,
 				B0C8C35A21C1EF2F00DED5BF /* ShippingServiceListTests.swift in Sources */,
-				B011239C215E056C00A905E3 /* MessageField.swift in Sources */,
-				B0F51CDE21587F2D00B592F5 /* FormFieldTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

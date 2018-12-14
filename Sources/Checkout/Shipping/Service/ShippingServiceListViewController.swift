@@ -33,8 +33,6 @@ public final class ShippingServiceListViewController: ViewController {
             
             updateSelectedElement()
             
-            observeSelectedIndex()
-            
             observeElements()
             
         }
@@ -43,7 +41,7 @@ public final class ShippingServiceListViewController: ViewController {
     
     private final var selectedIndexObservation: Observation?
     
-    public private(set) final var selectedIndex = Model<Int>()
+    public final let selectedIndex = Model<Int>()
     
     public final override func viewDidLoad() {
         
@@ -67,20 +65,24 @@ public final class ShippingServiceListViewController: ViewController {
     
     private final func updateSelectedElement() {
         
-        if
-            let selectedIndex = selectedIndex.value,
-            selectedIndex < elements.count {
-            
-            let element: ShippingServiceElement = elements[selectedIndex]
-            
+        for element in elements {
+        
             switch element {
                 
-            case let .item(controller): controller.service?.isSelected.value = true
+            case let .item(controller):
+                
+                let isSelected: Bool
+                
+                if
+                    let selectedIndex = selectedIndex.value,
+                    selectedIndex < elements.count { isSelected = true }
+                else { isSelected = false }
+                
+                controller.service?.isSelected.value = isSelected
                 
             }
             
         }
-        
     }
     
     private final func observeSelectedIndex() {
