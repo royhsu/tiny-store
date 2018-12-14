@@ -75,11 +75,6 @@ public final class TSCartItemNibView: UIView {
     public private(set) final weak var previewImageView: UIImageView! {
 
         didSet {
-
-            previewImageView.backgroundColor = .lightGray
-
-            previewImageView.contentMode = .scaleAspectFill
-
             previewImageView.layer.borderColor = UIColor.darkGray.cgColor
 
             previewImageView.layer.borderWidth = 0.5
@@ -91,36 +86,14 @@ public final class TSCartItemNibView: UIView {
     @IBOutlet
     public private(set) final weak var titleLabel: UILabel! {
 
-        didSet {
-
-            titleLabel.adjustsFontForContentSizeCategory = true
-
-            titleLabel.font = .preferredFont(forTextStyle: .body)
-
-            titleLabel.numberOfLines = 0
-
-            titleLabel.text = nil
-
-        }
+        didSet { titleLabel.text = nil }
 
     }
 
     @IBOutlet
     public private(set) final weak var descriptionLabel: UILabel! {
 
-        didSet {
-
-            descriptionLabel.adjustsFontForContentSizeCategory = true
-
-            descriptionLabel.font = .preferredFont(forTextStyle: .caption1)
-
-            descriptionLabel.numberOfLines = 0
-
-            descriptionLabel.text = nil
-
-            descriptionLabel.textColor = .darkGray
-
-        }
+        didSet { descriptionLabel.text = nil }
 
     }
 

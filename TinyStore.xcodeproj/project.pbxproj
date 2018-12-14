@@ -37,6 +37,8 @@
 		B03A1C8D21588220000DC2D8 /* TinyStorage.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = B03A1C8821588192000DC2D8 /* TinyStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B043A05621ABE7E200CF296A /* UIAddressCityPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A05521ABE7E200CF296A /* UIAddressCityPickerViewController.swift */; };
 		B043A29F21AFC77A00CF296A /* AddressState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29E21AFC77A00CF296A /* AddressState.swift */; };
+		B0499CDE21C3EB8F003AE8B8 /* TSDashboardNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0499CDD21C3EB8F003AE8B8 /* TSDashboardNibView.xib */; };
+		B0499CE021C3F249003AE8B8 /* TSDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0499CDF21C3F249003AE8B8 /* TSDashboardViewController.swift */; };
 		B04C929D21A41F340009B607 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929C21A41F340009B607 /* DSL.swift */; };
 		B04C929F21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */; };
 		B04C92A121A6772E0009B607 /* DashboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C92A021A6772E0009B607 /* DashboardRow.swift */; };
@@ -65,7 +67,6 @@
 		B0772ED0218C49520082C055 /* TSCheckoutNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0772ECF218C49520082C055 /* TSCheckoutNibView.xib */; };
 		B0772ED2218C4A310082C055 /* TSCheckoutNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ED1218C4A310082C055 /* TSCheckoutNibView.swift */; };
 		B0772ED4218C4B630082C055 /* UIDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ED3218C4B630082C055 /* UIDashboardViewController.swift */; };
-		B0772ED6218C4CC60082C055 /* TSCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ED5218C4CC60082C055 /* TSCheckoutViewController.swift */; };
 		B0772EDB2193E0F20082C055 /* Apparel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772EBF218C2B220082C055 /* Apparel.swift */; };
 		B07A2C37215A0A2D002EFE87 /* TinyValidation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A2C36215A0A2D002EFE87 /* TinyValidation.framework */; };
 		B085D8CC219D1E52009F1585 /* TSShippingServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B085D8CB219D1E52009F1585 /* TSShippingServiceViewController.swift */; };
@@ -93,6 +94,8 @@
 		B0D5C12321C39C6400BC7160 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D5C12221C39C6300BC7160 /* City.swift */; };
 		B0D5C12621C3A1F300BC7160 /* Taiwan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D5C12521C3A1F300BC7160 /* Taiwan.swift */; };
 		B0D6E47421C3E31E00B538BA /* CartViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D6E47221C3E31300B538BA /* CartViewControllerTests.swift */; };
+		B0D6E47521C3EADF00B538BA /* TSCheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0772ED5218C4CC60082C055 /* TSCheckoutViewController.swift */; };
+		B0D6E47721C3EB4200B538BA /* TSDashboardNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D6E47621C3EB4200B538BA /* TSDashboardNibView.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
 /* End PBXBuildFile section */
@@ -151,6 +154,8 @@
 		B03A1C8821588192000DC2D8 /* TinyStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TinyStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B043A05521ABE7E200CF296A /* UIAddressCityPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAddressCityPickerViewController.swift; sourceTree = "<group>"; };
 		B043A29E21AFC77A00CF296A /* AddressState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressState.swift; sourceTree = "<group>"; };
+		B0499CDD21C3EB8F003AE8B8 /* TSDashboardNibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSDashboardNibView.xib; sourceTree = "<group>"; };
+		B0499CDF21C3F249003AE8B8 /* TSDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSDashboardViewController.swift; sourceTree = "<group>"; };
 		B04C929C21A41F340009B607 /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 		B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDashboardSubTextFieldController.swift; sourceTree = "<group>"; };
 		B04C92A021A6772E0009B607 /* DashboardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRow.swift; sourceTree = "<group>"; };
@@ -211,6 +216,7 @@
 		B0D5C12421C39EFA00BC7160 /* TinyStore.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TinyStore.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		B0D5C12521C3A1F300BC7160 /* Taiwan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Taiwan.swift; sourceTree = "<group>"; };
 		B0D6E47221C3E31300B538BA /* CartViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewControllerTests.swift; sourceTree = "<group>"; };
+		B0D6E47621C3EB4200B538BA /* TSDashboardNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSDashboardNibView.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F51CBF2158773A00B592F5 /* TinyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyStore.h; sourceTree = "<group>"; };
 		B0F51CC02158773A00B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -291,9 +297,6 @@
 				B0B5D438215F418C0093EE01 /* Item */,
 				B0772EBB218BF2720082C055 /* CartViewController.swift */,
 				B020D4F821955D3400EC93E3 /* CartElement.swift */,
-				B0772ED5218C4CC60082C055 /* TSCheckoutViewController.swift */,
-				B0772ED1218C4A310082C055 /* TSCheckoutNibView.swift */,
-				B0772ECF218C49520082C055 /* TSCheckoutNibView.xib */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -316,6 +319,9 @@
 		B04C92AA21A68C2D0009B607 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				B0499CDF21C3F249003AE8B8 /* TSDashboardViewController.swift */,
+				B0D6E47621C3EB4200B538BA /* TSDashboardNibView.swift */,
+				B0499CDD21C3EB8F003AE8B8 /* TSDashboardNibView.xib */,
 				B020D4FC219AB78900EC93E3 /* CheckoutDashboard.swift */,
 				B0772ED3218C4B630082C055 /* UIDashboardViewController.swift */,
 				B04C92A221A677530009B607 /* DashboardRowController.swift */,
@@ -341,6 +347,9 @@
 				B04C929A21A41A2D0009B607 /* Cart */,
 				B04C92AA21A68C2D0009B607 /* Dashboard */,
 				B020D4FE219AC45D00EC93E3 /* Shipping */,
+				B0772ED5218C4CC60082C055 /* TSCheckoutViewController.swift */,
+				B0772ED1218C4A310082C055 /* TSCheckoutNibView.swift */,
+				B0772ECF218C49520082C055 /* TSCheckoutNibView.xib */,
 				B085D8D5219D5AE9009F1585 /* CurrencyFormatter.swift */,
 				B085D8D7219D5B00009F1585 /* DefaultCurrencyFormatter.swift */,
 				B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */,
@@ -570,6 +579,7 @@
 				B02B0249218B0A4700772118 /* Assets.xcassets in Resources */,
 				B0772EC6218C39D70082C055 /* UIDashboardSubTextField.xib in Resources */,
 				B085D8DE219EA15B009F1585 /* TSShippingDestinationCardNibView.xib in Resources */,
+				B0499CDE21C3EB8F003AE8B8 /* TSDashboardNibView.xib in Resources */,
 				B0C8C33D21BFEACA00DED5BF /* TSCartItemNibView.xib in Resources */,
 				B0772ECE218C46070082C055 /* UICheckoutDashboardButtonWrapperView.xib in Resources */,
 				B0A06A002189948200BA4CA5 /* TSStepper.xib in Resources */,
@@ -594,7 +604,9 @@
 			files = (
 				B0772ECC218C45E10082C055 /* UICheckoutDashboardButtonWrapperView.swift in Sources */,
 				B0D46D0921BF961100B95373 /* DefaultShippingRecipient.swift in Sources */,
+				B0D6E47721C3EB4200B538BA /* TSDashboardNibView.swift in Sources */,
 				B0697F3B21BA0C1900D05D6E /* TSTextField.swift in Sources */,
+				B0499CE021C3F249003AE8B8 /* TSDashboardViewController.swift in Sources */,
 				B04C92A921A686F20009B607 /* DashboardActionController.swift in Sources */,
 				B0697F2121B8E3A600D05D6E /* TaiwanState.swift in Sources */,
 				B0697F3D21BA23B800D05D6E /* TSShippingDestinationEditorController.swift in Sources */,
@@ -613,7 +625,6 @@
 				B02A19F421BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift in Sources */,
 				B020D500219AC49500EC93E3 /* ShippingService.swift in Sources */,
 				B04C92A721A686210009B607 /* DashboardAction.swift in Sources */,
-				B0772ED6218C4CC60082C055 /* TSCheckoutViewController.swift in Sources */,
 				B0772EC8218C419A0082C055 /* UICheckoutDashboardMainTextField.swift in Sources */,
 				B01123A8215E335300A905E3 /* CartItem.swift in Sources */,
 				B0D5C12321C39C6400BC7160 /* City.swift in Sources */,
@@ -632,6 +643,7 @@
 				B085D8CC219D1E52009F1585 /* TSShippingServiceViewController.swift in Sources */,
 				B0697F2321B8E3B500D05D6E /* TaipeiCityDistrict.swift in Sources */,
 				B020D4FD219AB78900EC93E3 /* CheckoutDashboard.swift in Sources */,
+				B0D6E47521C3EADF00B538BA /* TSCheckoutViewController.swift in Sources */,
 				B0A069FA21897FED00BA4CA5 /* TSCartItemNibView.swift in Sources */,
 				B085D8DC219EA13B009F1585 /* TSShippingDestinationCardNibView.swift in Sources */,
 				B0D46D0521BF66BB00B95373 /* ShippingRecipient.swift in Sources */,

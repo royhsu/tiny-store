@@ -7,6 +7,8 @@
 
 // MARK: - TSShippingServiceNibView
 
+#if canImport(UIKit)
+
 public final class TSShippingServiceNibView: UIView {
 
     @IBOutlet
@@ -55,17 +57,7 @@ public final class TSShippingServiceNibView: UIView {
     @IBOutlet
     public private(set) final weak var titleLabel: UILabel! {
 
-        didSet {
-
-            titleLabel.adjustsFontForContentSizeCategory = true
-
-            titleLabel.font = .preferredFont(forTextStyle: .body)
-
-            titleLabel.numberOfLines = 0
-
-            titleLabel.text = nil
-
-        }
+        didSet { titleLabel.text = nil }
 
     }
 
@@ -91,3 +83,5 @@ public final class TSShippingServiceNibView: UIView {
     public final func toggleSelection(_ gesuture: UITapGestureRecognizer) { selectionView.toggleSelection(gesuture) }
 
 }
+
+#endif

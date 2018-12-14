@@ -7,6 +7,8 @@
 
 // MARK: - TSShippingServiceViewController
 
+#if canImport(UIKit)
+
 public final class TSShippingServiceViewController: UIViewController, ShippingServiceController {
 
     private final lazy var serviceView: TSShippingServiceNibView = {
@@ -88,3 +90,5 @@ public final class TSShippingServiceViewController: UIViewController, ShippingSe
     }
 
 }
+
+#endif

@@ -42,8 +42,6 @@ internal final class TSShippingDestinationEditorNibView: UIView {
                 comment: ""
             )
 
-            titleTextField.textAlignment = .center
-
         }
 
     }

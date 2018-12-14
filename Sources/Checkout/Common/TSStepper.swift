@@ -48,17 +48,7 @@ public final class TSStepper: UIView {
     @IBOutlet
     private final var valueTextField: UITextField! {
 
-        didSet {
-
-            valueTextField.borderStyle = .none
-
-            valueTextField.font = .preferredFont(forTextStyle: .body)
-
-            valueTextField.text = "\(value)"
-
-            valueTextField.keyboardType = .numberPad
-
-        }
+        didSet { valueTextField.text = "\(value)" }
 
     }
 
