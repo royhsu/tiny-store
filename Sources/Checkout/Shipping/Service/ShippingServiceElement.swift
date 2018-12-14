@@ -17,31 +17,11 @@ public enum ShippingServiceElement: ViewCollection {
             
         case let .item(representable):
             
-            let makeSpacingView: (CGFloat) -> View = { spacing in
-                
-                let view = View()
-                
-                view.translatesAutoresizingMaskIntoConstraints = false
-                
-                view.heightAnchor.constraint(equalToConstant: spacing).isActive = true
-                
-                return view
-                
-            }
-            
-            let separatorView = View()
-            
-            separatorView.backgroundColor = .lightGray
-            
-            separatorView.translatesAutoresizingMaskIntoConstraints = false
-            
-            separatorView.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
-            
             return [
-                makeSpacingView(4.0),
+                makeSpacingView(spacing: 4.0),
                 representable,
-                makeSpacingView(4.0),
-                separatorView
+                makeSpacingView(spacing: 4.0),
+                makeSeparatorView()
             ]
             
         }
@@ -51,5 +31,35 @@ public enum ShippingServiceElement: ViewCollection {
     public var count: Int { return representables.count }
     
     public subscript(index: Int) -> ViewRepresentable { return representables[index] }
+    
+}
+
+fileprivate extension ShippingServiceElement {
+    
+    fileprivate func makeSpacingView(spacing: CGFloat) -> View {
+        
+        let view = View()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.heightAnchor.constraint(equalToConstant: spacing).isActive = true
+        
+        return view
+        
+    }
+    
+    fileprivate func makeSeparatorView() -> View {
+        
+        let view = View()
+        
+        view.backgroundColor = .lightGray
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
+        
+        return view
+        
+    }
     
 }

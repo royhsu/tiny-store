@@ -46,7 +46,7 @@ viewController.elements = [
 
 viewController.totalAmountDidChange = { controller in
     
-    print("Total amount: ", controller.totalAmount)
+    print("Total amount:", controller.totalAmount)
     
 }
 
