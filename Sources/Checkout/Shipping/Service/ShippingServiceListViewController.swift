@@ -43,6 +43,21 @@ public final class ShippingServiceListViewController: ViewController {
     
     public final let selectedIndex = Model<Int>()
     
+    public final var selectedService: ShippingService? {
+        
+        guard
+            let selectedIndex = selectedIndex.value,
+            selectedIndex < elements.count
+        else { return nil }
+        
+        let element: ShippingServiceElement = elements[selectedIndex]
+        
+        guard case let .item(controller) = element else { return nil }
+        
+        return controller.service
+        
+    }
+    
     public final override func viewDidLoad() {
         
         super.viewDidLoad()

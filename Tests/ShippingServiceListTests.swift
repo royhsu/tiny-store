@@ -13,6 +13,8 @@ import XCTest
 
 internal final class ShippingServiceElementCollectionTests: XCTestCase {
     
+    internal final var observation: Observation?
+    
     internal final func testOnlyOneItemSelectedAtMoment() {
         
         let promise = expectation(description: "The selected index did change.")
@@ -36,7 +38,7 @@ internal final class ShippingServiceElementCollectionTests: XCTestCase {
                     service: DefaultShippingService(
                         isSelected: true,
                         title: "Express",
-                        price: 10.0
+                        price: 15.0
                     )
                 )
             )
@@ -59,12 +61,10 @@ internal final class ShippingServiceElementCollectionTests: XCTestCase {
             
         }
         
-        controller.selectedIndex.value = 1
-        
-        DispatchQueue.main.async {
+        observation = controller.selectedIndex.observe(on: .main) { result in
             
             promise.fulfill()
-        
+            
             for index in 0..<controller.elements.count {
                 
                 let element: ShippingServiceElement = controller.elements[index]
@@ -84,7 +84,24 @@ internal final class ShippingServiceElementCollectionTests: XCTestCase {
                 
             }
             
+            XCTAssertEqual(
+                controller.selectedService?.isSelected.value,
+                true
+            )
+            
+            XCTAssertEqual(
+                controller.selectedService?.title.value,
+                "Express"
+            )
+            
+            XCTAssertEqual(
+                controller.selectedService?.price.value,
+                15.0
+            )
+            
         }
+        
+        controller.selectedIndex.value = 1
         
         wait(
             for: [ promise ],
