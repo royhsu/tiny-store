@@ -9,11 +9,11 @@
 
 public final class ShippingServiceListViewController: ViewController {
     
-    private final lazy var collectionViewController: NewCollectionViewController = {
+    private final lazy var collectionViewController: CollectionViewController = {
         
-        let controller = NewCollectionViewController()
+        let controller = CollectionViewController()
         
-        controller.collectionViewLayout = NewListViewLayout()
+        controller.collectionViewLayout = ListViewLayout()
         
         return controller
         

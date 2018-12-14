@@ -38,7 +38,7 @@ public struct CheckoutDashboard {
 
 public final class Dashboard: DSL {
 
-    public enum Element: ViewCollection {
+    public enum Element: LegacyViewCollection {
 
         case subRow(DashboardRowController & ViewController)
 

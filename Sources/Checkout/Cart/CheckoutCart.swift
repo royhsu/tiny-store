@@ -9,7 +9,7 @@
 
 public final class CheckoutCart: DSL {
 
-    public enum Element: ViewCollection {
+    public enum Element: LegacyViewCollection {
 
         case item(CartItemController & ViewController)
 

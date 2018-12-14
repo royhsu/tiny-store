@@ -8,9 +8,9 @@
 // MARK: - DSL
 
 #warning("move into TinyKit.")
-public protocol DSL: ExpressibleByArrayLiteral, SectionCollection {
+public protocol DSL: ExpressibleByArrayLiteral, LegacySectionCollection {
 
-    associatedtype Element: ViewCollection
+    associatedtype Element: LegacyViewCollection
 
     var elements: [Element] { get set }
 

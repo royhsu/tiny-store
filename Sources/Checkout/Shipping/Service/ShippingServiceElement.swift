@@ -7,7 +7,7 @@
 
 // MARK: - ShippingServiceElement
 
-public enum ShippingServiceElement: NewViewCollection {
+public enum ShippingServiceElement: ViewCollection {
     
     case item(ShippingServiceController & ViewRepresentable)
     

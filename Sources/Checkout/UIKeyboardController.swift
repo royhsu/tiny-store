@@ -8,8 +8,6 @@
 
 // MARK: - UIKeyboardController
 
-import UIKit
-
 // TODO: allow overriding.
 public final class UIKeyboardController: UIViewController {
 

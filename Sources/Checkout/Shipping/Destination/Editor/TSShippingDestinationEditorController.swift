@@ -34,11 +34,11 @@ open class TSShippingDestinationEditorController: UIViewController {
 
     }()
 
-    private final lazy var collectionViewController: CollectionViewController = {
+    private final lazy var collectionViewController: LegacyCollectionViewController = {
 
-        let controller = CollectionViewController()
+        let controller = LegacyCollectionViewController()
 
-        controller.collectionView.applyLayout(ListViewLayout.self)
+        controller.collectionView.applyLayout(LegacyListViewLayout.self)
 
         return controller
 

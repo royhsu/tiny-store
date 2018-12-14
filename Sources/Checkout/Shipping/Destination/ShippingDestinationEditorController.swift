@@ -11,13 +11,13 @@ public final class ShippingDestinationEditorController: ViewController {
 
     public final class Destination: DSL {
 
-        public enum Element: ViewCollection {
+        public enum Element: LegacyViewCollection {
 
-            case state(ViewCollection)
+            case state(LegacyViewCollection)
 
-            case postalCode(ViewCollection)
+            case postalCode(LegacyViewCollection)
 
-            case line(ViewCollection)
+            case line(LegacyViewCollection)
 
             public var count: Int {
 
@@ -63,11 +63,11 @@ public final class ShippingDestinationEditorController: ViewController {
 
     }
 
-    private final lazy var collectionViewController: CollectionViewController = {
+    private final lazy var collectionViewController: LegacyCollectionViewController = {
 
-        let controller = CollectionViewController()
+        let controller = LegacyCollectionViewController()
 
-        controller.collectionView.applyLayout(ListViewLayout.self)
+        controller.collectionView.applyLayout(LegacyListViewLayout.self)
 
         controller.collectionView.sections = destination
 
