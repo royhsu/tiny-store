@@ -102,7 +102,7 @@ public final class ShippingServiceListViewController: ViewController {
     
     private final func observeSelectedIndex() {
         
-        selectedIndexObservation = selectedIndex.observe(on: .main) { [weak self] result in
+        selectedIndexObservation = selectedIndex.observe { [weak self] result in
             
             guard let self = self else { return }
             
@@ -136,7 +136,7 @@ public final class ShippingServiceListViewController: ViewController {
                 
             case let .item(controller):
                 
-                return controller.service?.isSelected.observe(on: .main) { result in
+                return controller.service?.isSelected.observe { result in
                     
                     let currentSelectedIndex = self.selectedIndex.value
                     

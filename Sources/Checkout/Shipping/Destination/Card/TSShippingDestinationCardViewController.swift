@@ -18,21 +18,19 @@ public final class TSShippingDestinationCardViewController: UIViewController {
 
     }()
 
-    private final var isRecipientBound = false
-
     private final var recipientObservations: [Observation] = []
 
     public final var recipient: ShippingRecipient {
 
         didSet {
 
-            guard isViewLoaded && isRecipientBound else { return }
+            guard isViewLoaded else { return }
 
-            renderRecipientLabel()
+            updateRecipientView()
 
             let observations = [
-                recipient.firstName.observe { [weak self] _ in self?.renderRecipientLabel() },
-                recipient.lastName.observe { [weak self] _ in self?.renderRecipientLabel() }
+                recipient.firstName.observe { [weak self] _ in self?.updateRecipientView() },
+                recipient.lastName.observe { [weak self] _ in self?.updateRecipientView() }
             ]
             
             recipientObservations = observations.compactMap { $0 }
@@ -41,21 +39,19 @@ public final class TSShippingDestinationCardViewController: UIViewController {
 
     }
 
-    private final var isAddressBound = false
-
     private final var addressObservations: [Observation] = []
 
     public final var address: ShippingAddress {
 
         didSet {
 
-            guard isViewLoaded && isAddressBound else { return }
+            guard isViewLoaded else { return }
 
-            renderAddressLabel()
+            updateAddressView()
 
             let observations = [
-                address.line1.observe { [weak self] _ in self?.renderAddressLabel() },
-                address.line2.observe { [weak self] _ in self?.renderAddressLabel() }
+                address.line1.observe { [weak self] _ in self?.updateAddressView() },
+                address.line2.observe { [weak self] _ in self?.updateAddressView() }
             ]
             
             addressObservations = observations.compactMap { $0 }
@@ -98,28 +94,20 @@ public final class TSShippingDestinationCardViewController: UIViewController {
 
         super.viewDidLoad()
 
-        defer {
+        updateRecipientView()
 
-            isRecipientBound = true
-
-            isAddressBound = true
-
-        }
-
-        renderRecipientLabel()
-
-        renderAddressLabel()
+        updateAddressView()
         
         let recipientObservations = [
-            recipient.firstName.observe { [weak self] _ in self?.renderRecipientLabel() },
-            recipient.lastName.observe { [weak self] _ in self?.renderRecipientLabel() }
+            recipient.firstName.observe { [weak self] _ in self?.updateRecipientView() },
+            recipient.lastName.observe { [weak self] _ in self?.updateRecipientView() }
         ]
         
         self.recipientObservations = recipientObservations.compactMap { $0 }
         
         let addressObservations = [
-            address.line1.observe { [weak self] _ in self?.renderAddressLabel() },
-            address.line2.observe { [weak self] _ in self?.renderAddressLabel() }
+            address.line1.observe { [weak self] _ in self?.updateAddressView() },
+            address.line2.observe { [weak self] _ in self?.updateAddressView() }
         ]
         
         self.addressObservations = addressObservations.compactMap { $0 }
@@ -135,20 +123,23 @@ public final class TSShippingDestinationCardViewController: UIViewController {
     @objc
     public final func editDestination(_ sender: Any) { editDestinationHandler?(self) }
 
-    private final func renderRecipientLabel() {
+    private final func updateRecipientView() {
 
         if let fullName = recipient.fullName {
 
-            #warning("localization")
-
-            cardView.recipientLabel.text = "Recipient: \(fullName)"
+            let recipientText = NSLocalizedString(
+                "Recipient",
+                comment: ""
+            )
+            
+            cardView.recipientLabel.text = "\(recipientText): \(fullName)"
 
         }
         else { cardView.recipientLabel.text = nil }
 
     }
 
-    private final func renderAddressLabel() { cardView.addressLabel.text = address.fullLine }
+    private final func updateAddressView() { cardView.addressLabel.text = address.fullLine }
 
 }
 

@@ -29,28 +29,41 @@ extension AppDelegate: UIApplicationDelegate {
         
 //        let viewController = TSCheckoutViewController()
         
-        let viewController = ShippingServiceListViewController()
+//        let viewController = ShippingServiceListViewController()
+//
+//        viewController.elements = [
+//            .item(
+//                TSShippingServiceViewController(
+//                    service: DefaultShippingService(
+//                        isSelected: false,
+//                        title: "UPS",
+//                        price: 3.0
+//                    )
+//                )
+//            ),
+//            .item(
+//                TSShippingServiceViewController(
+//                    service: DefaultShippingService(
+//                        isSelected: false,
+//                        title: "DHL Express",
+//                        price: 5.0
+//                    )
+//                )
+//            )
+//        ]
         
-        viewController.elements = [
-            .item(
-                TSShippingServiceViewController(
-                    service: DefaultShippingService(
-                        isSelected: false,
-                        title: "UPS",
-                        price: 3.0
-                    )
-                )
+        let viewController = TSShippingDestinationCardViewController(
+            recipient: DefaultShippingRecipient(
+                firstName: "Roy",
+                lastName: "Hsu"
             ),
-            .item(
-                TSShippingServiceViewController(
-                    service: DefaultShippingService(
-                        isSelected: false,
-                        title: "DHL Express",
-                        price: 5.0
-                    )
-                )
+            address: DefaultShippingAddress(
+                postalCode: TaiwanPostalCode.daAnDistrict,
+                state: TaiwanCity.taipei,
+                line1: "Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\n",
+                line2: "Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo."
             )
-        ]
+        )
         
         viewController.view.backgroundColor = .white
         

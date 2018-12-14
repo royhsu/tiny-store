@@ -1,17 +1,17 @@
 //
-//  ShippingServiceListTests.swift
+//  ShippingServiceListViewControllerTests.swift
 //  TinyStoreTests
 //
 //  Created by Roy Hsu on 2018/12/13.
 //
 
-// MARK: - ShippingServiceListTests
+// MARK: - ShippingServiceListViewControllerTests
 
 import XCTest
 
 @testable import TinyStore
 
-internal final class ShippingServiceElementCollectionTests: XCTestCase {
+internal final class ShippingServiceListViewControllerTests: XCTestCase {
     
     internal final var observation: Observation?
     
@@ -61,7 +61,7 @@ internal final class ShippingServiceElementCollectionTests: XCTestCase {
             
         }
         
-        observation = controller.selectedIndex.observe(on: .main) { result in
+        observation = controller.selectedIndex.observe { result in
             
             promise.fulfill()
             

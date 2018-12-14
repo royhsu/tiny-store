@@ -21,14 +21,12 @@ public final class TSShippingServiceViewController: UIViewController, ShippingSe
         return view
 
     }()
-    
-    private final var isServiceBound = false
 
     public final var service: ShippingService? {
 
         didSet {
 
-            guard isViewLoaded && isServiceBound else { return }
+            guard isViewLoaded else { return }
 
             service?.isSelected.bind(
                 transform: { $0 ?? false },
@@ -70,8 +68,6 @@ public final class TSShippingServiceViewController: UIViewController, ShippingSe
 
         super.viewDidLoad()
 
-        defer { isServiceBound = true }
-     
         service?.isSelected.bind(
             transform: { $0 ?? false },
             to: serviceView,

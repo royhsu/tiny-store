@@ -84,7 +84,7 @@
 		B0A06A022189A01500BA4CA5 /* UINibWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */; };
 		B0B0EC3621BA522000924829 /* TSSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B0EC3521BA522000924829 /* TSSectionHeaderView.swift */; };
 		B0C8C33D21BFEACA00DED5BF /* TSCartItemNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0C8C33C21BFEACA00DED5BF /* TSCartItemNibView.xib */; };
-		B0C8C35A21C1EF2F00DED5BF /* ShippingServiceListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8C35821C1EEFB00DED5BF /* ShippingServiceListTests.swift */; };
+		B0C8C35A21C1EF2F00DED5BF /* ShippingServiceListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C8C35821C1EEFB00DED5BF /* ShippingServiceListViewControllerTests.swift */; };
 		B0D46D0321BF669600B95373 /* ShippingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0221BF669600B95373 /* ShippingAddress.swift */; };
 		B0D46D0521BF66BB00B95373 /* ShippingRecipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0421BF66BB00B95373 /* ShippingRecipient.swift */; };
 		B0D46D0921BF961100B95373 /* DefaultShippingRecipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0821BF961100B95373 /* DefaultShippingRecipient.swift */; };
@@ -197,7 +197,7 @@
 		B0A06A012189A01500BA4CA5 /* UINibWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINibWrapperView.swift; sourceTree = "<group>"; };
 		B0B0EC3521BA522000924829 /* TSSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSSectionHeaderView.swift; sourceTree = "<group>"; };
 		B0C8C33C21BFEACA00DED5BF /* TSCartItemNibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSCartItemNibView.xib; sourceTree = "<group>"; };
-		B0C8C35821C1EEFB00DED5BF /* ShippingServiceListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceListTests.swift; sourceTree = "<group>"; };
+		B0C8C35821C1EEFB00DED5BF /* ShippingServiceListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingServiceListViewControllerTests.swift; sourceTree = "<group>"; };
 		B0D46D0221BF669600B95373 /* ShippingAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAddress.swift; sourceTree = "<group>"; };
 		B0D46D0421BF66BB00B95373 /* ShippingRecipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingRecipient.swift; sourceTree = "<group>"; };
 		B0D46D0821BF961100B95373 /* DefaultShippingRecipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultShippingRecipient.swift; sourceTree = "<group>"; };
@@ -433,7 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				B0112388215DDF2A00A905E3 /* Helpers */,
-				B0C8C35821C1EEFB00DED5BF /* ShippingServiceListTests.swift */,
+				B0C8C35821C1EEFB00DED5BF /* ShippingServiceListViewControllerTests.swift */,
 				B0F51CCE215878F800B592F5 /* Info.plist */,
 			);
 			path = Tests;
@@ -643,7 +643,7 @@
 			files = (
 				B0112390215DDF5200A905E3 /* XCTSuccess.swift in Sources */,
 				B011238F215DDF5200A905E3 /* XCTUnwrapped.swift in Sources */,
-				B0C8C35A21C1EF2F00DED5BF /* ShippingServiceListTests.swift in Sources */,
+				B0C8C35A21C1EF2F00DED5BF /* ShippingServiceListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
