@@ -9,15 +9,15 @@
 
 public protocol ShippingAddress {
 
-    // title
+    var title: Model<String> { get set }
 
+    var country: Model<Country> { get set }
+    
     var postalCode: Model<PostalCode> { get set }
-
-    // country
 
     var state: Model<AddressState> { get set }
 
-    // city
+    var city: Model<City> { get set }
 
     var line1: Model<String> { get set }
 

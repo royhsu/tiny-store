@@ -89,6 +89,8 @@
 		B0D46D0521BF66BB00B95373 /* ShippingRecipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0421BF66BB00B95373 /* ShippingRecipient.swift */; };
 		B0D46D0921BF961100B95373 /* DefaultShippingRecipient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0821BF961100B95373 /* DefaultShippingRecipient.swift */; };
 		B0D46D0D21BFDAEC00B95373 /* DefaultShippingAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D46D0C21BFDAEC00B95373 /* DefaultShippingAddress.swift */; };
+		B0D5C12121C39C2E00BC7160 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D5C12021C39C2E00BC7160 /* Country.swift */; };
+		B0D5C12321C39C6400BC7160 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D5C12221C39C6300BC7160 /* City.swift */; };
 		B0F51CC12158773A00B592F5 /* TinyStore.h in Headers */ = {isa = PBXBuildFile; fileRef = B0F51CBF2158773A00B592F5 /* TinyStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F51CCF215878F800B592F5 /* TinyStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F51CBC2158773A00B592F5 /* TinyStore.framework */; };
 /* End PBXBuildFile section */
@@ -202,6 +204,8 @@
 		B0D46D0421BF66BB00B95373 /* ShippingRecipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingRecipient.swift; sourceTree = "<group>"; };
 		B0D46D0821BF961100B95373 /* DefaultShippingRecipient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultShippingRecipient.swift; sourceTree = "<group>"; };
 		B0D46D0C21BFDAEC00B95373 /* DefaultShippingAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultShippingAddress.swift; sourceTree = "<group>"; };
+		B0D5C12021C39C2E00BC7160 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		B0D5C12221C39C6300BC7160 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		B0F51CBC2158773A00B592F5 /* TinyStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TinyStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F51CBF2158773A00B592F5 /* TinyStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TinyStore.h; sourceTree = "<group>"; };
 		B0F51CC02158773A00B592F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -265,8 +269,10 @@
 				B0D46D0C21BFDAEC00B95373 /* DefaultShippingAddress.swift */,
 				B043A05521ABE7E200CF296A /* UIAddressCityPickerViewController.swift */,
 				B0697F1621B8D46A00D05D6E /* ShippingDestinationEditorController.swift */,
+				B0D5C12021C39C2E00BC7160 /* Country.swift */,
 				B0697F1421B7E0A700D05D6E /* PostalCode.swift */,
 				B043A29E21AFC77A00CF296A /* AddressState.swift */,
+				B0D5C12221C39C6300BC7160 /* City.swift */,
 				B0697F2021B8E3A600D05D6E /* TaiwanCity.swift */,
 				B0697F2221B8E3B500D05D6E /* TaiwanPostalCode.swift */,
 			);
@@ -585,6 +591,7 @@
 				B0697F2121B8E3A600D05D6E /* TaiwanCity.swift in Sources */,
 				B0697F3D21BA23B800D05D6E /* TSShippingDestinationEditorController.swift in Sources */,
 				B085D8E0219EAB51009F1585 /* TSShippingDestinationCardViewController.swift in Sources */,
+				B0D5C12121C39C2E00BC7160 /* Country.swift in Sources */,
 				B03394E321C34ED400CB1FA9 /* DefaultShippingService.swift in Sources */,
 				B02B0245218AF85900772118 /* TSCartItemViewController.swift in Sources */,
 				B02A19F821BA5AFF00072154 /* TSButton.swift in Sources */,
@@ -601,6 +608,7 @@
 				B0772ED6218C4CC60082C055 /* TSCheckoutViewController.swift in Sources */,
 				B0772EC8218C419A0082C055 /* UICheckoutDashboardMainTextField.swift in Sources */,
 				B01123A8215E335300A905E3 /* CartItem.swift in Sources */,
+				B0D5C12321C39C6400BC7160 /* City.swift in Sources */,
 				B020D4F921955D3400EC93E3 /* CheckoutCart.swift in Sources */,
 				B04C929F21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift in Sources */,
 				B0A069FE2189947400BA4CA5 /* TSStepper.swift in Sources */,
