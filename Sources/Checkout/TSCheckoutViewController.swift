@@ -10,7 +10,134 @@
 #warning("development only.")
 import MapKit
 
-public final class TSCheckoutViewController: UIViewController {
+public final class TSCheckoutViewController: UIViewController, UINavigationControllerDelegate {
+    
+    private enum Step {
+        
+        case cart, shipping
+        
+        var actionTitle: String {
+            
+            switch self {
+                
+            case .cart:
+                
+                let title = NSLocalizedString(
+                    "Checkout",
+                    comment: ""
+                )
+                
+                return title + " →"
+                
+            case .shipping:
+                
+                let title = NSLocalizedString(
+                    "Next",
+                    comment: ""
+                )
+                
+                return title + " →"
+                
+            }
+            
+        }
+        
+    }
+    
+    private final class StepViewController: ViewController {
+        
+        internal final let step: Step
+        
+        internal final let wrappedViewController: ViewController
+        
+        internal init(
+            step: Step,
+            wrappedViewController: ViewController
+        ) {
+            
+            self.step = step
+            
+            self.wrappedViewController = wrappedViewController
+            
+            super.init(
+                nibName: nil,
+                bundle: nil
+            )
+            
+        }
+        
+        internal required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+        
+        internal final override func viewDidLoad() {
+            
+            super.viewDidLoad()
+            
+            title = wrappedViewController.title
+            
+            addChild(wrappedViewController)
+            
+//            if #available(iOS 11.0, *) {
+//
+//                view.wrapSubview(
+//                    wrappedViewController.view,
+//                    within: \.safeAreaLayoutGuide
+//                )
+//
+//            }
+//            else {
+            
+                view.wrapSubview(
+                    wrappedViewController.view,
+                    within: \.layoutMarginsGuide
+                )
+                
+//            }
+            
+            wrappedViewController.didMove(toParent: self)
+            
+        }
+        
+    }
+    
+    private final var currentStep: Step = .cart {
+        
+        didSet {
+            
+            checkoutView.dashboardView.actionButton.isEnabled = false
+            
+            checkoutView.dashboardView.actionButton.setTitle(
+                nil,
+                for: .normal
+            )
+            
+            switch currentStep {
+                
+            case .cart: break
+                
+            case .shipping:
+                
+                cartViewController.view.isHidden = true
+                
+                backgroundNavigationController.pushViewController(
+                    StepViewController(
+                        step: .shipping,
+                        wrappedViewController: shippingViewController
+                    ),
+                    animated: true
+                )
+                
+            }
+            
+            checkoutView.dashboardView.actionButton.setTitle(
+                currentStep.actionTitle,
+                for: .normal
+            )
+            
+            checkoutView.dashboardView.actionButton.isEnabled = true
+            
+        }
+        
+    }
 
     private final lazy var checkoutView: TSCheckoutNibView = {
 
@@ -18,19 +145,35 @@ public final class TSCheckoutViewController: UIViewController {
             TSCheckoutNibView.self,
             from: Bundle(for: TSCheckoutNibView.self)
         )!
+        
+        view.dashboardView.actionButton.setTitle(
+            currentStep.actionTitle,
+            for: .normal
+        )
+        
+        view.dashboardView.actionButton.addTarget(
+            self,
+            action: #selector(performAction),
+            for: .touchUpInside
+        )
 
         return view
 
     }()
 
-    fileprivate final var observations: [Observation] = []
+    private final var selectedServiceObservation: Observation?
 
     private final lazy var backgroundNavigationController: UINavigationController = {
 
         let controller = UINavigationController(
-            rootViewController: wrapChild(cartViewController)
+            rootViewController: StepViewController(
+                step: .cart,
+                wrappedViewController: cartViewController
+            )
         )
 
+        controller.delegate = self
+        
         return controller
 
     }()
@@ -77,18 +220,14 @@ public final class TSCheckoutViewController: UIViewController {
                 )
             )
         ]
+        
+        controller.totalAmountDidChange = { [weak self] controller in
+        
+            guard let self = self else { return }
 
-//        let cart = controller.cart
-//
-//        cart.totalAmountDidChange = { [weak self] change in
-//
-//            guard let self = self else { return }
+            self.checkoutView.dashboardView.subTotal = controller.totalAmount
 
-//            self.dashboardSubTotalViewController.row?.amount.property.value = cart.totalAmount
-//
-//            self.dashboardPayTotalViewController.row?.amount.property.value = self.payTotal
-
-//        }
+        }
 
         controller.title = NSLocalizedString(
             "Cart",
@@ -98,35 +237,6 @@ public final class TSCheckoutViewController: UIViewController {
         return controller
 
     }()
-    
-//    public private(set) final lazy var dashboardView: TSDashboardView = { return TSDashboardView() }()
-
-//    public final lazy var dashboardViewController: UIDashboardViewController = {
-//
-//        let controller = UIDashboardViewController()
-//
-//        let buttonTitle = NSLocalizedString(
-//            "Checkout",
-//            comment: ""
-//        )
-//
-//        controller.dashboard.elements = [
-//            .subRow(dashboardSubTotalViewController),
-//            .subRow(dashboardShippingViewController),
-//            .subRow(dashboardPayTotalViewController),
-//            .action(
-//                UIDashboardActionButtonController(
-//                    Action(
-//                        title: buttonTitle + " →",
-//                        handler: { [weak self] in self?.showShipping() }
-//                    )
-//                )
-//            )
-//        ]
-//
-//        return controller
-//
-//    }()
 
     private final lazy var shippingViewController: TSShippingViewController = {
 
@@ -153,23 +263,13 @@ public final class TSCheckoutViewController: UIViewController {
             )
         ]
 
-//        let serviceList = controller.serviceListViewController.list
-
-//        dashboardShippingViewController.row?.amount.property.value = serviceList.selectedService?.price.property.value ?? 0.0
-//
-//        dashboardPayTotalViewController.row?.amount.property.value = payTotal
-
-//        serviceList.selectedServiceDidChange = { [weak self] selectedService in
-//
-//            guard let self = self else { return }
-
-//            let price = serviceList.selectedService?.price.property.value ?? 0.0
-//
-//            self.dashboardShippingViewController.row?.amount.property.value = price
-//
-//            self.dashboardPayTotalViewController.row?.amount.property.value = self.payTotal
-
-//        }
+        selectedServiceObservation = controller.serviceListViewController.selectedIndex.observe { [weak self] _ in
+            
+            guard let self = self else { return }
+            
+            self.checkoutView.dashboardView.shipping = controller.serviceListViewController.selectedService?.price.value ?? 0.0
+            
+        }
 
         controller.destinationCardViewController.editDestinationHandler = { [weak self] _ in self?.showDestionationEditor() }
 
@@ -213,44 +313,13 @@ public final class TSCheckoutViewController: UIViewController {
         checkoutView.backgroundContainerView.wrapSubview(backgroundNavigationController.view)
 
         backgroundNavigationController.didMove(toParent: self)
-
-//        checkoutView.dashboardContainerView.wrapSubview(
-//            dashboardView,
-//            within: \.layoutMarginsGuide
-//        )
+        
+        checkoutView.dashboardView.subTotal = cartViewController.totalAmount
+        
+        checkoutView.dashboardView.shipping = shippingViewController.serviceListViewController.selectedService?.price.value ?? 0.0
         
     }
-
-    private final func wrapChild(_ viewController: ViewController) -> ViewController {
-
-        let containerViewController = ViewController()
-
-        containerViewController.title = viewController.title
-
-        let containerView = containerViewController.view!
-
-        containerViewController.addChild(viewController)
-
-        containerView.wrapSubview(
-            viewController.view,
-            within: \.layoutMarginsGuide
-        )
-
-        viewController.didMove(toParent: containerViewController)
-
-        return containerViewController
-
-    }
-
-    private final func showShipping() {
-
-        backgroundNavigationController.pushViewController(
-            wrapChild(shippingViewController),
-            animated: true
-        )
-
-    }
-
+    
     private final func showDestionationEditor() {
 
         checkoutView.isHidden = true
@@ -299,5 +368,50 @@ public final class TSCheckoutViewController: UIViewController {
         )
 
     }
-
+    
+    @objc
+    public final func performAction(_ button: TSButton) {
+        
+        switch currentStep {
+            
+        case .cart: currentStep = .shipping
+            
+        case .shipping: break
+            
+        }
+        
+    }
+    
+    // MARK: - UINavigationControllerDelegate
+    
+    public final func navigationController(
+        _ navigationController: UINavigationController,
+        willShow viewController: UIViewController,
+        animated: Bool
+    ) {
+        
+        guard let stepViewController = viewController as? StepViewController else { return }
+        
+        switch stepViewController.step {
+            
+        case .cart: cartViewController.view.isHidden = false
+            
+        case .shipping: shippingViewController.view.isHidden = false
+            
+        }
+        
+    }
+    
+    public final func navigationController(
+        _ navigationController: UINavigationController,
+        didShow viewController: UIViewController,
+        animated: Bool
+    ) {
+        
+        guard let stepViewController = viewController as? StepViewController else { return }
+        
+        if currentStep != stepViewController.step { currentStep = stepViewController.step }
+        
+    }
+    
 }

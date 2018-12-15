@@ -69,6 +69,8 @@ public final class TSDashboardView: UIView {
         
     }
     
+    public final var actionButton: TSButton { return _nibView.actionButton }
+    
     private final var isLoaded = false
     
     public override init(frame: CGRect) {
