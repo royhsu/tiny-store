@@ -17,20 +17,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IfY-pz-lqJ">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="449.5"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="430.5"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DU-kY-I3g">
-                    <rect key="frame" x="0.0" y="457.5" width="375" height="209.5"/>
+                    <rect key="frame" x="0.0" y="438.5" width="375" height="228.5"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vv3-mv-78l" customClass="TSDashboardView" customModule="TinyStore" customModuleProvider="target">
-                            <rect key="frame" x="8" y="0.0" width="359" height="209.5"/>
+                            <rect key="frame" x="8" y="16" width="359" height="212.5"/>
                         </view>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailingMargin" secondItem="Vv3-mv-78l" secondAttribute="trailing" id="5us-HG-ood"/>
                         <constraint firstAttribute="bottom" secondItem="Vv3-mv-78l" secondAttribute="bottom" id="i1Y-fC-7eh"/>
                         <constraint firstItem="Vv3-mv-78l" firstAttribute="leading" secondItem="9DU-kY-I3g" secondAttribute="leadingMargin" id="nkK-SJ-5La"/>
-                        <constraint firstItem="Vv3-mv-78l" firstAttribute="top" secondItem="9DU-kY-I3g" secondAttribute="top" id="vcz-Sm-5xS"/>
+                        <constraint firstItem="Vv3-mv-78l" firstAttribute="top" secondItem="9DU-kY-I3g" secondAttribute="top" constant="16" id="vcz-Sm-5xS"/>
                     </constraints>
                 </view>
             </subviews>

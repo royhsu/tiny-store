@@ -17,8 +17,6 @@ open class TSShippingDestinationEditorController: UIViewController {
         )!
 
         view.backgroundColor = nil
-
-        view.titleTextField.returnKeyType = .done
         
         view.titleTextField.textDidChange = {  [weak self] textField in self?.address.title.value = textField.text }
 
