@@ -7,6 +7,8 @@
 
 // MARK: - TSCheckoutNibView
 
+#if canImport(UIKit)
+
 internal final class TSCheckoutNibView: UIView {
 
     @IBOutlet
@@ -24,3 +26,5 @@ internal final class TSCheckoutNibView: UIView {
     }
 
 }
+
+#endif

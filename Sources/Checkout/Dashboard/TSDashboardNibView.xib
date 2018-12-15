@@ -13,19 +13,19 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TSDashboardNibView" customModule="TinyStore" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="68b-RB-6L6">
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="68b-RB-6L6">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtotal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usc-e6-M38">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Subtotal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usc-e6-M38">
                             <rect key="frame" x="0.0" y="0.0" width="247" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BqI-yg-l4Y" customClass="TSPriceView" customModule="TinyStore" customModuleProvider="target">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BqI-yg-l4Y" customClass="TSPriceView" customModule="TinyStore" customModuleProvider="target">
                             <rect key="frame" x="255" y="0.0" width="120" height="20.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -48,16 +48,16 @@
                         <constraint firstItem="BqI-yg-l4Y" firstAttribute="top" secondItem="68b-RB-6L6" secondAttribute="top" id="xnx-Yy-WE5"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tx-Rz-1v3">
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5tx-Rz-1v3">
                     <rect key="frame" x="0.0" y="23.5" width="375" height="20.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shipping" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xW-yN-DFr">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Shipping" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xW-yN-DFr">
                             <rect key="frame" x="0.0" y="0.0" width="247" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLn-Sc-mp6" customClass="TSPriceView" customModule="TinyStore" customModuleProvider="target">
+                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eLn-Sc-mp6" customClass="TSPriceView" customModule="TinyStore" customModuleProvider="target">
                             <rect key="frame" x="255" y="0.0" width="120" height="20.5"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -80,7 +80,7 @@
                         <constraint firstItem="eLn-Sc-mp6" firstAttribute="top" secondItem="5tx-Rz-1v3" secondAttribute="top" id="vFz-ua-0ce"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHL-qb-54I">
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dHL-qb-54I">
                     <rect key="frame" x="0.0" y="60" width="375" height="20.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Pay Total" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gay-iq-11q">
@@ -112,14 +112,18 @@
                         <constraint firstItem="2wU-Be-qw0" firstAttribute="top" secondItem="dHL-qb-54I" secondAttribute="top" priority="800" id="yVK-vk-8gx"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9G-Og-8S5">
-                    <rect key="frame" x="314" y="104.5" width="61" height="29.5"/>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9G-Og-8S5" customClass="TSButton" customModule="TinyStore" customModuleProvider="target">
+                    <rect key="frame" x="307" y="104.5" width="68" height="33"/>
+                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                     <state key="normal" title="Action →"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="adjustsFontForContentSizeCategory" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="e9G-Og-8S5" secondAttribute="bottom" constant="75" id="07l-P1-3PK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="e9G-Og-8S5" secondAttribute="bottom" constant="75" id="0L1-aO-sEx"/>
                 <constraint firstItem="e9G-Og-8S5" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="APU-g0-A1m"/>
                 <constraint firstItem="e9G-Og-8S5" firstAttribute="top" secondItem="dHL-qb-54I" secondAttribute="bottom" constant="24" id="BbU-LI-dwo"/>
                 <constraint firstItem="68b-RB-6L6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="CQc-l5-dAY"/>
@@ -135,6 +139,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="actionButton" destination="e9G-Og-8S5" id="9ME-Dp-DFN"/>
                 <outlet property="payTotalLabel" destination="Gay-iq-11q" id="tSO-Pf-ogO"/>
                 <outlet property="payTotalPriceView" destination="2wU-Be-qw0" id="FNv-fc-pKr"/>
                 <outlet property="shippingLabel" destination="8xW-yN-DFr" id="Prw-Sn-RYz"/>
@@ -142,7 +147,7 @@
                 <outlet property="subTotalLabel" destination="usc-e6-M38" id="r0G-3Z-b7S"/>
                 <outlet property="subTotalPriceView" destination="BqI-yg-l4Y" id="LIa-OI-2nj"/>
             </connections>
-            <point key="canvasLocation" x="138.40000000000001" y="-56.671664167916049"/>
+            <point key="canvasLocation" x="138.40000000000001" y="-57.121439280359823"/>
         </view>
     </objects>
 </document>

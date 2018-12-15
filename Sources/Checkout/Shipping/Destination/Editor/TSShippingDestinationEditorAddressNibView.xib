@@ -21,10 +21,10 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="tuC-x9-YUM">
                                     <rect key="frame" x="0.0" y="4" width="375" height="36"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHO-JD-7gl" customClass="TSButton" customModule="TinyStore" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHO-JD-7gl" customClass="TSRoundedButton" customModule="TinyStore" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="181.5" height="36"/>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78H-H5-fMX" customClass="TSButton" customModule="TinyStore" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78H-H5-fMX" customClass="TSRoundedButton" customModule="TinyStore" customModuleProvider="target">
                                             <rect key="frame" x="193.5" y="0.0" width="181.5" height="36"/>
                                         </view>
                                     </subviews>

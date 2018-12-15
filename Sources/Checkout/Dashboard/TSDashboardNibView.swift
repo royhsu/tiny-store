@@ -62,6 +62,9 @@ internal final class TSDashboardNibView: UIView {
     @IBOutlet
     internal private(set) final weak var payTotalPriceView: TSPriceView!
     
+    @IBOutlet
+    internal private(set) weak var actionButton: TSButton!
+    
     internal final override func awakeFromNib() {
         
         super.awakeFromNib()

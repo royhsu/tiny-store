@@ -19,7 +19,6 @@
 		B020D504219AC53300EC93E3 /* TSShippingServiceNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B020D503219AC53300EC93E3 /* TSShippingServiceNibView.xib */; };
 		B02A19F421BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A19F321BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift */; };
 		B02A19F621BA593000072154 /* TSShippingDestinationEditorAddressNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02A19F521BA593000072154 /* TSShippingDestinationEditorAddressNibView.xib */; };
-		B02A19F821BA5AFF00072154 /* TSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A19F721BA5AFF00072154 /* TSButton.swift */; };
 		B02A19FA21BA677100072154 /* TSShippingDestinationEditorNibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02A19F921BA677100072154 /* TSShippingDestinationEditorNibView.swift */; };
 		B02A19FC21BA679800072154 /* TSShippingDestinationEditorNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02A19FB21BA679800072154 /* TSShippingDestinationEditorNibView.xib */; };
 		B02B0245218AF85900772118 /* TSCartItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B0244218AF85900772118 /* TSCartItemViewController.swift */; };
@@ -39,6 +38,8 @@
 		B043A29F21AFC77A00CF296A /* AddressState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B043A29E21AFC77A00CF296A /* AddressState.swift */; };
 		B0499CDE21C3EB8F003AE8B8 /* TSDashboardNibView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0499CDD21C3EB8F003AE8B8 /* TSDashboardNibView.xib */; };
 		B0499CE021C3F249003AE8B8 /* TSDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0499CDF21C3F249003AE8B8 /* TSDashboardView.swift */; };
+		B0499CE421C4E107003AE8B8 /* TSRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0499CE321C4E107003AE8B8 /* TSRoundedButton.swift */; };
+		B0499CE621C4E15C003AE8B8 /* TSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0499CE521C4E15C003AE8B8 /* TSButton.swift */; };
 		B04C929D21A41F340009B607 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929C21A41F340009B607 /* DSL.swift */; };
 		B04C929F21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */; };
 		B04C92A121A6772E0009B607 /* DashboardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C92A021A6772E0009B607 /* DashboardRow.swift */; };
@@ -139,7 +140,6 @@
 		B020D503219AC53300EC93E3 /* TSShippingServiceNibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TSShippingServiceNibView.xib; sourceTree = "<group>"; };
 		B02A19F321BA58FE00072154 /* TSShippingDestinationEditorAddressNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSShippingDestinationEditorAddressNibView.swift; sourceTree = "<group>"; };
 		B02A19F521BA593000072154 /* TSShippingDestinationEditorAddressNibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TSShippingDestinationEditorAddressNibView.xib; sourceTree = "<group>"; };
-		B02A19F721BA5AFF00072154 /* TSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSButton.swift; sourceTree = "<group>"; };
 		B02A19F921BA677100072154 /* TSShippingDestinationEditorNibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSShippingDestinationEditorNibView.swift; sourceTree = "<group>"; };
 		B02A19FB21BA679800072154 /* TSShippingDestinationEditorNibView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TSShippingDestinationEditorNibView.xib; sourceTree = "<group>"; };
 		B02B0244218AF85900772118 /* TSCartItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSCartItemViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +156,8 @@
 		B043A29E21AFC77A00CF296A /* AddressState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressState.swift; sourceTree = "<group>"; };
 		B0499CDD21C3EB8F003AE8B8 /* TSDashboardNibView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TSDashboardNibView.xib; sourceTree = "<group>"; };
 		B0499CDF21C3F249003AE8B8 /* TSDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSDashboardView.swift; sourceTree = "<group>"; };
+		B0499CE321C4E107003AE8B8 /* TSRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSRoundedButton.swift; sourceTree = "<group>"; };
+		B0499CE521C4E15C003AE8B8 /* TSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSButton.swift; sourceTree = "<group>"; };
 		B04C929C21A41F340009B607 /* DSL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSL.swift; sourceTree = "<group>"; };
 		B04C929E21A66F9D0009B607 /* UIDashboardSubTextFieldController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDashboardSubTextFieldController.swift; sourceTree = "<group>"; };
 		B04C92A021A6772E0009B607 /* DashboardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRow.swift; sourceTree = "<group>"; };
@@ -375,7 +377,7 @@
 		B0C8C33B21BFE58400DED5BF /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				B02A19F721BA5AFF00072154 /* TSButton.swift */,
+				B0499CE321C4E107003AE8B8 /* TSRoundedButton.swift */,
 				B0B0EC3521BA522000924829 /* TSSectionHeaderView.swift */,
 				B0697F3A21BA0C1900D05D6E /* TSTextField.swift */,
 				B0697F3521BA06A400D05D6E /* TSTextFieldNibView.swift */,
@@ -384,6 +386,7 @@
 				B0A069FF2189948200BA4CA5 /* TSStepper.xib */,
 				B02B024F218BD5F100772118 /* TSSelectionView.swift */,
 				B0697F1021B7B30300D05D6E /* TSPriceView.swift */,
+				B0499CE521C4E15C003AE8B8 /* TSButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -614,7 +617,6 @@
 				B0D5C12121C39C2E00BC7160 /* Country.swift in Sources */,
 				B03394E321C34ED400CB1FA9 /* DefaultShippingService.swift in Sources */,
 				B02B0245218AF85900772118 /* TSCartItemViewController.swift in Sources */,
-				B02A19F821BA5AFF00072154 /* TSButton.swift in Sources */,
 				B0772EBC218BF2720082C055 /* CartViewController.swift in Sources */,
 				B0772EDB2193E0F20082C055 /* Apparel.swift in Sources */,
 				B085D8E2219EB9AA009F1585 /* TSShippingViewController.swift in Sources */,
@@ -640,6 +642,8 @@
 				B02A19FA21BA677100072154 /* TSShippingDestinationEditorNibView.swift in Sources */,
 				B0D5C12621C3A1F300BC7160 /* Taiwan.swift in Sources */,
 				B0697F3621BA06A400D05D6E /* TSTextFieldNibView.swift in Sources */,
+				B0499CE421C4E107003AE8B8 /* TSRoundedButton.swift in Sources */,
+				B0499CE621C4E15C003AE8B8 /* TSButton.swift in Sources */,
 				B085D8CC219D1E52009F1585 /* TSShippingServiceViewController.swift in Sources */,
 				B0697F2321B8E3B500D05D6E /* TaipeiCityDistrict.swift in Sources */,
 				B020D4FD219AB78900EC93E3 /* CheckoutDashboard.swift in Sources */,

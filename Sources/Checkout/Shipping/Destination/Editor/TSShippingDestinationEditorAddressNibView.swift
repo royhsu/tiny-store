@@ -10,7 +10,7 @@
 internal final class TSShippingDestinationEditorAddressNibView: UIView {
 
     @IBOutlet
-    internal private(set) final weak var stateButton: TSButton! {
+    internal private(set) final weak var stateButton: TSRoundedButton! {
 
         didSet {
 
@@ -27,7 +27,7 @@ internal final class TSShippingDestinationEditorAddressNibView: UIView {
     }
 
     @IBOutlet
-    internal private(set) final weak var cityButton: TSButton! {
+    internal private(set) final weak var cityButton: TSRoundedButton! {
 
         didSet {
 
