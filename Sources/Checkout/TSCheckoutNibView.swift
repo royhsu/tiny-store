@@ -10,19 +10,11 @@
 internal final class TSCheckoutNibView: UIView {
 
     @IBOutlet
-    internal final weak var backgroundContainerView: UIView! {
-
-        didSet { backgroundContainerView.backgroundColor = nil }
-
-    }
+    internal private(set) final weak var backgroundContainerView: UIView!
 
     @IBOutlet
-    internal final weak var dashboardContainerView: UIView! {
-
-        didSet { dashboardContainerView.backgroundColor = nil }
-
-    }
-
+    internal private(set) final weak var dashboardView: TSDashboardView!
+    
     internal final override func awakeFromNib() {
 
         super.awakeFromNib()

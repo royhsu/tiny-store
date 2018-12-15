@@ -27,11 +27,11 @@ extension AppDelegate: UIApplicationDelegate {
     )
     -> Bool {
         
-//        let viewController = TSDashboardViewController()
-//        
-//        viewController.view.backgroundColor = .white
-//        
-//        window.rootViewController = viewController
+        let viewController = TSCheckoutViewController()
+
+        viewController.view.backgroundColor = .white
+
+        window.rootViewController = viewController
 
         window.makeKeyAndVisible()
 

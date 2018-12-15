@@ -17,14 +17,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IfY-pz-lqJ">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="459"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="449.5"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DU-kY-I3g">
-                    <rect key="frame" x="0.0" y="467" width="375" height="200"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <rect key="frame" x="0.0" y="457.5" width="375" height="209.5"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vv3-mv-78l" customClass="TSDashboardView" customModule="TinyStore" customModuleProvider="target">
+                            <rect key="frame" x="8" y="0.0" width="359" height="209.5"/>
+                        </view>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="p1x-Be-pvR"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="Vv3-mv-78l" secondAttribute="trailing" id="5us-HG-ood"/>
+                        <constraint firstAttribute="bottom" secondItem="Vv3-mv-78l" secondAttribute="bottom" id="i1Y-fC-7eh"/>
+                        <constraint firstItem="Vv3-mv-78l" firstAttribute="leading" secondItem="9DU-kY-I3g" secondAttribute="leadingMargin" id="nkK-SJ-5La"/>
+                        <constraint firstItem="Vv3-mv-78l" firstAttribute="top" secondItem="9DU-kY-I3g" secondAttribute="top" id="vcz-Sm-5xS"/>
                     </constraints>
                 </view>
             </subviews>
@@ -41,7 +47,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="backgroundContainerView" destination="IfY-pz-lqJ" id="NyG-qC-weA"/>
-                <outlet property="dashboardContainerView" destination="9DU-kY-I3g" id="Dt6-go-MY5"/>
+                <outlet property="dashboardView" destination="Vv3-mv-78l" id="Mnj-ie-411"/>
             </connections>
             <point key="canvasLocation" x="138.40000000000001" y="154.27286356821591"/>
         </view>

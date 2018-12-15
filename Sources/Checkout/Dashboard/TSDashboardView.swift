@@ -9,6 +9,7 @@
 
 #if canImport(UIKit)
 
+@IBDesignable
 public final class TSDashboardView: UIView {
     
     private final lazy var _nibView: TSDashboardNibView = {

@@ -10,44 +10,6 @@
 #warning("development only.")
 import MapKit
 
-private struct Action: DashboardAction {
-
-    internal let title: Model<String>
-
-    internal var handler: ( () -> Void )?
-
-    internal init(
-        title: String? = nil,
-        handler: ( () -> Void )? = nil
-    ) {
-
-        self.title = Model(value: title)
-
-        self.handler = handler
-
-    }
-
-}
-
-private struct SubRow: DashboardRow {
-
-    internal let title: Model<String>
-
-    internal let amount: Model<Double>
-
-    internal init(
-        title: String,
-        amount: Double
-    ) {
-
-        self.title = Model(value: title)
-
-        self.amount = Model(value: amount)
-
-    }
-
-}
-
 public final class TSCheckoutViewController: UIViewController {
 
     private final lazy var checkoutView: TSCheckoutNibView = {
@@ -136,84 +98,35 @@ public final class TSCheckoutViewController: UIViewController {
         return controller
 
     }()
+    
+//    public private(set) final lazy var dashboardView: TSDashboardView = { return TSDashboardView() }()
 
-    private final lazy var dashboardSubTotalViewController: DashboardRowController & ViewController = {
-
-        let controller = UIDashboardSubRowViewController(
-            SubRow(
-                title: "SubTotal",
-                amount: cartViewController.totalAmount
-            )
-        )
-
-        return controller
-
-    }()
-
-    private final lazy var dashboardShippingViewController: DashboardRowController & ViewController = {
-
-        let controller = UIDashboardSubRowViewController(
-            SubRow(
-                title: "Shipping",
-                amount: 0.0
-            )
-        )
-
-        return controller
-
-    }()
-
-    private final var payTotal: Double {
-
-        let subTotal = dashboardSubTotalViewController.row?.amount.value ?? 0.0
-
-        let shipping = dashboardShippingViewController.row?.amount.value ?? 0.0
-
-        return subTotal + shipping
-
-    }
-
-    private final lazy var dashboardPayTotalViewController: DashboardRowController & ViewController = {
-
-        let controller = UIDashboardSubRowViewController(
-            SubRow(
-                title: "Pay Total",
-                amount: 0.0
-            )
-        )
-
-//        controller.row?.amount.property.value = payTotal
-
-        return controller
-
-    }()
-
-    public final lazy var dashboardViewController: UIDashboardViewController = {
-
-        let controller = UIDashboardViewController()
-
-        let buttonTitle = NSLocalizedString(
-            "Checkout",
-            comment: ""
-        )
-
-        controller.dashboard.elements = [
-            .subRow(dashboardSubTotalViewController),
-            .subRow(dashboardShippingViewController),
-            .subRow(dashboardPayTotalViewController),
-            .action(
-                UIDashboardActionButtonController(
-                    Action(
-                        title: buttonTitle + " →",
-                        handler: { [weak self] in self?.showShipping() }
-                    )
-                )
-            )
-        ]
-
-        return controller
-
-    }()
+//    public final lazy var dashboardViewController: UIDashboardViewController = {
+//
+//        let controller = UIDashboardViewController()
+//
+//        let buttonTitle = NSLocalizedString(
+//            "Checkout",
+//            comment: ""
+//        )
+//
+//        controller.dashboard.elements = [
+//            .subRow(dashboardSubTotalViewController),
+//            .subRow(dashboardShippingViewController),
+//            .subRow(dashboardPayTotalViewController),
+//            .action(
+//                UIDashboardActionButtonController(
+//                    Action(
+//                        title: buttonTitle + " →",
+//                        handler: { [weak self] in self?.showShipping() }
+//                    )
+//                )
+//            )
+//        ]
+//
+//        return controller
+//
+//    }()
 
     private final lazy var shippingViewController: TSShippingViewController = {
 
@@ -301,14 +214,11 @@ public final class TSCheckoutViewController: UIViewController {
 
         backgroundNavigationController.didMove(toParent: self)
 
-        let wrappedDashboardViewController = wrapChild(dashboardViewController)
-
-        addChild(wrappedDashboardViewController)
-
-        checkoutView.dashboardContainerView.wrapSubview(wrappedDashboardViewController.view)
-
-        wrappedDashboardViewController.didMove(toParent: self)
-
+//        checkoutView.dashboardContainerView.wrapSubview(
+//            dashboardView,
+//            within: \.layoutMarginsGuide
+//        )
+        
     }
 
     private final func wrapChild(_ viewController: ViewController) -> ViewController {
