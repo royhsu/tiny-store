@@ -26,7 +26,7 @@ internal final class TSDashboardNibView: UIView {
     }
     
     @IBOutlet
-    internal private(set) final weak var subTotalPriceLabel: UILabel!
+    internal private(set) final weak var subTotalPriceView: TSPriceView!
     
     @IBOutlet
     internal private(set) final weak var shippingLabel: UILabel! {
@@ -43,7 +43,7 @@ internal final class TSDashboardNibView: UIView {
     }
     
     @IBOutlet
-    internal private(set) final weak var shippingPriceLabel: UILabel!
+    internal private(set) final weak var shippingPriceView: TSPriceView!
     
     @IBOutlet
     internal private(set) final weak var payTotalLabel: UILabel! {
@@ -60,7 +60,15 @@ internal final class TSDashboardNibView: UIView {
     }
     
     @IBOutlet
-    internal private(set) final weak var payTotalPriceLabel: UILabel!
+    internal private(set) final weak var payTotalPriceView: TSPriceView!
+    
+    internal final override func awakeFromNib() {
+        
+        super.awakeFromNib()
+        
+        backgroundColor = nil
+        
+    }
     
 }
 

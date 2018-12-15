@@ -10,7 +10,7 @@
 @IBDesignable
 public final class TSPriceView: UIView {
 
-    private final lazy var priceLabel: UILabel = {
+    private final lazy var numberLabel: UILabel = {
 
         let label = UILabel()
 
@@ -24,20 +24,34 @@ public final class TSPriceView: UIView {
 
         label.textColor = .black
 
-        label.text = priceFormatter.string(from: price)
-
         return label
 
     }()
+    
+    public final var font: UIFont {
+        
+        get { return numberLabel.font }
+        
+        set { numberLabel.font = newValue }
+        
+    }
 
     @IBInspectable
     public final var price: Double = 0.0 {
 
-        didSet { priceLabel.text = priceFormatter.string(from: price) }
+        didSet {
+            
+            guard isLoaded else { return }
+            
+            numberLabel.text = currencyFormatter.string(from: price)
+            
+        }
 
     }
 
-    public final var priceFormatter: CurrencyFormatter = DefaultCurrencyFormatter()
+    public final var currencyFormatter: CurrencyFormatter = DefaultCurrencyFormatter()
+    
+    private final var isLoaded = false
 
     public override init(frame: CGRect) {
 
@@ -56,13 +70,15 @@ public final class TSPriceView: UIView {
     }
 
     private final func load() {
-
+        
+        defer { isLoaded = true }
+        
         backgroundColor = nil
 
-        wrapSubview(priceLabel)
+        wrapSubview(numberLabel)
+        
+        numberLabel.text = currencyFormatter.string(from: price)
 
     }
-
-    public final override var intrinsicContentSize: CGSize { return priceLabel.intrinsicContentSize }
 
 }
